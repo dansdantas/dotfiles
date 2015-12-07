@@ -1,0 +1,44 @@
+{
+	"Seti_SB_bright": true,
+	"Seti_pad_3": true,
+	"Seti_sb_small_padding": true,
+	"Seti_sb_tree_small": true,
+	"atomic_save": true,
+	"auto_complete_delay": 0,
+	"class": "sidebar_tree",
+	"color_scheme": "Packages/Material Color Scheme/sublime/material-dark.tmTheme",
+	"dark_content": false,
+	"draw_minimap_border": true,
+	"draw_white_space": "all",
+	"font_face": "Inconsolata",
+	"font_size": 11,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"indent": 12,
+	"indent_offset": 17,
+	"layer0.opacity": 1.0,
+	"layer0.tint":
+	[
+		214,
+		221,
+		230
+	],
+	"remember_open_files": true,
+	"row_padding":
+	[
+		8,
+		3
+	],
+	"rulers":
+	[
+		80
+	],
+	"scroll_speed": 2.0,
+	"tab_size": 2,
+	"theme": "Seti.sublime-theme",
+	"translate_tabs_to_spaces": true
+}
