@@ -1,0 +1,12 @@
+# Folders
+alias sv='~/Projects/heroku/safeverse'
+alias dn='~/Projects/heroku/denisa'
+alias osj='~/Projects/heroku/osj'
+
+# Scrips
+alias s='spring'
+alias srs='s rs'
+alias rzs='source ~/.zshrc'
+alias fa='alias | grep'
+alias sl='subl'
+alias mconf='~/.backup'
