@@ -1,11 +1,12 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/dansdantas/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load.
 # ZSH_THEME="fino"
+ZSH_THEME="alanpeabody"
 # ZSH_THEME="lambda-mod"
 # ZSH_THEME="amuse"
-ZSH_THEME="xxf"
+# ZSH_THEME="xxf"
 # ZSH_THEME="random"
 # ZSH_THEME="dracula"
 
@@ -47,11 +48,11 @@ ZSH_THEME="xxf"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Which plugins would you like to load? (plugins can be found in $HOME/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bundler rake ruby gem rails zsh-syntax-highlighting)
+plugins=(git bundler rake ruby gem rails alias-tips zsh-syntax-highlighting)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -71,22 +72,23 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="$HOME/.ssh/dsa_id"
 
 ### PERSONAL CONFIGURATIONS
 
-# Rvm configuration
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
+# Rbenv configuration
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 ### Added by the Heroku Toolbelt
-#export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Add alias archives
 [ -e "${HOME}/.zsh_aliases" ] && source "${HOME}/.zsh_aliases"
+[ -e "${HOME}/.backup/aliases" ] && source "${HOME}/.backup/aliases"
 
 # Nvm configuration
-export NVM_DIR="/home/dansdantas/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ### Android Studio

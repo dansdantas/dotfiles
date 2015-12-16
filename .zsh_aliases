@@ -1,0 +1,68 @@
+alias node="nodejs"
+alias zshconfig="subl ~/.zshrc"
+alias ohmyzsh="subl ~/.oh-my-zsh"
+alias diff="colordiff"
+alias df="df -H"
+alias du="du -ch"
+alias ls="ls --color=auto"
+alias sudo="nocorrect sudo"
+alias update="sudo apt-get update && sudo apt-get upgrade"
+alias install="sudo apt-get install"
+alias search="sudo apt-cache search"
+alias purge="sudo apt-get purge"
+alias update-submodules="git submodule foreach 'git checkout master && git pull origin master'" 
+alias glog="git log --graph --oneline --decorate --date-order --color --boundary"
+alias lh='ls -l .??*'
+alias lhd='ls -ld .??*'
+
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+            man "$@"
+}
+
+# -------------------------------------------------------------------
+# some alias settings, just for fun
+# -------------------------------------------------------------------
+# alias 'today=calendar -A 0 -f ~/calendar/calendar.mark | sort'
+# alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort'
+# alias 'dus=du -sckx * | sort -nr'
+# alias 'adventure=emacs -batch -l dunnet'
+# alias 'mailsize=du -hs ~/Library/mail'
+# alias 'bk=cd $OLDPWD'
+# alias 'ttop=top -ocpu -R -F -s 2 -n30'
+# alias lh='ls -a | egrep "^\."'
+
+# -------------------------------------------------------------------
+# make some commands (potentially) less destructive
+# -------------------------------------------------------------------
+
+# Folders
+alias sv='~/Projects/heroku/safeverse'
+alias dn='~/Projects/heroku/denisa'
+alias osj='~/Projects/heroku/osj'
+alias npad='~/Projects/app/na-praia-admin'
+alias npas='~/Projects/app/na-praia-app-seller'
+alias npa='~/Projects/app/na-praia-app'
+
+# Scrips
+alias s='spring'
+alias srs='s rails s'
+alias src='s rails c'
+alias rzs='. ~/.zshrc'
+alias fa='alias | grep'
+alias sl='subl'
+alias mconf='~/.backup/'
+alias emconf='sl ~/.backup'
+alias rddl='rake db:drop:all'
+alias rre='rddl && rdc && rdm && rds'
+alias rb='rbenv'
+
+# Abbreviation for "gem install".
+gi() { gem install $@; rbenv rehash; rehash }
