@@ -85,7 +85,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Add alias archives
 [ -e "${HOME}/.zsh_aliases" ] && source "${HOME}/.zsh_aliases"
-[ -e "${HOME}/.backup/aliases" ] && source "${HOME}/.backup/aliases"
+[ -e "${HOME}/.myconf/aliases" ] && source "${HOME}/.myconf/aliases"
 
 # Nvm configuration
 export NVM_DIR="$HOME/.nvm"

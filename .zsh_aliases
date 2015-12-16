@@ -1,6 +1,6 @@
 alias node="nodejs"
-alias zshconfig="subl ~/.zshrc"
-alias ohmyzsh="subl ~/.oh-my-zsh"
+alias zshconfig="subl $HOME/.zshrc"
+alias ohmyzsh="subl $HOME/.oh-my-zsh"
 alias diff="colordiff"
 alias df="df -H"
 alias du="du -ch"
@@ -30,11 +30,11 @@ man() {
 # -------------------------------------------------------------------
 # some alias settings, just for fun
 # -------------------------------------------------------------------
-# alias 'today=calendar -A 0 -f ~/calendar/calendar.mark | sort'
+# alias 'today=calendar -A 0 -f $HOME/calendar/calendar.mark | sort'
 # alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort'
 # alias 'dus=du -sckx * | sort -nr'
 # alias 'adventure=emacs -batch -l dunnet'
-# alias 'mailsize=du -hs ~/Library/mail'
+# alias 'mailsize=du -hs $HOME/Library/mail'
 # alias 'bk=cd $OLDPWD'
 # alias 'ttop=top -ocpu -R -F -s 2 -n30'
 # alias lh='ls -a | egrep "^\."'
@@ -44,22 +44,22 @@ man() {
 # -------------------------------------------------------------------
 
 # Folders
-alias sv='~/Projects/heroku/safeverse'
-alias dn='~/Projects/heroku/denisa'
-alias osj='~/Projects/heroku/osj'
-alias npad='~/Projects/app/na-praia-admin'
-alias npas='~/Projects/app/na-praia-app-seller'
-alias npa='~/Projects/app/na-praia-app'
+alias sv='$HOME/Projects/heroku/safeverse'
+alias dn='$HOME/Projects/heroku/denisa'
+alias osj='$HOME/Projects/heroku/osj'
+alias npad='$HOME/Projects/app/na-praia-admin'
+alias npas='$HOME/Projects/app/na-praia-app-seller'
+alias npa='$HOME/Projects/app/na-praia-app'
 
 # Scrips
 alias s='spring'
 alias srs='s rails s'
 alias src='s rails c'
-alias rzs='. ~/.zshrc'
+alias rzs='. $HOME/.zshrc'
 alias fa='alias | grep'
 alias sl='subl'
-alias mconf='~/.backup/'
-alias emconf='sl ~/.backup'
+alias mconf='$HOME/.backup/'
+alias emconf='sl $HOME/.backup'
 alias rddl='rake db:drop:all'
 alias rre='rddl && rdc && rdm && rds'
 alias rb='rbenv'
