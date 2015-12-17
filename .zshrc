@@ -76,6 +76,9 @@ source $ZSH/oh-my-zsh.sh
 
 ### PERSONAL CONFIGURATIONS
 
+# Path to my configurations
+export MYCONF="$HOME/.myconf"
+
 # Rbenv configuration
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
@@ -84,8 +87,7 @@ eval "$(rbenv init -)"
 export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Add alias archives
-[ -e "${HOME}/.zsh_aliases" ] && source "${HOME}/.zsh_aliases"
-[ -e "${HOME}/.myconf/aliases" ] && source "${HOME}/.myconf/aliases"
+[ -e "${MYCONF}/.zsh_aliases" ] && source "${MYCONF}/.zsh_aliases"
 
 # Nvm configuration
 export NVM_DIR="$HOME/.nvm"
