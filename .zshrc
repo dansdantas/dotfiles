@@ -3,12 +3,17 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load.
 # ZSH_THEME="fino"
-ZSH_THEME="alanpeabody"
+ZSH_THEME="honukai"
+# ZSH_THEME="alanpeabody"
 # ZSH_THEME="lambda-mod"
 # ZSH_THEME="amuse"
 # ZSH_THEME="xxf"
 # ZSH_THEME="random"
 # ZSH_THEME="dracula"
+# ZSH_THEME="af-magic-mod"
+# ZSH_THEME="bullet-train"
+# ZSH_THEME="alpharized"
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -57,6 +62,7 @@ plugins=(git bundler rake ruby gem rails alias-tips zsh-syntax-highlighting)
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.scripts/resty
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
