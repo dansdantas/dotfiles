@@ -52,7 +52,7 @@ alias npas='$HOME/Projects/app/na-praia-app-seller'
 alias npa='$HOME/Projects/app/na-praia-app'
 alias mconf='$MYCONF'
 
-# Scrips
+# Scripts
 alias s='spring'
 alias srs='s rails s'
 alias src='s rails c'
@@ -63,6 +63,8 @@ alias emconf='sl $MYCONF'
 alias rddl='rake db:drop:all'
 alias rre='rddl && rdc && rdm && rds'
 alias rb='rbenv'
+alias strem='sh $HOME/.strem/Stremio.sh'
+alias vimrc='vim ~/.vimrc'
 
 # Abbreviation for "gem install".
 gi() { gem install $@; rbenv rehash; rehash }
