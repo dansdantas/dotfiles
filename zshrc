@@ -83,7 +83,7 @@ source $HOME/.scripts/resty
 ### PERSONAL CONFIGURATIONS
 
 # Path to my configurations
-export MYCONF="$HOME/.myconf"
+export MYCONF="$HOME/.dotfiles"
 
 # Rbenv configuration
 export PATH="$HOME/.rbenv/bin:$PATH"
