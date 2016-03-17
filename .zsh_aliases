@@ -10,7 +10,7 @@ alias update="sudo apt-get update && sudo apt-get upgrade"
 alias install="sudo apt-get install"
 alias search="sudo apt-cache search"
 alias purge="sudo apt-get purge"
-alias update-submodules="git submodule foreach 'git checkout master && git pull origin master'" 
+alias update-submodules="git submodule foreach 'git checkout master && git pull origin master'"
 alias glog="git log --graph --oneline --decorate --date-order --color --boundary"
 alias lh='ls -l .??*'
 alias lhd='ls -ld .??*'
@@ -65,6 +65,7 @@ alias rre='rddl && rdc && rdm && rds'
 alias rb='rbenv'
 alias strem='sh $HOME/.strem/Stremio.sh'
 alias vimrc='vim ~/.vimrc'
+alias zshrc='vim ~/.zshrc'
 
 # Abbreviation for "gem install".
 gi() { gem install $@; rbenv rehash; rehash }
