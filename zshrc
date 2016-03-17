@@ -57,7 +57,7 @@ ZSH_THEME="honukai"
 # Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bundler rake ruby gem rails alias-tips zsh-syntax-highlighting)
+plugins=(git bundler rake ruby gem rails alias-tips zsh-autopair zsh-syntax-highlighting)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
