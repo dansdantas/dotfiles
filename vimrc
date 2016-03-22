@@ -16,7 +16,7 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 syntax on
 syntax enable
 set background=dark
-colorscheme gruvbox
+colorscheme herald
 " colorscheme solarized
 set laststatus=2
 let g:netrw_liststyle=3
