@@ -35,15 +35,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'tpope/vim-rails'
-
 Plugin 'slim-template/vim-slim'
 
 Plugin 'kien/ctrlp.vim'
-
-Plugin 'tpope/vim-endwise'
-
-Plugin 'tpope/vim-fugitive'
 
 Plugin 'bling/vim-airline'
 
@@ -55,36 +49,35 @@ Plugin 'gregsexton/MatchTag'
 
 Plugin 'airblade/vim-gitgutter'
 
-Plugin 'tpope/vim-surround'
-
 Plugin 'scrooloose/syntastic'
 
 Plugin 'elzr/vim-json'
 
-Plugin 'tpope/vim-sensible'
-
 Plugin 'hail2u/vim-css3-syntax'
-
-Plugin 'tpope/vim-haml'
 
 Plugin 'Raimondi/delimitMate'
 
 Plugin 'Shougo/neocomplete.vim'
 
-Plugin 'tpope/vim-bundler'
-
 Plugin 'morhetz/gruvbox'
-
-Plugin 'tpope/vim-eunuch'
-
-Plugin 'tpope/vim-abolish'
-
-Plugin 'tpope/vim-commentary'
 
 Plugin 'flazz/vim-colorschemes'
 
 Plugin 'janko-m/vim-test'
 
+"Tpope section
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-commentary'
+
+"ColorSwitchert for terminal
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
 
