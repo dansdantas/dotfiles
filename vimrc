@@ -65,6 +65,8 @@ Plugin 'flazz/vim-colorschemes'
 
 Plugin 'janko-m/vim-test'
 
+Plugin 'Valloric/YouCompleteMe'
+
 "Tpope section
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise'
