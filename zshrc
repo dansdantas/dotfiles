@@ -105,7 +105,7 @@ export PATH="$PATH:$HOME/.android/sdk/tools"
 export PATH="$PATH:$HOME/.android/sdk/platform-tools"
 
 ### Java
-export JAVA_HOME="/usr/lib/jvm/jdk7u8"
+export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 export PATH=$JAVA_HOME/bin:$PATH
 export PATH JAVA_HOME
 export CLASSPATH=$JAVA_HOME/lib/tools.jar
