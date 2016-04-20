@@ -1,18 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load.
-# ZSH_THEME="fino"
-ZSH_THEME="honukai"
-# ZSH_THEME="alanpeabody"
-# ZSH_THEME="lambda-mod"
-# ZSH_THEME="amuse"
-# ZSH_THEME="xxf"
-# ZSH_THEME="random"
-# ZSH_THEME="dracula"
-# ZSH_THEME="af-magic-mod"
-# ZSH_THEME="bullet-train"
-# ZSH_THEME="alpharized"
 
 
 # Uncomment the following line to use case-sensitive completion.
@@ -92,9 +80,6 @@ eval "$(rbenv init -)"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-### Add alias archives
-[ -e "${MYCONF}/.zsh_aliases" ] && source "${MYCONF}/.zsh_aliases"
-
 # Nvm configuration
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -111,3 +96,9 @@ export PATH JAVA_HOME
 export CLASSPATH=$JAVA_HOME/lib/tools.jar
 export CLASSPATH=.:$CLASSPATH
 export PATH JAVA_HOME CLASSPATH
+
+#  Add zsh themes
+[ -e "${MYCONF}/.zsh_themes" ] && source "${MYCONF}/.zsh_themes"
+
+# Add zsh alias
+[ -e "${MYCONF}/.zsh_aliases" ] && source "${MYCONF}/.zsh_aliases"
