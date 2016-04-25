@@ -8,6 +8,10 @@ set shiftwidth=2
 set tabstop=2
 set enc=utf-8
 set showcmd
+set updatetime=250
+set cursorcolumn
+set cursorline
+set laststatus=2
 
 set cc=120
 highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -16,7 +20,7 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 syntax on
 syntax enable
 set background=dark
-colorscheme herald
+colorscheme Tomorrow-Night
 " colorscheme solarized
 set laststatus=2
 let g:netrw_liststyle=3
@@ -37,9 +41,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'slim-template/vim-slim'
 
-Plugin 'kien/ctrlp.vim'
-
-Plugin 'bling/vim-airline'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 Plugin 'altercation/vim-colors-solarized'
 
@@ -61,11 +63,10 @@ Plugin 'Shougo/neocomplete.vim'
 
 Plugin 'morhetz/gruvbox'
 
-Plugin 'flazz/vim-colorschemes'
-
 Plugin 'janko-m/vim-test'
 
-Plugin 'Valloric/YouCompleteMe'
+" Motion
+Plugin 'easymotion/vim-easymotion'
 
 "Tpope section
 Plugin 'tpope/vim-rails'
@@ -79,9 +80,16 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-commentary'
 
-"ColorSwitchert for terminal
+"Colors themes and switcher section
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'chriskempson/base16-vim'
+
+" Layout
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
