@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-
+ZSH_THEME="alpharized"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -98,7 +98,7 @@ export CLASSPATH=.:$CLASSPATH
 export PATH JAVA_HOME CLASSPATH
 
 #  Add zsh themes
-[ -e "${MYCONF}/.zsh_themes" ] && source "${MYCONF}/.zsh_themes"
+[ -f "${MYCONF}/.zsh_themes" ] && source "${MYCONF}/.zsh_themes"
 
 # Add zsh alias
-[ -e "${MYCONF}/.zsh_aliases" ] && source "${MYCONF}/.zsh_aliases"
+[ -f "${MYCONF}/.zsh_aliases" ] && source "${MYCONF}/.zsh_aliases"
