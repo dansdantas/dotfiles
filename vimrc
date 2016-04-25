@@ -1,114 +1,47 @@
 execute pathogen#infect()
-set nocompatible
-filetype plugin indent on
-set t_Co=256
-set number
-set expandtab
-set shiftwidth=2
-set tabstop=2
-set enc=utf-8
+set nocompatible               " be iMproved, required
+
+set nobackup
+set nowritebackup
+set history=50
+set ruler
 set showcmd
-set updatetime=250
-set cursorcolumn
-set cursorline
-set laststatus=2
+set incsearch                  "Do incremental search
+set laststatus=2               "Aways display status line
+set updatetime=250             "Change update time of files to 250ms
+set number                     "Show line number
 
-set cc=120
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+set expandtab                  "Convert tabs to spaces
+set tabstop=2                  "Default tab space to 2
+set backspace=2                "Delete 2 spaces
+set shiftwidth=2               "Column space on identation << or >>
+set autoindent                 "Enable automatic indentation"
 
-" let g:solarized_termcolors=256
-syntax on
-syntax enable
-set background=dark
+set cursorcolumn               "Show column cursor mark
+set cursorline                 "Show line cursor mark
+set cc=120                     "Add delimitation line on 120 character
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%121v.\+/
+
+syntax on                      "Add syntax highlight
+
+set background=dark            "Set default backgroud to dark
+set t_Co=256                   "Use on vim 256 colors
+let g:solarized_termcolors=256 "Set 256 solarized colors
 colorscheme Tomorrow-Night
-" colorscheme solarized
-set laststatus=2
-let g:netrw_liststyle=3
 
-set nocompatible              " be iMproved, required
-set mouse=a
-filetype off                  " required
-let g:indentLine_color_term = 239
+set enc=utf-8                  "Set default encode
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+filetype plugin indent on
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+let g:netrw_liststyle=3        "Use tree style for netrw
+set mouse=a                    "Enable select with mouse on supported modes
 
-Plugin 'slim-template/vim-slim'
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
 
-Plugin 'ctrlpvim/ctrlp.vim'
-
-Plugin 'altercation/vim-colors-solarized'
-
-Plugin 'ap/vim-css-color'
-
-Plugin 'gregsexton/MatchTag'
-
-Plugin 'airblade/vim-gitgutter'
-
-Plugin 'scrooloose/syntastic'
-
-Plugin 'elzr/vim-json'
-
-Plugin 'hail2u/vim-css3-syntax'
-
-Plugin 'Raimondi/delimitMate'
-
-Plugin 'Shougo/neocomplete.vim'
-
-Plugin 'morhetz/gruvbox'
-
-Plugin 'janko-m/vim-test'
-
-" Motion
-Plugin 'easymotion/vim-easymotion'
-
-"Tpope section
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-commentary'
-
-"Colors themes and switcher section
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-colorscheme-switcher'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'chriskempson/base16-vim'
-
-" Layout
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-filetype indent on
-let g:indent_guides_auto_colors=0
-hi IndentGuidesEven ctermbg=238
-hi IndentGuidesOdd ctermbg=236
-"set listchars=tab:\|\
-"set list
-set nohlsearch
-set incsearch
-set autoindent
 match ErrorMsg '\s\+$'
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 
