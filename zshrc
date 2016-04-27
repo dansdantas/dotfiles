@@ -102,3 +102,6 @@ export PATH JAVA_HOME CLASSPATH
 
 # Add zsh alias
 [ -f "${MYCONF}/.zsh_aliases" ] && source "${MYCONF}/.zsh_aliases"
+
+#  Default color configuration
+export TERM=xterm-256color
