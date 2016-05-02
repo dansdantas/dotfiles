@@ -1,3 +1,8 @@
+[user]
+  name = Daniel Dantas
+  email = dansdantas@gmail.com
+[color]
+  ui = true
 [init]
   templatedir = ~/.git_template
 [push]
