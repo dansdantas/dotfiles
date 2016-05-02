@@ -41,7 +41,7 @@ set shiftround                 " Calculate shiftwidth based on line start
 let g:solarized_termcolors=256 " Set 256 solarized colors
 set t_Co=256                   " Use on vim 256 colors
 set background=dark            " Set default backgroud to dark
-colorscheme Tomorrow-Night
+colorscheme molokai
 
 " === Turn off swap files =====================================
 
@@ -85,7 +85,7 @@ set autoread                   " Reload files changed outside vim
 " === Search ==================================================
 
 set incsearch                  " Find the next match as we type the search
-set hlsearch                   " Highlight searches by default
+set nohlsearch                " Highlight searches by default
 set ignorecase                 " Ignore case when searching...
 set smartcase                  " ...unless we type a capital
 
@@ -95,7 +95,7 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+  " let g:ctrlp_use_caching = 0
 endif
 
 " === Expand extra files ======================================
@@ -121,13 +121,6 @@ command! UnMinify call UnMinify()
 " ===  When alter buffs trim white space ======================
 
 autocmd BufWritePre * :%s/\s\+$//e
-
-" === Group commands to create directory ======================
-
-augroup BWCCreateDir
-    autocmd!
-    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
-augroup END
 
 " === Others ==================================================
 
