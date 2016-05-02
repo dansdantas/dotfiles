@@ -47,6 +47,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
+Plugin 'sickill/vim-monokai'
 
 " Layout
 Plugin 'Raimondi/delimitMate'
