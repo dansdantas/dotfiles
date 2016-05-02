@@ -7,31 +7,23 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Define bundles via Github repos
-
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'slim-template/vim-slim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'ap/vim-css-color'
-Plugin 'gregsexton/MatchTag'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/syntastic'
-Plugin 'elzr/vim-json'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'Raimondi/delimitMate'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'janko-m/vim-test'
-" Plugin 'christoomey/vim-run-interactive'
-" Plugin 'fatih/vim-go'
-" Plugin 'kchmck/vim-coffee-script'
-" Plugin 'pbrisbin/vim-mkdir'
-" Plugin 'vim-ruby/vim-ruby'
-" Plugin 'vim-scripts/tComment'
 
-" Motion
-" Plugin 'scrooloose/nerdtree'
+" Manipulate file
+Plugin 'airblade/vim-gitgutter'
+Plugin 'janko-m/vim-test'
+Plugin 'gregsexton/MatchTag'
+Plugin 'TaskList.vim'
+Plugin 'yegappan/grep'
+Plugin 'sjl/gundo.vim'
+Plugin 'rking/ag.vim'
+
+" Motion and tree
 Plugin 'easymotion/vim-easymotion'
+Plugin 'mhinz/vim-startify'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ervandew/supertab'
+Plugin 'danro/rename.vim'
 
 "Tpope section
 Plugin 'tpope/vim-abolish'
@@ -44,24 +36,46 @@ Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-sensible'
-" Plugin 'tpope/vim-projectionist'
-" Plugin 'tpope/vim-rake'
-" Plugin 'tpope/vim-repeat'
-" Plugin 'tpope/vim-rhubarb'
 
 "Colors themes and switcher section
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
+Plugin 'ap/vim-css-color'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'chriskempson/base16-vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
 
 " Layout
+Plugin 'Raimondi/delimitMate'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-" All of your Plugins must be added before the following line
+" Syntax
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'slim-template/vim-slim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'scrooloose/syntastic'
+Plugin 'elzr/vim-json'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'cakebaker/scss-syntax.vim'
+
+" To avaliate
+" Plugin 'Shougo/neocomplete.vim'
+" Plugin 'christoomey/vim-run-interactive'
+" Plugin 'fatih/vim-go'
+" Plugin 'pbrisbin/vim-mkdir'
+" Plugin 'vim-ruby/vim-ruby'
+" Plugin 'vim-scripts/tComment'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'tpope/vim-projectionist'
+" Plugin 'tpope/vim-rake'
+" Plugin 'tpope/vim-repeat'
+" Plugin 'tpope/vim-rhubarb'
+" Plugin 'tpope/vim-speeddating'
+
 call vundle#end()
 filetype plugin indent on
