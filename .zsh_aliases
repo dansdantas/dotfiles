@@ -45,7 +45,7 @@ man() {
 
 # Folders
 alias sv='$HOME/Projects/heroku/safeverse'
-alias dn='$HOME/Projects/heroku/denisa'
+alias dn='$HOME/Projects/gitlab/denisa'
 alias osj='$HOME/Projects/heroku/osj'
 alias npad='$HOME/Projects/app/na-praia-admin'
 alias npas='$HOME/Projects/app/na-praia-app-seller'
