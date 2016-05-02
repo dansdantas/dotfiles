@@ -34,6 +34,12 @@ function s:MkNonExDir(file, buf)
     endif
 endfunction
 
+augroup BWCCreateDir
+  autocmd!
+  autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
+
+
 " =========== Use command line =====================================
 
 function! CmdLine(str)
