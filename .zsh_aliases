@@ -50,7 +50,8 @@ alias osj='$HOME/Projects/heroku/osj'
 alias npad='$HOME/Projects/app/na-praia-admin'
 alias npas='$HOME/Projects/app/na-praia-app-seller'
 alias npa='$HOME/Projects/app/na-praia-app'
-alias mconf='$MYCONF'
+alias it='$HOME/Projects/github/itask'
+alias dot='$MYCONF'
 
 # Scripts
 alias s='spring'
@@ -66,6 +67,7 @@ alias rb='rbenv'
 alias strem='sh $HOME/.strem/Stremio.sh'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
+alias vundles='vim ~/.vimrc.bundles'
 
 # Abbreviation for "gem install".
 gi() { gem install $@; rbenv rehash; rehash }
