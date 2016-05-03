@@ -1,6 +1,9 @@
 execute pathogen#infect()
 set nocompatible               " be iMproved, required
 
+" === Leader ==================================================
+let mapleader = " "
+
 " === General Config ==========================================
 
 syntax on                      " Add syntax highlight
@@ -95,8 +98,15 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
-  " let g:ctrlp_use_caching = 0
+  let g:ctrlp_use_caching = 0
 endif
+
+" ===============  Automatically toggle paste mode ======================
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
 
 " === Expand extra files ======================================
 

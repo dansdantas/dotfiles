@@ -1,26 +1,19 @@
-" Leader
-let mapleader = " "
-
 " ===============  Map save file to leader ==============================
 nmap <leader>w :w!<cr>
 nmap <leader>x :x!<cr>
 nmap <leader>q :q<cr>
 
 "================  Move lines using Ctrl+j and Ctrl+k ===================
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
+" nnoremap <C-j> :m .+1<CR>==
+" nnoremap <C-k> :m .-2<CR>==
+" inoremap <C-j> <Esc>:m .+1<CR>==gi
+" inoremap <C-k> <Esc>:m .-2<CR>==gi
+" vnoremap <C-j> :m '>+1<CR>gv=gv
+" vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " =============== Auto indent pasted text ===============================
 nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
-
-" ===============  Automatically toggle paste mode ======================
-let &t_SI .= "\<Esc>[?2004h"
-let &t_EI .= "\<Esc>[?2004l"
 
 " =============== Automatic enter on paste mode on paste ================
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
@@ -42,10 +35,10 @@ map <leader>nf :cnf<cr>
 map <leader>pf :cpf<cr>
 
 " "Move tabs more naturally
-" nnoremap <C-J> <C-W><C-J>
-" nnoremap <C-K> <C-W><C-K>
-" nnoremap <C-L> <C-W><C-L>
-" nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " ================ Movements ======================
 
@@ -65,6 +58,3 @@ nnoremap <leader>u :GundoToggle<CR>
 
 " save session
 nnoremap <leader>s :mksession<CR>
-
-" Treat <li> and <p> tags like the block tags they are
-let g:html_indent_tags = 'li\|p'
