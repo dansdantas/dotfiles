@@ -24,6 +24,7 @@ Plugin 'mhinz/vim-startify'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'danro/rename.vim'
+Plugin 'jeetsukumaran/vim-buffergator'
 
 "Tpope section
 Plugin 'tpope/vim-abolish'

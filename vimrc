@@ -148,3 +148,20 @@ iabbr dbg debugger
 " === Open new split panes to right and bottom ================
 set splitbelow
 set splitright
+
+" === Plugins configurations ==================================
+"
+" Show hidden files on ctrlp.vim
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_dotfiles = 1
+
+" Use the right side of the screen
+" let g:buffergator_viewport_split_policy = 'R'
+
+" I want my own keymappings...
+let g:buffergator_suppress_keymaps = 1
+
+" Enable the list of buffers
+" let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+" let g:airline#extensions#tabline#fnamemod = ':t'

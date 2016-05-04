@@ -34,27 +34,69 @@ map <leader>p :cp<cr>
 map <leader>nf :cnf<cr>
 map <leader>pf :cpf<cr>
 
-" "Move tabs more naturally
+" =============== Move to split ========== ==============================
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" ================ Movements ======================
+" ================ Movements ============================================
 
-" move vertically by visual line
+" Move vertically by visual line
 nnoremap j gj
 nnoremap k gk
 
-" move to beginning/end of line
+" Move to beginning/end of line
 nnoremap B ^
 nnoremap E $
 
-" highlight last inserted text
+" Highlight last inserted text
 nnoremap gV `[v`]
 
-" toggle gundo
+" Toggle gundo
 nnoremap <leader>u :GundoToggle<CR>
 
-" save session
-nnoremap <leader>s :mksession<CR>
+" Save session
+nnoremap <leader>s :mksession!<CR>
+
+" ================ BufferGator ==========================================
+" Looper buffers
+"let g:buffergator_mru_cycle_loop = 1
+
+" Go to the previous buffer open
+nmap <leader>jj :BuffergatorMruCyclePrev<cr>
+
+" Go to the next buffer open
+nmap <leader>kk :BuffergatorMruCycleNext<cr>
+
+" View the entire list of buffers open
+nmap <leader>bl :BuffergatorOpen<cr>
+
+" Shared bindings from Solution #1 from earlier
+nmap <leader>T :enew<cr>
+nmap <leader>bq :bp <BAR> bd #<cr>
+" This allows buffers to be hidden if you've modified a buffer.
+" This is almost a must if you wish to use buffers in this way.
+" set hidden
+
+" To open a new empty buffer
+" This replaces :tabnew which I used to bind to this mapping
+" nmap <leader>T :enew<cr>
+
+" Move to the next buffer
+" nmap <leader>l :bnext<CR>
+
+" Move to the previous buffer
+" nmap <leader>h :bprevious<CR>
+
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+" nmap <leader>bq :bp <BAR> bd #<CR>
+
+" Show all open buffers and their status
+" nmap <leader>bl :ls<CR>
+
+" Easy bindings for its various modes
+" nmap <leader>bb :CtrlPBuffer<cr>
+" nmap <leader>bm :CtrlPMixed<cr>
+" nmap <leader>bs :CtrlPMRU<cr>
