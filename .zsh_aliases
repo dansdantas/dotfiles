@@ -68,6 +68,7 @@ alias strem='sh $HOME/.strem/Stremio.sh'
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
 alias vundles='vim ~/.vimrc.bundles'
+alias tmuxconf= 'viw ~/.tmux.conf'
 
 # Abbreviation for "gem install".
 gi() { gem install $@; rbenv rehash; rehash }
