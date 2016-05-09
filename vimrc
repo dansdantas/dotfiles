@@ -2,7 +2,7 @@ execute pathogen#infect()
 set nocompatible               " be iMproved, required
 
 " === Leader ==================================================
-let mapleader = " "
+let mapleader = ","
 
 " === General Config ==========================================
 
@@ -45,6 +45,9 @@ let g:solarized_termcolors=256 " Set 256 solarized colors
 set t_Co=256                   " Use on vim 256 colors
 set background=dark            " Set default backgroud to dark
 colorscheme molokai
+
+hi Normal ctermbg=none
+hi NonText ctermbg=none
 
 " === Turn off swap files =====================================
 
@@ -92,7 +95,7 @@ set nohlsearch                " Highlight searches by default
 set ignorecase                 " Ignore case when searching...
 set smartcase                  " ...unless we type a capital
 
-" The Silver Searcher
+" === The Silver Searcher =====================================
 if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -101,7 +104,7 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" ===============  Automatically toggle paste mode ======================
+" ===============  Automatically toggle paste mode ============
 let &t_SI .= "\<Esc>[?2004h"
 let &t_EI .= "\<Esc>[?2004l"
 
@@ -132,14 +135,6 @@ command! UnMinify call UnMinify()
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-" === Others ==================================================
-
-" Auto load better parentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
 " === Abbreviations ===========================================
 
 iabbr pry binding.pry
@@ -151,17 +146,22 @@ set splitright
 
 " === Plugins configurations ==================================
 "
+" === CtrlP ===================================================
+
 " Show hidden files on ctrlp.vim
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_dotfiles = 1
-
-" Use the right side of the screen
-" let g:buffergator_viewport_split_policy = 'R'
 
 " I want my own keymappings...
 let g:buffergator_suppress_keymaps = 1
 
 " Enable the list of buffers
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
-" let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Auto load better parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
