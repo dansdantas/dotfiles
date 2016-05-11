@@ -21,11 +21,11 @@ set number                     " Show line number
 set numberwidth=4              " Define width to number spaces
 
 set ruler                      " Show ruler
-set cursorcolumn               " Show column cursor mark
 set cursorline                 " Show line cursor mark
 set cc=120                     " Add delimitation line on 120 character
 set nowrap                     " Don't wrap lines
 set linebreak                  " Wrap lines at convenient points
+set tf                         " Send more lines per redraw
 
 " === Indentation =============================================
 
@@ -44,7 +44,7 @@ set shiftround                 " Calculate shiftwidth based on line start
 let g:solarized_termcolors=256 " Set 256 solarized colors
 set t_Co=256                   " Use on vim 256 colors
 set background=dark            " Set default backgroud to dark
-colorscheme molokai
+colorscheme lanox
 
 hi Normal ctermbg=none
 hi NonText ctermbg=none
