@@ -25,7 +25,6 @@ set cursorline                 " Show line cursor mark
 set cc=120                     " Add delimitation line on 120 character
 set nowrap                     " Don't wrap lines
 set linebreak                  " Wrap lines at convenient points
-set tf                         " Send more lines per redraw
 
 " === Indentation =============================================
 
@@ -117,12 +116,12 @@ if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
-if filereadable(expand("~/.vimrc.keymaps"))
-  source ~/.vimrc.keymaps
-endif
-
 if filereadable(expand("~/.vimrc.functions"))
   source ~/.vimrc.functions
+endif
+
+if filereadable(expand("~/.vimrc.keymaps"))
+  source ~/.vimrc.keymaps
 endif
 
 match ErrorMsg '\s\+$'
