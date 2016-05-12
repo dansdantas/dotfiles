@@ -2,82 +2,105 @@ if &compatible
   set nocompatible
 end
 
+set rtp+=~/.fzf
+
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Shim command and function to allow migration from Vundle to vim-plug.
+function! VundleToPlug(vundle_command, arg, ...)
+  echom "You are using Vundle's `".a:vundle_command."` command to declare plugins. Dotfiles now uses vim-plug for plugin management. Please rename uses of `".a:vundle_command."` to `Plug`. Plugin was '".a:arg."'."
+  let vim_plug_options = {}
 
-Plugin 'VundleVim/Vundle.vim'
+  if a:0 > 0
+    if has_key(a:1, 'name')
+      let name = a:1.name
+      let vim_plug_options.dir = "$HOME/.vim/bundle/".a:1.name
+    endif
+
+    if has_key(a:1, 'rtp')
+      let vim_plug_options.rtp = a:1.rtp
+    endif
+  endif
+
+  Plug a:arg, vim_plug_options
+endfunction
+
+com! -nargs=+  -bar Plugin call VundleToPlug("Plugin", <args>)
+com! -nargs=+  -bar Bundle call VundleToPlug("Bundle", <args>)
+
+call plug#begin('~/.vim/bundle')
 
 " Manipulate file
-Plugin 'airblade/vim-gitgutter'
-Plugin 'janko-m/vim-test'
-Plugin 'gregsexton/MatchTag'
-Plugin 'TaskList.vim'
-Plugin 'yegappan/grep'
-Plugin 'sjl/gundo.vim'
-Plugin 'rking/ag.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'airblade/vim-gitgutter'
+Plug 'janko-m/vim-test'
+Plug 'gregsexton/MatchTag'
+Plug 'TaskList.vim'
+Plug 'yegappan/grep'
+Plug 'sjl/gundo.vim'
+Plug 'rking/ag.vim'
 
 " Motion and tree
-Plugin 'easymotion/vim-easymotion'
-Plugin 'mhinz/vim-startify'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'ervandew/supertab'
-Plugin 'danro/rename.vim'
-Plugin 'jeetsukumaran/vim-buffergator'
+Plug 'easymotion/vim-easymotion'
+Plug 'mhinz/vim-startify'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ervandew/supertab'
+Plug 'danro/rename.vim'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'szw/vim-maximizer'
 
 "Tpope section
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-sensible'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-sensible'
 
 "Colors themes and switcher section
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-colorscheme-switcher'
-Plugin 'ap/vim-css-color'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'chriskempson/base16-vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tomasr/molokai'
-Plugin 'sickill/vim-monokai'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-colorscheme-switcher'
+Plug 'ap/vim-css-color'
+Plug 'flazz/vim-colorschemes'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
+Plug 'sickill/vim-monokai'
 
 " Layout
-Plugin 'Raimondi/delimitMate'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'Raimondi/delimitMate'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Syntax
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'slim-template/vim-slim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'scrooloose/syntastic'
-Plugin 'elzr/vim-json'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'vim-ruby/vim-ruby'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'slim-template/vim-slim'
+Plug 'pangloss/vim-javascript'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'scrooloose/syntastic'
+Plug 'elzr/vim-json'
+Plug 'kchmck/vim-coffee-script'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'vim-ruby/vim-ruby'
 
 " To avaliate
-" Plugin 'Shougo/neocomplete.vim'
-" Plugin 'christoomey/vim-run-interactive'
-" Plugin 'fatih/vim-go'
-" Plugin 'pbrisbin/vim-mkdir'
-" Plugin 'vim-scripts/tComment'
-" Plugin 'scrooloose/nerdtree'
-" Plugin 'tpope/vim-projectionist'
-" Plugin 'tpope/vim-rake'
-" Plugin 'tpope/vim-repeat'
-" Plugin 'tpope/vim-rhubarb'
-" Plugin 'tpope/vim-speeddating'
+" Plug 'Shougo/neocomplete.vim'
+" Plug 'christoomey/vim-run-interactive'
+" Plug 'fatih/vim-go'
+" Plug 'pbrisbin/vim-mkdir'
+" Plug 'vim-scripts/tComment'
+" Plug 'scrooloose/nerdtree'
+" Plug 'tpope/vim-projectionist'
+" Plug 'tpope/vim-rake'
+" Plug 'tpope/vim-repeat'
+" Plug 'tpope/vim-rhubarb'
+" Plug 'tpope/vim-speeddating'
 
-call vundle#end()
+call plug#end()
 filetype plugin indent on
