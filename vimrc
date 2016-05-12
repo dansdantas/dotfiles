@@ -1,5 +1,7 @@
 execute pathogen#infect()
 set nocompatible               " be iMproved, required
+set ttyfast
+set lazyredraw
 
 " === Leader ==================================================
 let mapleader = ","
@@ -43,7 +45,7 @@ set shiftround                 " Calculate shiftwidth based on line start
 let g:solarized_termcolors=256 " Set 256 solarized colors
 set t_Co=256                   " Use on vim 256 colors
 set background=dark            " Set default backgroud to dark
-colorscheme lanox
+colorscheme monokain
 
 hi Normal ctermbg=none
 hi NonText ctermbg=none
