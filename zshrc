@@ -105,3 +105,5 @@ export PATH JAVA_HOME CLASSPATH
 
 #  Default color configuration
 export TERM=xterm-256color
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
