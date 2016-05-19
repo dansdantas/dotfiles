@@ -1,7 +1,7 @@
 " ===============  Map save file to leader ==============================
-nmap <leader>w :w!<cr>
-nmap <leader>x :x!<cr>
-nmap <leader>q :q<cr>
+nnoremap <leader>w :w!<cr>
+nnoremap <leader>x :x!<cr>
+nnoremap <leader>q :q<cr>
 
 "================  Move lines using Ctrl+j and Ctrl+k ===================
 " nnoremap <C-j> :m .+1<CR>==
@@ -28,11 +28,11 @@ nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
 " =============== Ag commands ===========================================
-map <leader>a :Ag
-map <leader>n :cn<cr>
-map <leader>p :cp<zw/vim-maximizercr>
-map <leader>nf :cnf<cr>
-map <leader>pf :cpf<cr>
+nnoremap <leader>a :Ag
+nnoremap <leader>n :cn<cr>
+nnoremap <leader>p :cp<zw/vim-maximizercr>
+nnoremap <leader>nf :cnf<cr>
+nnoremap <leader>pf :cpf<cr>
 
 " =============== Move to split ========== ==============================
 nnoremap <C-J> <C-W><C-J>
@@ -64,39 +64,45 @@ nnoremap <leader>s :mksession!<CR>
 "let g:buffergator_mru_cycle_loop = 1
 
 " Go to the previous buffer open
-nmap <leader>jj :BuffergatorMruCyclePrev<cr>
+nnoremap <leader>jj :BuffergatorMruCyclePrev<cr>
 
 " Go to the next buffer open
-nmap <leader>kk :BuffergatorMruCycleNext<cr>
+nnoremap <leader>kk :BuffergatorMruCycleNext<cr>
 
 " View the entire list of buffers open
-nmap <leader>bl :BuffergatorOpen<cr>
+nnoremap <leader>bl :BuffergatorOpen<cr>
 
 " Shared bindings from Solution #1 from earlier
-nmap <leader>T :enew<cr>
-nmap <leader>bq :bp <BAR> bd #<cr>
+nnoremap <leader>T :enew<cr>
+nnoremap <leader>bq :bp <BAR> bd #<cr>
 " This allows buffers to be hidden if you've modified a buffer.
 " This is almost a must if you wish to use buffers in this way.
 " set hidden
 
 " To open a new empty buffer
 " This replaces :tabnew which I used to bind to this mapping
-" nmap <leader>T :enew<cr>
+" nnoremap <leader>T :enew<cr>
 
 " Move to the next buffer
-" nmap <leader>l :bnext<CR>
+" nnoremap <leader>l :bnext<CR>
 
 " Move to the previous buffer
-" nmap <leader>h :bprevious<CR>
+" nnoremap <leader>h :bprevious<CR>
 
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
-" nmap <leader>bq :bp <BAR> bd #<CR>
+" nnoremap <leader>bq :bp <BAR> bd #<CR>
 
 " Show all open buffers and their status
-" nmap <leader>bl :ls<CR>
+" nnoremap <leader>bl :ls<CR>
 
 " Easy bindings for its various modes
-" nmap <leader>bb :CtrlPBuffer<cr>
-" nmap <leader>bm :CtrlPMixed<cr>
-" nmap <leader>bs :CtrlPMRU<cr>
+" nnoremap <leader>bb :CtrlPBuffer<cr>
+" nnoremap <leader>bm :CtrlPMixed<cr>
+" nnoremap <leader>bs :CtrlPMRU<cr>
+"
+" ================= Show current highlight ==============================
+
+nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
