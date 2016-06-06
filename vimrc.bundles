@@ -26,6 +26,9 @@ com! -nargs=+  -bar Bundle call VundleToPlug("Bundle", <args>)
 
 call plug#begin('~/.vim/bundle')
 
+" Productivity
+Plug 'wakatime/vim-wakatime'
+
 " Manipulate file
 Plug 'airblade/vim-gitgutter'
 Plug 'janko-m/vim-test'
@@ -67,6 +70,7 @@ Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'sickill/vim-monokai'
+Plug 'joshdick/onedark.vim'
 
 " Layout
 Plug 'Raimondi/delimitMate'
