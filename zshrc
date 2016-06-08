@@ -45,7 +45,7 @@ ZSH_THEME="alpharized"
 # Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bundler rake ruby gem rails alias-tips zsh-autopair zsh-syntax-highlighting)
+plugins=(git bundler rake ruby gem rails alias-tips zsh-autopair zsh-wakatime zsh-syntax-highlighting)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -107,3 +107,4 @@ export PATH JAVA_HOME CLASSPATH
 export TERM=xterm-256color
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
