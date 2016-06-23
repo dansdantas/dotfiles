@@ -26,82 +26,97 @@ com! -nargs=+  -bar Bundle call VundleToPlug("Bundle", <args>)
 
 call plug#begin('~/.vim/bundle')
 
+" Manipulate files
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-eunuch'
+
+" Search files
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Search file content
+Plug 'yegappan/grep'
+Plug 'rking/ag.vim'
+
 " Productivity
 Plug 'wakatime/vim-wakatime'
 
-" Manipulate file
-Plug 'airblade/vim-gitgutter'
-Plug 'janko-m/vim-test'
-Plug 'gregsexton/MatchTag'
-Plug 'TaskList.vim'
-Plug 'yegappan/grep'
-Plug 'sjl/gundo.vim'
-Plug 'rking/ag.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Buffer and window manipulations
 Plug 'schickling/vim-bufonly'
-
-" Motion and tree
-Plug 'easymotion/vim-easymotion'
-Plug 'mhinz/vim-startify'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'ervandew/supertab'
-Plug 'danro/rename.vim'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'szw/vim-maximizer'
 
-"Tpope section
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-haml'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-sensible'
+" Motion
+Plug 'easymotion/vim-easymotion'
 
-"Colors themes and switcher section
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-colorscheme-switcher'
-Plug 'ap/vim-css-color'
-Plug 'flazz/vim-colorschemes'
-Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
-Plug 'altercation/vim-colors-solarized'
-Plug 'tomasr/molokai'
-Plug 'sickill/vim-monokai'
-Plug 'joshdick/onedark.vim'
+" Completion
+Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/MatchTagAlways'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-speeddating'
+
+" Tree
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Layout
-Plug 'Raimondi/delimitMate'
+Plug 'junegunn/vim-easy-align'
+Plug 'mhinz/vim-startify'
+
+" Status
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Syntax
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'slim-template/vim-slim'
-Plug 'pangloss/vim-javascript'
-Plug 'hail2u/vim-css3-syntax'
 Plug 'scrooloose/syntastic'
-Plug 'elzr/vim-json'
-Plug 'kchmck/vim-coffee-script'
+Plug 'tpope/vim-commentary'
+
+" Syntax color
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'slim-template/vim-slim'
+Plug 'ap/vim-css-color'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'vim-ruby/vim-ruby'
 
+" Color manipulation
+Plug 'xolox/vim-colorscheme-switcher'
+Plug 'altercation/vim-colors-solarized'
+
+" Color themes
+Plug 'vim-scripts/Perfect-Dark'
+Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'morhetz/gruvbox'
+Plug 'tomasr/molokai'
+Plug 'sickill/vim-monokai'
+Plug 'joshdick/onedark.vim'
+Plug 'flazz/vim-colorschemes'
+
+" Rails section
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rails'
+
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Miscellaneous
+Plug 'xolox/vim-misc'
+
 " To avaliate
 " Plug 'Shougo/neocomplete.vim'
-" Plug 'christoomey/vim-run-interactive'
-" Plug 'fatih/vim-go'
-" Plug 'pbrisbin/vim-mkdir'
-" Plug 'vim-scripts/tComment'
-" Plug 'tpope/vim-projectionist'
-" Plug 'tpope/vim-rake'
-" Plug 'tpope/vim-repeat'
-" Plug 'tpope/vim-rhubarb'
-" Plug 'tpope/vim-speeddating'
+" Plug 'tpope/vim-sensible'
+" Plug 'wincent/command-t'
+" Plug 'elzr/vim-json'
+" Plug 'kchmck/vim-coffee-script'
+" Plug 'gregsexton/MatchTag'
+" Plug 'janko-m/vim-test'
+" Plug 'TaskList.vim'
+" Plug 'ervandew/supertab'
+" Plug 'tpope/vim-abolish'
 
 call plug#end()
 filetype plugin indent on
