@@ -2,6 +2,7 @@
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>x :x!<cr>
 nnoremap <leader>q :q<cr>
+nnoremap <leader>z :qa<cr>
 
 "================  Move lines using Ctrl+j and Ctrl+k ===================
 " nnoremap <C-j> :m .+1<CR>==
@@ -118,3 +119,7 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" ================= Bufonly =============================================
+
+nnoremap <C-B> <Esc>:Bufonly<Esc>
