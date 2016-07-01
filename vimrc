@@ -20,6 +20,7 @@ set updatetime=250             " Change update time of files to 250ms
 let g:netrw_liststyle=3        " Use tree style for netrw
 
 set number                     " Show line number
+set relativenumber             " Show relative line number
 set numberwidth=4              " Define width to number spaces
 
 set ruler                      " Show ruler
@@ -47,9 +48,6 @@ set t_Co=256                   " Use on vim 256 colors
 set background=dark            " Set default backgroud to dark
 colorscheme monokain
 
-hi Normal ctermbg=none
-hi NonText ctermbg=none
-
 " === Turn off swap files =====================================
 
 set noswapfile                 " Disable create of swap file
@@ -65,11 +63,6 @@ set undodir=~/.vim/undo
 " === Display tabs and trailing spaces visually ===============
 
 set list listchars=tab:\ \ ,trail:·
-
-" === Highlight characters after divisor on 120 column ========
-
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%121v.\+/
 
 " === Folds ===================================================
 
@@ -87,7 +80,6 @@ set sidescroll=1
 
 set autowrite                  " Automatically :write before running commands
 set autoread                   " Reload files changed outside vim
-" set autochdir                  " Set current directory to be the same as the current file
 
 " === Search ==================================================
 
@@ -99,7 +91,7 @@ set smartcase                  " ...unless we type a capital
 " === The Silver Searcher =====================================
 if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard', 'ag %s -l --nocolor -g ""']
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
@@ -126,8 +118,6 @@ if filereadable(expand("~/.vimrc.keymaps"))
   source ~/.vimrc.keymaps
 endif
 
-match ErrorMsg '\s\+$'
-
 " === Simple re-format for minified Javascript ================
 
 command! UnMinify call UnMinify()
@@ -140,6 +130,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 iabbr pry binding.pry
 iabbr dbg debugger
+iabbr log console.log
 
 " === Open new split panes to right and bottom ================
 set splitbelow
@@ -153,13 +144,19 @@ set splitright
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_dotfiles = 1
 
+" === Buffergator =============================================
+
 " I want my own keymappings...
 let g:buffergator_suppress_keymaps = 1
+
+" === Airline =================================================
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+" === RainbowParentheses ======================================
 
 " Auto load better parentheses
 au VimEnter * RainbowParenthesesToggle
