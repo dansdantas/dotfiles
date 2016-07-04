@@ -1,0 +1,83 @@
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+            man "$@"
+}
+
+# -------------------------------------------------------------------
+# Folders
+# -------------------------------------------------------------------
+
+alias sv='$HOME/Projects/algorich/safeverse'
+alias svt='$HOME/Projects/algorich/safeverse-site'
+alias delphos='$HOME/Projects/algorich/delphos-map'
+alias npad='$HOME/Projects/algorich/na-praia-admin'
+alias npas='$HOME/Projects/algorich/na-praia-app-seller'
+alias npa='$HOME/Projects/algorich/na-praia-app'
+alias dn='$HOME/Projects/gitlab/denisa'
+alias osj='$HOME/Projects/heroku/osj'
+alias it='$HOME/Projects/github/itask'
+alias dot='$MYCONF'
+
+# -------------------------------------------------------------------
+# Scripts
+# -------------------------------------------------------------------
+
+alias s='spring'
+alias srs='s rails s'
+alias src='s rails c'
+alias rzs='. $HOME/.zshrc'
+alias fa='alias | grep'
+alias emconf='sl $MYCONF'
+alias rddl='rake db:drop:all'
+alias rre='rddl && rdc && rdm && rds'
+alias rb='rbenv'
+alias strem="sh $HOME/.strem/Stremio.sh"
+alias vimrc="$EDITOR ~/.vimrc"
+alias zshrc="$EDITOR ~/.zshrc"
+alias vundles="$EDITOR ~/.vimrc.bundles"
+alias tmuxconf= "$EDITOR ~/.tmux.conf"
+alias zshconfig="$EDITOR $HOME/.zshrc"
+alias ohmyzsh="$EDITOR $HOME/.oh-my-zsh"
+
+# -------------------------------------------------------------------
+# Misc
+# -------------------------------------------------------------------
+
+alias node="nodejs"
+alias diff="colordiff"
+alias df="df -H"
+alias du="du -ch"
+alias ls="ls --color=auto"
+alias sudo="nocorrect sudo"
+alias update="sudo apt-get update && sudo apt-get upgrade && sudo apt-get update && sudo apt-get upgrade"
+alias install="sudo apt-get install"
+alias search="sudo apt-cache search"
+alias purge="sudo apt-get purge"
+alias update-submodules="git submodule foreach 'git checkout master && git pull origin master'"
+alias glog="git log --graph --oneline --decorate --date-order --color --boundary"
+alias lh='ls -l .??*'
+alias lhd='ls -ld .??*'
+
+# -------------------------------------------------------------------
+# Abbreviation for "gem install".
+# -------------------------------------------------------------------
+gi() { gem install $@; rbenv rehash; rehash }
+
+# -------------------------------------------------------------------
+# some alias settings, just for fun
+# -------------------------------------------------------------------
+# alias 'today=calendar -A 0 -f $HOME/calendar/calendar.mark | sort'
+# alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort'
+# alias 'dus=du -sckx * | sort -nr'
+# alias 'adventure=emacs -batch -l dunnet'
+# alias 'mailsize=du -hs $HOME/Library/mail'
+# alias 'bk=cd $OLDPWD'
+# alias 'ttop=top -ocpu -R -F -s 2 -n30'
+# alias lh='ls -a | egrep "^\."'
