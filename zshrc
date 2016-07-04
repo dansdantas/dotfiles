@@ -70,8 +70,10 @@ source $HOME/.scripts/resty
 
 ### PERSONAL CONFIGURATIONS
 
+export EDITOR='vim'
+
 # Path to my configurations
-export MYCONF="$HOME/.dotfiles"
+export DOT="$HOME/.dotfiles"
 
 # Rbenv configuration
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -98,10 +100,10 @@ export CLASSPATH=.:$CLASSPATH
 export PATH JAVA_HOME CLASSPATH
 
 #  Add zsh themes
-[ -f "${MYCONF}/.zsh_themes" ] && source "${MYCONF}/.zsh_themes"
+[ -f "${DOT}/zshrc.alias" ] && source "${DOT}/zshrc.alias"
 
 # Add zsh alias
-[ -f "${MYCONF}/.zsh_aliases" ] && source "${MYCONF}/.zsh_aliases"
+[ -f "${DOT}/.zsh_aliases" ] && source "${DOT}/.zsh_aliases"
 
 #  Default color configuration
 export TERM=xterm-256color
