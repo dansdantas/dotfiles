@@ -44,9 +44,9 @@ set shiftround                 " Calculate shiftwidth based on line start
 " === Colos configuration =====================================
 
 let g:solarized_termcolors=256 " Set 256 solarized colors
-set t_Co=256                   " Use on vim 256 colors
+set termguicolors              " Use true color on vim
 set background=dark            " Set default backgroud to dark
-colorscheme monokain
+colorscheme gruvbox
 
 " === Turn off swap files =====================================
 
@@ -84,7 +84,7 @@ set autoread                   " Reload files changed outside vim
 " === Search ==================================================
 
 set incsearch                  " Find the next match as we type the search
-set nohlsearch                " Highlight searches by default
+set nohlsearch                 " Do not highlight searches by default
 set ignorecase                 " Ignore case when searching...
 set smartcase                  " ...unless we type a capital
 
