@@ -44,8 +44,9 @@ man() {
 # -------------------------------------------------------------------
 
 # Folders
-alias sv='$HOME/Projects/heroku/safeverse'
-alias delphos='$HOME/Projects/bitbucket/delphos-map'
+alias sv='$HOME/Projects/algorich/safeverse'
+alias svt='$HOME/Projects/algorich/safeverse-site'
+alias delphos='$HOME/Projects/algorich/delphos-map'
 alias dn='$HOME/Projects/gitlab/denisa'
 alias osj='$HOME/Projects/heroku/osj'
 alias npad='$HOME/Projects/app/na-praia-admin'
