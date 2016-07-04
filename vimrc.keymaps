@@ -55,10 +55,10 @@ nnoremap E $
 nnoremap gV `[v`]
 
 " Toggle gundo
-nnoremap <leader>uzw/vim-maximizer :GundoToggle<CR>
+nnoremap <leader>u :GundoToggle<CR>
 
 " Save session
-nnoremap <leader>s :mksession!<CR>
+nnoremap <leader>s :SSave<CR>
 
 " ================ BufferGator ==========================================
 " Looper buffers
