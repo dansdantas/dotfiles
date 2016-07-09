@@ -37,6 +37,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Search file content
 Plug 'yegappan/grep'
 Plug 'rking/ag.vim'
+Plug 'henrik/vim-indexed-search'
 
 " Productivity
 Plug 'wakatime/vim-wakatime'
@@ -107,6 +108,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'xolox/vim-misc'
 
 " To avaliate
+" Plug 'majutsushi/tagbar'
+" Plug 'xolox/vim-easytags'
 " Plug 'Shougo/neocomplete.vim'
 " Plug 'tpope/vim-sensible'
 " Plug 'wincent/command-t'
