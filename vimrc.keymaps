@@ -60,6 +60,9 @@ nnoremap <leader>u :GundoToggle<CR>
 " Save session
 nnoremap <leader>s :SSave<CR>
 
+" Toggle NERDTree
+noremap <leader>t :NERDTreeToggle<CR>
+
 " ================ BufferGator ==========================================
 " Looper buffers
 "let g:buffergator_mru_cycle_loop = 1
