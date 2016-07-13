@@ -66,13 +66,13 @@ set list listchars=tab:\ \ ,trail:·
 
 " === Folds ===================================================
 
-set foldmethod=indent          "fold based on indent
-set foldnestmax=3              "deepest fold is 3 levels
-set nofoldenable               "dont fold by default
+set foldmethod=indent          " fold based on indent
+set foldnestmax=3              " deepest fold is 3 levels
+set nofoldenable               " dont fold by default
 
 " === Scrolling ===============================================
 
-set scrolloff=8                "Start scrolling when we're 8 lines away from margins
+set scrolloff=15               " Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
@@ -88,21 +88,23 @@ set nohlsearch                 " Do not highlight searches by default
 set ignorecase                 " Ignore case when searching...
 set smartcase                  " ...unless we type a capital
 
-" === The Silver Searcher =====================================
-if executable('ag')
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard', 'ag %s -l --nocolor -g ""']
+" ===  Automatically toggle paste mode ========================
 
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-
-" ===============  Automatically toggle paste mode ============
 let &t_SI .= "\<Esc>[?2004h"
 let &t_EI .= "\<Esc>[?2004l"
 
-" Treat <li> and <p> tags like the block tags they are
+" === Treat <li> and <p> tags like the block tags they are ====
 let g:html_indent_tags = 'li\|p'
+
+" === Abbreviations ===========================================
+
+iabbr pry binding.pry
+iabbr dbg debugger
+iabbr log console.log
+
+" === Open new split panes to right and bottom ================
+set splitbelow
+set splitright
 
 " === Expand extra files ======================================
 
@@ -126,16 +128,6 @@ command! UnMinify call UnMinify()
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-" === Abbreviations ===========================================
-
-iabbr pry binding.pry
-iabbr dbg debugger
-iabbr log console.log
-
-" === Open new split panes to right and bottom ================
-set splitbelow
-set splitright
-
 " === Plugins configurations ==================================
 "
 " === CtrlP ===================================================
@@ -143,6 +135,22 @@ set splitright
 " Show hidden files on ctrlp.vim
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_dotfiles = 1
+
+" Update match window after 250ms after stop typing
+let g:ctrlp_lazy_update = 1
+
+let g:ctrlp_match_window = 'min:1,max:25'
+let g:ctrlp_match_current_file = 1
+
+" === The Silver Searcher =====================================
+
+if executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
 
 " === Buffergator =============================================
 
