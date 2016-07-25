@@ -99,6 +99,9 @@ export CLASSPATH=$JAVA_HOME/lib/tools.jar
 export CLASSPATH=.:$CLASSPATH
 export PATH JAVA_HOME CLASSPATH
 
+# Neovim
+export PATH="$HOME/.neovim/bin:$PATH"
+
 #  Add zsh themes
 [ -f "${DOT}/zshrc.alias" ] && source "${DOT}/zshrc.alias"
 
