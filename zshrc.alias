@@ -24,6 +24,7 @@ alias gal='$HOME/Projects/algorich/galcorr'
 alias dn='$HOME/Projects/tocanet/denisa'
 alias osj='$HOME/Projects/tocanet/osj'
 alias it='$HOME/Projects/github/itask'
+alias dnm='$HOME/Projects/personal/denisa-metrics'
 alias dot='$DOT'
 
 # -------------------------------------------------------------------
