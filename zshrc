@@ -111,5 +111,5 @@ export PATH="$HOME/.neovim/bin:$PATH"
 #  Default color configuration
 export TERM=xterm-256color
 
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+# Fzf completion
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
