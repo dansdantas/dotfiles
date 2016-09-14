@@ -34,6 +34,7 @@ Plug 'tpope/vim-eunuch'
 " Search files
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Search file content
 Plug 'yegappan/grep'
