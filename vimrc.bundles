@@ -57,7 +57,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-speeddating'
 
 " Tree
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Layout
