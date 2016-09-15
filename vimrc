@@ -30,6 +30,12 @@ set cc=120                     " Add delimitation line on 120 character
 set nowrap                     " Don't wrap lines
 set linebreak                  " Wrap lines at convenient points
 
+" === Keywords ================================================
+
+set iskeyword-=_
+set iskeyword-=-
+set iskeyword-=-
+
 " === Indentation =============================================
 
 set autoindent                 " Disable automatic indentation"
@@ -130,18 +136,6 @@ command! UnMinify call UnMinify()
 autocmd BufWritePre * :%s/\s\+$//e
 
 " === Plugins configurations ==================================
-"
-" === CtrlP ===================================================
-
-" Show hidden files on ctrlp.vim
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_dotfiles = 1
-
-" Update match window after 250ms after stop typing
-" let g:ctrlp_lazy_update = 1
-
-let g:ctrlp_match_window = 'min:1,max:25'
-let g:ctrlp_match_current_file = 1
 
 " === Buffergator =============================================
 
