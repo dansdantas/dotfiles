@@ -7,13 +7,10 @@
 *.xls
 *.xlsx
 
-log
+log/
 tags
-tmp
-vendor
+tmp/
 .git/
-bower_components/
-node_modules/
 
 DS_Store
 .DS_Store
