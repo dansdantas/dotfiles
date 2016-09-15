@@ -31,13 +31,6 @@ nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 " =============== Search on visual selection ============================
 vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
-" =============== Ag commands ===========================================
-nnoremap <leader>a :Ag
-nnoremap <leader>n :cn<cr>
-nnoremap <leader>p :cp<zw/vim-maximizercr>
-nnoremap <leader>nf :cnf<cr>
-nnoremap <leader>pf :cpf<cr>
-
 " =============== Move to split ========== ==============================
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -133,3 +126,5 @@ nnoremap <C-B> <Esc>:Bufonly<Esc>
 " ================= FZF =================================================
 
 noremap <C-P> :FZFR<CR>
+nnoremap <leader>a :Ag
+nnoremap <leader>c :Colors<cr>
