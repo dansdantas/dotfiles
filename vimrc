@@ -32,7 +32,7 @@ set linebreak                  " Wrap lines at convenient points
 
 " === Indentation =============================================
 
-set noautoindent               " Disable automatic indentation"
+set autoindent                 " Disable automatic indentation"
 set backspace=2                " Delete 2 spaces
 set shiftwidth=2               " Column space on identation << or >>
 set tabstop=2                  " Default tab space to 2 on tabs
@@ -67,7 +67,7 @@ set list listchars=tab:\ \ ,trail:·
 
 " === Folds ===================================================
 
-set foldmethod=manual          " fold based on indent
+set foldmethod=indent          " fold based on indent
 set foldnestmax=3              " deepest fold is 3 levels
 set nofoldenable               " dont fold by default
 
