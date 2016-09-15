@@ -128,3 +128,7 @@ nnoremap <C-B> <Esc>:Bufonly<Esc>
 noremap <C-P> :FZFR<CR>
 nnoremap <leader>a :Ag
 nnoremap <leader>c :Colors<cr>
+
+" Auto indent pasted text
+nnoremap p p=`]<C-o>
+nnoremap P P=`]<C-o>
