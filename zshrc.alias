@@ -40,6 +40,9 @@ alias rddl='rake db:drop:all'
 alias rre='rddl && rdc && rdm && rds'
 alias rb='rbenv'
 alias strem="sh $HOME/.strem/Stremio.sh"
+alias vimpi='vim +PlugInstall'
+alias vimpc='vim +PlugClean'
+alias vimpu='vim +PlugUpdate'
 
 # -------------------------------------------------------------------
 # Edit
