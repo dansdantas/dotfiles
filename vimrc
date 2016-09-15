@@ -4,7 +4,8 @@ set ttyfast
 set lazyredraw
 
 " === Leader ==================================================
-let mapleader = ","
+let mapleader = " "
+let g:netrw_liststyle=3        " Use tree style for netrw
 
 " === General Config ==========================================
 
@@ -17,21 +18,21 @@ set mouse=a                    " Enable select with mouse on supported modes
 set showcmd                    " Show incomplete commands
 set laststatus=2               " Aways display status line
 set updatetime=250             " Change update time of files to 250ms
-let g:netrw_liststyle=3        " Use tree style for netrw
+set showmatch                  " Show matcher when above cursor
 
+" set relativenumber             " Show relative line number / speed issues
 set number                     " Show line number
-set relativenumber             " Show relative line number
 set numberwidth=4              " Define width to number spaces
 
+" set cursorline                 " Show line cursor mark / speed issues
 set ruler                      " Show ruler
-set cursorline                 " Show line cursor mark
 set cc=120                     " Add delimitation line on 120 character
 set nowrap                     " Don't wrap lines
 set linebreak                  " Wrap lines at convenient points
 
 " === Indentation =============================================
 
-set autoindent                 " Enable automatic indentation"
+set noautoindent               " Disable automatic indentation"
 set backspace=2                " Delete 2 spaces
 set shiftwidth=2               " Column space on identation << or >>
 set tabstop=2                  " Default tab space to 2 on tabs
@@ -46,7 +47,7 @@ set shiftround                 " Calculate shiftwidth based on line start
 let g:solarized_termcolors=256 " Set 256 solarized colors
 set termguicolors              " Use true color on vim
 set background=dark            " Set default backgroud to dark
-colorscheme gruvbox
+colorscheme badwolf
 
 " === Turn off swap files =====================================
 
@@ -66,7 +67,7 @@ set list listchars=tab:\ \ ,trail:·
 
 " === Folds ===================================================
 
-set foldmethod=indent          " fold based on indent
+set foldmethod=manual          " fold based on indent
 set foldnestmax=3              " deepest fold is 3 levels
 set nofoldenable               " dont fold by default
 
@@ -137,7 +138,7 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_dotfiles = 1
 
 " Update match window after 250ms after stop typing
-let g:ctrlp_lazy_update = 1
+" let g:ctrlp_lazy_update = 1
 
 let g:ctrlp_match_window = 'min:1,max:25'
 let g:ctrlp_match_current_file = 1
@@ -145,12 +146,22 @@ let g:ctrlp_match_current_file = 1
 " === The Silver Searcher =====================================
 
 if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+  let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s'
+  " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$',
+  \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+  \ }
 
 " === Buffergator =============================================
 
