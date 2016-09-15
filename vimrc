@@ -24,7 +24,7 @@ set showmatch                  " Show matcher when above cursor
 set number                     " Show line number
 set numberwidth=4              " Define width to number spaces
 
-" set cursorline                 " Show line cursor mark / speed issues
+set cursorline                 " Show line cursor mark / speed issues
 set ruler                      " Show ruler
 set cc=120                     " Add delimitation line on 120 character
 set nowrap                     " Don't wrap lines
@@ -112,6 +112,24 @@ iabbr log console.log
 " === Open new split panes to right and bottom ================
 set splitbelow
 set splitright
+
+" === Better handle timeout(need more work) ===================
+
+set timeout " Do time out on mappings and others
+set timeoutlen=2000 " Wait {num} ms before timing out a mapping
+
+" When you’re pressing Escape to leave insert mode in the terminal, it will by
+" default take a second or another keystroke to leave insert mode completely
+" and update the statusline. This fixes that. I got this from:
+" https://powerline.readthedocs.org/en/latest/tipstricks.html#vim
+if !has('gui_running')
+  set ttimeoutlen=10
+  augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+  augroup END
+endif
 
 " === Expand extra files ======================================
 
