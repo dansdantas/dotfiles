@@ -19,9 +19,6 @@ noremap Y y$
 nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
 
-" =============== Automatic enter on paste mode on paste ================
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
-
 " =============== Remove white spaces ===================================
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 
@@ -128,7 +125,3 @@ nnoremap <C-B> <Esc>:Bufonly<Esc>
 noremap <C-P> :FZFR<CR>
 nnoremap <leader>a :Ag
 nnoremap <leader>c :Colors<cr>
-
-" Auto indent pasted text
-nnoremap p p=`]<C-o>
-nnoremap P P=`]<C-o>
