@@ -24,7 +24,7 @@ set showmatch                  " Show matcher when above cursor
 set number                     " Show line number
 set numberwidth=4              " Define width to number spaces
 
-set cursorline                 " Show line cursor mark / speed issues
+" set cursorline                 " Show line cursor mark / speed issues
 set ruler                      " Show ruler
 set cc=120                     " Add delimitation line on 120 character
 set nowrap                     " Don't wrap lines
@@ -38,7 +38,7 @@ set iskeyword-=-
 
 " === Indentation =============================================
 
-set autoindent                 " Disable automatic indentation"
+set ai                         " Enable automatic indentation"
 set backspace=2                " Delete 2 spaces
 set shiftwidth=2               " Column space on identation << or >>
 set tabstop=2                  " Default tab space to 2 on tabs
@@ -53,7 +53,7 @@ set shiftround                 " Calculate shiftwidth based on line start
 let g:solarized_termcolors=256 " Set 256 solarized colors
 set termguicolors              " Use true color on vim
 set background=dark            " Set default backgroud to dark
-colorscheme badwolf
+colorscheme onedark
 
 " === Turn off swap files =====================================
 
@@ -94,11 +94,6 @@ set incsearch                  " Find the next match as we type the search
 set nohlsearch                 " Do not highlight searches by default
 set ignorecase                 " Ignore case when searching...
 set smartcase                  " ...unless we type a capital
-
-" ===  Automatically toggle paste mode ========================
-
-let &t_SI .= "\<Esc>[?2004h"
-let &t_EI .= "\<Esc>[?2004l"
 
 " === Treat <li> and <p> tags like the block tags they are ====
 let g:html_indent_tags = 'li\|p'
