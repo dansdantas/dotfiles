@@ -27,7 +27,8 @@ com! -nargs=+  -bar Bundle call VundleToPlug("Bundle", <args>)
 call plug#begin('~/.vim/bundle')
 
 " Manipulate files
-Plug 'sjl/gundo.vim'
+" Plug 'sjl/gundo.vim'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'   }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
 
@@ -40,6 +41,8 @@ Plug 'henrik/vim-indexed-search'
 
 " Productivity
 Plug 'wakatime/vim-wakatime'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 " Buffer and window manipulations
 Plug 'schickling/vim-bufonly'
@@ -48,6 +51,7 @@ Plug 'szw/vim-maximizer'
 
 " Motion
 Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/vim-peekaboo'
 
 " Completion
 Plug 'Valloric/YouCompleteMe'
@@ -61,7 +65,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Layout
-Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'mhinz/vim-startify'
 
 " Status
@@ -70,10 +74,10 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Syntax
 Plug 'scrooloose/syntastic'
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
 
 " Syntax color
-Plug 'kien/rainbow_parentheses.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'slim-template/vim-slim'
 Plug 'ap/vim-css-color'
@@ -86,14 +90,12 @@ Plug 'xolox/vim-colorscheme-switcher'
 Plug 'altercation/vim-colors-solarized'
 
 " Color themes
-Plug 'vim-scripts/Perfect-Dark'
-Plug 'chriskempson/base16-vim'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'morhetz/gruvbox'
 Plug 'tomasr/molokai'
 Plug 'sickill/vim-monokai'
 Plug 'joshdick/onedark.vim'
-Plug 'flazz/vim-colorschemes'
+Plug 'junegunn/seoul256.vim'
 
 " Rails section
 Plug 'tpope/vim-bundler'
@@ -102,6 +104,7 @@ Plug 'tpope/vim-rails'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 
 " Miscellaneous
 Plug 'xolox/vim-misc'

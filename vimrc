@@ -140,32 +140,27 @@ if filereadable(expand("~/.vimrc.keymaps"))
   source ~/.vimrc.keymaps
 endif
 
-" === Simple re-format for minified Javascript ================
 
-command! UnMinify call UnMinify()
+" === Commands ================================================
 
-" ===  When alter buffs trim white space ======================
-
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd! User GoyoEnter Limelight   " On Goyo enter enable limelight
+autocmd! User GoyoLeave Limelight!  " On Goyo leave disable limelight
+autocmd! BufWritePre * :%s/\s\+$//e " When alter buffs trim white space
+command! UnMinify call UnMinify()   " Simple re-format for minified Javascript
 
 " === Plugins configurations ==================================
 
 " === Buffergator =============================================
 
-" I want my own keymappings...
-let g:buffergator_suppress_keymaps = 1
+let g:buffergator_suppress_keymaps = 1 " I want my own keymappings...
 
 " === Airline =================================================
 
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#enabled = 1     " Enable the list of buffers
+let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
 
-" === RainbowParentheses ======================================
-
-" Auto load better parentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" === PeekABoo ===============================================
+"
+let g:peekaboo_window = 'vertical botright 130new' " Default peekaboo window
+let g:peekaboo_compact = 1 " Compact display; do not display the names of the register groups
+let g:peekaboo_prefix = '<leader>' " Prefix for the peekaboo key mapping (default: '')

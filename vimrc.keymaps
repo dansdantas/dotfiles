@@ -48,7 +48,7 @@ nnoremap E $
 nnoremap gV `[v`]
 
 " Toggle gundo
-nnoremap <leader>u :GundoToggle<CR>
+nnoremap <leader>u :UndotreeToggle<CR>
 
 " Save session
 nnoremap <leader>s :SSave<CR>
@@ -122,6 +122,6 @@ nnoremap <C-B> <Esc>:Bufonly<Esc>
 
 " ================= FZF =================================================
 
-noremap <C-P> :FZFR<CR>
+noremap <C-P> :FZF<CR>
 nnoremap <leader>a :Ag
 nnoremap <leader>c :Colors<cr>
