@@ -78,12 +78,12 @@ Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
 
 " Syntax color
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'pangloss/vim-javascript'
 Plug 'slim-template/vim-slim'
 Plug 'ap/vim-css-color'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'vim-ruby/vim-ruby'
+Plug 'othree/javascript-libraries-syntax.vim'
 
 " Color manipulation
 Plug 'xolox/vim-colorscheme-switcher'
@@ -103,7 +103,6 @@ Plug 'tpope/vim-rails'
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
 
 " Miscellaneous

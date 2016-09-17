@@ -30,12 +30,6 @@ set cc=120                     " Add delimitation line on 120 character
 set nowrap                     " Don't wrap lines
 set linebreak                  " Wrap lines at convenient points
 
-" === Keywords ================================================
-
-set iskeyword-=_
-set iskeyword-=-
-set iskeyword-=-
-
 " === Indentation =============================================
 
 set ai                         " Enable automatic indentation"
@@ -149,6 +143,8 @@ autocmd! BufWritePre * :%s/\s\+$//e " When alter buffs trim white space
 command! UnMinify call UnMinify()   " Simple re-format for minified Javascript
 
 " === Plugins configurations ==================================
+
+let g:used_javascript_libs = 'jquery,underscore,angularjs,react'
 
 " === Buffergator =============================================
 
