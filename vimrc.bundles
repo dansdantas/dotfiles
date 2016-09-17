@@ -50,7 +50,7 @@ Plug 'jeetsukumaran/vim-buffergator'
 Plug 'szw/vim-maximizer'
 
 " Motion
-Plug 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion', { 'on': '<plug>(easymotion-s2)' }
 Plug 'junegunn/vim-peekaboo'
 
 " Completion
