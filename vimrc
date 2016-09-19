@@ -146,6 +146,13 @@ command! UnMinify call UnMinify()   " Simple re-format for minified Javascript
 
 let g:used_javascript_libs = 'jquery,underscore,angularjs,react'
 
+" === Signify =================================================
+
+let g:signify_vcs_lis = ['git']
+let g:signify_cursorhold_insert     = 1
+let g:signify_cursorhold_normal     = 1
+let g:signify_update_on_focusgained = 1
+
 " === Buffergator =============================================
 
 let g:buffergator_suppress_keymaps = 1 " I want my own keymappings...
