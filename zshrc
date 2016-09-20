@@ -2,6 +2,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="nebirhos"
+# ZSH_THEME="spaceship-zsh-theme/spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,7 +46,7 @@ ZSH_THEME="nebirhos"
 # Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bundler rake ruby gem rails alias-tips zsh-autopair zsh-wakatime zsh-syntax-highlighting)
+plugins=(git bundler rake ruby gem rails npm alias-tips zsh-autopair zsh-wakatime zsh-syntax-highlighting)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -113,3 +114,8 @@ export TERM=xterm-256color
 
 # Fzf completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# PyEnv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
