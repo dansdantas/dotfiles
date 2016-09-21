@@ -27,7 +27,6 @@ com! -nargs=+  -bar Bundle call VundleToPlug("Bundle", <args>)
 call plug#begin('~/.vim/bundle')
 
 " Manipulate files
-" Plug 'sjl/gundo.vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'   }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
