@@ -1,11 +1,11 @@
 execute pathogen#infect()
 set nocompatible               " be iMproved, required
+set more
 set ttyfast
 set lazyredraw
 
 " === Leader ==================================================
 let mapleader = " "
-let g:netrw_liststyle=3        " Use tree style for netrw
 
 " === General Config ==========================================
 
@@ -79,7 +79,7 @@ set sidescroll=1
 
 " === Automatic change on files ===============================
 
-set autowrite                  " Automatically :write before running commands
+set autowrite                  " Enable automatically :write before running commands
 set autoread                   " Reload files changed outside vim
 
 " === Search ==================================================
@@ -99,26 +99,13 @@ iabbr dbg debugger
 iabbr log console.log
 
 " === Open new split panes to right and bottom ================
+
 set splitbelow
 set splitright
 
 " === Better handle timeout(need more work) ===================
 
-set timeout " Do time out on mappings and others
-set timeoutlen=2000 " Wait {num} ms before timing out a mapping
-
-" When you’re pressing Escape to leave insert mode in the terminal, it will by
-" default take a second or another keystroke to leave insert mode completely
-" and update the statusline. This fixes that. I got this from:
-" https://powerline.readthedocs.org/en/latest/tipstricks.html#vim
-if !has('gui_running')
-  set ttimeoutlen=10
-  augroup FastEscape
-    autocmd!
-    au InsertEnter * set timeoutlen=0
-    au InsertLeave * set timeoutlen=1000
-  augroup END
-endif
+set timeoutlen=1000 ttimeoutlen=0
 
 " === Expand extra files ======================================
 
@@ -145,13 +132,6 @@ command! UnMinify call UnMinify()   " Simple re-format for minified Javascript
 " === Plugins configurations ==================================
 
 let g:used_javascript_libs = 'jquery,underscore,angularjs,react'
-
-" === Signify =================================================
-
-let g:signify_vcs_lis = ['git']
-let g:signify_cursorhold_insert     = 1
-let g:signify_cursorhold_normal     = 1
-let g:signify_update_on_focusgained = 1
 
 " === Buffergator =============================================
 
