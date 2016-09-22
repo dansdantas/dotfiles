@@ -51,7 +51,7 @@ plugins=(git bundler rake ruby gem rails npm alias-tips zsh-autopair zsh-wakatim
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.scripts/resty
+source $HOME/.worklate/.scripts/resty
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
