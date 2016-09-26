@@ -28,17 +28,52 @@ alias dnm='$HOME/Projects/personal/denisa-metrics'
 alias dot='$DOT'
 
 # -------------------------------------------------------------------
+# Folders movements
+# -------------------------------------------------------------------
+
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+
+alias -- -='cd -'
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+
+alias md='mkdir -p'
+alias rd=rmdir
+
+# List directory contents
+alias lsa='ls -lah'
+alias l='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'
+alias ls="ls --color=auto"
+alias lh='ls -l .??*'
+alias lhd='ls -ld .??*'
+alias lh='ls -a | egrep "^\."'
+
+# -------------------------------------------------------------------
 # Scripts
 # -------------------------------------------------------------------
 
 alias s='spring'
 alias srs='s rails s'
 alias src='s rails c'
-alias rzs='. $HOME/.zshrc'
+alias sz="source ~/.zshrc"
+alias zlt="/usr/bin/time zsh -i -c exit"
 alias fa='alias | ag'
 alias rddl='rake db:drop:all'
 alias rre='rddl && rdc && rdm && rds'
 alias rb='rbenv'
+alias rrf="rake routes | fzf"
 alias strem="sh $HOME/.strem/Stremio.sh"
 
 # -------------------------------------------------------------------
@@ -58,7 +93,6 @@ alias zshrc="$EDITOR ~/.zshrc"
 alias vundles="$EDITOR ~/.vimrc.bundles"
 alias tmuxconf= "$EDITOR ~/.tmux.conf"
 alias zshconfig="$EDITOR $HOME/.zshrc"
-alias ohmyzsh="$EDITOR $HOME/.oh-my-zsh"
 
 # -------------------------------------------------------------------
 # Misc
@@ -75,13 +109,9 @@ alias install="sudo apt-get install"
 alias search="sudo apt-cache search"
 alias purge="sudo apt-get purge"
 alias glog="git log --graph --oneline --decorate --date-order --color --boundary"
-alias ls="ls --color=auto"
-alias lh='ls -l .??*'
-alias lhd='ls -ld .??*'
-alias lh='ls -a | egrep "^\."'
-# -------------------------------------------------------------------
 
 # -------------------------------------------------------------------
 # Abbreviation for "gem install".
 # -------------------------------------------------------------------
+
 gi() { gem install $@; rbenv rehash; rehash }
