@@ -51,7 +51,6 @@ source $HOME/.worklate/.scripts/resty
 source $HOME/.zplug/init.zsh
 
 zplug "hlissner/zsh-autopair", nice:10
-zplug "zsh-users/zsh-completions"
 zplug "djui/alias-tips"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
@@ -59,6 +58,7 @@ zplug "themes/nebirhos", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/rails", from:oh-my-zsh, nice:10
 zplug "lukechilds/zsh-nvm"
+zplug "wbinglee/zsh-wakatime"
 zplug "zplug/zplug"
 # plugins=( bundler rake ruby gem rails npm alias-tips zsh-autopair zsh-wakatime zsh-syntax-highlighting)
 
