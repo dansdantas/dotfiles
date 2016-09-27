@@ -1,5 +1,5 @@
 export TERM=xterm-256color
-export EDITOR='vim'
+export EDITOR='nvim'
 export DOT="$HOME/.dotfiles"
 
 [ -f "${DOT}/zshrc.alias" ] && source "${DOT}/zshrc.alias"
@@ -38,11 +38,17 @@ eval "$(pyenv init -)"
 
 # Zsh configurations
 setopt auto_cd
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-# Bindings
-bindkey "^[[A" history-substring-search-up
-bindkey "^[[B" history-substring-search-down
+# History options missing interpretation
+setopt inc_append_history
+setopt share_history # share command history data
+
+# Completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+
+# Binding keys
+bindkey '\eOA' history-substring-search-up
+bindkey '\eOB' history-substring-search-down
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
@@ -60,13 +66,25 @@ zplug "plugins/rails", from:oh-my-zsh, nice:10
 zplug "lukechilds/zsh-nvm"
 zplug "wbinglee/zsh-wakatime"
 zplug "zplug/zplug"
-# plugins=( bundler rake ruby gem rails npm alias-tips zsh-autopair zsh-wakatime zsh-syntax-highlighting)
 
 # Issue
 # zplug "zsh-users/zsh-autosuggestions"
+# plugins=(bundler rake ruby gem)
 
 if ! zplug check; then
   zplug install
 fi
 
 zplug load
+
+# precmd() {
+#   if [[ -n $PYENV_SHELL ]]; then
+#     local version
+#     version=${(@)$(pyenv version)[1]}
+#     if [[ $version = system ]]; then
+#       PROMPT="%(?.%F{magenta}.%F{red})❯%f "
+#     else
+#       PROMPT="(pyenv $version) %(?.%F{magenta}.%F{red})❯%f "
+#     fi
+#   fi
+# }
