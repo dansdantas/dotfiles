@@ -104,6 +104,7 @@ alias df="df -H"
 alias du="du -ch"
 alias 'dus=du -sckx * | sort -nr'
 alias sudo="nocorrect sudo"
+alias _="sudo"
 alias update="sudo apt-get update && sudo apt-get upgrade && sudo apt-get update && sudo apt-get upgrade"
 alias install="sudo apt-get install"
 alias search="sudo apt-cache search"
