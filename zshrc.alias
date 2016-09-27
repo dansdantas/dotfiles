@@ -77,12 +77,15 @@ alias rrf="rake routes | fzf"
 alias strem="sh $HOME/.strem/Stremio.sh"
 
 # -------------------------------------------------------------------
-# Vim
+# Vim, Nvim
 # -------------------------------------------------------------------
 
 alias vimpi='vim +PlugInstall'
 alias vimpc='vim +PlugClean'
 alias vimpu='vim +PlugUpdate'
+alias pi="$EDITOR +PlugInstall"
+alias pc="$EDITOR +PlugClean"
+alias pu="$EDITOR +PlugUpdate"
 
 # -------------------------------------------------------------------
 # Edit
