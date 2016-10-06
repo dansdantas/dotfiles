@@ -64,6 +64,7 @@ alias lh='ls -a | egrep "^\."'
 # Scripts
 # -------------------------------------------------------------------
 
+alias nv='nvim'
 alias s='spring'
 alias srs='s rails s'
 alias src='s rails c'
@@ -101,7 +102,6 @@ alias zshconfig="$EDITOR $HOME/.zshrc"
 # Misc
 # -------------------------------------------------------------------
 
-alias node="nodejs"
 alias diff="colordiff"
 alias df="df -H"
 alias du="du -ch"
