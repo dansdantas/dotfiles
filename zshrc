@@ -40,6 +40,19 @@ eval "$(pyenv init -)"
 setopt auto_cd
 
 # History options missing interpretation
+
+## Command history configuration
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+alias history='fc -fl 1'
+
+setopt append_history
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups # ignore duplication command history list
+setopt hist_ignore_space
+setopt hist_verify
 setopt inc_append_history
 setopt share_history # share command history data
 
@@ -52,7 +65,7 @@ bindkey '\eOB' history-substring-search-down
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-export NVM_LAZY_LOAD=true
+# export NVM_LAZY_LOAD=true
 source $HOME/.worklate/.scripts/resty
 source $HOME/.zplug/init.zsh
 
@@ -60,6 +73,7 @@ zplug "hlissner/zsh-autopair", nice:10
 zplug "djui/alias-tips"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-completions"
 zplug "themes/nebirhos", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/rails", from:oh-my-zsh, nice:10
