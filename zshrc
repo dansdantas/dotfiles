@@ -45,6 +45,9 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$PATH"
 
+# TheFuck
+eval "$(thefuck --alias)"
+
 # Zsh configurations
 setopt auto_cd
 
@@ -89,6 +92,7 @@ zplug "plugins/rails", from:oh-my-zsh, nice:10
 zplug "lukechilds/zsh-nvm"
 zplug "wbinglee/zsh-wakatime"
 zplug "zplug/zplug"
+zplug "supercrabtree/k"
 
 # Issue
 # zplug "zsh-users/zsh-autosuggestions"
