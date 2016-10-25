@@ -14,18 +14,19 @@ man() {
 # Folders
 # -------------------------------------------------------------------
 
-alias sv='$HOME/Projects/algorich/safeverse'
-alias svt='$HOME/Projects/algorich/safeverse-site'
-alias delphos='$HOME/Projects/algorich/delphos-map'
-alias npad='$HOME/Projects/algorich/na-praia-admin'
-alias npas='$HOME/Projects/algorich/na-praia-app-seller'
-alias npa='$HOME/Projects/algorich/na-praia-app'
-alias gal='$HOME/Projects/algorich/galcorr'
-alias dn='$HOME/Projects/tocanet/denisa'
-alias osj='$HOME/Projects/tocanet/osj'
-alias it='$HOME/Projects/github/itask'
-alias dnm='$HOME/Projects/personal/denisa-metrics'
-alias dot='$DOT'
+alias sv="$HOME/Projects/algorich/safeverse"
+alias svt="$HOME/Projects/algorich/safeverse-site"
+alias delphos="$HOME/Projects/algorich/delphos-map"
+alias npad="$HOME/Projects/algorich/na-praia-admin"
+alias npas="$HOME/Projects/algorich/na-praia-app-seller"
+alias npa="$HOME/Projects/algorich/na-praia-app"
+alias gal="$HOME/Projects/algorich/galcorr"
+alias dn="$HOME/Projects/tocanet/denisa"
+alias osj="$HOME/Projects/tocanet/osj"
+alias it="$HOME/Projects/github/itask"
+alias dnm="$HOME/Projects/personal/denisa-metrics"
+alias dot="$DOT"
+alias work="$HOME/.worklate"
 
 # -------------------------------------------------------------------
 # Folders movements
@@ -76,14 +77,12 @@ alias rre='rddl && rdc && rdm && rds'
 alias rb='rbenv'
 alias rrf="rake routes | fzf"
 alias strem="sh $HOME/.strem/Stremio.sh"
+alias zpc="zplug clean && zplug clear && sz"
 
 # -------------------------------------------------------------------
 # Vim, Nvim
 # -------------------------------------------------------------------
 
-alias vimpi='vim +PlugInstall'
-alias vimpc='vim +PlugClean'
-alias vimpu='vim +PlugUpdate'
 alias pi="$EDITOR +PlugInstall"
 alias pc="$EDITOR +PlugClean"
 alias pu="$EDITOR +PlugUpdate"
