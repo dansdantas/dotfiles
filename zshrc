@@ -37,16 +37,15 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # Brew
-export PATH="$HOME/.linuxbrew/bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+export BREWPATH="$HOME/.linuxbrew"
+export PATH="$BREWPATH/bin:$PATH"
+export MANPATH="$BREWPATH/share/man:$MANPATH"
+export INFOPATH="$BREWPATH/share/info:$INFOPATH"
+export XDG_DATA_DIRS="$BREWPATH/share:$XDG_DATA_DIRS"
 
 # Go
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$PATH"
-
-# TheFuck
-eval "$(thefuck --alias)"
 
 # Zsh configurations
 setopt auto_cd
@@ -69,7 +68,9 @@ setopt inc_append_history
 setopt share_history # share command history data
 
 # Completion
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ":completion:*" show-ambiguity "$color[fg-red]"
+zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}"
 
 # Binding keys
 bindkey '\eOA' history-substring-search-up
@@ -77,22 +78,24 @@ bindkey '\eOB' history-substring-search-down
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-# export NVM_LAZY_LOAD=true
+# Plugins configurations
 source $HOME/.worklate/.scripts/resty
 source $HOME/.zplug/init.zsh
+
+export ZSH_CLEAN_PATH_STYLE="1"
+export NVM_LAZY_LOAD=true
 
 zplug "hlissner/zsh-autopair", nice:10
 zplug "djui/alias-tips"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-completions"
-zplug "themes/nebirhos", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/rails", from:oh-my-zsh, nice:10
 zplug "lukechilds/zsh-nvm"
 zplug "wbinglee/zsh-wakatime"
+zplug "akz92/clean"
 zplug "zplug/zplug"
-zplug "supercrabtree/k"
 
 # Issue
 # zplug "zsh-users/zsh-autosuggestions"
