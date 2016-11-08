@@ -1,9 +1,16 @@
 export TERM=xterm-256color
-export EDITOR='nvim'
+export EDITOR=nvim
 export DOT="$HOME/.dotfiles"
 
 [ -f "${DOT}/zshrc.alias" ] && source "${DOT}/zshrc.alias"
 [ -f "${DOT}/.zsh_aliases" ] && source "${DOT}/.zsh_aliases"
+
+# Brew
+export BREWPATH="$HOME/.linuxbrew"
+export PATH="$BREWPATH/bin:$PATH"
+export MANPATH="$BREWPATH/share/man:$MANPATH"
+export INFOPATH="$BREWPATH/share/info:$INFOPATH"
+export XDG_DATA_DIRS="$BREWPATH/share:$XDG_DATA_DIRS"
 
 # Rbenv configuration
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -35,13 +42,6 @@ export PATH="$HOME/.neovim/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# Brew
-export BREWPATH="$HOME/.linuxbrew"
-export PATH="$BREWPATH/bin:$PATH"
-export MANPATH="$BREWPATH/share/man:$MANPATH"
-export INFOPATH="$BREWPATH/share/info:$INFOPATH"
-export XDG_DATA_DIRS="$BREWPATH/share:$XDG_DATA_DIRS"
 
 # Go
 export GOPATH="$HOME/.go"
@@ -94,10 +94,11 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/rails", from:oh-my-zsh, nice:10
 zplug "lukechilds/zsh-nvm"
 zplug "wbinglee/zsh-wakatime"
-zplug "akz92/clean"
 zplug "zplug/zplug"
+zplug "themes/nebirhos", from:oh-my-zsh
 
 # Issue
+# zplug "akz92/clean"
 # zplug "zsh-users/zsh-autosuggestions"
 # plugins=(bundler rake ruby gem)
 
