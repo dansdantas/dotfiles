@@ -3,7 +3,6 @@ export EDITOR=nvim
 export DOT="$HOME/.dotfiles"
 
 [ -f "${DOT}/zshrc.alias" ] && source "${DOT}/zshrc.alias"
-[ -f "${DOT}/.zsh_aliases" ] && source "${DOT}/.zsh_aliases"
 
 # Brew
 export BREWPATH="$HOME/.linuxbrew"
@@ -20,9 +19,9 @@ eval "$(rbenv init -)"
 export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Android Studio
-export PATH="$PATH:$HOME/.android/android-studio/android-studio/bin"
-export PATH="$PATH:$HOME/.android/sdk/tools"
-export PATH="$PATH:$HOME/.android/sdk/platform-tools"
+# export PATH="$PATH:$HOME/.android/android-studio/android-studio/bin"
+# export PATH="$PATH:$HOME/.android/sdk/tools"
+# export PATH="$PATH:$HOME/.android/sdk/platform-tools"
 
 ### Java
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
@@ -50,9 +49,7 @@ export PATH="$GOPATH/bin:$PATH"
 # Zsh configurations
 setopt auto_cd
 
-# History options missing interpretation
-
-## Command history configuration
+# History options missing interpretation - Command history configuration
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -82,7 +79,6 @@ bindkey "^[[1;5D" backward-word
 source $HOME/.worklate/.scripts/resty
 source $HOME/.zplug/init.zsh
 
-export ZSH_CLEAN_PATH_STYLE="1"
 export NVM_LAZY_LOAD=true
 
 zplug "hlissner/zsh-autopair", nice:10
@@ -99,6 +95,7 @@ zplug "themes/nebirhos", from:oh-my-zsh
 
 # Issue
 # zplug "akz92/clean"
+# export ZSH_CLEAN_PATH_STYLE="1"
 # zplug "zsh-users/zsh-autosuggestions"
 # plugins=(bundler rake ruby gem)
 
