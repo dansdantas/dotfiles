@@ -75,7 +75,7 @@ alias fa='alias | ag'
 alias rddl='rake db:drop:all'
 alias rre='rddl && rdc && rdm && rds'
 alias rb='rbenv'
-alias rrf="rake routes | fzf"
+alias rrf="rake routes | fzf-tmux"
 alias strem="sh $HOME/.strem/Stremio.sh"
 alias zpc="zplug clean && zplug clear && sz"
 
