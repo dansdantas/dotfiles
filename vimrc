@@ -147,3 +147,60 @@ let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
 let g:peekaboo_window = 'vertical botright 130new' " Default peekaboo window
 let g:peekaboo_compact = 1 " Compact display; do not display the names of the register groups
 let g:peekaboo_prefix = '<leader>' " Prefix for the peekaboo key mapping (default: '')
+
+" Nvim scrapes
+" Old, to remove
+" Buffers
+" Plug 'jeetsukumaran/vim-buffergator'
+" Plug 'szw/vim-maximizer'
+
+" Color manipulation
+" Plug 'xolox/vim-colorscheme-switcher'
+" Plug 'altercation/vim-colors-solarized'
+
+" Miscellaneous
+" Plug 'xolox/vim-misc'
+
+" To avaliate
+" Plug 'hkupty/zen.nvim'
+" Plug 'tpope/vim-speeddating'
+" Plug 'majutsushi/tagbar'
+" Plug 'xolox/vim-easytags'
+" Plug 'Shougo/neocomplete.vim'
+" Plug 'tpope/vim-sensible'
+" Plug 'wincent/command-t'
+" Plug 'elzr/vim-json'
+" Plug 'kchmck/vim-coffee-script'
+" Plug 'gregsexton/MatchTag'
+" Plug 'janko-m/vim-test'
+" Plug 'TaskList.vim'
+" Plug 'ervandew/supertab'
+" Plug 'tpope/vim-abolish'
+
+" Color themes
+" Plug 'nanotech/jellybeans.vim'
+" Plug 'mkarmona/colorsbox'
+" Plug 'junegunn/seoul256.vim'
+" Plug 'crusoexia/vim-monokai'
+
+" Old persisted
+" set list listchars=tab:\ \ ,trail:·
+" set lazyredraw
+" set updatetime=250             " Change update time of files to 250ms
+" set relativenumber             " Show relative line number / speed issues
+" set nowrap                     " Don't wrap lines
+" set linebreak                  " Wrap lines at convenient points
+
+" " === Folds ===================================================
+
+" set foldmethod=indent          " fold based on indent
+" set foldnestmax=3              " deepest fold is 3 levels
+" set nofoldenable               " dont fold by default
+
+" " === Treat <li> and <p> tags like the block tags they are ====
+" let g:html_indent_tags = 'li\|p'
+
+
+" Missing validation
+
+
