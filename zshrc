@@ -1,14 +1,13 @@
-# export TERM=tmux-256color
-# export TERM=xterm-256color
 export TERM=screen-256color 
 export EDITOR=nvim
 export DOT="$HOME/.dotfiles"
 
 [ -f "${DOT}/zshrc.alias" ] && source "${DOT}/zshrc.alias"
+export PATH="$HOME/.bootimg:$PATH"
 
 # Brew
 export BREWPATH="$HOME/.linuxbrew"
-export PATH="$BREWPATH/bin:$PATH"
+export PATH="$BREWPATH/bin:$BREWPATH/sbin:$PATH"
 export MANPATH="$BREWPATH/share/man:$MANPATH"
 export INFOPATH="$BREWPATH/share/info:$INFOPATH"
 export XDG_DATA_DIRS="$BREWPATH/share:$XDG_DATA_DIRS"
@@ -40,7 +39,7 @@ export PATH="$HOME/.neovim/bin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # PyEnv
-export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_ROOT="$HOME/.linuxbrew/var/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
@@ -96,8 +95,6 @@ zplug "zplug/zplug"
 zplug "themes/nebirhos", from:oh-my-zsh
 
 # Issue
-# zplug "akz92/clean"
-# export ZSH_CLEAN_PATH_STYLE="1"
 # zplug "zsh-users/zsh-autosuggestions"
 # plugins=(bundler rake ruby gem)
 
