@@ -42,7 +42,7 @@ export DOT="$HOME/.dotfiles"
 # Resty
 source $HOME/.worklate/.scripts/resty
 
-# Fzf completion
+# Fzf 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Heroku Toolbelt
@@ -56,7 +56,7 @@ export PATH="$PATH:$HOME/.android/android-studio/bin"
 export PATH="$PATH:$HOME/.android/sdk/tools"
 export PATH="$PATH:$HOME/.android/sdk/platform-tools"
 
-# Java configurations
+# Java 
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 export PATH=$JAVA_HOME/bin:$PATH
 export PATH JAVA_HOME
@@ -65,7 +65,7 @@ export CLASSPATH=.:$CLASSPATH
 export PATH JAVA_HOME CLASSPATH
 
 # -------------------------------------------------------------------
-# Brew install
+# Brew
 # -------------------------------------------------------------------
 
 export BREWPATH="$HOME/.linuxbrew"
@@ -74,7 +74,7 @@ export MANPATH="$BREWPATH/share/man:$MANPATH"
 export INFOPATH="$BREWPATH/share/info:$INFOPATH"
 export XDG_DATA_DIRS="$BREWPATH/share:$XDG_DATA_DIRS"
 
-# Rbenv configuration
+# Rbenv 
 export RBENV_ROOT="$BREWPATH/var/rbenv"
 eval "$(rbenv init -)"
 
@@ -124,6 +124,98 @@ fi
 zplug load >/dev/null
 
 # -------------------------------------------------------------------
+# Alias
+# -------------------------------------------------------------------
+
+alias fa='alias | ag'
+alias strem="sh $HOME/.strem/Stremio.sh"
+alias sudo="nocorrect sudo"
+alias _="sudo"
+alias md='mkdir -p'
+alias rd=rmdir
+
+# Space
+alias df="df -H"
+alias du="du -ch"
+alias dus="du -sckx * | sort -nr"
+
+# Dir lists
+alias lsa='ls -lah'
+alias l='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'
+alias ls="ls --color=auto"
+alias lh='ls -l .??*'
+alias lhd='ls -ld .??*'
+alias lh='ls -a | egrep "^\."'
+
+# Update
+alias update="_ apt-get update && _ apt-get upgrade && _ apt-get update && _ apt-get upgrade"
+alias install="_ apt-get install"
+alias search="_ apt-cache search"
+alias purge="_ apt-get purge"
+
+# Zsh
+alias sz="source ~/.zshrc"
+alias zlt="/usr/bin/time zsh -i -c exit"
+
+# Rails
+alias s='spring'
+alias srs='s rails s'
+alias src='s rails c'
+alias rddl='rake db:drop:all'
+alias rre='rddl && rdc && rdm && rds'
+alias rrf="rake routes | fzf-tmux"
+
+# Rbenv
+alias rb='rbenv'
+alias rbg='rb gemset'
+
+# Zplug
+alias zu="zplug update"
+alias zpc="zplug clean && zplug clear && sz"
+
+# Git
+alias glog="git log --graph --oneline --decorate --date-order --color --boundary"
+
+# Nvim
+alias nv='nvim'
+alias pi="$EDITOR +PlugInstall"
+alias pc="$EDITOR +PlugClean"
+alias pu="$EDITOR +PlugUpdate"
+
+# Tmux
+alias tmux-kill-all="tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill"
+
+# Gem
+gi() { gem install $@; rbenv rehash; rehash }
+
+# Config shortcuts
+alias zshrc="$EDITOR $HOME/.zshrc"
+alias tmuxconf= "$EDITOR $HOME/.tmux.conf"
+alias nvimrc="$EDITOR $HOME/.config/nvim/init.vim"
+
+# Projects
+alias dot="$DOT"
+alias work="$HOME/.worklate"
+alias dnm="$HOME/Projects/personal/denisa-metrics"
+
+# Algorich
+ALGORICH="$HOME/Projects/algorich"
+alias npad="$ALGORICH/na-praia-admin"
+alias npas="$ALGORICH/na-praia-app-seller"
+alias npa="$ALGORICH/na-praia-app"
+alias gal="$ALGORICH/galcorr"
+alias sv="$HOME/Projects/algorich/safeverse"
+alias svt="$HOME/Projects/algorich/safeverse-site"
+alias delphos="$HOME/Projects/algorich/delphos-map"
+
+# Tocanet
+TOCA="$HOME/Projects/tocanet"
+alias dn="$TOCA/denisa"
+alias osj="$TOCA/osj"
+
+# -------------------------------------------------------------------
 # Man
 # -------------------------------------------------------------------
 
@@ -138,122 +230,6 @@ man() {
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
             man "$@"
 }
-
-# -------------------------------------------------------------------
-# Folders
-# -------------------------------------------------------------------
-
-alias sv="$HOME/Projects/algorich/safeverse"
-alias svt="$HOME/Projects/algorich/safeverse-site"
-alias delphos="$HOME/Projects/algorich/delphos-map"
-alias npad="$HOME/Projects/algorich/na-praia-admin"
-alias npas="$HOME/Projects/algorich/na-praia-app-seller"
-alias npa="$HOME/Projects/algorich/na-praia-app"
-alias gal="$HOME/Projects/algorich/galcorr"
-alias dn="$HOME/Projects/tocanet/denisa"
-alias osj="$HOME/Projects/tocanet/osj"
-alias it="$HOME/Projects/github/itask"
-alias dnm="$HOME/Projects/personal/denisa-metrics"
-alias dot="$DOT"
-alias work="$HOME/.worklate"
-
-# -------------------------------------------------------------------
-# Folders movements
-# -------------------------------------------------------------------
-
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
-alias -g ......='../../../../..'
-
-alias -- -='cd -'
-alias 1='cd -'
-alias 2='cd -2'
-alias 3='cd -3'
-alias 4='cd -4'
-alias 5='cd -5'
-alias 6='cd -6'
-alias 7='cd -7'
-alias 8='cd -8'
-alias 9='cd -9'
-
-alias md='mkdir -p'
-alias rd=rmdir
-
-# List directory contents
-alias lsa='ls -lah'
-alias l='ls -lah'
-alias ll='ls -lh'
-alias la='ls -lAh'
-alias ls="ls --color=auto"
-alias lh='ls -l .??*'
-alias lhd='ls -ld .??*'
-alias lh='ls -a | egrep "^\."'
-
-# -------------------------------------------------------------------
-# Scripts
-# -------------------------------------------------------------------
-
-alias nv='nvim'
-alias s='spring'
-alias srs='s rails s'
-alias src='s rails c'
-alias sz="source ~/.zshrc"
-alias zlt="/usr/bin/time zsh -i -c exit"
-alias fa='alias | ag'
-alias rddl='rake db:drop:all'
-alias rre='rddl && rdc && rdm && rds'
-alias rb='rbenv'
-alias rbg='rb gemset'
-alias rrf="rake routes | fzf-tmux"
-alias strem="sh $HOME/.strem/Stremio.sh"
-alias zpc="zplug clean && zplug clear && sz"
-alias zu="zplug update"
-
-# -------------------------------------------------------------------
-# Vim, Nvim
-# -------------------------------------------------------------------
-
-alias pi="$EDITOR +PlugInstall"
-alias pc="$EDITOR +PlugClean"
-alias pu="$EDITOR +PlugUpdate"
-
-# -------------------------------------------------------------------
-# Tmux
-# -------------------------------------------------------------------
-alias tmux-kill-all="tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill"
-
-# -------------------------------------------------------------------
-# Edit
-# -------------------------------------------------------------------
-
-alias vimrc="$EDITOR ~/.vimrc"
-alias zshrc="$EDITOR ~/.zshrc"
-alias vundles="$EDITOR ~/.vimrc.bundles"
-alias tmuxconf= "$EDITOR ~/.tmux.conf"
-alias zshconfig="$EDITOR ~/.zshrc"
-
-# -------------------------------------------------------------------
-# Misc
-# -------------------------------------------------------------------
-
-alias diff="colordiff"
-alias df="df -H"
-alias du="du -ch"
-alias 'dus=du -sckx * | sort -nr'
-alias sudo="nocorrect sudo"
-alias _="sudo"
-alias update="sudo apt-get update && sudo apt-get upgrade && sudo apt-get update && sudo apt-get upgrade"
-alias install="sudo apt-get install"
-alias search="sudo apt-cache search"
-alias purge="sudo apt-get purge"
-alias glog="git log --graph --oneline --decorate --date-order --color --boundary"
-
-# -------------------------------------------------------------------
-# Abbreviation for "gem install".
-# -------------------------------------------------------------------
-
-gi() { gem install $@; rbenv rehash; rehash }
 
 # -------------------------------------------------------------------
 # Missing time
