@@ -39,9 +39,6 @@ export TERM=screen-256color
 export EDITOR=nvim
 export DOT="$HOME/.dotfiles"
 
-# Resty
-source $HOME/.worklate/.scripts/resty
-
 # Fzf 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
