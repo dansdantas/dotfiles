@@ -209,3 +209,6 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 let g:python_host_prog = $PYENV_ROOT.'/versions/2.7.12/bin/python'
 let g:python3_host_prog = $PYENV_ROOT.'/versions/3.5.2/bin/python'
 let g:ycm_server_python_interpreter = $PYENV_ROOT.'/versions/3.5.2/bin/python'
+
+" === Startify ===
+let g:startify_session_dir = '~/.config/nvim/session'
