@@ -152,6 +152,10 @@ alias install="_ apt-get install"
 alias search="_ apt-cache search"
 alias purge="_ apt-get purge"
 
+# Brew
+alias bu="brew update --verbose"
+alias bubu="bu && brew upgrade --verbose"
+
 # Zsh
 alias sz="source ~/.zshrc"
 alias zlt="/usr/bin/time zsh -i -c exit"
