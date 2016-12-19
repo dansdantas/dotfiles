@@ -28,6 +28,8 @@ zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}"
 # Binding keys
 bindkey '\eOA' history-substring-search-up
 bindkey '\eOB' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
@@ -202,8 +204,8 @@ alias nvimrc="$EDITOR $HOME/.config/nvim/init.vim"
 
 # Projects
 alias dot="$DOT"
-alias work="$HOME/.worklate"
-alias dnm="$HOME/Projects/personal/denisa-metrics"
+alias work="$HOME/Projects/personal"
+alias dnm="$HOME/Projects/personal/apps/denisa-metrics"
 
 # Algorich
 ALGORICH="$HOME/Projects/algorich"
