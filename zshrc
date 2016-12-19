@@ -153,8 +153,12 @@ alias search="_ apt-cache search"
 alias purge="_ apt-get purge"
 
 # Brew
-alias bu="brew update --verbose"
-alias bubu="bu && brew upgrade --verbose"
+alias b="brew"
+alias bi="b install"
+alias bu="b update --verbose"
+alias bubu="bu && b upgrade --verbose"
+alias bl="b list"
+alias bc="b cleanup"
 
 # Zsh
 alias sz="source ~/.zshrc"
