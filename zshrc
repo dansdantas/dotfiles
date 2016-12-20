@@ -102,7 +102,7 @@ source $ZPLUG_HOME/init.zsh
 export NVM_LAZY_LOAD=true
 
 # Plugins
-zplug "zplug/zplug"
+# zplug "zplug/zplug"
 zplug "djui/alias-tips"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
@@ -111,16 +111,15 @@ zplug "hlissner/zsh-autopair", defer:2
 zplug "lukechilds/zsh-nvm"
 zplug "wbinglee/zsh-wakatime"
 zplug 'dracula/zsh', as:theme
-zplug "plugins/git", from:oh-my-zsh, as:plugin
-zplug "plugins/rails", from:oh-my-zsh, as:plugin
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/rails", from:oh-my-zsh
 
 # Check if everything is installed
 if ! zplug check; then
   zplug install
 fi
 
-# Load - workaround
-zplug load >/dev/null
+zplug load
 
 # -------------------------------------------------------------------
 # Alias
