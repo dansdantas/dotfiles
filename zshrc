@@ -56,8 +56,9 @@ export PATH="$PATH:$HOME/.android/sdk/tools"
 export PATH="$PATH:$HOME/.android/sdk/platform-tools"
 
 # Java 
-export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
-export PATH=$JAVA_HOME/bin:$PATH
+export JAVA_HOME="/usr/lib/jvm/java-9-openjdk-amd64"
+export JRE_HOME="$JAVA_HOME/jre"
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 export PATH JAVA_HOME
 export CLASSPATH=$JAVA_HOME/lib/tools.jar
 export CLASSPATH=.:$CLASSPATH
@@ -212,9 +213,9 @@ alias npad="$ALGORICH/na-praia-admin"
 alias npas="$ALGORICH/na-praia-app-seller"
 alias npa="$ALGORICH/na-praia-app"
 alias gal="$ALGORICH/galcorr"
-alias sv="$HOME/Projects/algorich/safeverse"
-alias svt="$HOME/Projects/algorich/safeverse-site"
-alias delphos="$HOME/Projects/algorich/delphos-map"
+alias sv="$ALGORICH/safeverse"
+alias svt="$ALGORICH/safeverse-site"
+alias delphos="$ALGORICH/delphos-map"
 
 # Tocanet
 TOCA="$HOME/Projects/tocanet"
