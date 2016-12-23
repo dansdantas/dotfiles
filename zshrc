@@ -127,7 +127,7 @@ zplug load
 # Alias
 # -------------------------------------------------------------------
 
-alias fa='alias | ag'
+alias fa='alias | fzf-tmux'
 alias strem="sh $HOME/.strem/Stremio.sh"
 alias sudo="nocorrect sudo"
 alias _="sudo"
