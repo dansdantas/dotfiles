@@ -104,6 +104,7 @@ export NVM_LAZY_LOAD=true
 
 # Plugins
 # zplug "zplug/zplug"
+# zplug "Valiev/almostontop"
 zplug "djui/alias-tips"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
@@ -111,7 +112,7 @@ zplug "zsh-users/zsh-completions"
 zplug "hlissner/zsh-autopair", defer:2
 zplug "lukechilds/zsh-nvm"
 zplug "wbinglee/zsh-wakatime"
-zplug 'dracula/zsh', as:theme
+zplug "dracula/zsh", as:theme
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/rails", from:oh-my-zsh
 
