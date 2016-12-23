@@ -158,8 +158,10 @@ alias purge="_ apt-get purge"
 # Brew
 alias b="brew"
 alias bi="b install"
-alias bu="b update --verbose"
-alias bubu="bu && b upgrade --verbose"
+alias bu="b uninstall"
+alias bup="b update --verbose"
+alias bupg="b upgrade --verbose"
+alias bubu="bup && bupg"
 alias bl="b list"
 alias bc="b cleanup"
 
