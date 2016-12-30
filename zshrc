@@ -94,36 +94,6 @@ export ZPLUG_CACHE_DIR="$BREWPATH/var/zplug/.cache"
 export ZPLUG_REPOS="$BREWPATH/var/zplug/repos"
 
 # -------------------------------------------------------------------
-# Zplug configurations
-# -------------------------------------------------------------------
-
-source $ZPLUG_HOME/init.zsh
-
-# Enable lazy load for nvm plugin
-export NVM_LAZY_LOAD=true
-
-# Plugins
-# zplug "zplug/zplug"
-# zplug "Valiev/almostontop"
-zplug "djui/alias-tips"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-completions"
-zplug "hlissner/zsh-autopair", defer:2
-zplug "lukechilds/zsh-nvm"
-zplug "wbinglee/zsh-wakatime"
-zplug "dracula/zsh", as:theme
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/rails", from:oh-my-zsh
-
-# Check if everything is installed
-if ! zplug check; then
-  zplug install
-fi
-
-zplug load
-
-# -------------------------------------------------------------------
 # Alias
 # -------------------------------------------------------------------
 
@@ -242,6 +212,46 @@ man() {
 }
 
 # -------------------------------------------------------------------
+# Zplug
+# -------------------------------------------------------------------
+
+source $ZPLUG_HOME/init.zsh
+
+# Enable lazy load for nvm plugin
+export NVM_LAZY_LOAD=true
+
+# Plugins
+zplug "djui/alias-tips"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-history-substring-search", defer:3
+zplug "zsh-users/zsh-completions"
+zplug "hlissner/zsh-autopair", defer:1
+zplug "hcgraf/zsh-sudo"
+zplug "lukechilds/zsh-nvm"
+
+## Productivity
+zplug "wbinglee/zsh-wakatime"
+
+## Theme
+zplug "dracula/zsh", as:theme
+
+## Oh My Zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/rails", from:oh-my-zsh
+
+# Test area
+# zplug "zplug/zplug"
+# zplug "Valiev/almostontop"
+# zplug "caarlos0/zsh-pg"
+
+# Check if everything is installed
+if ! zplug check; then
+  zplug install
+fi
+
+zplug load
+
+# -------------------------------------------------------------------
 # Missing time
 # -------------------------------------------------------------------
 #
@@ -249,6 +259,10 @@ man() {
 # zplug "themes/nebirhos", from:oh-my-zsh, as:theme
 # zplug "halfo/lambda-mod-zsh-theme", as:theme
 # zplug "themes/amuse", from:oh-my-zsh, as:theme
+# zplug "russjohnson/angry-fly-zsh", as:theme
+# zplug "Huvik/Cloudy", as:theme
+# zplug "cusxio/delta-prompt", as:theme
+# zplug "shvenkat/zsh-theme-dexter", as:theme
 
 # Issue
 # zplug "zsh-users/zsh-autosuggestions"
