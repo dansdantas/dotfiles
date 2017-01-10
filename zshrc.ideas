@@ -1,0 +1,69 @@
+# Test area
+# zplug "zplug/zplug"
+# zplug "Valiev/almostontop"
+# zplug "caarlos0/zsh-pg"
+
+# -------------------------------------------------------------------
+# Missing time
+# -------------------------------------------------------------------
+#
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+# zplug "themes/nebirhos", from:oh-my-zsh, as:theme
+# zplug "halfo/lambda-mod-zsh-theme", as:theme
+# zplug "themes/amuse", from:oh-my-zsh, as:theme
+# zplug "russjohnson/angry-fly-zsh", as:theme
+# zplug "Huvik/Cloudy", as:theme
+# zplug "cusxio/delta-prompt", as:theme
+# zplug "shvenkat/zsh-theme-dexter", as:theme, use:"*.zsh"
+# zplug "samfeder/feder.zsh-theme"
+# zplug "chauncey-garrett/zsh-prompt-garrett", use:"prompt_garrent_setup", as:theme
+# zplug "frmendes/geometry", as:theme, use:"*.zsh"
+# zplug "tylerreckart/hyperzsh", as:theme
+# zplug "mafredri/zsh-async", from:github, defer:0 # Async for zsh, used by pure
+# zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+
+# Issue
+# zplug "zsh-users/zsh-autosuggestions"
+# plugins=(bundler rake ruby gem)
+
+
+# precmd() {
+#   if [[ -n $PYENV_SHELL ]]; then
+#     local version
+#     version=${(@)$(pyenv version)[1]}
+#     if [[ $version = system ]]; then
+#       PROMPT="%(?.%F{magenta}.%F{red})❯%f "
+#     else
+#       PROMPT="(pyenv $version) %(?.%F{magenta}.%F{red})❯%f "
+#     fi
+#   fi
+# }
+
+# zplug "modules/history",    from:prezto
+# zplug "modules/utility",    from:prezto
+# zplug "modules/ruby",       from:prezto
+# zplug "modules/ssh",        from:prezto
+# zplug "modules/terminal",   from:prezto
+# zplug "modules/directory",  from:prezto
+# zplug "modules/completion", from:prezto
+
+# zstyle ':prezto:module:terminal' auto-title 'yes'
+# zstyle ':prezto:module:terminal:window-title' format '%n@%M: %s'
+# zstyle ':prezto:module:terminal:tab-title' format '%s'
+
+# zstyle ':prezto:module:utility:ls' color 'yes'
+# zstyle ':prezto:module:utility:diff' color 'yes'
+# zstyle ':prezto:module:utility:wdiff' color 'yes'
+# zstyle ':prezto:module:utility:make' color 'yes'
+
+# zplug "zsh-users/zsh-completions"
+# zplug "zsh-users/zsh-history-substring-search"
+# zplug "zsh-users/zsh-syntax-highlighting", nice:10
+# zplug "tarruda/zsh-autosuggestions"
+
+# if ! zplug check --verbose; then
+#     printf "Install? [y/N]: "
+#     if read -q; then
+#         echo; zplug install
+#     fi
+# fi
