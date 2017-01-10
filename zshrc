@@ -222,15 +222,15 @@ export NVM_LAZY_LOAD=true
 
 # Plugins
 zplug "djui/alias-tips"
+zplug "hlissner/zsh-autopair", defer:1
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:3
 zplug "zsh-users/zsh-completions"
-zplug "hlissner/zsh-autopair", defer:1
-zplug "hcgraf/zsh-sudo"
 zplug "lukechilds/zsh-nvm"
 
 ## Productivity
 zplug "wbinglee/zsh-wakatime"
+zplug "oldratlee/hacker-quotes"
 
 ## Theme
 zplug "dracula/zsh", as:theme
@@ -239,73 +239,9 @@ zplug "dracula/zsh", as:theme
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/rails", from:oh-my-zsh
 
-# Test area
-# zplug "zplug/zplug"
-# zplug "Valiev/almostontop"
-# zplug "caarlos0/zsh-pg"
-
 # Check if everything is installed
 if ! zplug check; then
   zplug install
 fi
 
 zplug load
-
-# -------------------------------------------------------------------
-# Missing time
-# -------------------------------------------------------------------
-#
-# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-# zplug "themes/nebirhos", from:oh-my-zsh, as:theme
-# zplug "halfo/lambda-mod-zsh-theme", as:theme
-# zplug "themes/amuse", from:oh-my-zsh, as:theme
-# zplug "russjohnson/angry-fly-zsh", as:theme
-# zplug "Huvik/Cloudy", as:theme
-# zplug "cusxio/delta-prompt", as:theme
-# zplug "shvenkat/zsh-theme-dexter", as:theme
-
-# Issue
-# zplug "zsh-users/zsh-autosuggestions"
-# plugins=(bundler rake ruby gem)
-
-
-# precmd() {
-#   if [[ -n $PYENV_SHELL ]]; then
-#     local version
-#     version=${(@)$(pyenv version)[1]}
-#     if [[ $version = system ]]; then
-#       PROMPT="%(?.%F{magenta}.%F{red})❯%f "
-#     else
-#       PROMPT="(pyenv $version) %(?.%F{magenta}.%F{red})❯%f "
-#     fi
-#   fi
-# }
-
-# zplug "modules/history",    from:prezto
-# zplug "modules/utility",    from:prezto
-# zplug "modules/ruby",       from:prezto
-# zplug "modules/ssh",        from:prezto
-# zplug "modules/terminal",   from:prezto
-# zplug "modules/directory",  from:prezto
-# zplug "modules/completion", from:prezto
-
-# zstyle ':prezto:module:terminal' auto-title 'yes'
-# zstyle ':prezto:module:terminal:window-title' format '%n@%M: %s'
-# zstyle ':prezto:module:terminal:tab-title' format '%s'
-
-# zstyle ':prezto:module:utility:ls' color 'yes'
-# zstyle ':prezto:module:utility:diff' color 'yes'
-# zstyle ':prezto:module:utility:wdiff' color 'yes'
-# zstyle ':prezto:module:utility:make' color 'yes'
-
-# zplug "zsh-users/zsh-completions"
-# zplug "zsh-users/zsh-history-substring-search"
-# zplug "zsh-users/zsh-syntax-highlighting", nice:10
-# zplug "tarruda/zsh-autosuggestions"
-
-# if ! zplug check --verbose; then
-#     printf "Install? [y/N]: "
-#     if read -q; then
-#         echo; zplug install
-#     fi
-# fi
