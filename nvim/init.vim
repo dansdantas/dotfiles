@@ -20,6 +20,7 @@ Plug 'wakatime/vim-wakatime'
 
 " Motion
 Plug 'easymotion/vim-easymotion'
+Plug 'wellle/targets.vim'
 
 " Completion
 Plug 'Valloric/YouCompleteMe'
@@ -212,3 +213,4 @@ let g:ycm_server_python_interpreter = $PYENV_ROOT.'/versions/3.5.2/bin/python'
 
 " === Startify ===
 let g:startify_session_dir = '~/.config/nvim/session'
+let g:ruby_path = system('echo $RBENV_ROOT/shims')
