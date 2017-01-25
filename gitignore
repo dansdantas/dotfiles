@@ -17,3 +17,4 @@ tmp/**/*
 .rbenv-gemsets
 .tern-project
 .nvmrc
+vendor/assets/bower_components

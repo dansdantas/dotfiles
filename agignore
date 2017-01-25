@@ -27,3 +27,4 @@ tags
 tmp/**/*
 !tmp/cache/.keep
 *.pyc
+vendor/assets/bower_components
