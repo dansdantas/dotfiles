@@ -16,5 +16,6 @@ tmp/**/*
 .ruby-gemset
 .rbenv-gemsets
 .tern-project
+.python-version
 .nvmrc
 vendor/assets/bower_components
