@@ -134,6 +134,7 @@ alias bupg="b upgrade --verbose"
 alias bubu="bup && bupg"
 alias bl="b list"
 alias bc="b cleanup"
+alias bd="b doctor"
 
 # Zsh
 alias sz="source ~/.zshrc"
