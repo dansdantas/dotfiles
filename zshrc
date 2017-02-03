@@ -190,6 +190,8 @@ alias gal="$ALGORICH/galcorr"
 alias sv="$ALGORICH/safeverse"
 alias svt="$ALGORICH/safeverse-site"
 alias delphos="$ALGORICH/delphos-map"
+alias front="$ALGORICH/frontify"
+alias compb="$ALGORICH/components-builder"
 
 # Tocanet
 TOCA="$HOME/Projects/tocanet"
