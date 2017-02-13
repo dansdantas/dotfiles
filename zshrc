@@ -171,6 +171,13 @@ alias tmux-kill-all="tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, 
 # Gem
 gi() { gem install $@; rbenv rehash; rehash }
 
+# Heroku
+alias hrc="heroku run bundle exec rails c"
+alias hrdm="heroku run bundle exec rake db:migrate"
+alias hrds="heroku run bundle exec rake db:seed"
+alias hrdsl="heroku run bundle exec rake db:schema:load"
+alias hl="heroku logs -t"
+
 # Config shortcuts
 alias zshrc="$EDITOR $HOME/.zshrc"
 alias tmuxconf= "$EDITOR $HOME/.tmux.conf"
