@@ -205,6 +205,9 @@ TOCA="$HOME/Projects/tocanet"
 alias dn="$TOCA/denisa"
 alias osj="$TOCA/osj"
 
+# Helper
+alias tog='toggl'
+
 # -------------------------------------------------------------------
 # Man
 # -------------------------------------------------------------------
