@@ -59,6 +59,7 @@ Plug 'morhetz/gruvbox'
 Plug 'tomasr/molokai'
 Plug 'sickill/vim-monokai'
 Plug 'MaxSt/FlatColor'
+Plug 'trusktr/seti.vim'
 
 " Rails section
 Plug 'tpope/vim-bundler'
@@ -86,7 +87,6 @@ set cc=120     " Add delimitation line on 120 character
 set splitbelow " Split below on new split
 set splitright " Split right on new split
 set autowrite  " Enable automatically :write before running commands
-set cursorline " Show line cursor mark / speed issues
 
 " === Indentation ===
 set shiftwidth=2  " Column space on identation << or >>
@@ -134,6 +134,13 @@ endfunction
 augroup BWCCreateDir
   autocmd!
   autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
+
+" === Set local cursor line ===
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
 augroup END
 
 " === Keep undo history across sessions, by storing in file ===
