@@ -183,8 +183,9 @@ nnoremap <leader>u :UndotreeToggle<CR>
 " === Save session ===
 nnoremap <leader>s :SSave<CR>
 
-" === Toggle NERDTree ===
+" === NERDTree ===
 noremap <leader>t :NERDTreeToggle<CR>
+noremap <leader>r :NERDTreeFind<CR>
 
 " === Bufonly ===
 nnoremap <C-B> <Esc>:Bufonly<Esc>
