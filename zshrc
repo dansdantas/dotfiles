@@ -197,6 +197,7 @@ alias gal="$ALGORICH/galcorr"
 alias sv="$ALGORICH/safeverse"
 alias svt="$ALGORICH/safeverse-site"
 alias delphos="$ALGORICH/delphos-map"
+alias dental="$ALGORICH/dental-norte"
 alias front="$ALGORICH/frontify"
 alias compb="$ALGORICH/components-builder"
 
