@@ -60,6 +60,7 @@ Plug 'tomasr/molokai'
 Plug 'sickill/vim-monokai'
 Plug 'MaxSt/FlatColor'
 Plug 'trusktr/seti.vim'
+Plug 'ayu-theme/ayu-vim'
 
 " Rails section
 Plug 'tpope/vim-bundler'
@@ -137,11 +138,11 @@ augroup BWCCreateDir
 augroup END
 
 " === Set local cursor line ===
-augroup CursorLine
-  au!
-  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-  au WinLeave * setlocal nocursorline
-augroup END
+" augroup CursorLine
+"   au!
+"   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+"   au WinLeave * setlocal nocursorline
+" augroup END
 
 " === Keep undo history across sessions, by storing in file ===
 call system('mkdir -p ~/.config/nvim/undo')
