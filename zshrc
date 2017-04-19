@@ -245,9 +245,6 @@ zplug "zsh-users/zsh-history-substring-search", defer:3
 zplug "zsh-users/zsh-completions"
 zplug "lukechilds/zsh-nvm"
 
-## Productivity
-zplug "wbinglee/zsh-wakatime"
-
 ## Theme
 zplug "dracula/zsh", as:theme
 
