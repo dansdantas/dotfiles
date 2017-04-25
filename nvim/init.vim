@@ -79,16 +79,16 @@ call plug#end()
 " -------------------------------------------------------------------
 
 " === Leader ===
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 
 " === Config ===
-set showcmd    " Show incomplete commands
-set showmatch  " Show matcher when above cursor
-set number     " Show line number
-set cc=120     " Add delimitation line on 120 character
-set splitbelow " Split below on new split
-set splitright " Split right on new split
-set autowrite  " Enable automatically :write before running commands
+set showcmd         " Show incomplete commands
+set showmatch       " Show matcher when above cursor
+set number          " Show line number
+set colorcolumn=120 " Add delimitation line on 120 character
+set splitbelow      " Split below on new split
+set splitright      " Split right on new split
+set autowrite       " Enable automatically :write before running commands
 
 " === Indentation ===
 set shiftwidth=2  " Column space on identation << or >>
@@ -101,7 +101,7 @@ set shiftround    " Calculate shiftwidth based on line start
 " === Colors configuration ===
 set termguicolors   " Enable true color
 set background=dark " Force dark background
-colorscheme onedark " Set colorscheme
+colorscheme ayu     " Set colorscheme
 
 " === Turn off swap files ===
 set noswapfile    " Disable create of swap file
@@ -114,7 +114,7 @@ set sidescrolloff=15
 set sidescroll=1
 
 " === Search ===
-set nohls      " Do not highlight searches by default
+set nohlsearch " Do not highlight searches by default
 set ignorecase " Ignore case when searching...
 set smartcase  " ...unless we type a capital
 
