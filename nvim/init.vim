@@ -61,6 +61,7 @@ Plug 'sickill/vim-monokai'
 Plug 'MaxSt/FlatColor'
 Plug 'trusktr/seti.vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'whatyouhide/vim-gotham'
 
 " Rails section
 Plug 'tpope/vim-bundler'
