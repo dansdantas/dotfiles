@@ -62,6 +62,9 @@ Plug 'MaxSt/FlatColor'
 Plug 'trusktr/seti.vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'whatyouhide/vim-gotham'
+Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'KeitaNakamura/neodark.vim'
 
 " Rails section
 Plug 'tpope/vim-bundler'
@@ -101,7 +104,7 @@ set shiftround    " Calculate shiftwidth based on line start
 " === Colors configuration ===
 set termguicolors   " Enable true color
 set background=dark " Force dark background
-colorscheme ayu     " Set colorscheme
+colorscheme onedark " Set colorscheme
 
 " === Turn off swap files ===
 set noswapfile    " Disable create of swap file
