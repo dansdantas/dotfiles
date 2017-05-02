@@ -216,6 +216,7 @@ let g:used_javascript_libs = 'jquery,underscore,angularjs,react'
 " === Airline ===
 let g:airline#extensions#tabline#enabled = 1     " Enable the list of buffers
 let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
+let g:airline_theme='base16_monokai'
 
 " === Disable git gutter maps ===
 let g:gitgutter_map_keys = 0
