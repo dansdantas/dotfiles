@@ -98,7 +98,6 @@ export ZPLUG_REPOS="$BREWPATH/var/zplug/repos"
 # -------------------------------------------------------------------
 
 alias fa='alias | fzf-tmux'
-alias strem="sh $HOME/.strem/Stremio.sh"
 alias sudo="nocorrect sudo"
 alias _="sudo"
 alias md='mkdir -p'
@@ -184,13 +183,12 @@ alias zshrc="$EDITOR $HOME/.zshrc"
 alias tmuxconf= "$EDITOR $HOME/.tmux.conf"
 alias nvimrc="$EDITOR $HOME/.config/nvim/init.vim"
 
-# Projects
-alias dot="$DOT"
-alias work="$HOME/Projects/personal"
-alias dnm="$HOME/Projects/personal/apps/denisa-metrics"
+# Paths
+WORK="$HOME/Projects/personal"
+ALGORICH="$HOME/Projects/algorich"
+TOCA="$HOME/Projects/tocanet"
 
 # Algorich
-ALGORICH="$HOME/Projects/algorich"
 alias npad="$ALGORICH/na-praia-admin"
 alias npas="$ALGORICH/na-praia-app-seller"
 alias npa="$ALGORICH/na-praia-app"
@@ -203,12 +201,15 @@ alias front="$ALGORICH/frontify"
 alias compb="$ALGORICH/components-builder"
 
 # Tocanet
-TOCA="$HOME/Projects/tocanet"
 alias dn="$TOCA/denisa"
 alias osj="$TOCA/osj"
 
 # Helper
+alias dot="$DOT"
+alias work="$WORK"
+alias strem="sh $HOME/.strem/Stremio.sh"
 alias tog='toggl'
+alias qute="$WORK/installers/qutebrowser/.venv/bin/python3 -m qutebrowser \"$@\" --enable-webengine-inspector"
 
 # -------------------------------------------------------------------
 # Man
