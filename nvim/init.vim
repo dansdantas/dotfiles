@@ -40,7 +40,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Syntax
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'tpope/vim-commentary'
 
 " Syntax color
@@ -199,6 +199,10 @@ nnoremap <leader>c :Colors<CR>
 nnoremap <leader>a :Ag
 nnoremap <leader>e :BLines<CR>
 
+" === ALE ===
+nnoremap <leader>k :ALEPrevious<CR>
+nnoremap <leader>j :ALENext<CR>
+
 " -------------------------------------------------------------------
 " Plugins configurations
 " -------------------------------------------------------------------
@@ -224,3 +228,7 @@ let g:ycm_server_python_interpreter = $PYENV_ROOT.'/versions/3.5.2/bin/python'
 " === Startify ===
 let g:startify_session_dir = '~/.config/nvim/session'
 let g:ruby_path = system('echo $RBENV_ROOT/shims')
+
+" === ALE ===
+let g:ale_sign_column_always = 1
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
