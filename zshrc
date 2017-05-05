@@ -210,6 +210,7 @@ alias work="$WORK"
 alias strem="sh $HOME/.strem/Stremio.sh"
 alias tog='toggl'
 alias qute="$WORK/installers/qutebrowser/.venv/bin/python3 -m qutebrowser \"$@\" --enable-webengine-inspector"
+alias scon="$WORK/installers/sconsify"
 
 # -------------------------------------------------------------------
 # Man
