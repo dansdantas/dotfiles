@@ -15,6 +15,7 @@
   co = checkout
   pf = push --force-with-lease
   st = status
+	ctags = !.git/hooks/ctags
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
@@ -26,3 +27,5 @@
   autosquash = true
 [include]
   path = ~/.gitconfig.local
+[init]
+	templatedir = ~/.templates/git
