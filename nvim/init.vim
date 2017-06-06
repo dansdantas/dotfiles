@@ -15,9 +15,6 @@ Plug 'schickling/vim-bufonly'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Productivity
-Plug 'wakatime/vim-wakatime'
-
 " Motion
 Plug 'easymotion/vim-easymotion'
 Plug 'wellle/targets.vim'
