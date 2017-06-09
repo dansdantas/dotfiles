@@ -39,7 +39,6 @@ Plug 'vim-airline/vim-airline-themes'
 " Syntax
 Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
 Plug 'neomake/neomake'
-" Plug 'w0rp/ale'
 
 " Color & Themes
 Plug 'sheerun/vim-polyglot'
@@ -199,9 +198,3 @@ let g:ycm_server_python_interpreter = $PYENV_ROOT.'/versions/3.5.2/bin/python'
 :  autocmd!
 :  autocmd! BufWritePost * Neomake
 :augroup END
-
-" === ALE ===
-" let g:ale_sign_column_always = 1
-" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" nnoremap <leader>k :ALEPrevious<CR>
-" nnoremap <leader>j :ALENext<CR>
