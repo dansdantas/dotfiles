@@ -5,7 +5,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " Manipulate files and buffers
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
 Plug 'henrik/vim-indexed-search'
@@ -20,13 +20,13 @@ Plug 'easymotion/vim-easymotion'
 Plug 'wellle/targets.vim'
 
 " Completion
-Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Valloric/MatchTagAlways'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-endwise'
 
 " Tree
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Layout
@@ -37,31 +37,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Syntax
-Plug 'w0rp/ale'
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
+Plug 'neomake/neomake'
+" Plug 'w0rp/ale'
 
-" Syntax color
-Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'slim-template/vim-slim'
-Plug 'ap/vim-css-color'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'vim-ruby/vim-ruby'
-Plug 'othree/javascript-libraries-syntax.vim'
-
-" Color themes
+" Color & Themes
+Plug 'sheerun/vim-polyglot'
 Plug 'joshdick/onedark.vim'
-Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'morhetz/gruvbox'
-Plug 'tomasr/molokai'
-Plug 'sickill/vim-monokai'
-Plug 'MaxSt/FlatColor'
-Plug 'trusktr/seti.vim'
-Plug 'ayu-theme/ayu-vim'
-Plug 'whatyouhide/vim-gotham'
-Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'tyrannicaltoucan/vim-deep-space'
-Plug 'KeitaNakamura/neodark.vim'
 
 " Rails section
 Plug 'tpope/vim-bundler'
@@ -123,28 +105,6 @@ iabbr pry binding.pry
 iabbr dbg debugger
 iabbr log console.log
 
-" === Handle create file without directory ===
-function s:MkNonExDir(file, buf)
-  if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
-    let dir=fnamemodify(a:file, ':h')
-    if !isdirectory(dir)
-      call mkdir(dir, 'p')
-    endif
-  endif
-endfunction
-
-augroup BWCCreateDir
-  autocmd!
-  autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
-augroup END
-
-" === Set local cursor line ===
-" augroup CursorLine
-"   au!
-"   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-"   au WinLeave * setlocal nocursorline
-" augroup END
-
 " === Keep undo history across sessions, by storing in file ===
 call system('mkdir -p ~/.config/nvim/undo')
 set undofile
@@ -179,10 +139,17 @@ noremap Y y$
 " === Remove white spaces ===
 nnoremap <Leader><BS> :%s/\s\+$//e<CR>
 
-" === Toggle gundo ===
+" -------------------------------------------------------------------
+" Plugins configurations
+" -------------------------------------------------------------------
+
+" === Gundo ===
 nnoremap <leader>u :UndotreeToggle<CR>
 
-" === Save session ===
+" === Startitfy ===
+let g:startify_session_dir = '~/.config/nvim/session'
+let g:ruby_path = system('echo $RBENV_ROOT/shims')
+let g:startify_disable_at_vimenter = 1
 nnoremap <leader>s :SSave<CR>
 
 " === NERDTree ===
@@ -193,43 +160,48 @@ noremap <leader>r :NERDTreeFind<CR>
 nnoremap <C-B> <Esc>:Bufonly<Esc>
 
 " === FZF ===
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 nnoremap <leader>o :FZF<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>c :Colors<CR>
 nnoremap <leader>a :Ag
 nnoremap <leader>e :BLines<CR>
 
-" === ALE ===
-nnoremap <leader>k :ALEPrevious<CR>
-nnoremap <leader>j :ALENext<CR>
+" === Neomake ===
+nnoremap <leader>k :lprev<CR>
+nnoremap <leader>j :lnext<CR>
 
-" -------------------------------------------------------------------
-" Plugins configurations
-" -------------------------------------------------------------------
-
-" === Syntax ===
-let g:used_javascript_libs = 'jquery,underscore,angularjs,react'
+" === Deoplete ===
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#disable_auto_complete = 1
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = ['buffer', 'tag']
+let g:deoplete#tag#cache_limit_size = 5000000
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><C-Space> deoplete#mappings#manual_complete()
 
 " === Airline ===
 let g:airline#extensions#tabline#enabled = 1     " Enable the list of buffers
 let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
 let g:airline_theme='base16_monokai'
 
-" === Disable git gutter maps ===
-let g:gitgutter_map_keys = 0
-
-" === FZF ===
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+" === Git Gutter ===
+let g:gitgutter_map_keys = 0           " Disable maps
+let g:gitgutter_sign_column_always = 1 " Always show sign column
 
 " === Python ===
 let g:python_host_prog = $PYENV_ROOT.'/versions/2.7.12/bin/python'
 let g:python3_host_prog = $PYENV_ROOT.'/versions/3.5.2/bin/python'
 let g:ycm_server_python_interpreter = $PYENV_ROOT.'/versions/3.5.2/bin/python'
 
-" === Startify ===
-let g:startify_session_dir = '~/.config/nvim/session'
-let g:ruby_path = system('echo $RBENV_ROOT/shims')
+" === Neomake ===
+:augroup neomake
+:  autocmd!
+:  autocmd! BufWritePost * Neomake
+:augroup END
 
 " === ALE ===
-let g:ale_sign_column_always = 1
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" let g:ale_sign_column_always = 1
+" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" nnoremap <leader>k :ALEPrevious<CR>
+" nnoremap <leader>j :ALENext<CR>
