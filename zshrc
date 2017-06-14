@@ -240,8 +240,7 @@ export NVM_LAZY_LOAD=true
 # Plugins
 zplug "djui/alias-tips"
 zplug "hlissner/zsh-autopair", defer:1
-# zplug "zsh-users/zsh-autosuggestions", defer:2
-zplug "zsh-users/zsh-autosuggestions", at:develop
+zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
 zplug "zsh-users/zsh-history-substring-search", defer:3
 zplug "zsh-users/zsh-completions"
