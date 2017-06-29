@@ -20,9 +20,32 @@
 " " Plug 'cakebaker/scss-syntax.vim'
 " " Plug 'vim-ruby/vim-ruby'
 " " Plug 'othree/javascript-libraries-syntax.vim'
+" " To avaliate
+" " Themes
+" Plug 'chriskempson/vim-tomorrow-theme'
+" Plug 'morhetz/gruvbox'
+" Plug 'tomasr/molokai'
+" Plug 'sickill/vim-monokai'
+" Plug 'joshdick/onedark.vim'
+" Plug 'junegunn/seoul256.vim'
+
+" " Plugins
+" Plug 'majutsushi/tagbar'
+" Plug 'xolox/vim-easytags'
+" Plug 'Shougo/neocomplete.vim'
+" Plug 'tpope/vim-sensible'
+" Plug 'wincent/command-t'
+" Plug 'elzr/vim-json'
+" Plug 'kchmck/vim-coffee-script'
+" Plug 'gregsexton/MatchTag'
+" Plug 'janko-m/vim-test'
+" Plug 'TaskList.vim'
+" Plug 'ervandew/supertab'
+" Plug 'tpope/vim-abolish'
 " Plug 'Valloric/YouCompleteMe'
 " Plug 'w0rp/ale'
 " Plug 'w0rp/ale'
+" Plug 'brooth/far.vim'
 
 " === ALE ===
 " let g:ale_sign_column_always = 1
