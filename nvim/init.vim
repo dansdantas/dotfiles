@@ -37,8 +37,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Syntax
-Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
-Plug 'neomake/neomake'
+Plug 'tpope/vim-commentary'
+Plug 'w0rp/ale'
 
 " Color & Themes
 Plug 'sheerun/vim-polyglot'
@@ -90,8 +90,8 @@ set nobackup      " Disable backup
 set nowritebackup " Disable backup before write
 
 " === Scrolling ===
-set scrolloff=15     " Start scrolling when we're 15 lines away from margins
-set sidescrolloff=15 
+set scrolloff=8     " Start scrolling when we're 15 lines away from margins
+set sidescrolloff=8
 set sidescroll=1
 
 " === Search ===
@@ -166,23 +166,13 @@ nnoremap <leader>c :Colors<CR>
 nnoremap <leader>a :Ag
 nnoremap <leader>e :BLines<CR>
 
-" === Neomake ===
-nnoremap <leader>k :lprev<CR>
-nnoremap <leader>j :lnext<CR>
-
 " === Deoplete ===
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#disable_auto_complete = 1
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = ['buffer', 'tag']
 let g:deoplete#tag#cache_limit_size = 5000000
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <silent><expr><C-Space> deoplete#mappings#manual_complete()
 
 " === Airline ===
-let g:airline#extensions#tabline#enabled = 1     " Enable the list of buffers
 let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
-let g:airline_theme='base16_monokai'
 
 " === Git Gutter ===
 let g:gitgutter_map_keys = 0           " Disable maps
@@ -193,8 +183,15 @@ let g:python_host_prog = $PYENV_ROOT.'/versions/2.7.12/bin/python'
 let g:python3_host_prog = $PYENV_ROOT.'/versions/3.5.2/bin/python'
 let g:ycm_server_python_interpreter = $PYENV_ROOT.'/versions/3.5.2/bin/python'
 
-" === Neomake ===
-:augroup neomake
-:  autocmd!
-:  autocmd! BufWritePost * Neomake
-:augroup END
+" === ALE ===
+let g:ale_sign_column_always = 1
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_linters = {
+\   'javascript': ['jshint'],
+\   'ruby': ['reek', 'rubocop', 'ruby']
+\}
+nnoremap <leader>k :ALEPrevious<CR>
+nnoremap <leader>j :ALENext<CR>
+nnoremap <leader>m :ALELint<CR>
