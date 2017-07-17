@@ -135,6 +135,7 @@ alias bubu="bup && bug"
 alias bl="b list"
 alias bc="b cleanup"
 alias bd="b doctor"
+alias ble="b leaves"
 
 # Zsh
 alias sz="source ~/.zshrc"
