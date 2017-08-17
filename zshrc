@@ -136,6 +136,7 @@ alias bl="b list"
 alias bc="b cleanup"
 alias bd="b doctor"
 alias ble="b leaves"
+alias bs="b search"
 
 # Zsh
 alias sz="source ~/.zshrc"
