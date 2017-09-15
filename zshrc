@@ -153,6 +153,7 @@ alias rrf="rake routes | fzf-tmux"
 # Rbenv
 alias rb='rbenv'
 alias rbg='rb gemset'
+alias rbr='rb rehash'
 
 # Zplug
 alias zu="zplug update"
@@ -201,6 +202,7 @@ alias delphos="$ALGORICH/delphos-map"
 alias dental="$ALGORICH/dental-norte"
 alias front="$ALGORICH/frontify"
 alias compb="$ALGORICH/components-builder"
+alias mil="$ALGORICH/milenio"
 
 # Tocanet
 alias dn="$TOCA/denisa"
@@ -265,3 +267,5 @@ zplug load
 # Bindkeys
 bindkey '^ ' autosuggest-accept
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
+
+alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
