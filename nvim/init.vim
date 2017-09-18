@@ -112,21 +112,34 @@ nnoremap <leader>x :x!<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>z :qa<cr>
 
-" === Tab movements ===
-nnoremap <leader>h :tabprevious<cr>
-nnoremap <leader>l :tabnext<cr>
+" === Tab & Buffer movements ===
+nnoremap <leader>H :tabprevious<cr>
+nnoremap <leader>L :tabnext<cr>
+nnoremap <leader>; :bd!<cr>
+nnoremap <leader>h :bprev<cr>
+nnoremap <leader>l :bnext<cr>
+nnoremap <leader>t :enew<cr>
 
-" === Split movements ===
+" === Split ===
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" === Moviments ===
+nnoremap ;; $
+nnoremap , `
+nnoremap B ^
+nnoremap E $
 
 " === Clipboard ===
 nnoremap <leader>p "+p
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 noremap Y y$
+
+" === Buffers ===
+nnoremap <C-B> :%bd!<CR>
 
 " === Remove white spaces ===
 nnoremap <Leader><BS> :%s/\s\+$//e<CR>
