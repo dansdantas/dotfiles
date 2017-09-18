@@ -36,11 +36,6 @@ Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'joshdick/onedark.vim'
 
-" Rails section
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
-
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
