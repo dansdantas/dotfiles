@@ -21,19 +21,12 @@ Plug 'wellle/targets.vim'
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Valloric/MatchTagAlways'
-Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-endwise'
+Plug 'jiangmiao/auto-pairs'
 
-" Tree
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" Layout
-Plug 'mhinz/vim-startify'
-
-" Status
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Layout && Status
+Plug 'mhinz/vim-startify', { 'on': ['SSave', 'SLoad', 'Startitfy'] }
+Plug 'itchyny/lightline.vim'
 
 " Syntax
 Plug 'tpope/vim-commentary'
@@ -161,14 +154,20 @@ nnoremap <leader>e :BLines<CR>
 " === Deoplete ===
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#tag#cache_limit_size = 5000000
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" === Airline ===
-let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
+" === StatusLine ===
+let g:lightline = {
+  \ 'colorscheme': 'one',
+  \ 'active': {
+    \ 'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ]
+  \ }
+\ }
 
 " === Git Gutter ===
-let g:gitgutter_map_keys = 0           " Disable maps
-let g:gitgutter_sign_column_always = 1 " Always show sign column
+let g:gitgutter_map_keys = 0 " Disable maps
+set signcolumn=yes
 
 " === Python ===
 let g:python_host_prog = $PYENV_ROOT.'/versions/2.7.12/bin/python'
