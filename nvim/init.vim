@@ -57,6 +57,7 @@ set colorcolumn=120 " Add delimitation line on 120 character
 set splitbelow      " Split below on new split
 set splitright      " Split right on new split
 set autowrite       " Enable automatically :write before running commands
+set hidden
 
 " === Indentation ===
 set shiftwidth=2  " Column space on identation << or >>
