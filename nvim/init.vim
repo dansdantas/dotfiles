@@ -7,13 +7,12 @@ call plug#begin('~/.config/nvim/plugged')
 " Manipulate files and buffers
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-eunuch'
 Plug 'henrik/vim-indexed-search'
-Plug 'schickling/vim-bufonly'
 
 " Search files
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'francoiscabrol/ranger.vim', { 'on': 'Ranger' }
 
 " Motion
 Plug 'easymotion/vim-easymotion'
@@ -151,13 +150,6 @@ let g:ruby_path = system('echo $RBENV_ROOT/shims')
 let g:startify_disable_at_vimenter = 1
 nnoremap <leader>s :SSave<CR>
 
-" === NERDTree ===
-noremap <leader>t :NERDTreeToggle<CR>
-noremap <leader>r :NERDTreeFind<CR>
-
-" === Bufonly ===
-nnoremap <C-B> <Esc>:Bufonly<Esc>
-
 " === FZF ===
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 nnoremap <leader>o :FZF<CR>
@@ -195,3 +187,7 @@ let g:ale_linters = {
 nnoremap <leader>k :ALEPrevious<CR>
 nnoremap <leader>j :ALENext<CR>
 nnoremap <leader>m :ALELint<CR>
+
+" === Ranger ===
+let g:ranger_map_keys = 0
+map <leader>f :Ranger<CR>
