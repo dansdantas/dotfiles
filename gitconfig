@@ -29,3 +29,5 @@
   path = ~/.gitconfig.local
 [init]
 	templatedir = ~/.templates/git
+[http]
+	postBuffer = 524288000
