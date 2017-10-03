@@ -203,6 +203,8 @@ alias dental="$ALGORICH/dental-norte"
 alias front="$ALGORICH/frontify"
 alias compb="$ALGORICH/components-builder"
 alias mil="$ALGORICH/milenio"
+alias fb="$ALGORICH/fittibank"
+alias fbs="$ALGORICH/fittibank-seguros"
 
 # Tocanet
 alias dn="$TOCA/denisa"
