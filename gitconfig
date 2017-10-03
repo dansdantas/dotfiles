@@ -16,6 +16,7 @@
   pf = push --force-with-lease
   st = status
 	ctags = !.git/hooks/ctags
+	draw = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
