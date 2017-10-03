@@ -161,9 +161,10 @@ nnoremap <leader>s :SSave<CR>
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 nnoremap <leader>o :FZF<CR>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>c :Colors<CR>
+nnoremap <leader>c :Commits<CR>
 nnoremap <leader>a :Ag
 nnoremap <leader>e :BLines<CR>
+nnoremap <leader>i :Commands<CR>
 
 " === Deoplete ===
 let g:deoplete#enable_at_startup = 1
