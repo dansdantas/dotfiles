@@ -35,6 +35,7 @@ Plug 'w0rp/ale'
 " Color & Themes
 Plug 'sheerun/vim-polyglot'
 Plug 'joshdick/onedark.vim'
+Plug 'posva/vim-vue'
 
 " Git
 Plug 'tpope/vim-fugitive'
