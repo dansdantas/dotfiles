@@ -199,7 +199,9 @@ let g:ale_linters = {
 \   'ruby': ['reek', 'rubocop', 'ruby']
 \}
 nnoremap <leader>k :ALEPrevious<CR>
+nnoremap <leader>K :ALEPreviousWrap<CR>
 nnoremap <leader>j :ALENext<CR>
+nnoremap <leader>J :ALENextWrap<CR>
 nnoremap <leader>m :ALELint<CR>
 
 " === Ranger ===
