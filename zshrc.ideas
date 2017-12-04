@@ -67,3 +67,5 @@
 #         echo; zplug install
 #     fi
 # fi
+
+# export FZF_DEFAULT_COMMAND='command rg --files --no-ignore --hidden --follow --glob "!.git/*"'
