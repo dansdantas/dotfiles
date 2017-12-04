@@ -25,14 +25,6 @@ setopt share_history          # share command history data
 zstyle ":completion:*" show-ambiguity "$color[fg-red]"
 zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}"
 
-# Binding keys
-bindkey '\eOA' history-substring-search-up
-bindkey '\eOB' history-substring-search-down
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-
 # -------------------------------------------------------------------
 # General
 # -------------------------------------------------------------------
@@ -102,6 +94,7 @@ alias sudo="nocorrect sudo"
 alias _="sudo"
 alias md='mkdir -p'
 alias rd=rmdir
+alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 
 # Space
 alias df="df -H"
@@ -242,6 +235,7 @@ source $ZPLUG_HOME/init.zsh
 
 # Enable lazy load for nvm plugin
 export NVM_LAZY_LOAD=true
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
 
 # Plugins
 zplug "djui/alias-tips"
@@ -266,8 +260,11 @@ fi
 
 zplug load
 
-# Bindkeys
+# Binding keys
 bindkey '^ ' autosuggest-accept
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
-
-alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+bindkey '\eOA' history-substring-search-up
+bindkey '\eOB' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
