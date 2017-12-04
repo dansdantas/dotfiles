@@ -35,7 +35,8 @@ Plug 'w0rp/ale'
 " Color & Themes
 Plug 'sheerun/vim-polyglot'
 Plug 'joshdick/onedark.vim'
-Plug 'posva/vim-vue'
+Plug 'rakr/vim-one'
+" Plug 'posva/vim-vue'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -71,7 +72,8 @@ set shiftround    " Calculate shiftwidth based on line start
 " === Colors configuration ===
 set termguicolors   " Enable true color
 set background=dark " Force dark background
-colorscheme onedark " Set colorscheme
+let g:one_allow_italics = 1 " Italics on one theme
+colorscheme one " Set colorscheme
 
 " === Turn off swap files ===
 set noswapfile    " Disable create of swap file
@@ -157,6 +159,7 @@ let g:startify_session_dir = '~/.config/nvim/session'
 let g:ruby_path = system('echo $RBENV_ROOT/shims')
 let g:startify_disable_at_vimenter = 1
 nnoremap <leader>s :SSave<CR>
+nnoremap <leader>S :SLoad<space>
 
 " === FZF ===
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
@@ -175,7 +178,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " === StatusLine ===
 let g:lightline = {
-  \ 'colorscheme': 'one',
+  \ 'colorscheme': 'onedark',
   \ 'active': {
     \ 'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ]
   \ }
