@@ -13,6 +13,7 @@ Plug 'henrik/vim-indexed-search'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'francoiscabrol/ranger.vim', { 'on': 'Ranger' }
+Plug 'rbgrouleff/bclose.vim'
 
 " Motion
 Plug 'easymotion/vim-easymotion'
