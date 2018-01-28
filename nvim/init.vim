@@ -30,7 +30,7 @@ Plug 'mhinz/vim-startify', { 'on': ['SSave', 'SLoad', 'Startitfy'] }
 Plug 'itchyny/lightline.vim'
 
 " Syntax
-Plug 'tpope/vim-commentary'
+Plug 'tomtom/tcomment_vim'
 Plug 'w0rp/ale'
 
 " Color & Themes
