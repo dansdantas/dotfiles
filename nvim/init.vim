@@ -47,8 +47,10 @@ Plug 'rakr/vim-one'
 Plug 'crusoexia/vim-monokai'
 
 " Git
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tommcdo/vim-fubitive'
 
 call plug#end()
 
