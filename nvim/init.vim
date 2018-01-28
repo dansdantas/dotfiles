@@ -200,7 +200,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_linters = {
-\   'javascript': ['jshint'],
+\   'javascript': ['jshint', 'eslint'],
 \   'ruby': ['reek', 'rubocop', 'ruby']
 \}
 nnoremap <leader>k :ALEPrevious<CR>
