@@ -33,11 +33,18 @@ Plug 'itchyny/lightline.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'w0rp/ale'
 
+" Highlighting
+Plug 'pangloss/vim-javascript'
+Plug 'posva/vim-vue'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'digitaltoad/vim-pug'
+Plug 'slim-template/vim-slim'
+
 " Color & Themes
-Plug 'sheerun/vim-polyglot'
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
-" Plug 'posva/vim-vue'
+Plug 'crusoexia/vim-monokai'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -212,3 +219,7 @@ nnoremap <leader>m :ALELint<CR>
 " === Ranger ===
 let g:ranger_map_keys = 0
 map <leader>f :Ranger<CR>
+
+" === Vue ===
+autocmd FileType vue syntax sync fromstart
+let g:used_javascript_libs = 'underscore,vue,jquery'
