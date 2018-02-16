@@ -35,9 +35,6 @@ zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}"
 export TERM=screen-256color 
 export EDITOR=nvim
 export DOT="$HOME/.dotfiles"
-
-# Fzf 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_COMMAND=$([ -z "$TMUX" ] && echo "fzf" || echo "fzf-tmux")
 
 # Heroku Toolbelt
@@ -277,12 +274,21 @@ antigen theme dracula/zsh
 # Tell Antigen that you're done.
 antigen apply
 
+# -------------------------------------------------------------------
+# After load plugins
+# -------------------------------------------------------------------
+
+# Fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Binding keys
-bindkey '^ ' autosuggest-accept
+bindkey '^@' autosuggest-accept
 bindkey '\eOA' history-substring-search-up
 bindkey '\eOB' history-substring-search-down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
+# Configuration for highlight style
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
