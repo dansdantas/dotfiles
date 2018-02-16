@@ -81,7 +81,7 @@ eval "$(rbenv init -)"
 
 # PyEnv
 export PYENV_ROOT="$BREWPATH/var/pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PATH:$PYENV_ROOT/bin"
 eval "$(pyenv init -)"
 
 # Go
@@ -108,6 +108,7 @@ alias _="sudo"
 alias md='mkdir -p'
 alias rd=rmdir
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+alias weather='curl wttr.in/campos_dos_goitacazes'
 
 # Space
 alias df="df -H"
@@ -167,6 +168,7 @@ alias zpc="zplug clean && zplug clear && sz"
 
 # Git
 alias glog="git log --graph --oneline --decorate --date-order --color --boundary"
+eval "$(hub alias -s)"
 
 # Nvim
 alias nv='nvim'
