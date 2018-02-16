@@ -189,9 +189,9 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " === StatusLine ===
 let g:lightline = {
   \ 'colorscheme': 'onedark',
-  \ 'active': {
-    \ 'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ]
-  \ }
+  \ 'inactive': {
+  \   'left': [ [ 'relativepath', 'modified' ] ]
+  \ },
 \ }
 
 " === Git Gutter ===
@@ -210,7 +210,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_linters = {
 \   'javascript': ['jshint', 'eslint'],
-\   'ruby': ['reek', 'rubocop', 'ruby']
+\   'ruby': ['reek', 'rubocop', 'ruby', 'rails_best_practices']
 \}
 nnoremap <leader>k :ALEPrevious<CR>
 nnoremap <leader>K :ALEPreviousWrap<CR>
