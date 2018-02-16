@@ -34,7 +34,7 @@ zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}"
 
 export TERM=screen-256color 
 export EDITOR=nvim
-export DOT="$HOME/.dotfiles"
+export DOTFILES_PATH="$HOME/.dotfiles"
 export FZF_COMMAND=$([ -z "$TMUX" ] && echo "fzf" || echo "fzf-tmux")
 
 # Heroku Toolbelt
@@ -192,37 +192,41 @@ alias zshrc="$EDITOR $HOME/.zshrc"
 alias tmuxconf= "$EDITOR $HOME/.tmux.conf"
 alias nvimrc="$EDITOR $HOME/.config/nvim/init.vim"
 
-# Paths
-WORK="$HOME/Projects/personal"
-ALGORICH="$HOME/Projects/algorich"
-TOCA="$HOME/Projects/tocanet"
+# Projects
+export PERSONAL_HOME="$HOME/Projects/personal"
+export ALGORICH_HOME="$HOME/Projects/algorich"
+export TOCANET_HOME="$HOME/Projects/tocanet"
+
+# Personal
+alias central="$PERSONAL_HOME/apps/centraldasatleticas"
+alias better="$PERSONAL_HOME/apps/better-app"
 
 # Algorich
-alias npad="$ALGORICH/na-praia-admin"
-alias npas="$ALGORICH/na-praia-app-seller"
-alias npa="$ALGORICH/na-praia-app"
-alias gal="$ALGORICH/galcorr"
-alias sv="$ALGORICH/safeverse"
-alias svt="$ALGORICH/safeverse-site"
-alias delphos="$ALGORICH/delphos-map"
-alias dental="$ALGORICH/dental-norte"
-alias front="$ALGORICH/frontify"
-alias compb="$ALGORICH/components-builder"
-alias mil="$ALGORICH/milenio"
-alias fb="$ALGORICH/fittibank"
-alias fbs="$ALGORICH/fittibank-seguros"
+alias npad="$ALGORICH_HOME/na-praia-admin"
+alias npas="$ALGORICH_HOME/na-praia-app-seller"
+alias npa="$ALGORICH_HOME/na-praia-app"
+alias gal="$ALGORICH_HOME/galcorr"
+alias sv="$ALGORICH_HOME/safeverse"
+alias svt="$ALGORICH_HOME/safeverse-site"
+alias delphos="$ALGORICH_HOME/delphos-map"
+alias dental="$ALGORICH_HOME/dental-norte"
+alias front="$ALGORICH_HOME/frontify"
+alias compb="$ALGORICH_HOME/components-builder"
+alias mil="$ALGORICH_HOME/milenio"
+alias fb="$ALGORICH_HOME/fittibank"
+alias fbs="$ALGORICH_HOME/fittibank-seguros"
 
 # Tocanet
-alias dn="$TOCA/denisa"
-alias osj="$TOCA/osj"
+alias dn="$TOCANET_HOME/denisa"
+alias osj="$TOCANET_HOME/osj"
 
-# Helper
-alias dot="$DOT"
-alias work="$WORK"
-alias strem="sh $HOME/.strem/Stremio.sh"
+# Helper and apps
 alias tog='toggl'
-alias qute="$WORK/installers/qutebrowser/.venv/bin/python3 -m qutebrowser \"$@\" --enable-webengine-inspector"
-alias scon="$WORK/installers/sconsify"
+alias dot="cd $DOTFILES_PATH"
+alias work="cd $PERSONAL_HOME"
+alias strem="sh $HOME/.strem/Stremio.sh"
+alias qute="$PERSONAL_HOME/installers/qutebrowser/.venv/bin/python3 -m qutebrowser \"$@\" --enable-webengine-inspector"
+alias scon="$PERSONAL_HOME/installers/sconsify"
 
 # -------------------------------------------------------------------
 # Man
