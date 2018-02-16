@@ -35,7 +35,6 @@
 " Plug 'mhartington/oceanic-next'
 " Plug 'mkarmona/colorsbox'
 " Plug 'morhetz/gruvbox'
-" Plug 'morhetz/gruvbox'
 " Plug 'nanotech/jellybeans.vim'
 " Plug 'othree/javascript-libraries-syntax.vim'
 " Plug 'sickill/vim-monokai'
@@ -63,6 +62,21 @@
 " Plug 'xolox/vim-easytags'
 " Plug 'xolox/vim-misc'
 
+
+" === Folding ===
+" set foldmethod=indent
+" set foldlevel=1
+" set foldlevelstart=1
+
+" === Relative line numbers
+" autocmd BufLeave * set norelativenumber
+" autocmd BufLeave * set number
+" autocmd BufEnter * set relativenumber
+" autocmd InsertEnter * set norelativenumber
+" autocmd InsertEnter * set number
+" autocmd InsertLeave * set relativenumber
+
+
 " " === Set local cursor line ===
 " augroup CursorLine
 "   au!
@@ -79,3 +93,8 @@
 " === FZF ===
 " let $FZF_DEFAULT_COMMAND = 'command rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 " let $FZF_DEFAULT_OPTS="--height 100% --reverse --preview '[[ $(file --mime {}) =~ binary  ]] && echo {} is a binary file || (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -100'"
+"
+" Maps
+" Visual shifting (does not exit Visual mode)
+" vnoremap < <gv
+" vnoremap > >gv
