@@ -24,6 +24,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Valloric/MatchTagAlways'
 Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
 
 " Layout && Status
 Plug 'mhinz/vim-startify', { 'on': ['SSave', 'SLoad', 'Startitfy'] }
