@@ -298,3 +298,15 @@ bindkey "^[[1;5D" backward-word
 
 # Configuration for highlight style
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
+
+# -------------------------------------------------------------------
+# Functions
+# -------------------------------------------------------------------
+
+function gphm {
+  git push heroku ${1:-master}:master
+}
+
+function vmi {
+  $EDITOR $(ls -td db/migrate/* | head -1)
+}
