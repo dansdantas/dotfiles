@@ -162,6 +162,9 @@ nnoremap <C-B> :%bd!<CR>
 " === Remove white spaces ===
 nnoremap <Leader><BS> :%s/\s\+$//e<CR>
 
+" === Disable visual mode
+map Q <nop>
+
 " Disable arrow keys
 map <up> <nop>
 map <down> <nop>
