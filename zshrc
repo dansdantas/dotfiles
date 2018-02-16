@@ -60,6 +60,9 @@ export CLASSPATH=$JAVA_HOME/lib/tools.jar
 export CLASSPATH=.:$CLASSPATH
 export PATH JAVA_HOME CLASSPATH
 
+# Enable lazy load for nvm plugin
+export NVM_LAZY_LOAD=true
+
 # -------------------------------------------------------------------
 # Brew
 # -------------------------------------------------------------------
