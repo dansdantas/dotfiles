@@ -5,6 +5,9 @@
 # Auto cd on dir name
 setopt auto_cd
 
+# Auto complete menu
+setopt menu_complete
+
 # History file and size
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000000
