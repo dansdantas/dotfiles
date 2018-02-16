@@ -157,6 +157,11 @@ nnoremap <C-B> :%bd!<CR>
 " === Remove white spaces ===
 nnoremap <Leader><BS> :%s/\s\+$//e<CR>
 
+" Disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
 " -------------------------------------------------------------------
 " Plugins configurations
 " -------------------------------------------------------------------
