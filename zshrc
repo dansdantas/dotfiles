@@ -47,12 +47,17 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$HOME/.bootimg:$PATH"
 
 # Android Studio
+export ANDROID_HOME="$HOME/.android/sdk"
 export PATH="$PATH:$HOME/.android/android-studio/bin"
-export PATH="$PATH:$HOME/.android/sdk/tools"
-export PATH="$PATH:$HOME/.android/sdk/platform-tools"
+export PATH="$PATH:$ANDROID_HOME/tools"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+
+# Gradle
+export GRADLE_HOME="$HOME/.gradle/gradle-4.4.1"
+export PATH="$PATH:$GRADLE_HOME/bin"
 
 # Java 
-export JAVA_HOME="/usr/lib/jvm/java-9-openjdk-amd64"
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 export JRE_HOME="$JAVA_HOME/jre"
 export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 export PATH JAVA_HOME
