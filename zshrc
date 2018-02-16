@@ -97,6 +97,10 @@ export ZPLUG_HOME="$BREWPATH/opt/zplug"
 export ZPLUG_CACHE_DIR="$BREWPATH/var/zplug/.cache"
 export ZPLUG_REPOS="$BREWPATH/var/zplug/repos"
 
+# Antigen
+export ANTIGEN_HOME="$BREWPATH/share/antigen"
+export ADOTDIR="$BREWPATH/var/antigen"
+
 # -------------------------------------------------------------------
 # Alias
 # -------------------------------------------------------------------
@@ -240,37 +244,39 @@ man() {
 }
 
 # -------------------------------------------------------------------
-# Zplug
+# Antigen
 # -------------------------------------------------------------------
 
-source $ZPLUG_HOME/init.zsh
+# Load library
+source $ANTIGEN_HOME/antigen.zsh
 
-# Enable lazy load for nvm plugin
-export NVM_LAZY_LOAD=true
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
 
-# Plugins
-zplug "djui/alias-tips"
-zplug "hlissner/zsh-autopair", defer:2
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting", defer:3
-zplug "zsh-users/zsh-history-substring-search", defer:3
-zplug "zsh-users/zsh-completions"
-zplug "lukechilds/zsh-nvm"
+# Load bundles
+antigen bundles <<EOBUNDLES
+  git
+  rails
+  heroku
+  command-not-found
+  vi-mode
 
-## Theme
-zplug "dracula/zsh", as:theme
+  djui/alias-tips
+  hlissner/zsh-autopair
+  zsh-users/zsh-autosuggestions
+  zsh-users/zsh-syntax-highlighting
+  zsh-users/zsh-history-substring-search
+  zsh-users/zsh-completions
+  lukechilds/zsh-nvm
+EOBUNDLES
 
-## Oh My Zsh
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/rails", from:oh-my-zsh
+# Theme
+antigen theme dracula/zsh
+# antigen theme bhilburn/powerlevel9k powerlevel9k
 
-# Check if everything is installed
-if ! zplug check; then
-  zplug install
-fi
+# Tell Antigen that you're done.
+antigen apply
 
-zplug load
 
 # Binding keys
 bindkey '^ ' autosuggest-accept

@@ -69,3 +69,65 @@
 # fi
 
 # export FZF_DEFAULT_COMMAND='command rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+# # -------------------------------------------------------------------
+# # Zplugin
+# # -------------------------------------------------------------------
+
+# ## Added by Zplugin's installer
+# source '/home/dansdantas/.zplugin/bin/zplugin.zsh'
+# autoload -Uz _zplugin
+# (( ${+_comps} )) && _comps[zplugin]=_zplugin
+# ### End of Zplugin's installer chunk
+
+# # Plugins
+# zplugin load djui/alias-tips
+# zplugin load hlissner/zsh-autopair
+# zplugin load zsh-users/zsh-autosuggestions
+# zplugin load zsh-users/zsh-syntax-highlighting
+# zplugin load zsh-users/zsh-history-substring-search
+# zplugin load zsh-users/zsh-completions
+# zplugin load lukechilds/zsh-nvm
+# # zplugin load mfaerevaag/wd
+
+# # Theme
+# zplugin load dracula/zsh
+
+# # Oh my zsh
+# zplugin snippet OMZ::plugins/git/git.plugin.zsh
+# zplugin snippet OMZ::plugins/rails/rails.plugin.zsh
+# zplugin snippet OMZ::plugins/pip/pip.plugin.zsh
+
+# # -------------------------------------------------------------------
+# # Zplug
+# # -------------------------------------------------------------------
+
+# source $ZPLUG_HOME/init.zsh
+
+# # Enable lazy load for nvm plugin
+# export NVM_LAZY_LOAD=true
+
+# # Plugins
+# zplug "djui/alias-tips"
+# zplug "hlissner/zsh-autopair", defer:2
+# zplug "zsh-users/zsh-autosuggestions"
+# zplug "zsh-users/zsh-syntax-highlighting", defer:3
+# zplug "zsh-users/zsh-history-substring-search", defer:3
+# zplug "zsh-users/zsh-completions"
+# zplug "lukechilds/zsh-nvm"
+# # zplug "mfaerevaag/wd", as:command, use:"*.sh"
+
+# ## Theme
+# zplug "dracula/zsh", as:theme
+
+# ## Oh My Zsh
+# zplug "plugins/git", from:oh-my-zsh
+# zplug "plugins/rails", from:oh-my-zsh
+
+# # Check if everything is installed
+# if ! zplug check; then
+#   zplug install
+# fi
+
+# zplug load
+
