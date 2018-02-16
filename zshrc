@@ -38,6 +38,7 @@ export DOT="$HOME/.dotfiles"
 
 # Fzf 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_COMMAND=$([ -z "$TMUX" ] && echo "fzf" || echo "fzf-tmux")
 
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -92,7 +93,7 @@ export ZPLUG_REPOS="$BREWPATH/var/zplug/repos"
 # Alias
 # -------------------------------------------------------------------
 
-alias fa='alias | fzf-tmux'
+alias fa="alias | $FZF_COMMAND"
 alias sudo="nocorrect sudo"
 alias _="sudo"
 alias md='mkdir -p'
@@ -144,7 +145,7 @@ alias srs='s rails s'
 alias src='s rails c'
 alias rddl='rake db:drop:all'
 alias rre='rddl && rdc && rdm && rds'
-alias rrf="rake routes | fzf-tmux"
+alias rrf="rake routes | $FZF_COMMAND"
 
 # Rbenv
 alias rb='rbenv'
