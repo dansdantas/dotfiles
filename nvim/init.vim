@@ -162,6 +162,11 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
+
+" Quickfix
+nnoremap <Leader>n :cnext<CR>
+nnoremap <Leader>r :cprevious<CR>
+
 " -------------------------------------------------------------------
 " Plugins configurations
 " -------------------------------------------------------------------
