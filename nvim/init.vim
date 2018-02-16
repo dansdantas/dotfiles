@@ -53,6 +53,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tommcdo/vim-fubitive'
 
+" Html
+Plug 'mattn/emmet-vim'
+Plug 'tmhedberg/matchit'
+
 call plug#end()
 
 " -------------------------------------------------------------------
