@@ -7,7 +7,6 @@ call plug#begin('~/.config/nvim/plugged')
 " Manipulate files and buffers
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'tpope/vim-surround'
-Plug 'henrik/vim-indexed-search'
 
 " Search files
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

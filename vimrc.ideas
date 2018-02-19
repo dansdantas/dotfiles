@@ -1,3 +1,5 @@
+" Plug 'henrik/vim-indexed-search'
+" Plug 'ErichDonGubler/vim-sublime-monokai'
 " Plug 'KeitaNakamura/neodark.vim'
 " Plug 'MaxSt/FlatColor'
 " Plug 'Shougo/neocomplete.vim'
