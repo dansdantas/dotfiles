@@ -47,7 +47,7 @@ Plug 'rakr/vim-one'
 Plug 'crusoexia/vim-monokai'
 
 " Git
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tommcdo/vim-fubitive'
@@ -211,9 +211,9 @@ let g:lightline = {
   \ },
 \ }
 
-" === Git Gutter ===
-let g:gitgutter_map_keys = 0 " Disable maps
-set signcolumn=yes
+" === Signify ===
+let g:signify_vcs_list = ['git']
+let g:signify_realtime = 1
 
 " === Python ===
 let g:python_host_prog = $PYENV_ROOT.'/versions/2.7.12/bin/python'
