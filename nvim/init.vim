@@ -40,6 +40,8 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'digitaltoad/vim-pug'
 Plug 'slim-template/vim-slim'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-dispatch'
 
 " Color & Themes
 Plug 'joshdick/onedark.vim'
