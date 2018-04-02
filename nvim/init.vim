@@ -13,6 +13,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'francoiscabrol/ranger.vim', { 'on': 'Ranger' }
 Plug 'rbgrouleff/bclose.vim'
+Plug 'brooth/far.vim'
 
 " Motion
 Plug 'easymotion/vim-easymotion'
@@ -53,6 +54,7 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tommcdo/vim-fubitive'
+Plug 'sodapopcan/vim-twiggy'
 
 " Html
 Plug 'mattn/emmet-vim'
