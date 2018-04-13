@@ -11,9 +11,9 @@ Plug 'tpope/vim-surround'
 " Search files
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'francoiscabrol/ranger.vim', { 'on': 'Ranger' }
-Plug 'rbgrouleff/bclose.vim'
 Plug 'brooth/far.vim'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Motion
 Plug 'easymotion/vim-easymotion'
@@ -241,9 +241,9 @@ nnoremap <leader>j :ALENext<CR>
 nnoremap <leader>J :ALENextWrap<CR>
 nnoremap <leader>m :ALELint<CR>
 
-" === Ranger ===
-let g:ranger_map_keys = 0
-map <leader>f :Ranger<CR>
+" === File manager ===
+nnoremap <leader>f :NERDTreeToggle<CR>
+nnoremap <leader>F :NERDTreeFind<CR>
 
 " === Vue ===
 autocmd FileType vue syntax sync fromstart
