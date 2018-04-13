@@ -18,6 +18,7 @@ Plug 'brooth/far.vim'
 " Motion
 Plug 'easymotion/vim-easymotion'
 Plug 'wellle/targets.vim'
+Plug 'justinmk/vim-sneak'
 
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -132,6 +133,7 @@ nnoremap <leader>w :w!<cr>
 nnoremap <leader>x :x!<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>z :qa<cr>
+cmap w!! w !sudo tee % >/dev/null
 
 " === Tab & Buffer movements ===
 nnoremap <leader>H :tabprevious<cr>
