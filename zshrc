@@ -160,7 +160,7 @@ alias hl="heroku logs -t"
 
 # Config shortcuts
 alias zshrc="$EDITOR $HOME/.zshrc"
-alias tmuxconf= "$EDITOR $HOME/.tmux.conf"
+alias tmuxconf="$EDITOR $HOME/.tmux.conf"
 alias nvimrc="$EDITOR $HOME/.config/nvim/init.vim"
 
 # Projects
@@ -190,6 +190,7 @@ alias fbs="$ALGORICH_HOME/fittibank-seguros"
 # Tocanet
 alias dn="$TOCANET_HOME/denisa"
 alias osj="$TOCANET_HOME/osj"
+alias credit="$TOCANET_HOME/credit-concession"
 
 # Helper and apps
 alias tog='toggl'
