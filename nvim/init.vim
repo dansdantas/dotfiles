@@ -222,9 +222,9 @@ let g:signify_vcs_list = ['git']
 let g:signify_realtime = 1
 
 " === Python ===
-let g:python_host_prog = $PYENV_ROOT.'/versions/2.7.12/bin/python'
-let g:python3_host_prog = $PYENV_ROOT.'/versions/3.5.2/bin/python'
-let g:ycm_server_python_interpreter = $PYENV_ROOT.'/versions/3.5.2/bin/python'
+let g:python_host_prog = $PYENV_ROOT.'/versions/2.7.14/bin/python'
+let g:python3_host_prog = $PYENV_ROOT.'/versions/3.6.3/bin/python'
+let g:ycm_server_python_interpreter = $PYENV_ROOT.'/versions/3.6.3/bin/python'
 
 " === ALE ===
 let g:ale_sign_column_always = 1
