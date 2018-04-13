@@ -66,37 +66,20 @@ export PATH JAVA_HOME CLASSPATH
 export NVM_LAZY_LOAD=true
 
 # -------------------------------------------------------------------
-# Brew
+# Exports
 # -------------------------------------------------------------------
 
-export BREWPATH="$HOME/.linuxbrew"
-export PATH="$BREWPATH/bin:$BREWPATH/sbin:$PATH"
-export MANPATH="$BREWPATH/share/man:$MANPATH"
-export INFOPATH="$BREWPATH/share/info:$INFOPATH"
-export XDG_DATA_DIRS="$BREWPATH/share:$XDG_DATA_DIRS"
-
 # Rbenv 
-export RBENV_ROOT="$BREWPATH/var/rbenv"
+export RBENV_ROOT="$HOME/.rbenv"
 eval "$(rbenv init -)"
 
 # PyEnv
-export PYENV_ROOT="$BREWPATH/var/pyenv"
+export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PATH:$PYENV_ROOT/bin"
 eval "$(pyenv init -)"
 
-# Go
-export GOPATH="$BREWPATH/var/go"
-export PATH="$GOPATH/bin:$PATH"
-
-# Zplug
-unset ZPLUG_CACHE_FILE
-export ZPLUG_HOME="$BREWPATH/opt/zplug"
-export ZPLUG_CACHE_DIR="$BREWPATH/var/zplug/.cache"
-export ZPLUG_REPOS="$BREWPATH/var/zplug/repos"
-
 # Antigen
-export ANTIGEN_HOME="$BREWPATH/share/antigen"
-export ADOTDIR="$BREWPATH/var/antigen"
+export ANTIGEN_HOME="$HOME/.antigen"
 
 # -------------------------------------------------------------------
 # Alias
@@ -130,20 +113,6 @@ alias update="_ apt-get update && _ apt-get upgrade && _ apt-get update && _ apt
 alias install="_ apt-get install"
 alias search="_ apt-cache search"
 alias purge="_ apt-get purge"
-
-# Brew
-alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
-alias b="brew"
-alias bi="b install"
-alias bu="b uninstall"
-alias bup="b update --verbose"
-alias bug="b upgrade --verbose"
-alias bubu="bup && bug"
-alias bl="b list"
-alias bc="b cleanup"
-alias bd="b doctor"
-alias ble="b leaves"
-alias bs="b search"
 
 # Zsh
 alias sz="source ~/.zshrc"
