@@ -22,6 +22,7 @@
   autocrlf = input
 [commit]
   template = ~/.gitmessage
+	verbose = true
 [fetch]
   prune = true
 [rebase]
