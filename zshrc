@@ -110,10 +110,11 @@ alias lsa='ls -lah'
 alias l='ls -lah'
 alias ll='ls -lh'
 alias la='ls -lAh'
-alias ls="ls --color=auto"
+alias ls='ls --color=auto'
 alias lh='ls -l .??*'
 alias lhd='ls -ld .??*'
 alias lh='ls -a | egrep "^\."'
+alias ls=exa
 
 # Update
 alias update='t -Syu'
