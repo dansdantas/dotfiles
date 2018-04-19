@@ -26,7 +26,7 @@ setopt share_history          # share command history data
 
 # Completion
 zstyle ":completion:*" show-ambiguity "$color[fg-red]"
-zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}"
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # -------------------------------------------------------------------
 # General
