@@ -266,9 +266,6 @@ bindkey '^[[B' history-substring-search-down
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-# Configuration for highlight style
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
-
 # -------------------------------------------------------------------
 # Functions
 # -------------------------------------------------------------------
