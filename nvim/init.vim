@@ -61,6 +61,9 @@ Plug 'sodapopcan/vim-twiggy'
 Plug 'mattn/emmet-vim'
 Plug 'tmhedberg/matchit'
 
+" Ruby
+Plug 'janko-m/vim-test'
+
 call plug#end()
 
 " -------------------------------------------------------------------
@@ -141,7 +144,6 @@ nnoremap <leader>L :tabnext<cr>
 nnoremap <leader>; :bd!<cr>
 nnoremap <leader>h :bprev<cr>
 nnoremap <leader>l :bnext<cr>
-nnoremap <leader>t :enew<cr>
 
 " === Split ===
 nnoremap <C-J> <C-W><C-J>
@@ -242,9 +244,16 @@ nnoremap <leader>J :ALENextWrap<CR>
 nnoremap <leader>m :ALELint<CR>
 
 " === File manager ===
-nnoremap <leader>f :NERDTreeToggle<CR>
-nnoremap <leader>F :NERDTreeFind<CR>
+nnoremap <leader>F :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
 
 " === Vue ===
 autocmd FileType vue syntax sync fromstart
 let g:used_javascript_libs = 'underscore,vue,jquery'
+
+" === Test ===
+nnoremap <leader>tt :TestNearest<CR>
+nnoremap <leader>tf :TestFile<CR>
+nnoremap <leader>ts :TestSuite<CR>
+nnoremap <leader>tl :TestLast<CR>
+nnoremap <leader>tg :TestVisit<CR>
