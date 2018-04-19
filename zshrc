@@ -1,32 +1,3 @@
-# -------------------------------------------------------------------
-# Zsh configurations
-# -------------------------------------------------------------------
-
-# Auto cd on dir name
-setopt auto_cd
-
-# Auto complete menu
-setopt menu_complete
-
-# History file and size
-HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000000
-SAVEHIST=10000000
-alias history='fc -fl 1'
-
-# History options missing interpretation - Command history configuration
-setopt append_history
-setopt extended_history
-setopt hist_expire_dups_first
-setopt hist_ignore_space
-setopt hist_verify
-setopt inc_append_history
-setopt hist_ignore_dups       # ignore duplication command history list
-setopt share_history          # share command history data
-
-# Completion
-zstyle ":completion:*" show-ambiguity "$color[fg-red]"
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # -------------------------------------------------------------------
 # Alias
