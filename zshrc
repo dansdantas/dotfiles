@@ -32,7 +32,13 @@ zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}"
 # General
 # -------------------------------------------------------------------
 
-export TERM=screen-256color 
+if [ -z "$TMUX" ]
+then
+  export TERM='xterm-256color'
+else
+  export TERM='screen-256color'
+fi
+
 export EDITOR=nvim
 export DOTFILES_PATH="$HOME/.dotfiles"
 export FZF_COMMAND=$([ -z "$TMUX" ] && echo "fzf" || echo "fzf-tmux")
