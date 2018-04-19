@@ -1,0 +1,50 @@
+if [ -z "$TMUX" ]
+then
+  export TERM='xterm-256color'
+else
+  export TERM='screen-256color'
+fi
+
+export EDITOR=nvim
+export DOTFILES_PATH="$HOME/.dotfiles"
+export FZF_COMMAND=$([ -z "$TMUX" ] && echo "fzf" || echo "fzf-tmux")
+
+# Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# Debugging android images
+export PATH="$HOME/.bootimg:$PATH"
+
+# Android Studio
+export ANDROID_HOME="$HOME/.android/sdk"
+export PATH="$PATH:$HOME/.android/android-studio/bin"
+export PATH="$PATH:$ANDROID_HOME/tools"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+
+# Gradle
+export GRADLE_HOME="$HOME/.gradle/gradle-4.4.1"
+export PATH="$PATH:$GRADLE_HOME/bin"
+
+# Java 
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+export JRE_HOME="$JAVA_HOME/jre"
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+export PATH JAVA_HOME
+export CLASSPATH=$JAVA_HOME/lib/tools.jar
+export CLASSPATH=.:$CLASSPATH
+export PATH JAVA_HOME CLASSPATH
+
+# Enable lazy load for nvm plugin
+export NVM_LAZY_LOAD=true
+
+# Rbenv 
+export RBENV_ROOT="$HOME/.rbenv"
+eval "$(rbenv init -)"
+
+# PyEnv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PATH:$PYENV_ROOT/bin"
+eval "$(pyenv init -)"
+
+# Antigen
+export ANTIGEN_HOME="$HOME/.antigen"
