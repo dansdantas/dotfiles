@@ -92,6 +92,7 @@ alias md='mkdir -p'
 alias rd=rmdir
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias weather='curl wttr.in/campos_dos_goitacazes'
+alias t='trizen'
 
 # Space
 alias df="df -H"
@@ -109,10 +110,11 @@ alias lhd='ls -ld .??*'
 alias lh='ls -a | egrep "^\."'
 
 # Update
-alias update="_ apt-get update && _ apt-get upgrade && _ apt-get update && _ apt-get upgrade"
-alias install="_ apt-get install"
-alias search="_ apt-cache search"
-alias purge="_ apt-get purge"
+alias update='t -Syu'
+alias install='t -S'
+alias search='t -Ss'
+alias purge='t -Rns'
+alias clean='purge $(t -Qtdq)'
 
 # Zsh
 alias sz="source ~/.zshrc"
