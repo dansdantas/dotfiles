@@ -173,15 +173,6 @@ man() {
 # Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Binding keys
-bindkey '^@' autosuggest-accept
-bindkey '\eOA' history-substring-search-up
-bindkey '\eOB' history-substring-search-down
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-
 # -------------------------------------------------------------------
 # Functions
 # -------------------------------------------------------------------
