@@ -245,16 +245,18 @@ antigen bundles <<EOBUNDLES
 
   djui/alias-tips
   hlissner/zsh-autopair
+  lukechilds/zsh-nvm
+  unixorn/git-extra-commands
+  wfxr/forgit
+
   zsh-users/zsh-autosuggestions
   zsh-users/zsh-syntax-highlighting
   zsh-users/zsh-history-substring-search
   zsh-users/zsh-completions
-  lukechilds/zsh-nvm
 EOBUNDLES
 
 # Theme
-antigen theme dracula/zsh
-# antigen theme bhilburn/powerlevel9k powerlevel9k
+antigen theme dracula/zsh dracula
 
 # Tell Antigen that you're done.
 antigen apply
