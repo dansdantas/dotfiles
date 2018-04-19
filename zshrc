@@ -288,3 +288,24 @@ function gphm {
 function vmi {
   $EDITOR $(ls -td db/migrate/* | head -1)
 }
+
+function dt {
+  $EDITOR "$DOTFILES_PATH/$(ls $DOTFILES_PATH | $FZF_COMMAND)"
+}
+
+function toca {
+  cd "$TOCANET_HOME/$(ls $TOCANET_HOME | $FZF_COMMAND)"
+}
+
+function gcof {
+  git checkout $(git branch | fzf)
+}
+
+function lipsum {
+  curl -s -H 'Content-Type: application/json' -X POST https://lipsum.com/feed/json | jq -r '.feed.lipsum' | xclip -selection c
+}
+
+function nvre {
+  arr=($(nvr --serverlist))
+  nvr --servername=${arr[1]} --remote "$1"
+}
