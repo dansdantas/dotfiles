@@ -131,3 +131,30 @@
 
 # zplug load
 
+# # -------------------------------------------------------------------
+# # Antigen
+# # -------------------------------------------------------------------
+
+# antigen theme denysdovhan/spaceship-prompt spaceship
+# antigen theme bhilburn/powerlevel9k powerlevel9k
+# antigen theme halfo/lambda-mod-zsh-theme lambda-mod
+
+# Rails
+# alias rr="bundle exec rake routes"
+# alias rrf="bundle exec rake routes | $FZF_COMMAND"
+# alias rs="bundle exec rails s -b 127.0.0.1"
+# alias rc="bundle exec rails c"
+# alias rdc="bundle exec rake db:create"
+# alias rdd="bundle exec rake db:drop"
+# alias rdm="bundle exec rake db:migrate"
+# alias rds="bundle exec rake db:seed"
+# alias rdsl="bundle exec rake db:schema:load"
+# alias rdr="rdsl && rds"
+# alias rgmi="rails g migration"
+# alias rgmo="rails g model"
+
+# zstyle ':completion:*' menu no-select
+# zstyle ':completion:*' menu select
+# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+# zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}"
+# zstyle ':completion:*' matcher-list 'r:[^A-Z0-9]||[A-Z0-9]=** r:|=*'
