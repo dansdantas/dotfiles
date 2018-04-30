@@ -167,3 +167,94 @@
 # (( $+commands[kubectl] )) && source <(kubectl completion zsh)
 # (( $+commands[fasd] ))    && source <(fasd --init auto)
 # #(( $+commands[pip] ))     && source <(pip completion --zsh)  # Too slow!
+
+# (( $+commands[docker] )) && zplug "plugins/docker", from:oh-my-zsh
+# (( $+commands[thefuck] )) && zplug "plugins/thefuck", from:oh-my-zsh
+
+# #zplug "plugins/common-aliases", from:oh-my-zsh, hook-load:"unalias fd"
+# #zplug "plugins/tmux", from:oh-my-zsh # Why its folder always appears at top of fzf/fzy list?
+# #zplug "plugins/sudo", from:oh-my-zsh
+
+# #zplug 'ytet5uy4/fzf-widgets'
+# #bindkey '^@'  fzf-select-widget
+# #bindkey '^@ga' fzf-git-add-files
+#
+# ################################################################################
+# # Themes
+# ################################################################################
+
+# #zplug "wfxr/spaceship-zsh-theme", use:spaceship.zsh, as:theme
+# #zplug "denysdovhan/spaceship-zsh-theme", use:spaceship.zsh, as:theme
+# #zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme, as:theme
+# #zplug "b4b4r07/zsh-vimode-visual", use:"*.zsh", defer:3
+# #zplug "subnixr/minimal", as:theme, use:"minimal.zsh"
+
+# ################################################################################
+# # Custom plugins
+# ################################################################################
+# zplug 'b4b4r07/git-switch', \
+#     as:command, \
+#     use:'(*).sh', \
+#     rename-to:'$1'
+# export GIT_FILTER=fzf
+# alias gsw='git switch'
+#
+# zplug 'so-fancy/diff-so-fancy', \
+#     as:command, use:diff-so-fancy, \
+#     hook-build:'git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"'
+#
+# zplug 'wfxr/zplug-rm', lazy:yes
+# zplug 'wfxr/zplug-cd', lazy:yes
+# zplug "wfxr/formarks"
+# (( $+commands[odpscmd] )) && zplug 'wfxr/odps-fzf'
+# zplug 'wfxr/forgit', defer:1
+# zplug "wfxr/emoji-cli", as:plugin
+# zplug "wfxr/emoji-cli", as:command, use:'emojify|fuzzy-emoji'
+# EMOJI_CLI_KEYBIND='^[m'
+# zplug 'wfxr/pbcopy', as:command, use:'(*).sh', rename-to:'$1'
+# zplug 'wfxr/epoch-cli', as:plugin
+
+# # No need to load it when in ssh session
+# [ "$SSH_CLIENT" ] || zplug 'wfxr/fzf-chrome-marks', as:command, use:'b'
+#
+# # A simple gist editor for CLI
+# #zplug "b4b4r07/gist", \
+#     #as:command, \
+#     #from:gh-r
+#
+# # jq is a lightweight and flexible command-line JSON processor.
+# zplug "stedolan/jq", \
+#     as:command, \
+#     from:gh-r, \
+#     rename-to:jq
+#
+# # A next-generation cd command with an interactive filter
+# #zplug "b4b4r07/enhancd", use:init.sh, hook-load:"unalias cd"
+# #alias fcd=__enhancd::cd
+# #export ENHANCD_FILTER=fzf:fzy:peco
+# #export ENHANCD_DOT_ARG=..
+#
+# # fzy is faster and shows better results than other fuzzy finders.
+# #zplug "jhawthorn/fzy", \
+#     #as:command, \
+#     #hook-build:"make && sudo make install"
+#
+# # httpstat visualizes curl(1) statistics in a way of beauty and clarity.
+# zplug "reorx/httpstat", \
+#     as:command, \
+#     use:'(httpstat).py', \
+#     rename-to:'$1'
+#
+# # wrk - a HTTP benchmarking tool
+# # eg: wrk -t12 -c400 -d30s http://127.0.0.1:8080/index.html
+# #zplug "wg/wrk", \
+#     #as:command, \
+#     #hook-build:"make -j8"
+#
+# # An interactive way to peruse your git history from the terminal
+# #zplug 'Fakerr/git-recall', \
+#     #as:command, \
+#     #use:'git-recall'
+#
+# # gomi is a simple trash tool that works on CLI, written in Go
+# #zplug "b4b4r07/gomi", as:command, from:gh-r
