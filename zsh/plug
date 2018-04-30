@@ -1,3 +1,5 @@
+#!/usr/bin/zsh
+
 # Load library
 source $ANTIGEN_HOME/antigen.zsh
 
@@ -7,16 +9,22 @@ antigen use oh-my-zsh
 # Load bundles
 antigen bundles <<EOBUNDLES
   git
+  git-extras
   rails
   heroku
   command-not-found
   vi-mode
+  archlinux
+  web-search
+  colored-man-pages
 
   djui/alias-tips
   hlissner/zsh-autopair
   lukechilds/zsh-nvm
   unixorn/git-extra-commands
+
   wfxr/forgit
+  wfxr/formarks
 
   zsh-users/zsh-autosuggestions
   zsh-users/zsh-syntax-highlighting
