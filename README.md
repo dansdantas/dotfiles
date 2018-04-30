@@ -1,2 +1,0 @@
-# dotfiles
-Learning and going
