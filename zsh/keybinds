@@ -1,7 +1,55 @@
-bindkey '^@' autosuggest-accept
-bindkey '\eOA' history-substring-search-up
-bindkey '\eOB' history-substring-search-down
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
+#!/usr/bin/zsh
+
+# -------------------------------------------------------------------
+# Insert mode
+# -------------------------------------------------------------------
+bindkey -M viins '^@' autosuggest-accept
+
+# Adjust arrow keys
+bindkey -M viins '\eOA' history-substring-search-up
+bindkey -M viins '\eOB' history-substring-search-down
+bindkey -M viins '^[[A' history-substring-search-up
+bindkey -M viins '^[[B' history-substring-search-down
+bindkey -M viins '^[[1;5C' forward-word
+bindkey -M viins '^[[1;5D' backward-word
+
+# Add emacs-like keybind to vi mode
+bindkey -M viins '^A'  beginning-of-line # Not gonna work because of tmux
+bindkey -M viins '^E'  end-of-line
+bindkey -M viins '^F'  forward-char
+bindkey -M viins '^B'  backward-char
+bindkey -M viins '^K'  kill-line
+bindkey -M viins '^Y'  yank
+
+# Default is better!
+bindkey -M viins '^W'  backward-kill-word
+bindkey -M viins '^U'  backward-kill-line
+bindkey -M viins '^H'  backward-delete-char
+bindkey -M viins '^D'  delete-char-or-list
+bindkey -M viins '^P'  up-line-or-history
+bindkey -M viins '^N'  down-line-or-history
+
+# -------------------------------------------------------------------
+# Command mode
+# -------------------------------------------------------------------
+bindkey -M vicmd '^A'  beginning-of-line # Not gonna work beucase of tmux
+bindkey -M vicmd '^E'  end-of-line
+bindkey -M vicmd '^K'  kill-line
+bindkey -M vicmd '^P'  up-line-or-history
+bindkey -M vicmd '^N'  down-line-or-history
+bindkey -M vicmd '^U'  backward-kill-line
+bindkey -M vicmd '^Y'  yank
+
+# -------------------------------------------------------------------
+# Surround
+# -------------------------------------------------------------------
+if is-at-least 5.0.8; then
+  autoload -Uz surround
+  zle -N delete-surround surround
+  zle -N change-surround surround
+  zle -N add-surround surround
+  bindkey -a cs change-surround
+  bindkey -a ds delete-surround
+  bindkey -a ys add-surround
+  bindkey -a S add-surround
+fi
