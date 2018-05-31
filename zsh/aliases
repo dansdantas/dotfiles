@@ -84,10 +84,6 @@ alias zshrc="$EDITOR $HOME/.zshrc"
 alias tmuxconf="$EDITOR $HOME/.tmux.conf"
 alias nvimrc="$EDITOR $HOME/.config/nvim/init.vim"
 
-# Helper and apps
-alias tog='toggl'
-alias dot="cd $DOTFILES_PATH"
-alias work="cd $PERSONAL_HOME"
-alias strem="sh $HOME/.strem/Stremio.sh"
-alias qute="$PERSONAL_HOME/installers/qutebrowser/.venv/bin/python3 -m qutebrowser \"$@\" --enable-webengine-inspector"
-alias scon="$PERSONAL_HOME/installers/sconsify"
+# Helper
+alias weather='curl wttr.in/campos_dos_goitacazes'
+alias ngrok="$HOME/Projects/tools/ngrok"
