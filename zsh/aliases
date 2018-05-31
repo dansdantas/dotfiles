@@ -72,9 +72,6 @@ alias pu="$EDITOR +PlugUpdate"
 # Tmux
 alias tmux-kill-all="tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill"
 
-# Gem
-gi() { gem install $@; rbenv rehash; rehash }
-
 # Heroku
 alias hrc="heroku run bundle exec rails c"
 alias hrdm="heroku run bundle exec rake db:migrate"
