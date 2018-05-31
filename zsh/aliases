@@ -1,18 +1,24 @@
+#!/usr/bin/zsh
+
+# Misc
 alias fa="alias | $FZF_COMMAND"
+alias history='fc -fl 1'
+
+# Sudo
 alias sudo="nocorrect sudo"
 alias _="sudo"
-alias md='mkdir -p'
-alias rd=rmdir
-alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
-alias weather='curl wttr.in/campos_dos_goitacazes'
-alias t='trizen'
 
 # Space
 alias df="df -H"
 alias du="du -ch"
 alias dus="du -sckx * | sort -nr"
 
-# Dir lists
+
+# Directories
+alias md='mkdir -p'
+alias rd=rmdir
+
+# Lists
 alias lsa='ls -lah'
 alias l='ls -lah'
 alias ll='ls -lh'
@@ -22,8 +28,10 @@ alias lh='ls -l .??*'
 alias lhd='ls -ld .??*'
 alias lh='ls -a | egrep "^\."'
 alias ls=exa
+(( $+commands[exa] )) && tree='exa --color=always -T' || tree='tree -Ctr'
 
-# Update
+# Package manager
+alias t='aurman'
 alias update='t -Syu'
 alias install='t -S'
 alias search='t -Ss'
@@ -32,7 +40,7 @@ alias clean='purge $(t -Qtdq)'
 
 # Zsh
 alias sz="source ~/.zshrc"
-alias zlt="/usr/bin/time zsh -i -c exit"
+alias zlt="time zsh -i -c exit"
 
 # Rails
 alias s='spring'
