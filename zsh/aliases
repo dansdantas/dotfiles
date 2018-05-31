@@ -87,35 +87,6 @@ alias zshrc="$EDITOR $HOME/.zshrc"
 alias tmuxconf="$EDITOR $HOME/.tmux.conf"
 alias nvimrc="$EDITOR $HOME/.config/nvim/init.vim"
 
-# Projects
-export PERSONAL_HOME="$HOME/Projects/personal"
-export ALGORICH_HOME="$HOME/Projects/algorich"
-export TOCANET_HOME="$HOME/Projects/tocanet"
-
-# Personal
-alias central="$PERSONAL_HOME/apps/centraldasatleticas"
-alias better="$PERSONAL_HOME/apps/better-app"
-
-# Algorich
-alias npad="$ALGORICH_HOME/na-praia-admin"
-alias npas="$ALGORICH_HOME/na-praia-app-seller"
-alias npa="$ALGORICH_HOME/na-praia-app"
-alias gal="$ALGORICH_HOME/galcorr"
-alias sv="$ALGORICH_HOME/safeverse"
-alias svt="$ALGORICH_HOME/safeverse-site"
-alias delphos="$ALGORICH_HOME/delphos-map"
-alias dental="$ALGORICH_HOME/dental-norte"
-alias front="$ALGORICH_HOME/frontify"
-alias compb="$ALGORICH_HOME/components-builder"
-alias mil="$ALGORICH_HOME/milenio"
-alias fb="$ALGORICH_HOME/fittibank"
-alias fbs="$ALGORICH_HOME/fittibank-seguros"
-
-# Tocanet
-alias dn="$TOCANET_HOME/denisa"
-alias osj="$TOCANET_HOME/osj"
-alias credit="$TOCANET_HOME/credit-concession"
-
 # Helper and apps
 alias tog='toggl'
 alias dot="cd $DOTFILES_PATH"
