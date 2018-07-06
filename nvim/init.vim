@@ -213,7 +213,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " === StatusLine ===
 let g:lightline = {
-  \ 'colorscheme': 'onedark',
+  \ 'colorscheme': 'gruvbox',
   \ 'inactive': {
   \   'left': [ [ 'relativepath', 'modified' ] ]
   \ },
@@ -229,6 +229,7 @@ let g:python3_host_prog = $PYENV_ROOT.'/versions/3.6.3/bin/python'
 let g:ycm_server_python_interpreter = $PYENV_ROOT.'/versions/3.6.3/bin/python'
 
 " === ALE ===
+let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_lint_on_text_changed = 'never'
@@ -257,3 +258,7 @@ nnoremap <leader>tf :TestFile<CR>
 nnoremap <leader>ts :TestSuite<CR>
 nnoremap <leader>tl :TestLast<CR>
 nnoremap <leader>tg :TestVisit<CR>
+
+" === Motion ===
+let g:sneak#s_next = 1
+let g:sneak#label = 1
