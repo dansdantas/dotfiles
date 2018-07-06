@@ -42,8 +42,6 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'digitaltoad/vim-pug'
 Plug 'slim-template/vim-slim'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-dispatch'
 
 " Color & Themes
 Plug 'joshdick/onedark.vim'
@@ -61,8 +59,10 @@ Plug 'sodapopcan/vim-twiggy'
 Plug 'mattn/emmet-vim'
 Plug 'tmhedberg/matchit'
 
-" Ruby
+" Ruby & Rails
 Plug 'janko-m/vim-test'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-dispatch'
 
 call plug#end()
 
