@@ -19,3 +19,4 @@ tmp/**/*
 .python-version
 .nvmrc
 vendor/assets/bower_components
+vendor
