@@ -30,10 +30,12 @@ antigen bundles <<EOBUNDLES
   zsh-users/zsh-syntax-highlighting
   zsh-users/zsh-history-substring-search
   zsh-users/zsh-completions
+
+  mafredri/zsh-async
 EOBUNDLES
 
 # Theme
-antigen theme dracula/zsh dracula
+antigen theme sindresorhus/pure
 
 # Tell Antigen that you're done.
 antigen apply
