@@ -1,25 +1,21 @@
-# Auto cd on dir name
-setopt auto_cd
+#!/usr/bin/zsh
 
-# Auto complete menu
-setopt menu_complete
+setopt AUTO_CD       # Auto cd on dir name
+setopt CD_ABLE_VARS  # Extend $ variables when changing directories
+setopt MENU_COMPLETE # Auto complete menu
 
-# History file and size
-HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000000
-SAVEHIST=10000000
-alias history='fc -fl 1'
+# History
+setopt APPEND_HISTORY         # Append new story to old
+setopt EXTENDED_HISTORY       # Write the history file in the ":start:elapsed;command" format.
+setopt INC_APPEND_HISTORY     # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY          # Share history between all sessions.
 
-# History options missing interpretation - Command history configuration
-setopt append_history
-setopt extended_history
-setopt hist_expire_dups_first
-setopt hist_ignore_space
-setopt hist_verify
-setopt inc_append_history
-setopt hist_ignore_dups       # ignore duplication command history list
-setopt share_history          # share command history data
+setopt HIST_IGNORE_DUPS       # Ignore duplication sequential commands
+setopt HIST_IGNORE_SPACE      # Do not record an entry starting with a space.
 
-# Completion
-zstyle ":completion:*" show-ambiguity "$color[fg-red]"
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+setopt HIST_EXPIRE_DUPS_FIRST # When reaching maximum hist size, remove dups first
+setopt HIST_VERIFY            # Do not execute immediately upon history expansion.
+setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry.
+
+setopt HIST_NO_STORE          # Do not save history or fc commands
+setopt HIST_NO_FUNCTIONS      # Do not save functions
