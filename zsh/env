@@ -1,3 +1,18 @@
+#!/usr/bin/sh
+
+# -------------------------------------------------------------------
+# Misc
+# -------------------------------------------------------------------
+
+export EDITOR=nvim
+export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:$HOME/.local/bin:$HOME/bin"
+
+# Dotfiles
+export DOTFILES_PATH="$HOME/.dotfiles"
+export VIMRC="$DOTFILES_PATH/nvim/init.vim"
+export ZSHRC="$DOTFILES_PATH/zshrc"
+
+# Term definition
 if [ -z "$TMUX" ]
 then
   export TERM='xterm-256color'
@@ -5,46 +20,69 @@ else
   export TERM='screen-256color'
 fi
 
-export EDITOR=nvim
-export DOTFILES_PATH="$HOME/.dotfiles"
-export FZF_COMMAND=$([ -z "$TMUX" ] && echo "fzf" || echo "fzf-tmux")
+# History
+export HISTFILE="$HOME/.zsh_history" # History file
+export HISTSIZE=10000000             # History size in memory
+export SAVEHIST=10000000             # The number of histsize
+export LISTMAX=50                    # The size of asking history
+ 
+# LANGUAGE must be set by en_US
+export LANGUAGE="en_US.UTF-8"
+export LANG="${LANGUAGE}"
+export LC_ALL="${LANGUAGE}"
+export LC_CTYPE="${LANGUAGE}"
 
-# Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# -------------------------------------------------------------------
+# Terminal
+# -------------------------------------------------------------------
 
-# Debugging android images
-export PATH="$HOME/.bootimg:$PATH"
+# Antigen
+export ANTIGEN_HOME="$HOME/.antigen"
 
-# Android Studio
-export ANDROID_HOME="$HOME/.android/sdk"
-export PATH="$PATH:$HOME/.android/android-studio/bin"
-export PATH="$PATH:$ANDROID_HOME/tools"
-export PATH="$PATH:$ANDROID_HOME/platform-tools"
+# Nvm
+export NVM_ROOT="$HOME/.nvm"
+export NVM_LAZY_LOAD=true
 
-# Gradle
-export GRADLE_HOME="$HOME/.gradle/gradle-4.4.1"
-export PATH="$PATH:$GRADLE_HOME/bin"
+# Forgit
+export FORGIT_FZF_DEFAULT_OPS="
+--border
+--cycle
+--reverse
+--height '80%'
+--preview=\"(highlight --quiet --force --style molokai -lO truecolor {} || cat {} || $tree -L2 {} || head -200) 2>/dev/null\"
+"
+
+# -------------------------------------------------------------------
+# Languages
+# -------------------------------------------------------------------
+
+# Ruby
+export RBENV_ROOT="$HOME/.rbenv"
+
+rbenv() {
+  eval "$(command rbenv init -)"
+  rbenv "$@"
+}
+
+# PyEnv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PATH:$PYENV_ROOT/bin"
+
+pyenv() {
+  eval "$(command pyenv init -)"
+  eval "$(command pyenv virtualenv-init -)"
+  pyenv "$@"
+}
+
+# Golang
+export GOPATH="$HOME/.go"
+export PATH="$PATH:$GOPATH/bin"
 
 # Java 
-export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
 export JRE_HOME="$JAVA_HOME/jre"
 export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 export PATH JAVA_HOME
 export CLASSPATH=$JAVA_HOME/lib/tools.jar
 export CLASSPATH=.:$CLASSPATH
 export PATH JAVA_HOME CLASSPATH
-
-# Enable lazy load for nvm plugin
-export NVM_LAZY_LOAD=true
-
-# Rbenv 
-export RBENV_ROOT="$HOME/.rbenv"
-eval "$(rbenv init -)"
-
-# PyEnv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PATH:$PYENV_ROOT/bin"
-eval "$(pyenv init -)"
-
-# Antigen
-export ANTIGEN_HOME="$HOME/.antigen"
