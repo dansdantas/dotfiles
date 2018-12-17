@@ -39,10 +39,6 @@ export LC_CTYPE="${LANGUAGE}"
 # Antigen
 export ANTIGEN_HOME="$HOME/.antigen"
 
-# Nvm
-export NVM_ROOT="$HOME/.nvm"
-export NVM_LAZY_LOAD=true
-
 # Forgit
 export FORGIT_FZF_DEFAULT_OPS="
 --border
@@ -86,3 +82,7 @@ export PATH JAVA_HOME
 export CLASSPATH=$JAVA_HOME/lib/tools.jar
 export CLASSPATH=.:$CLASSPATH
 export PATH JAVA_HOME CLASSPATH
+
+# Nvm
+export NVM_ROOT="$HOME/.nvm"
+export NVM_LAZY_LOAD=true
