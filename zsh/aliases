@@ -1,46 +1,133 @@
 #!/usr/bin/zsh
 
-# Misc
-alias fa="alias | $FZF_COMMAND"
+# -------------------------------------------------------------------
+# General
+# -------------------------------------------------------------------
+
 alias history='fc -fl 1'
+
+# Helpers
+alias fa="alias | $FZF_COMMAND"
+alias trash='trash-put'
+alias sz="source $ZSHRC"
+
+# Tools
+alias weather='curl wttr.in/campos_dos_goitacazes'
+alias ngrok="$HOME/Projects/tools/ngrok"
+alias zlt="time zsh -i -c exit"
+alias sha='shasum -a 256 '
+
+# Xclip
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
+# Compress and Extract
+alias zip='zip -r'
+alias tarc='tar -czpvf'
+alias untar='tar -xzpvf'
+
+# Shortcuts
+alias todo="$EDITOR ~/Projects/personal/files/todo"
+alias zshrc="$EDITOR $ZSHRC"
+alias tmuxconf="$EDITOR $TMUXCONF"
+alias nvimrc="$EDITOR $VIMRC"
+
+# -------------------------------------------------------------------
+# Network
+# -------------------------------------------------------------------
+
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias ping='ping -c 5'
+alias ipe='curl ipinfo.io/ip'
+
+# Manager
+alias nds='nmcli device status'
+alias ncs='nmcli connection show'
+alias ncsa='nmcli connection show --active'
+alias ndw='nmcli dev wiend'
+
+# -------------------------------------------------------------------
+# GNU Tools
+# -------------------------------------------------------------------
 
 # Sudo
 alias sudo="nocorrect sudo"
 alias _="sudo"
+alias please='sudo'
+
+# Process
+alias psa='ps awux | less'
+alias ka='killall'
+alias j='jobs -l'
+
+# Type
+alias tp='type -a'
 
 # Space
 alias df="df -H"
 alias du="du -ch"
-alias dus="du -sckx * | sort -nr"
 
+# Storages
+alias lsblk='lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,UUID'
 
 # Directories
 alias md='mkdir -p'
-alias rd=rmdir
+
+# Copy
+alias cpr='cp -R'
+
+# Remove
+alias rm='rm -i'
+alias rf='rm -rend'
+alias rfa='rm -rend *'
+alias rm='echo "This is not the command you are looking for."; false'
+
+# Move
+alias mv='mv -i'
 
 # Lists
-alias lsa='ls -lah'
 alias l='ls -lah'
 alias ll='ls -lh'
-alias la='ls -lAh'
-alias ls='ls --color=auto'
-alias lh='ls -l .??*'
-alias lhd='ls -ld .??*'
+alias lsd='ls --group-directories-first'
+alias lld='ll --group-directories-first'
 alias lh='ls -a | egrep "^\."'
+alias l.='ls -d .* --color=auto'
+
+# -------------------------------------------------------------------
+# Arch
+# -------------------------------------------------------------------
+
+# PCKBUILD
+alias mpsi='makepkg -si'
+
+# Package manager
+alias y='yay'
+alias update='y -Syu'
+alias install='y -S'
+alias search='y -Ss'
+alias purge='y -Rns'
+alias clean='purge $(y -Qtdq)'
+
+# Mirrors
+alias mirrors="_ reflector --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
+
+# -------------------------------------------------------------------
+# Plugins and apps
+# -------------------------------------------------------------------
+
+# Nvim
+alias nv='nvim'
+
+# NNN
+alias nn='nnn -l'
+
+# Exa
 alias ls=exa
 (( $+commands[exa] )) && tree='exa --color=always -T' || tree='tree -Ctr'
 
-# Package manager
-alias t='aurman'
-alias update='t -Syu'
-alias install='t -S'
-alias search='t -Ss'
-alias purge='t -Rns'
-alias clean='purge $(t -Qtdq)'
-
-# Zsh
-alias sz="source ~/.zshrc"
-alias zlt="time zsh -i -c exit"
+# -------------------------------------------------------------------
+# Languages
+# -------------------------------------------------------------------
 
 # Rails
 alias s='spring'
@@ -50,40 +137,52 @@ alias rddl='rake db:drop:all'
 alias rre='rddl && rdc && rdm && rds'
 alias rrf="rake routes | $FZF_COMMAND"
 
+# Bundle
+alias be="bundle exec"
+alias ber="be rake"
+
 # Rbenv
 alias rb='rbenv'
 alias rbg='rb gemset'
 alias rbr='rb rehash'
 
-# Zplug
-alias zu="zplug update"
-alias zpc="zplug clean && zplug clear && sz"
+# Npm
+alias ns='npm start'
+alias ys='yarn start'
+alias yb='yarn build'
+alias yw='yarn watch'
+alias yt='yarn test'
+
+# -------------------------------------------------------------------
+# Tools
+# -------------------------------------------------------------------
 
 # Git
 alias glog="git log --graph --oneline --decorate --date-order --color --boundary"
 eval "$(hub alias -s)"
 
-# Nvim
-alias nv='nvim'
+# Heroku
+alias he="heroku"
+alias heb"he run bundle exec"
+alias hrc="heb rails c"
+alias hrdm="heb rake db:migrate"
+alias hrds="heb rake db:seed"
+alias hrdsl="heb rake db:schema:load"
+alias hl="he logs -t"
+
+# Docker
+alias dc="docker-compose"
+alias dcu="dc up"
+alias dcd="dc down"
+
+# Vim-plug
 alias pi="$EDITOR +PlugInstall"
 alias pc="$EDITOR +PlugClean"
 alias pu="$EDITOR +PlugUpdate"
 
 # Tmux
-alias tmux-kill-all="tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill"
-
-# Heroku
-alias hrc="heroku run bundle exec rails c"
-alias hrdm="heroku run bundle exec rake db:migrate"
-alias hrds="heroku run bundle exec rake db:seed"
-alias hrdsl="heroku run bundle exec rake db:schema:load"
-alias hl="heroku logs -t"
-
-# Config shortcuts
-alias zshrc="$EDITOR $HOME/.zshrc"
-alias tmuxconf="$EDITOR $HOME/.tmux.conf"
-alias nvimrc="$EDITOR $HOME/.config/nvim/init.vim"
-
-# Helper
-alias weather='curl wttr.in/campos_dos_goitacazes'
-alias ngrok="$HOME/Projects/tools/ngrok"
+alias tm='tmux -2'
+alias tmka="tm ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill"
+alias tks='tmux kill-server'
+alias tkst='tmux kill-session -t'
+alias ta='tmux at'
