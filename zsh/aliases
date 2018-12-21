@@ -163,7 +163,7 @@ eval "$(hub alias -s)"
 
 # Heroku
 alias he="heroku"
-alias heb"he run bundle exec"
+alias heb="he run bundle exec"
 alias hrc="heb rails c"
 alias hrdm="heb rake db:migrate"
 alias hrds="heb rake db:seed"
