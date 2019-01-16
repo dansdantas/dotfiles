@@ -1,5 +1,3 @@
-bindkey -v
-
 source ~/.fzf.zsh 2>/dev/null
 
 source ~/.zsh/env
