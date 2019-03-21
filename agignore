@@ -15,6 +15,10 @@ tmp/
 DS_Store
 .DS_Store
 
+vendor/assets/bower_components
+public/assets
+*.min.js
+
 *.sw[nop]
 .bundle
 .byebug_history
@@ -27,5 +31,5 @@ tags
 tmp/**/*
 !tmp/cache/.keep
 *.pyc
-vendor/assets/bower_components
+
 spec/fixtures/vcr_cassettes
