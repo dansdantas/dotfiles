@@ -125,6 +125,8 @@ alias nn='nnn -l'
 alias ls=exa
 (( $+commands[exa] )) && tree='exa --color=always -T' || tree='tree -Ctr'
 
+alias au='antigen update'
+
 # -------------------------------------------------------------------
 # Languages
 # -------------------------------------------------------------------
