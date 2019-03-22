@@ -27,6 +27,7 @@ dpi = 96
 background = #1f1f1f
 foreground = #eee
 
+padding-left = 1
 border-bottom-size = -4
 module-margin = 2
 
