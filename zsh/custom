@@ -1,3 +1,5 @@
+#!/usr/bin/zsh
+
 # -------------------------------------------------------------------
 # Functions
 # -------------------------------------------------------------------
@@ -8,14 +10,6 @@ function gphm {
 
 function vmi {
   $EDITOR $(ls -td db/migrate/* | head -1)
-}
-
-function dt {
-  $EDITOR "$DOTFILES_PATH/$(ls $DOTFILES_PATH | $FZF_COMMAND)"
-}
-
-function toca {
-  cd "$TOCANET_HOME/$(ls $TOCANET_HOME | $FZF_COMMAND)"
 }
 
 function gcof {
