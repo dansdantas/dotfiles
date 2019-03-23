@@ -43,8 +43,8 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # Rofi
-bindsym $mod+o exec rofi -show run
-bindsym $mod+d exec rofi -show window
+bindsym $mod+o exec --no-startup-id $HOME/.scripts/launcher-alt
+bindsym $mod+d exec --no-startup-id $HOME/.scripts/windows
 
 # change focus
 bindsym $mod+h focus left
