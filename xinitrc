@@ -9,6 +9,5 @@ xrdb ~/.Xresources
 # Udisks
 udiskie &
 
-# Kde
-export DISPLAY=:0.0
-exec startkde
+# Xfce
+exec startxfce4
