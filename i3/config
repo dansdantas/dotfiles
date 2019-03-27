@@ -111,7 +111,9 @@ set $ws10 "10"
 
 # Workspaces positions
 workspace 1 output HDMI1
-workspace 2 output eDP1
+workspace 2 output HDMI1
+workspace 3 output eDP1
+workspace 4 output eDP1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
