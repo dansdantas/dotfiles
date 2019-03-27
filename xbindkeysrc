@@ -1,0 +1,32 @@
+# Audio
+"playerctl play-pause"
+  XF86AudioPlay
+
+"playerctl next"
+  XF86AudioNext
+
+"playerctl previous"
+  XF86AudioPrev
+
+"pactl set-sink-volume @DEFAULT_SINK@ +5%"
+  XF86AudioRaiseVolume
+
+"pactl set-sink-volume @DEFAULT_SINK@ -5%"
+  XF86AudioLowerVolume
+
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+  XF86AudioMute
+
+# Brightness
+"xbacklight -inc 10"
+   XF86MonBrightnessUp
+
+"xbacklight -dec 10"
+   XF86MonBrightnessDown
+
+# Print
+"flameshot gui"
+  Print
+
+"flameshot screen -r"
+  Shift + Print
