@@ -174,9 +174,6 @@ bindsym $mod+r mode "resize"
 # Lock
 bindsym $mod+Shift+x exec --no-startup-id $HOME/.scripts/lock.sh
 
-# Correct layout
-exec --no-startup-id setxkbmap -model abnt2 -layout br -variant abnt2 -option caps:escape
-
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
