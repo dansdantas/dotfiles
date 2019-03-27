@@ -9,5 +9,5 @@ xrdb ~/.Xresources
 # Udisks
 udiskie &
 
-# Xfce
-exec startxfce4
+# I3
+exec dbus-launch i3
