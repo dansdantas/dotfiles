@@ -9,5 +9,6 @@ xrdb ~/.Xresources
 # Udisks
 udiskie &
 
-# I3
-exec dbus-launch i3
+# Kde
+export DISPLAY=:0.0
+exec startkde
