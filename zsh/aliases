@@ -10,6 +10,8 @@ alias history='fc -fl 1'
 alias fa="alias | $FZF_COMMAND"
 alias trash='trash-put'
 alias sz="source $ZSHRC"
+alias work="source $HOME/.screenlayout/work.sh"
+alias home="source $HOME/.screenlayout/home.sh"
 
 # Tools
 alias weather='curl wttr.in/campos_dos_goitacazes'
