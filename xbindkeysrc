@@ -28,5 +28,5 @@
 "flameshot gui"
   Print
 
-"flameshot screen -r"
+"flameshot screen -c"
   Shift + Print
