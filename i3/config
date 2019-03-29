@@ -181,3 +181,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Restore wallpapers
 exec --no-startup-id nitrogen --restore
+
+# Start keyboard config
+exec --no-startup-id xmodmap ~/.Xmodmap
+exec --no-startup-id xbindkeys

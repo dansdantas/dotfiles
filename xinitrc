@@ -1,7 +1,3 @@
-# Keyboard config
-xmodmap ~/.Xmodmap
-xbindkeys
-
 # Resources
 xrdb ~/.Xresources
 
