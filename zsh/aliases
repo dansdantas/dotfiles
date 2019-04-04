@@ -82,7 +82,6 @@ alias cpr='cp -R'
 alias rm='rm -i'
 alias rf='rm -rend'
 alias rfa='rm -rend *'
-alias rm='echo "This is not the command you are looking for."; false'
 
 # Move
 alias mv='mv -i'
