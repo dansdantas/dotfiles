@@ -7,6 +7,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Manipulate files and buffers
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 " Search files
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -41,6 +42,8 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'digitaltoad/vim-pug'
 Plug 'slim-template/vim-slim'
+Plug 'iloginow/vim-stylus'
+Plug 'mxw/vim-jsx'
 
 " Color & Themes
 Plug 'joshdick/onedark.vim'
@@ -73,6 +76,7 @@ call plug#end()
 let g:mapleader = "\<Space>"
 
 " === Config ===
+set noshowmode      " Disable warning if changes modes on status line
 set showcmd         " Show incomplete commands
 set showmatch       " Show matcher when above cursor
 set number          " Show line number
@@ -180,6 +184,12 @@ map <right> <nop>
 " Quickfix
 nnoremap <Leader>n :cnext<CR>
 nnoremap <Leader>r :cprevious<CR>
+
+" Copy current file path to clipboard
+nmap ,cs :let @+=expand("%")<CR>
+
+" Search current word on help
+nmap ,he "zyiw:exe "h ".@z.""<CR>
 
 " -------------------------------------------------------------------
 " Plugins configurations
