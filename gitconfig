@@ -46,7 +46,5 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
-[pull]
-	rebase = true
 [hub]
 	protocol = ssh
