@@ -6,6 +6,7 @@
 
 export EDITOR=nvim
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:$HOME/.local/bin:$HOME/bin"
+export FZF_COMMAND=$([ -z "$TMUX" ] && echo "fzf" || echo "fzf-tmux")
 
 # Dotfiles
 export DOTFILES_PATH="$HOME/.dotfiles"
