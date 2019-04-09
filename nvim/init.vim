@@ -47,8 +47,10 @@ Plug 'mxw/vim-jsx'
 
 " Color & Themes
 Plug 'joshdick/onedark.vim'
-Plug 'rakr/vim-one'
-Plug 'crusoexia/vim-monokai'
+Plug 'tomasr/molokai'
+Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
+Plug 'shinchu/lightline-gruvbox.vim'
 
 " Git
 Plug 'mhinz/vim-signify'
@@ -139,7 +141,6 @@ nnoremap <leader>w :w!<cr>
 nnoremap <leader>x :x!<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>z :qa<cr>
-cmap w!! w !sudo tee % >/dev/null
 
 " === Tab & Buffer movements ===
 nnoremap <leader>H :tabprevious<cr>
@@ -206,11 +207,11 @@ nnoremap <leader>s :SSave<CR>
 nnoremap <leader>S :SLoad<space>
 
 " === FZF ===
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag --vimgrep --hidden --ignore .git -l -g ""'
 nnoremap <leader>o :FZF<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>c :Commits<CR>
-nnoremap <leader>a :Ag
+nnoremap <leader>ag :Ag<Space>
 nnoremap <leader>e :BLines<CR>
 nnoremap <leader>i :Commands<CR>
 
