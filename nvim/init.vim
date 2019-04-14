@@ -78,6 +78,7 @@ call plug#end()
 let g:mapleader = "\<Space>"
 
 " === Config ===
+set encoding=utf-8  " Set encoding
 set noshowmode      " Disable warning if changes modes on status line
 set showcmd         " Show incomplete commands
 set showmatch       " Show matcher when above cursor
@@ -126,6 +127,10 @@ iabbr log console.log
 call system('mkdir -p ~/.config/nvim/undo')
 set undofile
 set undodir=~/.config/nvim/undo
+
+" === Folding ===
+set foldmethod=manual
+set foldlevel=9999
 
 " -------------------------------------------------------------------
 " File extensions
@@ -188,9 +193,16 @@ nnoremap <Leader>r :cprevious<CR>
 
 " Copy current file path to clipboard
 nmap ,cs :let @+=expand("%")<CR>
+nmap ,cl :let @+=expand("%:p")<CR>
 
 " Search current word on help
 nmap ,he "zyiw:exe "h ".@z.""<CR>
+
+" Search for word under cursor using Ag
+nmap <Leader>ag "zyiw:exe "Ag ".@z.""<CR>
+
+" Global folding
+nnoremap <Leader>z :call FoldingToggleFold()<cr>
 
 " -------------------------------------------------------------------
 " Plugins configurations
