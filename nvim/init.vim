@@ -30,6 +30,7 @@ Plug 'alvan/vim-closetag'
 " Layout && Status
 Plug 'mhinz/vim-startify', { 'on': ['SSave', 'SLoad', 'Startitfy'] }
 Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
 
 " Syntax
 Plug 'tomtom/tcomment_vim'
@@ -237,10 +238,46 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " === StatusLine ===
 let g:lightline = {
   \ 'colorscheme': 'gruvbox',
+  \ 'component_expand': {
+  \   'linter_checking': 'lightline#ale#checking',
+  \   'linter_warnings': 'lightline#ale#warnings',
+  \   'linter_errors': 'lightline#ale#errors',
+  \   'linter_ok': 'lightline#ale#ok'
+  \ },
+  \ 'component_function': {
+  \   'filetype': 'LightlineFiletype'
+  \ },
+  \ 'component_type': {
+  \   'linter_checking': 'left',
+  \   'linter_warnings': 'warning',
+  \   'linter_errors': 'error',
+  \   'linter_ok': 'left'
+  \ },
+  \ 'active': {
+  \   'right': [
+  \     [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+  \     [ 'lineinfo' ],
+  \     [ 'filetype']
+  \   ]
+  \ },
   \ 'inactive': {
   \   'left': [ [ 'relativepath', 'modified' ] ]
   \ },
 \ }
+
+function! LightlineFiletype()
+  if &filetype ==? 'ruby'
+    return ''
+  elseif &filetype ==? 'javascript'
+    return ''
+  endif
+  return &filetype
+endfunction
+
+let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_warnings = "\uf071"
+let g:lightline#ale#indicator_errors = "\uf05e"
+let g:lightline#ale#indicator_ok = "\uf00c"
 
 " === Signify ===
 let g:signify_vcs_list = ['git']
@@ -254,18 +291,23 @@ let g:ycm_server_python_interpreter = $PYENV_ROOT.'/versions/3.6.3/bin/python'
 " === ALE ===
 let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_echo_msg_format = '[%linter%] %s'
+let g:ale_sign_error = '•'
+let g:ale_sign_warning = '•'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
+
 let g:ale_linters = {
-\   'javascript': ['jshint', 'eslint'],
-\   'ruby': ['reek', 'rubocop', 'ruby', 'rails_best_practices']
+\ 'javascript': ['jshint', 'eslint'],
+\ 'ruby': ['reek', 'rubocop', 'ruby', 'rails_best_practices']
 \}
-nnoremap <leader>k :ALEPrevious<CR>
-nnoremap <leader>K :ALEPreviousWrap<CR>
-nnoremap <leader>j :ALENext<CR>
-nnoremap <leader>J :ALENextWrap<CR>
-nnoremap <leader>m :ALELint<CR>
+
+nnoremap <leader>ak :ALEPrevious<CR>
+nnoremap <leader>aK :ALEPreviousWrap<CR>
+nnoremap <leader>aj :ALENext<CR>
+nnoremap <leader>aJ :ALENextWrap<CR>
+nnoremap <leader>al :ALELint<CR>
+nnoremap <leader>at :ALEToggle<CR>
 
 " === File manager ===
 nnoremap <leader>F :NERDTreeToggle<CR>
