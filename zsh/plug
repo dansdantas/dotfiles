@@ -18,7 +18,8 @@ antigen bundles <<EOBUNDLES
   web-search
   colored-man-pages
 
-  djui/alias-tips
+  zdharma/fast-syntax-highlighting
+  MichaelAquilina/zsh-you-should-use
   hlissner/zsh-autopair
   lukechilds/zsh-nvm
   unixorn/git-extra-commands
@@ -27,7 +28,6 @@ antigen bundles <<EOBUNDLES
   wfxr/formarks
 
   zsh-users/zsh-autosuggestions
-  zsh-users/zsh-syntax-highlighting
   zsh-users/zsh-history-substring-search
   zsh-users/zsh-completions
 
