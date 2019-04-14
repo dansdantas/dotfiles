@@ -1,0 +1,12 @@
+#!/usr/bin/zsh
+
+# SSH
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-current
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<~/.ssh-agent-current)" > /dev/null
+fi
+
+# Load direnv hook
+eval "$(direnv hook zsh)"
