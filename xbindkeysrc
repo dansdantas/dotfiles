@@ -26,7 +26,7 @@
 
 # Print
 "flameshot gui"
-  m:0x0 + c:218
+  m:0x0 + c:107
 
 "flameshot screen -c"
-  m:0x1 + c:218
+  m:0x1 + c:107
