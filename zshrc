@@ -1,9 +1,11 @@
-source ~/.zsh/env
-source ~/.zsh/plug
-source ~/.zsh/keybinds
-source ~/.zsh/options
-source ~/.zsh/aliases
-source ~/.zsh/completion
-source ~/.zsh/custom
-source ~/.zsh/scripts
-source ~/.zsh/fzf
+#!/usr/bin/sh
+
+.  ~/.zsh/env
+.  ~/.zsh/plug
+.  ~/.zsh/keybinds
+.  ~/.zsh/options
+.  ~/.zsh/aliases
+.  ~/.zsh/completion
+.  ~/.zsh/custom
+.  ~/.zsh/scripts
+.  ~/.zsh/fzf
