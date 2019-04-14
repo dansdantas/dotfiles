@@ -224,7 +224,7 @@ let $FZF_DEFAULT_COMMAND = 'ag --vimgrep --hidden --ignore .git -l -g ""'
 nnoremap <leader>o :FZF<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>c :Commits<CR>
-nnoremap <leader>ag :Ag<Space>
+nnoremap <leader>aa :Ag<Space>
 nnoremap <leader>e :BLines<CR>
 nnoremap <leader>i :Commands<CR>
 
@@ -247,7 +247,7 @@ let g:signify_vcs_list = ['git']
 let g:signify_realtime = 1
 
 " === Python ===
-let g:python_host_prog = $PYENV_ROOT.'/versions/2.7.14/bin/python'
+let g:python_host_prog = $PYENV_ROOT.'/versions/2.7.15/bin/python'
 let g:python3_host_prog = $PYENV_ROOT.'/versions/3.6.3/bin/python'
 let g:ycm_server_python_interpreter = $PYENV_ROOT.'/versions/3.6.3/bin/python'
 
@@ -276,11 +276,13 @@ autocmd FileType vue syntax sync fromstart
 let g:used_javascript_libs = 'underscore,vue,jquery'
 
 " === Test ===
-nnoremap <leader>tt :TestNearest<CR>
+nnoremap <leader>tn :TestNearest<CR>
 nnoremap <leader>tf :TestFile<CR>
 nnoremap <leader>ts :TestSuite<CR>
 nnoremap <leader>tl :TestLast<CR>
 nnoremap <leader>tg :TestVisit<CR>
+nnoremap <leader>tw :TestLastOnlyFail<CR>
+let test#strategy = "vimux"
 
 " === Motion ===
 let g:sneak#s_next = 1
