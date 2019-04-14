@@ -33,6 +33,10 @@ export LANG="${LANGUAGE}"
 export LC_ALL="${LANGUAGE}"
 export LC_CTYPE="${LANGUAGE}"
 
+# Monitors
+export EDP0=eDP-1-1
+export HDMI0=HDMI0
+
 # -------------------------------------------------------------------
 # Terminal
 # -------------------------------------------------------------------
