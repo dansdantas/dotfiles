@@ -10,6 +10,9 @@ alias history='fc -fl 1'
 alias fa="alias | $FZF_COMMAND"
 alias trash='trash-put'
 alias sz="source $ZSHRC"
+alias cat="bat"
+
+# Scripts
 alias work="source $HOME/.screenlayout/work.sh"
 alias home="source $HOME/.screenlayout/home.sh"
 
@@ -189,3 +192,7 @@ alias tmka="tm ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-
 alias tks='tmux kill-server'
 alias tkst='tmux kill-session -t'
 alias ta='tmux at'
+
+# Foreman with Procfiles
+alias fs='be foreman start -f Procfile.development'
+alias fsdocker='be foreman start -f Procfile.docker'
