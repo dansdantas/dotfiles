@@ -40,11 +40,10 @@ floating_modifier $mod
 bindsym $mod+Return exec kitty
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # Rofi
-bindsym $mod+o exec --no-startup-id $HOME/.scripts/launcher-alt
-bindsym $mod+d exec --no-startup-id $HOME/.scripts/windows
+bindsym $mod+d exec --no-startup-id $HOME/.scripts/launcher
 
 # change focus
 bindsym $mod+h focus left
