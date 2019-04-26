@@ -246,6 +246,19 @@ let g:fzf_colors = {
   \ 'header':  ['fg', 'Comment']
 \ }
 
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit'
+\ }
+
 " === Deoplete ===
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#tag#cache_limit_size = 5000000
