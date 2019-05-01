@@ -19,8 +19,13 @@ font pango:monospace 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+# Gaps
+gaps outer 7
+gaps inner 7
+smart_gaps on
+
 # Disable window titlebars entirely
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 
 # Configs
 hide_edge_borders smart
@@ -44,6 +49,7 @@ bindsym $mod+q kill
 
 # Rofi
 bindsym $mod+d exec --no-startup-id $HOME/.scripts/launcher
+bindsym $mod+c exec --no-startup-id $HOME/.scripts/calculator
 
 # change focus
 bindsym $mod+h focus left
