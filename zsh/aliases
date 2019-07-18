@@ -11,6 +11,8 @@ alias fa="alias | $FZF_COMMAND"
 alias trash='trash-put'
 alias sz="source $ZSHRC"
 alias cat="bat"
+alias sys='systemctl'
+alias o='xdg-open'
 
 # Scripts
 alias work="source $HOME/.screenlayout/work.sh"
@@ -49,7 +51,7 @@ alias ipe='curl ipinfo.io/ip'
 alias nds='nmcli device status'
 alias ncs='nmcli connection show'
 alias ncsa='nmcli connection show --active'
-alias ndw='nmcli dev wiend'
+alias ndw='nmcli dev wifi'
 
 # -------------------------------------------------------------------
 # GNU Tools
@@ -70,7 +72,7 @@ alias tp='type -a'
 
 # Space
 alias df="df -H"
-alias du="du -ch"
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 
 # Storages
 alias lsblk='lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,UUID'
@@ -90,7 +92,7 @@ alias rfa='rm -rend *'
 alias mv='mv -i'
 
 # Lists
-alias l='ls -lah'
+alias l='ls -lah --group-directories-first'
 alias ll='ls -lh'
 alias lsd='ls --group-directories-first'
 alias lld='ll --group-directories-first'
