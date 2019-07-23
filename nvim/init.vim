@@ -8,6 +8,8 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch' " UNIX commands
+Plug 'markonm/traces.vim' " Preview pattern and replacement in :s
 
 " Search files
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -50,7 +52,7 @@ Plug 'mxw/vim-jsx'
 Plug 'joshdick/onedark.vim'
 Plug 'tomasr/molokai'
 Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
+Plug 'taigacute/gruvbox9'
 Plug 'shinchu/lightline-gruvbox.vim'
 
 " Git
@@ -89,6 +91,7 @@ set splitbelow      " Split below on new split
 set splitright      " Split right on new split
 set autowrite       " Enable automatically :write before running commands
 set hidden
+set signcolumn=yes
 
 " === Indentation ===
 set shiftwidth=2  " Column space on identation << or >>
@@ -150,8 +153,8 @@ nnoremap <leader>q :q<cr>
 nnoremap <leader>z :qa<cr>
 
 " === Tab & Buffer movements ===
-nnoremap <leader>H :tabprevious<cr>
-nnoremap <leader>L :tabnext<cr>
+nnoremap <leader>j :tabprevious<cr>
+nnoremap <leader>k :tabnext<cr>
 nnoremap <leader>; :bd!<cr>
 nnoremap <leader>h :bprev<cr>
 nnoremap <leader>l :bnext<cr>
