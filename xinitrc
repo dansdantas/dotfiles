@@ -10,5 +10,8 @@ xrdb -merge ~/.Xresources
 # Udisks
 udiskie &
 
+# Compton
+compton &
+
 # I3
 exec dbus-launch i3
