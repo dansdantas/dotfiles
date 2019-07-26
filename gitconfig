@@ -30,8 +30,6 @@
   autosquash = true
 [include]
   path = ~/.gitconfig.local
-[init]
-	templatedir = ~/.templates/git
 [http]
 	postBuffer = 524288000
 [color "diff-highlight"]
