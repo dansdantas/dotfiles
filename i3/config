@@ -6,9 +6,11 @@ set $term $nsi $TERMINAL
 # Font
 font pango:monospace 8
 
-# Gaps and Borders
+# Windows
 for_window [class="^.*"] border pixel 3
+for_window [title="Slack Call Minipanel"] move scratchpad
 
+# Gaps
 gaps outer 7
 gaps inner 7
 smart_gaps on
@@ -85,7 +87,7 @@ set $ws10 "10"
 set $HDMI HDMI-0
 set $eDP  eDP-1-1
 workspace 1 output $HDMI
-workspace 2 output $HDMI
+workspace 2 output $eDP
 workspace 3 output $eDP
 workspace 4 output $eDP
 
