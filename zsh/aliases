@@ -12,7 +12,7 @@ alias trash='trash-put'
 alias sz="source $ZSHRC"
 alias cat="bat"
 alias sys='systemctl'
-alias o='xdg-open'
+alias o='mimeopen'
 
 # Scripts
 alias work="source $HOME/.screenlayout/work.sh"
@@ -65,6 +65,7 @@ alias please='sudo'
 # Process
 alias psa='ps awux | less'
 alias ka='killall'
+alias k='kill -9'
 alias j='jobs -l'
 
 # Type
@@ -115,7 +116,7 @@ alias purge='y -Rns'
 alias clean='purge $(y -Qtdq)'
 
 # Mirrors
-alias mirrors="_ reflector --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
+alias mirrors="_ reflector --verbose --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 
 # -------------------------------------------------------------------
 # Plugins and apps
