@@ -1,12 +1,14 @@
 [user]
 	name = Daniel Santos Dantas
   email = dansdantas@gmail.com
-[color]
-  ui = true
 [push]
   default = simple
 [color]
   ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
 [alias]
   aa = add --all
   ap = add --patch
