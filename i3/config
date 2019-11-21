@@ -10,6 +10,8 @@ font pango:monospace 8
 for_window [class="^.*"] border pixel 3
 for_window [title="Slack Call Minipanel"] move scratchpad
 
+client.focused #4c7899 #285577 #ffffff #2e9ef4 #00BCD4
+
 # Gaps
 gaps outer 7
 gaps inner 7
@@ -86,7 +88,9 @@ set $ws10 "10"
 # Workspaces positions
 set $HDMI HDMI-0
 set $eDP  eDP-1-1
-workspace 1 output $HDMI
+
+workspace 9 output $HDMI
+workspace 1 output $eDP
 workspace 2 output $eDP
 workspace 3 output $eDP
 workspace 4 output $eDP
@@ -117,8 +121,10 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -137,5 +143,6 @@ exec $nsi nitrogen --restore
 exec $nsi xmodmap ~/.Xmodmap
 exec $nsi xbindkeys
 
-# Start polybar
+# Polybar
+bindsym $mod+Shift+p exec $nsi $HOME/.config/polybar/launch.sh
 exec_always $nsi $HOME/.config/polybar/launch.sh
