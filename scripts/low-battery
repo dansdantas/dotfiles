@@ -3,12 +3,12 @@
 # low battery warning
 #
 
-BATTERY=/sys/class/power_supply/BAT0
+systemctl --user import-environment DISPLAY XAUTHORITY DBUS_SESSION_BUS_ADDRESS
 
-REM=`grep "POWER_SUPPLY_CHARGE_NOW" $BATTERY/uevent | awk -F= '{ print $2 }'`
-FULL=`grep "POWER_SUPPLY_CHARGE_FULL_DESIGN" $BATTERY/uevent | awk -F= '{ print $2 }'`
-PERCENT=`echo $(( $REM * 100 / $FULL ))`
+battery_level=`acpi -b | cut -d ' ' -f 4 | grep -o '[0-9]*'`          
+ac_power=$(acpi -b | grep -c "Charging")   
 
-if [ $PERCENT -le "82" ]; then
-  notify-send "Low battery" -u critical
+if [[ $ac_power -eq 0 && $battery_level -le 15 ]]
+then
+  notify-send "Critical battery" "Battery level is ${battery_level}" -u critical
 fi
