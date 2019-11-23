@@ -22,7 +22,7 @@
 rofi.color-enabled: true
 
 ! Font
-rofi.font: Siji 10
+rofi.font: Siji 9
 
 ! Property Name     BG       Border   Separator
 rofi.color-window:  #3c3836, #3c3836, #1d2021
