@@ -36,7 +36,7 @@ Plug 'maximbaz/lightline-ale'
 
 " Syntax
 Plug 'tomtom/tcomment_vim'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " Highlighting
 Plug 'pangloss/vim-javascript'
@@ -83,7 +83,7 @@ let g:mapleader = "\<Space>"
 " === Config ===
 set encoding=utf-8  " Set encoding
 set noshowmode      " Disable warning if changes modes on status line
-set showcmd         " Show incomplete commands
+set noshowcmd       " Does not show incomplete commands
 set showmatch       " Show matcher when above cursor
 set number          " Show line number
 set colorcolumn=120 " Add delimitation line on 120 character
@@ -328,7 +328,6 @@ let g:ale_sign_column_always = 1
 let g:ale_echo_msg_format = '[%linter%] %s'
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '•'
-let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
 let g:ale_linters = {
@@ -352,13 +351,14 @@ autocmd FileType vue syntax sync fromstart
 let g:used_javascript_libs = 'underscore,vue,jquery'
 
 " === Test ===
+let test#strategy = "vimux"
+let g:test#preserve_screen = 1
 nnoremap <leader>tn :TestNearest<CR>
 nnoremap <leader>tf :TestFile<CR>
 nnoremap <leader>ts :TestSuite<CR>
 nnoremap <leader>tl :TestLast<CR>
 nnoremap <leader>tg :TestVisit<CR>
 nnoremap <leader>tw :TestLastOnlyFail<CR>
-let test#strategy = "vimux"
 
 " === Motion ===
 let g:sneak#s_next = 1
