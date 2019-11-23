@@ -219,7 +219,6 @@ nnoremap <leader>u :UndotreeToggle<CR>
 
 " === Startitfy ===
 let g:startify_session_dir = '~/.config/nvim/session'
-let g:ruby_path = system('echo $RBENV_ROOT/shims')
 let g:startify_disable_at_vimenter = 1
 nnoremap <leader>s :SSave<CR>
 nnoremap <leader>S :SLoad<space>
@@ -321,6 +320,10 @@ let g:signify_realtime = 1
 let g:python_host_prog = $PYENV_ROOT.'/versions/2.7.15/bin/python'
 let g:python3_host_prog = $PYENV_ROOT.'/versions/3.6.3/bin/python'
 let g:ycm_server_python_interpreter = $PYENV_ROOT.'/versions/3.6.3/bin/python'
+
+" === Ruby ===
+let g:ruby_path = system('echo $RBENV_ROOT/shims')
+let g:ruby_host_prog = $RBENV_ROOT.'/shims/ruby'
 
 " === ALE ===
 let g:ale_completion_enabled = 1
