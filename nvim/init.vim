@@ -102,10 +102,11 @@ set smartindent   " Automatically inserts one extra level of indentation
 set shiftround    " Calculate shiftwidth based on line start
 
 " === Colors configuration ===
-set termguicolors   " Enable true color
-set background=dark " Force dark background
-let g:one_allow_italics = 1 " Italics on one theme
-colorscheme one " Set colorscheme
+let g:onedark_terminal_italics = 1
+let g:onedark_hide_endofbuffer = 1
+set termguicolors     " Enable true color
+set background=dark   " Force dark background
+colorscheme onedark " Set colorscheme
 
 " === Turn off swap files ===
 set noswapfile    " Disable create of swap file
@@ -270,7 +271,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " === StatusLine ===
 let g:lightline = {
-  \ 'colorscheme': 'gruvbox',
+  \ 'colorscheme': 'onedark',
   \ 'component_expand': {
   \   'linter_checking': 'lightline#ale#checking',
   \   'linter_warnings': 'lightline#ale#warnings',
