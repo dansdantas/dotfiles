@@ -32,10 +32,8 @@ antigen bundles <<EOBUNDLES
   zsh-users/zsh-completions
 
   mafredri/zsh-async
+  sindresorhus/pure
 EOBUNDLES
-
-# Theme
-antigen theme sindresorhus/pure
 
 # Tell Antigen that you're done.
 antigen apply
