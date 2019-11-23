@@ -68,6 +68,10 @@ alias ka='killall'
 alias k='kill -9'
 alias j='jobs -l'
 
+function kp() {
+  k $(pgrep "$1")
+}
+
 # Type
 alias tp='type -a'
 
