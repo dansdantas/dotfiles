@@ -90,3 +90,8 @@ export PATH JAVA_HOME CLASSPATH
 # Nvm
 export NVM_ROOT="$HOME/.nvm"
 export NVM_LAZY_LOAD=true
+
+# Node
+export NODE_PATH=$NODE_PATH:"$NVM_ROOT/versions/node/v12.6.0/bin/node"
+export NODE_PATH=$NODE_PATH:"$NVM_ROOT/versions/node/v12.6.0/lib/node_modules"
+export PATH=$NODE_PATH:$PATH
