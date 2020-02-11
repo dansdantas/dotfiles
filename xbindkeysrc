@@ -1,11 +1,11 @@
 # Audio
-"playerctl play-pause"
+"playerctl -p spotify play-pause"
   XF86AudioPlay
 
-"playerctl next"
+"playerctl -p spotify next"
   XF86AudioNext
 
-"playerctl previous"
+"playerctl -p spotify previous"
   XF86AudioPrev
 
 "pactl set-sink-volume @DEFAULT_SINK@ +5%"
@@ -18,10 +18,10 @@
   XF86AudioMute
 
 # Brightness
-"light -A 10"
+"sudo xbacklight -inc 10"
    XF86MonBrightnessUp
 
-"light -U 10"
+"sudo xbacklight -dec 10"
    XF86MonBrightnessDown
 
 # Print
