@@ -70,6 +70,7 @@ Plug 'tmhedberg/matchit'
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-dispatch'
+Plug 'benmills/vimux'
 
 call plug#end()
 
