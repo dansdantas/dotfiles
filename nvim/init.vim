@@ -29,6 +29,10 @@ Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 " Layout && Status
 Plug 'mhinz/vim-startify', { 'on': ['SSave', 'SLoad', 'Startitfy'] }
 Plug 'itchyny/lightline.vim'
@@ -367,6 +371,11 @@ nnoremap <leader>tw :TestLastOnlyFail<CR>
 " === Motion ===
 let g:sneak#s_next = 1
 let g:sneak#label = 1
+
+" === Ultisnips ===
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
+let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
 " -------------------------------------------------------------------
 " Functions
