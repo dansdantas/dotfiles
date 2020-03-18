@@ -38,6 +38,7 @@ Plug 'honza/vim-snippets'
 Plug 'mhinz/vim-startify', { 'on': ['SSave', 'SLoad', 'Startitfy'] }
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
+Plug 'tmux-plugins/vim-tmux-focus-events' " Restore vim events inside tmux
 
 " Syntax
 Plug 'editorconfig/editorconfig-vim'
