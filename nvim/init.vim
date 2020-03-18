@@ -16,6 +16,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-abolish' " Search and replace subvert pattern
 
 " Motion
 Plug 'easymotion/vim-easymotion'
