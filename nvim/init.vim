@@ -62,6 +62,7 @@ Plug 'tomasr/molokai'
 Plug 'chriskempson/base16-vim'
 Plug 'taigacute/gruvbox9'
 Plug 'shinchu/lightline-gruvbox.vim'
+Plug 'drewtempelmeyer/palenight.vim'
 
 " Git
 Plug 'mhinz/vim-signify'
