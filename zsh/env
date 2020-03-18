@@ -43,15 +43,6 @@ export HDMI0=HDMI0
 # Antigen
 export ANTIGEN_HOME="$HOME/.antigen"
 
-# Forgit
-export FORGIT_FZF_DEFAULT_OPS="
---border
---cycle
---reverse
---height '80%'
---preview=\"(highlight --quiet --force --style molokai -lO truecolor {} || cat {} || $tree -L2 {} || head -200) 2>/dev/null\"
-"
-
 # -------------------------------------------------------------------
 # Languages
 # -------------------------------------------------------------------
