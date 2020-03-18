@@ -10,6 +10,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch' " UNIX commands
 Plug 'markonm/traces.vim' " Preview pattern and replacement in :s
+Plug 'vim-scripts/restore_view.vim'
 
 " Search files
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
