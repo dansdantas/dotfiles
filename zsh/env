@@ -40,8 +40,12 @@ export HDMI0=HDMI0
 # Terminal
 # -------------------------------------------------------------------
 
+# XDG
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Antigen
-export ANTIGEN_HOME="$HOME/.antigen"
+export ANTIGEN_HOME="$XDG_CONFIG_HOME/antigen"
+export ADOTDIR=$ANTIGEN_HOME
 
 # -------------------------------------------------------------------
 # Languages
