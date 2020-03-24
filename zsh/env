@@ -7,6 +7,10 @@
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:$HOME/.local/bin:$HOME/bin"
 export FZF_COMMAND=$([ -z "$TMUX" ] && echo "fzf" || echo "fzf-tmux")
 
+# XDG
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+
 # Dotfiles
 export DOTFILES_PATH="$HOME/.dotfiles"
 export VIMRC="$DOTFILES_PATH/nvim/init.vim"
@@ -21,10 +25,10 @@ else
 fi
 
 # History
-export HISTFILE="$HOME/.zsh_history" # History file
-export HISTSIZE=10000000             # History size in memory
-export SAVEHIST=10000000             # The number of histsize
-export LISTMAX=50                    # The size of asking history
+export HISTFILE="$XDG_DATA_HOME/zsh/history" # History file
+export HISTSIZE=10000000                     # History size in memory
+export SAVEHIST=10000000                     # The number of histsize
+export LISTMAX=50                            # The size of asking history
  
 # LANGUAGE must be set by en_US
 export LANGUAGE="en_US.UTF-8"
@@ -39,9 +43,6 @@ export HDMI0=HDMI0
 # -------------------------------------------------------------------
 # Terminal
 # -------------------------------------------------------------------
-
-# XDG
-export XDG_CONFIG_HOME="$HOME/.config"
 
 # Antigen
 export ANTIGEN_HOME="$XDG_CONFIG_HOME/antigen"
