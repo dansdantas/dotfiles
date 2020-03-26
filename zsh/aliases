@@ -195,7 +195,7 @@ alias pc="$EDITOR +PlugClean"
 alias pu="$EDITOR +PlugUpdate"
 
 # Tmux
-alias tm='tmux -2'
+alias tm="tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 alias tmka="tm ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill"
 alias tks='tmux kill-server'
 alias tkst='tmux kill-session -t'

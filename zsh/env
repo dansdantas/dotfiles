@@ -5,7 +5,6 @@
 # -------------------------------------------------------------------
 
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:$HOME/.local/bin:$HOME/bin"
-export FZF_COMMAND=$([ -z "$TMUX" ] && echo "fzf" || echo "fzf-tmux")
 
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -47,6 +46,10 @@ export HDMI0=HDMI0
 # Antigen
 export ANTIGEN_HOME="$XDG_CONFIG_HOME/antigen"
 export ADOTDIR=$ANTIGEN_HOME
+
+# Tmux
+export FZF_COMMAND=$([ -z "$TMUX" ] && echo "fzf" || echo "fzf-tmux")
+export TMUX_PLUGIN_MANAGER_PATH="$XDG_DATA_HOME/tmux/plugins"
 
 # -------------------------------------------------------------------
 # Languages
