@@ -13,7 +13,7 @@ Plug 'markonm/traces.vim' " Preview pattern and replacement in :s
 Plug 'vim-scripts/restore_view.vim'
 
 " Search files
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '$XDG_CONFIG_HOME/fzf', 'do': './install --xdg --no-update-rc' }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -101,7 +101,7 @@ set splitbelow      " Split below on new split
 set splitright      " Split right on new split
 set autowrite       " Enable automatically :write before running commands
 set hidden
-set signcolumn=yes
+set signcolumn=yes  " Always show the signcolumn
 
 " === Indentation ===
 set shiftwidth=2  " Column space on identation << or >>
