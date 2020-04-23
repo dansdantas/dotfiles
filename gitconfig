@@ -49,3 +49,5 @@
 	whitespace = red reverse
 [hub]
 	protocol = ssh
+[includeIf "gitdir:~/Projects/flight-club/"]
+    path = ~/Projects/flight-club/.gitconfig
