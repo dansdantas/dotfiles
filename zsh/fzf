@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 
 # Load library
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh 2>/dev/null
+[ -f $XDG_CONFIG_HOME/fzf/fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/fzf.zsh 2>/dev/null
 
 # Change file search
 (( $+commands[ag] )) && export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g "" 2>/dev/null'

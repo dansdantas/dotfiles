@@ -13,7 +13,7 @@ Plug 'markonm/traces.vim' " Preview pattern and replacement in :s
 Plug 'vim-scripts/restore_view.vim'
 
 " Search files
-Plug 'junegunn/fzf', { 'dir': '$XDG_CONFIG_HOME/fzf', 'do': './install --xdg --no-update-rc' }
+Plug 'junegunn/fzf', { 'dir': '$XDG_DATA_HOME/fzf', 'do': './install --xdg --no-update-rc' }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
 Plug 'Xuyuanp/nerdtree-git-plugin'
