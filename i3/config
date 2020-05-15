@@ -132,6 +132,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Lock
 bindsym $mod+Shift+x exec $nsi lock
 
+# Menus
+bindsym $mod+Shift+s exec $nsi $HOME/.config/polybar/scripts/powermenu
+
 # Starting scrips
 
 # Make cursor invisible after brief period
