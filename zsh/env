@@ -9,6 +9,7 @@ export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:$HOME/.loca
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
 
 # Dotfiles
 export DOTFILES_PATH="$HOME/.dotfiles"
@@ -43,6 +44,8 @@ export HDMI0=HDMI0
 # Terminal
 # -------------------------------------------------------------------
 
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+
 # Antigen
 export ANTIGEN_HOME="$XDG_CONFIG_HOME/antigen"
 export ADOTDIR=$ANTIGEN_HOME
@@ -56,7 +59,16 @@ export TMUX_PLUGIN_MANAGER_PATH="$XDG_DATA_HOME/tmux/plugins"
 # -------------------------------------------------------------------
 
 # Ruby
-export RBENV_ROOT="$HOME/.rbenv"
+export RBENV_ROOT="$XDG_DATA_HOME/rbenv"
+
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
+
+export GEM_HOME="$XDG_DATA_HOME/gem"
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
+
+export SOLARGRAPH_CACHE="$XDG_CACHE_HOME/solargraph"
 
 rbenv() {
   eval "$(command rbenv init -)"
@@ -64,7 +76,7 @@ rbenv() {
 }
 
 # PyEnv
-export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export PATH="$PATH:$PYENV_ROOT/bin"
 
 pyenv() {
@@ -74,7 +86,7 @@ pyenv() {
 }
 
 # Golang
-export GOPATH="$HOME/.go"
+export GOPATH="$XDG_DATA_HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
 # Java 
@@ -89,6 +101,9 @@ export PATH JAVA_HOME CLASSPATH
 # Nvm
 export NVM_ROOT="$HOME/.nvm"
 export NVM_LAZY_LOAD=true
+export NVM_DIR="$XDG_DATA_HOME/nvm"
+
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 # Node
 export NODE_PATH=$NODE_PATH:"$NVM_ROOT/versions/node/v12.6.0/bin/node"
@@ -98,3 +113,14 @@ export PATH=$NODE_PATH:$PATH
 # Rust
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 export PATH=$CARGO_HOME/bin:$PATH
+
+# Android
+export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
+export ADB_VENDOR_KEY="$XDG_CONFIG_HOME/android"
+
+# AWS
+export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
+export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
+
+# Docker
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"

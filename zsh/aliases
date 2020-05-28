@@ -137,6 +137,7 @@ alias ls=exa
 (( $+commands[exa] )) && tree='exa --color=always -T' || tree='tree -Ctr'
 
 alias au='antigen update'
+alias irssi='commnad irssi --config="$XDG_CONFIG_HOME"/irssi/config --home="$XDG_DATA_HOME"/irssi'
 
 # -------------------------------------------------------------------
 # Languages
