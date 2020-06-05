@@ -145,7 +145,7 @@ exec $nsi nitrogen --restore
 
 # Start keyboard config
 exec $nsi xmodmap $HOME/.config/xmodmap/config
-exec $nsi xbindkeys -f $HOME/config/xbindkeys/config
+exec $nsi xbindkeys -f $HOME/.config/xbindkeys/config
 
 # Polybar
 bindsym $mod+Shift+p exec $nsi $HOME/.config/polybar/launch.sh
