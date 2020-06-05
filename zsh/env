@@ -39,12 +39,14 @@ export LC_CTYPE="${LANGUAGE}"
 # Monitors
 export EDP0=eDP-1-1
 export HDMI0=HDMI0
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 
 # -------------------------------------------------------------------
 # Terminal
 # -------------------------------------------------------------------
 
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export PATHMARKS_FILE="$XDG_DATA_HOME/pathmarks/file"
 
 # Antigen
 export ANTIGEN_HOME="$XDG_CONFIG_HOME/antigen"
@@ -57,6 +59,10 @@ export TMUX_PLUGIN_MANAGER_PATH="$XDG_DATA_HOME/tmux/plugins"
 # Less
 export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+
+# Terminfo
+export TERMINFO="$XDG_DATA_HOME/terminfo"
+export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
 
 # -------------------------------------------------------------------
 # Languages
@@ -73,6 +79,8 @@ export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 
 export SOLARGRAPH_CACHE="$XDG_CACHE_HOME/solargraph"
+
+export PRYRC="$XDG_CONFIG_HOME/pry/pryrc"
 
 rbenv() {
   eval "$(command rbenv init -)"
