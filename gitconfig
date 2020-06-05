@@ -51,3 +51,5 @@
 	protocol = ssh
 [includeIf "gitdir:~/Projects/flight-club/"]
     path = ~/Projects/flight-club/.gitconfig
+[pull]
+  rebase = false
