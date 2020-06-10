@@ -2,10 +2,10 @@
 
 # SSH
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent > ~/.ssh-agent-current
+    ssh-agent > $XDG_RUNTIME_DIR/ssh-agent-current
 fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval "$(<~/.ssh-agent-current)" > /dev/null
+    eval "$(<$XDG_RUNTIME_DIR/ssh-agent-current)" > /dev/null
 fi
 
 # Load direnv hook
