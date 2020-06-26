@@ -5,6 +5,7 @@
 # -------------------------------------------------------------------
 
 alias history='fc -fl 1'
+alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 
 # Helpers
 alias fa="alias | $FZF_COMMAND"
