@@ -13,5 +13,5 @@ udiskie &
 # Compton
 compton &
 
-# I3
+# Window manager
 exec dbus-launch i3
