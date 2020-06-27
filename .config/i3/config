@@ -32,8 +32,8 @@ bindsym $mod+Return exec kitty
 bindsym $mod+q kill
 
 # Rofi
-bindsym $mod+d exec $nsi $HOME/.scripts/launcher
-bindsym $mod+c exec $nsi $HOME/.scripts/calculator
+bindsym $mod+d exec $nsi $HOME/.config/scripts/launcher
+bindsym $mod+c exec $nsi $HOME/.config/scripts/calculator
 
 # change focus
 bindsym $mod+h focus left
