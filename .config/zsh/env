@@ -111,7 +111,6 @@ export CLASSPATH=.:$CLASSPATH
 export PATH JAVA_HOME CLASSPATH
 
 # Nvm
-export NVM_ROOT="$HOME/.nvm"
 export NVM_LAZY_LOAD=true
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 
