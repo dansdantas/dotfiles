@@ -181,7 +181,6 @@ nnoremap <C-H> <C-W><C-H>
 
 " === Moviments ===
 nnoremap ;; $
-nnoremap , `
 nnoremap B ^
 nnoremap E $
 
@@ -512,7 +511,7 @@ nnoremap <silent> ,d  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> ,e  :<C-u>CocList extensions<cr>
 
 " Show commands.
-nnoremap <silent> ,c  :<C-u>CocList commands<cr>
+nnoremap <silent> ,co  :<C-u>CocList commands<cr>
 
 " Find symbol of current document.
 nnoremap <silent> ,o  :<C-u>CocList outline<cr>
