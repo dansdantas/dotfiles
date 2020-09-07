@@ -329,9 +329,9 @@ let g:signify_vcs_list = ['git']
 let g:signify_realtime = 1
 
 " === Python ===
-let g:python_host_prog = $PYENV_ROOT.'/versions/2.7.15/bin/python'
-let g:python3_host_prog = $PYENV_ROOT.'/versions/3.6.3/bin/python'
-let g:ycm_server_python_interpreter = $PYENV_ROOT.'/versions/3.6.3/bin/python'
+let g:python_host_prog = $PYENV_ROOT.'/versions/2.7.18/bin/python'
+let g:python3_host_prog = $PYENV_ROOT.'/versions/3.8.5/bin/python'
+let g:ycm_server_python_interpreter = $PYENV_ROOT.'/versions/3.8.5/bin/python'
 
 " === Ruby ===
 let g:ruby_path = system('echo $RBENV_ROOT/shims')
