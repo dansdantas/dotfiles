@@ -113,7 +113,7 @@ alias l.='ls -d .* --color=auto'
 alias mpsi='makepkg -si'
 
 # Package manager
-alias y='yay'
+alias y='paru'
 alias update='y -Syu'
 alias install='y -S'
 alias search='y -Ss'
