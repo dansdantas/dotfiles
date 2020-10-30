@@ -14,4 +14,4 @@ udiskie &
 compton &
 
 # Window manager
-exec dbus-launch i3
+exec bspwm

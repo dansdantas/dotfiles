@@ -1,0 +1,54 @@
+#! /bin/sh
+
+# -------------------------------------------------------------------
+# Startup scripts 
+# -------------------------------------------------------------------
+
+killall sxhkd
+sxhkd &
+
+killall unclutter
+unclutter &
+
+killall flameshot
+flameshot &
+
+killall dunst
+dunst &
+
+# Keyboard
+xmodmap $HOME/.config/xmodmap/config
+
+# Restore wallpapers
+nitrogen --restore &
+
+# Status bar
+$HOME/.config/polybar/launch.sh &
+
+# -------------------------------------------------------------------
+# Main config
+# -------------------------------------------------------------------
+
+bspc monitor eDP-1-1 -d 1 2 3 4 5 6 7 8
+bspc monitor HDMI-0 -d 8 9
+bspc monitor eDP-1-1 -s HDMI-0
+
+bspc config border_width         3
+bspc config window_gap           2
+bspc config split_ratio          0.5
+
+bspc config single_monocle       true
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc config ignore_ewmh_focus    true
+
+bspc config focused_border_color '#2e9ef4'
+
+# -------------------------------------------------------------------
+# App rules
+# -------------------------------------------------------------------
+
+bspc rule -a "-c" state=floating
+bspc rule -a Rofi state=floating
+bspc rule -a Zathura state=tiled
