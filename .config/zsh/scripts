@@ -7,6 +7,3 @@ fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(<$XDG_RUNTIME_DIR/ssh-agent-current)" > /dev/null
 fi
-
-# Load direnv hook
-eval "$(direnv hook zsh)"
