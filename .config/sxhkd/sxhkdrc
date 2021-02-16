@@ -19,6 +19,9 @@ super + o ; {t,f}
 {_,shift + } Print
   flameshot {gui, screen -c}
 
+super + e
+  xclip -selection clipboard -o | qrencode -o ~/.qr.png; exec feh -FZ ~/.qr.png
+
 #super + {alt,ctrl,alt + ctrl} + XF86Eject
 #	sudo systemctl {suspend,reboot,poweroff}
 
