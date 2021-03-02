@@ -78,8 +78,8 @@ keycode  78 = Scroll_Lock NoSymbol Scroll_Lock
 ! keycode  81 = KP_Prior KP_9 KP_Prior KP_9
 
 keycode 79 = XF86AudioPrev NoSymbol XF86AudioPrev
-keycode 81 = XF86AudioNext NoSymbol XF86AudioNext
 keycode 80 = XF86AudioPlay XF86AudioPause XF86AudioPlay XF86AudioPause
+keycode 81 = XF86AudioNext NoSymbol XF86AudioNext
 
 keycode  82 = KP_Subtract KP_Subtract KP_Subtract KP_Subtract KP_Subtract KP_Subtract XF86Prev_VMode
 keycode  83 = KP_Left KP_4 KP_Left KP_4
@@ -174,6 +174,7 @@ keycode 170 = XF86Eject XF86Eject XF86Eject XF86Eject
 ! keycode 171 = XF86AudioNext NoSymbol XF86AudioNext
 ! keycode 172 = XF86AudioPlay XF86AudioPause XF86AudioPlay XF86AudioPause
 ! keycode 173 = XF86AudioPrev NoSymbol XF86AudioPrev
+
 keycode 171 = KP_Home KP_7 KP_Home KP_7
 keycode 172 = KP_Up KP_8 KP_Up KP_8
 keycode 173 = KP_Prior KP_9 KP_Prior KP_9
