@@ -11,11 +11,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-# Dotfiles
-export DOTFILES_PATH="$HOME/.dotfiles"
-export VIMRC="$DOTFILES_PATH/nvim/init.vim"
-export ZSHRC="$DOTFILES_PATH/zshrc"
-
 # Term definition
 if [ -z "$TMUX" ]
 then
