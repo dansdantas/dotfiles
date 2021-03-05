@@ -32,6 +32,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'Valloric/MatchTagAlways'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
+Plug 'pechorin/any-jump.vim'
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -63,7 +64,7 @@ Plug 'M4R7iNP/vim-inky'
 Plug 'joshdick/onedark.vim'
 Plug 'tomasr/molokai'
 Plug 'chriskempson/base16-vim'
-Plug 'taigacute/gruvbox9'
+Plug 'morhetz/gruvbox'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 
@@ -226,6 +227,21 @@ nnoremap <Leader>z :call FoldingToggleFold()<cr>
 " Plugins configurations
 " -------------------------------------------------------------------
 
+" === AnyJump ===
+let g:any_jump_disable_default_keybindings = 1
+
+" Normal mode: Jump to definition under cursore
+nnoremap ,aj :AnyJump<CR>
+
+" Visual mode: jump to selected text in visual mode
+xnoremap ,aj :AnyJumpVisual<CR>
+
+" Normal mode: open previous opened file (after jump)
+nnoremap ,ab :AnyJumpBack<CR>
+
+" Normal mode: open last closed search window again
+nnoremap ,al :AnyJumpLastResults<CR>
+
 " === Gundo ===
 nnoremap <leader>u :UndotreeToggle<CR>
 
@@ -385,7 +401,7 @@ let g:sneak#label = 1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-" set updatetime=300
+set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
