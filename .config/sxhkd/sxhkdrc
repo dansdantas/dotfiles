@@ -20,7 +20,7 @@ super + o ; {t,f}
   flameshot {gui, screen -c}
 
 super + e
-  xclip -selection clipboard -o | qrencode -o ~/.qr.png; exec feh -FZ ~/.qr.png
+    xclip -selection clipboard -o | qrencode -o - | feh - -FZ
 
 #super + {alt,ctrl,alt + ctrl} + XF86Eject
 #	sudo systemctl {suspend,reboot,poweroff}
@@ -43,7 +43,7 @@ super + Escape
 # -------------------------------------------------------------------
 
 XF86Audio{Prev,Next,Play}
-	playerctl -p ncspot {previous,next,play-pause}
+  playerctl {previous,next,play-pause}
 
 XF86Audio{RaiseVolume,LowerVolume}
   pactl set-sink-volume @DEFAULT_SINK@ {+5%,-5%}
