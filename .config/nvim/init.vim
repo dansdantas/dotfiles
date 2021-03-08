@@ -5,7 +5,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " Manipulate files and buffers
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch' " UNIX commands
@@ -51,22 +50,13 @@ Plug 'dense-analysis/ale'
 
 " Highlighting
 Plug 'pangloss/vim-javascript'
-Plug 'posva/vim-vue'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'vim-ruby/vim-ruby'
-Plug 'digitaltoad/vim-pug'
 Plug 'slim-template/vim-slim'
-Plug 'iloginow/vim-stylus'
 Plug 'mxw/vim-jsx'
-Plug 'M4R7iNP/vim-inky'
 
-" Color & Themes
+" Color
 Plug 'joshdick/onedark.vim'
-Plug 'tomasr/molokai'
-Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
-Plug 'shinchu/lightline-gruvbox.vim'
-Plug 'drewtempelmeyer/palenight.vim'
 
 " Git
 Plug 'mhinz/vim-signify'
@@ -241,9 +231,6 @@ nnoremap ,ab :AnyJumpBack<CR>
 
 " Normal mode: open last closed search window again
 nnoremap ,al :AnyJumpLastResults<CR>
-
-" === Gundo ===
-nnoremap <leader>u :UndotreeToggle<CR>
 
 " === Startitfy ===
 let g:startify_session_dir = '~/.config/nvim/session'
