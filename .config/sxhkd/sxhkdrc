@@ -53,7 +53,7 @@ super + {_,shift + }r
 # -------------------------------------------------------------------
 
 XF86Audio{Prev,Next,Play}
-  playerctl {previous,next,play-pause}
+  playerctl -p spotify {previous,next,play-pause}
 
 XF86Audio{RaiseVolume,LowerVolume}
   pactl set-sink-volume @DEFAULT_SINK@ {+5%,-5%}
