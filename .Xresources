@@ -1,0 +1,177 @@
+! rofi.font: Anonymous Pro, Regular, 20
+!
+! rofi.color-enabled: true
+! rofi.color-normal: argb:ffffffff , #353535 , argb:ffffffff , #ff372c , #1b2b34
+! rofi.color-urgent: argb:ffffffff , #ff372c , argb:ffffffff , #ff372c , #1b2b34
+! rofi.color-active: argb:ffffffff , #6699cc , argb:ffffffff , #6699cc , #1b2b34
+! rofi.color-window: argb:ffffffff
+
+Xcursor.size: 12
+Xft.dpi: 96
+
+! special
+! *.foreground:   #ABB2BF
+! *.background:   #282C34
+! *.cursorColor:  #ABB2BF
+!
+! ! black
+! *.color0:       #282C34
+! *.color8:       #3E4452
+!
+! ! red
+! *.color1:       #E06C75
+! *.color9:       #BE5046
+!
+! ! green
+! *.color2:       #98C379
+! *.color10:      #98C379
+!
+! ! yellow
+! *.color3:       #E5C07B
+! *.color11:      #D19A66
+!
+! ! blue
+! *.color4:       #61AFEF
+! *.color12:      #61AFEF
+!
+! ! magenta
+! *.color5:       #C678DD
+! *.color13:      #C678DD
+!
+! ! cyan
+! *.color6:       #56B6C2
+! *.color14:      #56B6C2
+!
+! ! white
+! *.color7:       #ABB2BF
+! *.color15:      #5C6370
+
+URxvt.font: xft:Fantasque Sans Mono Regular:size=8
+URxvt.boldFont: xft:Fantasque Sans Mono Bold:size=8
+URxvt.scrollBar: false
+URxvt.perl-ext-common:resize-font
+URxvt.keysym.C-minus:resize-font:smaller
+URxvt.keysym.C-equal:resize-font:bigger
+URxvt.keysym.C-0:resize-font:reset
+
+! ! special
+! *.foreground:   #ABB2BF
+! *.background:   #282C34
+! *.cursorColor:  #ABB2BF
+!
+! ! black
+! *.color0:       #5C6370
+! *.color8:       #4B5263
+!
+! ! red
+! *.color1:       #E06C75
+! *.color9:       #BE5046
+!
+! ! green
+! *.color2:       #98C379
+! *.color10:      #98C379
+!
+! ! yellow
+! *.color3:       #E5C07B
+! *.color11:      #D19A66
+!
+! ! blue
+! *.color4:       #61AFEF
+! *.color12:      #61AFEF
+!
+! ! magenta
+! *.color5:       #C678DD
+! *.color13:      #C678DD
+!
+! ! cyan
+! *.color6:       #56B6C2
+! *.color14:      #56B6C2
+!
+! ! white
+! *.color7:       #ABB2BF
+! *.color15:      #3E4452
+
+! !!! Gruvbox theme
+! ! hard contrast: *background: #1d2021
+! *background: #282828
+! ! soft contrast: *background: #32302f
+! *foreground: #ebdbb2
+! ! Black + DarkGrey
+! *color0:  #282828
+! *color8:  #928374
+! ! DarkRed + Red
+! *color1:  #cc241d
+! *color9:  #fb4934
+! ! DarkGreen + Green
+! *color2:  #98971a
+! *color10: #b8bb26
+! ! DarkYellow + Yellow
+! *color3:  #d79921
+! *color11: #fabd2f
+! ! DarkBlue + Blue
+! *color4:  #458588
+! *color12: #83a598
+! ! DarkMagenta + Magenta
+! *color5:  #b16286
+! *color13: #d3869b
+! ! DarkCyan + Cyan
+! *color6:  #689d6a
+! *color14: #8ec07c
+! ! LightGrey + White
+! *color7:  #a89984
+! *color15: #ebdbb2
+!
+! ! Extended 256 color palette: requires 'rxvt-unicode-256xresources' package
+! URxvt.color24:  #076678
+! URxvt.color66:  #427b58
+! URxvt.color88:  #9d0006
+! URxvt.color96:  #8f3f71
+! URxvt.color100: #79740e
+! URxvt.color108: #8ec07c
+! URxvt.color109: #83a598
+! URxvt.color130: #af3a03
+! URxvt.color136: #b57614
+! URxvt.color142: #b8bb26
+! URxvt.color167: #fb4934
+! URxvt.color175: #d3869b
+! URxvt.color208: #fe8019
+! URxvt.color214: #fabd2f
+! URxvt.color223: #ebdbb2
+! URxvt.color228: #f2e5bc
+! URxvt.color229: #fbf1c7
+! URxvt.color230: #f9f5d7
+! URxvt.color234: #1d2021
+! URxvt.color235: #282828
+! URxvt.color236: #32302f
+! URxvt.color237: #3c3836
+! URxvt.color239: #504945
+! URxvt.color241: #665c54
+! URxvt.color243: #7c6f64
+! URxvt.color244: #928374
+! URxvt.color245: #928374
+! URxvt.color246: #a89984
+! URxvt.color248: #bdae93
+! URxvt.color250: #d5c4a1
+
+*.alpha: 1
+
+!! onedark
+*.color0: #282c34
+*.color1: #e06c75
+*.color2: #98c379
+*.color3: #d19a66
+*.color4: #61afef
+*.color5: #c678dd
+*.color6: #56b6c2
+*.color7: #abb2bf
+*.color8: #5c6370
+*.color9: #e06c75
+*.color10: #98c379
+*.color11: #d19a66
+*.color12: #61afef
+*.color13: #c678dd
+*.color14: #56b6c2
+*.color15: #ffffff
+*.background: #282c34
+*.foreground: #979eab
+*.cursorColor: white
