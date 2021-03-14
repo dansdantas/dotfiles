@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Open in Spotify
+GenericName=Music Player
+Icon=spotify-client
+Exec=/home/dansdantas/.config/scripts/open-in-spotify %U
+Terminal=false
+MimeType=x-scheme-handler/spotify;
+Categories=Audio;Music;Player;AudioVideo;
+StartupWMClass=spotify
