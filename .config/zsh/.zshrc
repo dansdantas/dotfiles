@@ -1,8 +1,8 @@
 #!/usr/bin/sh
 
 .  $ZDOTDIR/env
-.  $ZDOTDIR/fzf
 .  $ZDOTDIR/plug
+.  $ZDOTDIR/fzf
 .  $ZDOTDIR/keybinds
 .  $ZDOTDIR/options
 .  $ZDOTDIR/aliases
