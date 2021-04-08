@@ -32,4 +32,4 @@ tmp/**/*
 !tmp/cache/.keep
 *.pyc
 
-spec/fixtures/vcr_cassettes
+spec/fixtures/**/*
