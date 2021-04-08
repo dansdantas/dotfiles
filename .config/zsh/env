@@ -46,6 +46,7 @@ export PATHMARKS_FILE="$XDG_DATA_HOME/pathmarks/file"
 # Antigen
 export ANTIGEN_HOME="$XDG_CONFIG_HOME/antigen"
 export ADOTDIR=$ANTIGEN_HOME
+export ANTIGEN_LOG=$HOME/antigen.log
 
 # Tmux
 export FZF_COMMAND=$([ -z "$TMUX" ] && echo "fzf" || echo "fzf-tmux")
