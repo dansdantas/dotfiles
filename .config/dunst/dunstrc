@@ -1,6 +1,5 @@
 [global]
 monitor = 0
-follow = mouse
 geometry = "250x50-12+40"
 # geometry = "300x5-30+20"
 indicate_hidden = yes
@@ -12,7 +11,7 @@ horizontal_padding = 20
 frame_width = 0
 sort = no
 idle_threshold = 120
-font = FantasqueSansMono Nerd Font 9
+font = Fantasque Sans Mono 9
 line_height = 4
 markup = full
 format = %s\n%b
