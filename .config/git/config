@@ -3,6 +3,7 @@
   email = dansdantas@gmail.com
 [push]
   default = simple
+	followtags = true
 [color]
   ui = auto
 	diff = auto
@@ -24,6 +25,8 @@
   excludesfile = ~/.gitignore
   autocrlf = input
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+	trustctime = false
 [commit]
   template = ~/.gitmessage
 	verbose = true
@@ -52,9 +55,17 @@
 [includeIf "gitdir:~/Projects/flight-club/"]
     path = ~/Projects/flight-club/.gitconfig
 [pull]
-  rebase = false
+	rebase = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[merge]
+	log = true
+[help]
+	autocorrect = 1
+[apply]
+	whitespace = warn
+[diff]
+	renames = copies
