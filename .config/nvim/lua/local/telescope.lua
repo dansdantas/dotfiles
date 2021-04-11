@@ -4,7 +4,7 @@ require('telescope').setup({
     vimgrep_arguments = {
       'ag',
       '--vimgrep',
-      '--hiden',
+      '--hidden',
       '--ignore .git',
       '-l',
       '--ignore spec/fixtures',
