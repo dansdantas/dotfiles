@@ -9,7 +9,7 @@ xrandr --output DP-4 --off
 xrandr --output DP-5 --off
 
 # force workspaces to start on middle monitor
-bpsc monitor DP-0 -s HDMI-0
+bspc monitor DP-0 -s HDMI-0
 
 # relaunch polybar on correct monitor
 setsid -f $HOME/.config/polybar/launch.sh > /dev/null 2>&1
