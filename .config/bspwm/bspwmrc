@@ -4,9 +4,6 @@
 # Startup scripts 
 # -------------------------------------------------------------------
 
-# Keyboard
-xmodmap $HOME/.config/xmodmap/config
-
 killall sxhkd
 sxhkd &
 
@@ -17,13 +14,13 @@ killall flameshot
 flameshot &
 
 killall dunst
-dunst &
+setsid -f dunst > /dev/null 2>&1
 
 # Restore wallpapers
 nitrogen --restore &
 
 # Status bar
-$HOME/.config/polybar/launch.sh &
+setsid -f $HOME/.config/polybar/launch.sh > /dev/null 2>&1
 
 # -------------------------------------------------------------------
 # Main config
@@ -38,7 +35,7 @@ bspc config window_gap           2
 bspc config split_ratio          0.5
 
 bspc config single_monocle       true
-bspc config borderless_monocle   true
+bspc config borderless_monocle   false
 bspc config gapless_monocle      true
 
 bspc config ignore_ewmh_focus    true
