@@ -247,7 +247,8 @@ nnoremap <leader>s :SSave<CR>
 nnoremap <leader>S :SLoad<space>
 
 " === FZF ===
-let $FZF_DEFAULT_COMMAND = 'ag --vimgrep --hidden --ignore .git -l -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag --vimgrep --hidden --ignore .git -l --ignore spec/fixtures -g ""'
+
 nnoremap <leader>o :FZF<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>c :Commits<CR>
@@ -255,7 +256,9 @@ nnoremap <leader>aa :Ag<Space>
 nnoremap <leader>e :BLines<CR>
 nnoremap <leader>i :Commands<CR>
 
-let g:fzf_layout = { 'down': '~30%' }
+" Center window
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
 let g:fzf_colors = {
   \'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
