@@ -13,6 +13,7 @@ alias sz="source $ZSHRC"
 alias cat="bat"
 alias sys='systemctl'
 alias o='mimeopen'
+alias lazygit='TERM=xterm-256color lazygit'
 
 # Scripts
 alias work="source $HOME/.screenlayout/work.sh"
