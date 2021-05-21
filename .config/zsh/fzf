@@ -7,6 +7,9 @@
 (( $+commands[ag] )) && export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g "" 2>/dev/null'
 (( $+commands[rg] )) && export FZF_DEFAULT_COMMAND="rg --hidden --files -g '' 2>/dev/null"
 
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --color=always --exclude .git --exclude=spec/fixtures'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 export FZF_DEFAULT_OPTS="
   --ansi
   --border
