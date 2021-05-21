@@ -25,8 +25,7 @@ export FZF_DEFAULT_OPTS="
   --bind=\):toggle-preview,alt-w:toggle-preview-wrap
   --bind=\"ctrl-y:execute-silent(ruby -e 'puts ARGV' {+} | pbcopy)+abort\"
   --bind='alt-e:execute($EDITOR {})+abort'
-  --preview=\"(highlight --quiet --force --style molokai -lO truecolor {} || cat {} || $tree -L2 {} || head -200) 2>/dev/null\"
-"
+  --preview 'bat --color=always --style=grid --wrap=never --line-range :300 {}'"
 
 _gen_fzf_colors() {
   local color00='#282c34'
