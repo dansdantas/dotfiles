@@ -14,5 +14,7 @@
     "typescript": ["javascript"]
   },
 
-  "coc.preferences.extensionUpdateCheck": "never"
+  "coc.preferences.extensionUpdateCheck": "never",
+
+  "diagnostic.displayByAle": true
 }
