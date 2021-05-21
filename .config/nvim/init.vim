@@ -18,6 +18,16 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-abolish' " Search and replace subvert pattern
 
+" Tree shitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
+
+" telescope requirements...
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
 " Motion
 Plug 'easymotion/vim-easymotion'
 Plug 'wellle/targets.vim'
@@ -26,6 +36,11 @@ Plug 'justinmk/vim-sneak'
 " CoC
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Plug 'tpope/vim-endwise'
+
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'folke/lsp-colors.nvim'
 
 " Completion
 Plug 'Valloric/MatchTagAlways'
@@ -558,6 +573,11 @@ let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" === Telescope ===
+" nnoremap <leader>o <cmd>lua require('telescope.builtin').find_files()<CR>
+" nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<CR>
+nnoremap <leader>td <cmd> lua require('local.telescope').search_dotfiles()<CR>
 
 " Maximize
 nnoremap <leader>mt :MaximizerToggle<CR>
