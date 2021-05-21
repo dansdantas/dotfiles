@@ -382,6 +382,7 @@ let g:used_javascript_libs = 'underscore,vue,jquery'
 " === Test ===
 let test#strategy = "vimux"
 let g:test#preserve_screen = 1
+let g:test#echo_command = 0
 nnoremap <leader>tn :TestNearest<CR>
 nnoremap <leader>tf :TestFile<CR>
 nnoremap <leader>ts :TestSuite<CR>
