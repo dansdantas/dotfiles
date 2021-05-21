@@ -7,7 +7,7 @@ x-scheme-handler/unknown=chromium.desktop
 x-scheme-handler/spotify=spotify-open.desktop
 x-scheme-handler/discord-471872241299226636=discord-471872241299226636.desktop
 x-scheme-handler/webcal=chromium.desktop
-x-scheme-handler/tg=userapp-Telegram Desktop-V21YV0.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-BSRG10.desktop
 x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/discord-378347429537251328=discord-378347429537251328.desktop
 
@@ -21,6 +21,6 @@ image/png=feh.desktop;
 audio/mpeg=mpv.desktop;
 image/svg+xml=gpicview.desktop;
 image/webp=chromium.desktop;
-x-scheme-handler/tg=userapp-Telegram Desktop-V21YV0.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-V21YV0.desktop;userapp-Telegram Desktop-BSRG10.desktop;
 text/csv=libreoffice-calc.desktop;
 image/jpeg=sxiv.desktop;
