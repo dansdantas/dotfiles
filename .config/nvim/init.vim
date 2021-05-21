@@ -154,6 +154,12 @@ autocmd BufRead,BufNewFile *.arb setfiletype ruby
 " Keymaps
 " -------------------------------------------------------------------
 
+" reload config
+nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
+
+nnoremap + <C-a>
+nnoremap - <C-x>
+
 " === Handle save ===
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>x :x!<cr>
