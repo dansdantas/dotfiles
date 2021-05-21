@@ -38,7 +38,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Layout && Status
-Plug 'mhinz/vim-startify', { 'on': ['SSave', 'SLoad', 'Startitfy'] }
+Plug 'mhinz/vim-startify', { 'on': ['SSave', 'SLoad', 'Startify'] }
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'tmux-plugins/vim-tmux-focus-events' " Restore vim events inside tmux
@@ -74,6 +74,9 @@ Plug 'janko-m/vim-test'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-dispatch'
 Plug 'benmills/vimux'
+
+" Debugging
+Plug 'szw/vim-maximizer'
 
 call plug#end()
 
@@ -532,6 +535,7 @@ nnoremap <silent> ,k  :<C-u>CocPrev<CR>
 nnoremap <silent> ,p  :<C-u>CocListResume<CR>
 
 " === CocSnippets ===
+
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
 
@@ -546,6 +550,9 @@ let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Maximize
+nnoremap <leader>mt :MaximizerToggle<CR>
 
 " -------------------------------------------------------------------
 " Functions
