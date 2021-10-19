@@ -52,10 +52,8 @@
 	whitespace = red reverse
 [hub]
 	protocol = ssh
-[includeIf "gitdir:~/Projects/flight-club/"]
-    path = ~/Projects/flight-club/.gitconfig
-[includeIf "gitdir:~/Projects/goat/"]
-    path = ~/Projects/goat/.gitconfig
+[includeIf "gitdir:~/tlm/"]
+    path = ~/tlm/.gitconfig
 [pull]
 	rebase = true
 [filter "lfs"]
