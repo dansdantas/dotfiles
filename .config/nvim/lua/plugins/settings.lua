@@ -4,56 +4,50 @@ local g   = vim.g
 local map = vim.keymap
 local v   = vim.v
 
--- " === AnyJump ===
--- let g:any_jump_disable_default_keybindings = 1
---
--- " Normal mode: Jump to definition under cursore
--- nnoremap ,aj :AnyJump<CR>
---
--- " Visual mode: jump to selected text in visual mode
--- xnoremap ,aj :AnyJumpVisual<CR>
---
--- " Normal mode: open previous opened file (after jump)
--- nnoremap ,ab :AnyJumpBack<CR>
---
--- " Normal mode: open last closed search window again
--- nnoremap ,al :AnyJumpLastResults<CR>
---
--- " === Startitfy ===
--- let g:startify_session_dir = '$XDG_DATA_HOME/nvim/session'
--- let g:startify_disable_at_vimenter = 1
--- nnoremap <leader>s :SSave<CR>
--- nnoremap <leader>S :SLoad<space>
---
--- " === FZF ===
--- let $FZF_DEFAULT_COMMAND = 'ag --vimgrep --hidden --ignore .git -l --ignore spec/fixtures -g ""'
---
--- nnoremap <leader>o :FZF<CR>
--- nnoremap <leader>b :Buffers<CR>
--- nnoremap <leader>c :Commits<CR>
--- nnoremap <leader>aa :Ag<Space>
--- nnoremap <leader>e :BLines<CR>
--- nnoremap <leader>i :Commands<CR>
---
--- " Center window
--- let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
---
--- let g:fzf_colors = {
---   \'fg':      ['fg', 'Normal'],
---   \ 'bg':      ['bg', 'Normal'],
---   \ 'hl':      ['fg', 'Comment'],
---   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
---   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
---   \ 'hl+':     ['fg', 'Statement'],
---   \ 'info':    ['fg', 'PreProc'],
---   \ 'border':  ['fg', 'Ignore'],
---   \ 'prompt':  ['fg', 'Conditional'],
---   \ 'pointer': ['fg', 'Exception'],
---   \ 'marker':  ['fg', 'Keyword'],
---   \ 'spinner': ['fg', 'Label'],
---   \ 'header':  ['fg', 'Comment']
--- \ }
---
+-- AnyJump
+g.any_jump_disable_default_keybindings = 1
+
+map.set('n', ',aj', ':AnyJump<cr>')            -- Normal mode: Jump to definition under cursore
+map.set('x', ',aj', ':AnyJumpVisual')          -- Visual mode: jump to selected text in visual mode
+map.set('n', ',ab', ':AnyJumpBack<cr>')        -- Normal mode: open previous opened file (after jump)
+map.set('n', ',al', ':AnyJumpLastResults<cr>') -- " Normal mode: open last closed search window again
+
+-- Startitfy
+g.startify_session_dir = env.XDG_DATA_HOME..'/nvim/session'
+g.startify_disable_at_vimenter = 1
+map.set('n', '<leader>s', ':SSave<cr>')
+map.set('n', '<leader>S', ':SLoad ')
+
+-- FZF
+env.FZF_DEFAULT_COMMAND = 'ag --vimgrep --hidden --ignore .git -l --ignore spec/fixtures -g ""'
+
+map.set('n', '<leader>o', ':FZF<cr>')
+map.set('n', '<leader>b', ':Buffers<cr>')
+map.set('n', '<leader>c', ':Commits<cr>')
+map.set('n', '<leader>aa', ':Ag<Space>')
+map.set('n', '<leader>e', ':BLines<cr>')
+map.set('n', '<leader>i', ':Commands<cr>')
+
+-- Center window
+g.fzf_layout = { down = '40%', window = { width = 0.9, height = 0.6}}
+
+g.fzf_colors = {
+  fg =      {'fg', 'Normal'},
+  bg =      {'bg', 'Normal'},
+  hl =      {'fg', 'Comment'},
+  info =    {'fg', 'PreProc'},
+  border =  {'fg', 'Ignore'},
+  prompt =  {'fg', 'Conditional'},
+  pointer = {'fg', 'Exception'},
+  marker =  {'fg', 'Keyword'},
+  spinner = {'fg', 'Label'},
+  header =  {'fg', 'Comment'}
+}
+
+g.fzf_colors['fg+'] = {'fg', 'CursorLine', 'CursorColumn', 'Normal'}
+g.fzf_colors['bg+'] = {'bg', 'CursorLine', 'CursorColumn'}
+g.fzf_colors['hl+'] = {'fg', 'Statement'}
+
 -- function! s:build_quickfix_list(lines)
 --   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
 --   copen
