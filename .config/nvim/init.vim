@@ -2,7 +2,7 @@
 " Plugins handler
 " -------------------------------------------------------------------
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('$XDG_DATA_HOME/nvim/plugged')
 
 " Manipulate files and buffers
 Plug 'tpope/vim-surround'
@@ -152,9 +152,9 @@ iabbr log console.log
 abbr todo: <esc>:call AddToDo()<cr>
 
 " === Keep undo history across sessions, by storing in file ===
-call system('mkdir -p ~/.config/nvim/undo')
+call system('mkdir -p $XDG_DATA_HOME/nvim/undo')
 set undofile
-set undodir=~/.config/nvim/undo
+set undodir=$XDG_DATA_HOME/nvim/undo
 
 " === Folding ===
 set foldmethod=manual
@@ -257,7 +257,7 @@ nnoremap ,ab :AnyJumpBack<CR>
 nnoremap ,al :AnyJumpLastResults<CR>
 
 " === Startitfy ===
-let g:startify_session_dir = '~/.config/nvim/session'
+let g:startify_session_dir = '$XDG_DATA_HOME/nvim/session'
 let g:startify_disable_at_vimenter = 1
 nnoremap <leader>s :SSave<CR>
 nnoremap <leader>S :SLoad<space>
