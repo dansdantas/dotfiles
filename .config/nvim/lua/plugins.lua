@@ -127,7 +127,7 @@ return require('packer').startup(function()
   -- - etc
 
   -- LSP
-  -- use 'neovim/nvim-lspconfig'
+  use 'neovim/nvim-lspconfig'
   -- use 'nvim-lua/completion-nvim'
   -- use 'folke/lsp-colors.nvim'
 
