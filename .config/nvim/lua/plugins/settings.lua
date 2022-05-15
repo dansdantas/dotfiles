@@ -53,63 +53,13 @@ g.fzf_colors['hl+'] = {'fg', 'Statement'}
 --   copen
 --   cc
 -- endfunction
---
--- let g:fzf_action = {
---   \ 'ctrl-q': function('s:build_quickfix_list'),
---   \ 'ctrl-t': 'tab split',
---   \ 'ctrl-x': 'split',
---   \ 'ctrl-v': 'vsplit'
--- \ }
---
--- " === Deoplete ===
--- let g:deoplete#enable_at_startup = 1
--- let g:deoplete#tag#cache_limit_size = 5000000
--- inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
--- inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
---
--- " === StatusLine ===
--- let g:lightline = {
---   \ 'colorscheme': 'onedark',
---   \ 'component_expand': {
---   \   'linter_checking': 'lightline#ale#checking',
---   \   'linter_warnings': 'lightline#ale#warnings',
---   \   'linter_errors': 'lightline#ale#errors',
---   \   'linter_ok': 'lightline#ale#ok'
---   \ },
---   \ 'component_function': {
---   \   'filetype': 'LightlineFiletype'
---   \ },
---   \ 'component_type': {
---   \   'linter_checking': 'left',
---   \   'linter_warnings': 'warning',
---   \   'linter_errors': 'error',
---   \   'linter_ok': 'left'
---   \ },
---   \ 'active': {
---   \   'right': [
---   \     [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
---   \     [ 'lineinfo' ],
---   \     [ 'filetype']
---   \   ]
---   \ },
---   \ 'inactive': {
---   \   'left': [ [ 'relativepath', 'modified' ] ]
---   \ },
--- \ }
---
--- function! LightlineFiletype()
---   if &filetype ==? 'ruby'
---     return ''
---   elseif &filetype ==? 'javascript'
---     return ''
---   endif
---   return &filetype
--- endfunction
---
--- let g:lightline#ale#indicator_checking = "\uf110"
--- let g:lightline#ale#indicator_warnings = "\uf071"
--- let g:lightline#ale#indicator_errors = "\uf05e"
--- let g:lightline#ale#indicator_ok = "\uf00c"
+
+-- g.fzf_action = {}
+-- g.fzf_action['ctrl-t'] = 'tab split'
+-- g.fzf_action['ctrl-x'] = 'split'
+-- g.fzf_action['ctrl-v'] = 'vsplit'
+
+-- 'ctrl-q': function('s:build_quickfix_list'),
 
 -- " === Signify ===
 g.signify_vcs_list = {'git'}
