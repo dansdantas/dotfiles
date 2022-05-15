@@ -1,4 +1,5 @@
 vim.cmd [[packadd packer.nvim]]
+local use = require('packer').use
 
 return require('packer').startup(function()
   -- Packer can manage itself
