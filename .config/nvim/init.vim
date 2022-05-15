@@ -10,6 +10,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch' " UNIX commands
 Plug 'markonm/traces.vim' " Preview pattern and replacement in :s
 Plug 'vim-scripts/restore_view.vim'
+Plug 'rmagatti/auto-session'
 
 " Search files
 Plug 'junegunn/fzf', { 'dir': '$XDG_DATA_HOME/fzf', 'do': './install --xdg --no-update-rc' }
@@ -29,7 +30,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 " Motion
-Plug 'easymotion/vim-easymotion'
+Plug 'phaazon/hop.nvim'
 Plug 'wellle/targets.vim'
 Plug 'justinmk/vim-sneak'
 
@@ -575,9 +576,9 @@ let g:coc_snippet_prev = '<c-k>'
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 " === Telescope ===
-" nnoremap <leader>o <cmd>lua require('telescope.builtin').find_files()<CR>
-" nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<CR>
-nnoremap <leader>td <cmd> lua require('local.telescope').search_dotfiles()<CR>
+nnoremap <leader>to <cmd>lua require('telescope.builtin').find_files()<CR>
+nnoremap <leader>tb <cmd>lua require('telescope.builtin').buffers()<CR>
+nnoremap <leader>td <cmd>lua require('local.telescope').search_dotfiles()<CR>
 
 " Maximize
 nnoremap <leader>mt :MaximizerToggle<CR>
