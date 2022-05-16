@@ -51,9 +51,10 @@ vim.cmd[[iabbr log console.log]]
 vim.cmd[[abbr todo: <esc>:call AddToDo()<cr>]]
 
 -- Keep undo history across sessions, by storing in file
-vim.fn.system({'mkdir', '-p', vim.env.XDG_DATA_HOME..'/nvim/undo'})
+local undo_dir = vim.env.XDG_DATA_HOME..'/nvim/undo'
+vim.fn.system({'mkdir', '-p', undo_dir})
 o.undofile = true
-o.undodir = '$XDG_DATA_HOME/nvim/undo'
+o.undodir = undo_dir
 
 -- Folding
 o.foldmethod = 'manual'

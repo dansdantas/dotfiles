@@ -108,11 +108,17 @@ return require('packer').startup(function(use)
   use 'sheerun/vim-polyglot'
 
   -- Git
-  use 'mhinz/vim-signify'
+  use {'mhinz/vim-signify', disable = true }
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'tommcdo/vim-fubitive'
   use 'sodapopcan/vim-twiggy'
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
 
   -- Html
   use 'mattn/emmet-vim'
