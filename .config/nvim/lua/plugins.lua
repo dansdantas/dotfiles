@@ -102,8 +102,10 @@ return require('packer').startup(function(use)
 
   -- telescope requirements...
   use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
   use 'nvim-telescope/telescope-fzy-native.nvim'
 
   -- Motion
@@ -191,4 +193,8 @@ return require('packer').startup(function(use)
 
   -- Debugging
   use 'szw/vim-maximizer'
+
+  if PackerBootstrap then
+    require('packer').sync()
+  end
 end)
