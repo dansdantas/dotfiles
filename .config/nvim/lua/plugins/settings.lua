@@ -47,21 +47,20 @@ g.fzf_colors = {
   ['hl+'] = {'fg', 'Statement'},
 }
 
-
 -- function! s:build_quickfix_list(lines)
 --   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
 --   copen
 --   cc
 -- endfunction
-
--- g.fzf_action = {}
--- g.fzf_action['ctrl-t'] = 'tab split'
--- g.fzf_action['ctrl-x'] = 'split'
--- g.fzf_action['ctrl-v'] = 'vsplit'
-
 -- 'ctrl-q': function('s:build_quickfix_list'),
 
--- " === Signify ===
+g.fzf_action = {
+  ['ctrl-t'] = 'tab split',
+  ['ctrl-x'] = 'split',
+  ['ctrl-v'] = 'vsplit',
+}
+
+-- Signify
 g.signify_vcs_list = {'git'}
 g.signify_realtime = 1
 
@@ -80,7 +79,7 @@ g.ale_sign_column_always = 1
 g.ale_echo_msg_format = '[%linter%] %s'
 g.ale_sign_error = '•'
 g.ale_sign_warning = '•'
-g.ale_linters = { 
+g.ale_linters = {
   javascript = {'jshint', 'eslint'},
   ruby = {'reek', 'rubocop', 'ruby', 'rails_best_practices'}
 }
@@ -100,7 +99,7 @@ map.set('n', '<leader>f', ':NERDTreeFind<cr>')
 api.nvim_create_autocmd('FileType vue', { command = 'syntax sync fromstart' })
 g.used_javascript_libs = 'underscore,vue,jquery'
 
--- Test 
+-- Test
 v['test#strategy'] = 'vimux'
 g['test#preserve_screen'] = 1
 g['test#echo_command'] = 0
