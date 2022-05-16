@@ -91,6 +91,7 @@ return require('packer').startup(function()
   use {'junegunn/fzf', run = 'cd $XDG_DATA_HOME/fzf && ./install --xdg --no-update-rc'}
   use 'junegunn/fzf.vim'
   use 'tpope/vim-abolish' -- Search and replace subvert pattern
+  use 'kevinhwang91/nvim-hlslens'
 
   -- Tree shitter
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}

@@ -123,3 +123,8 @@ map.set('n', '<leader>td', function() require('plugins.telescope').search_dotfil
 
 -- Maximize
 map.set('n', '<leader>mt', 'MaximizerToggle<cr>')
+
+-- Hslens
+require('hlslens').setup({
+  calm_down = true,
+})
