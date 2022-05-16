@@ -41,12 +41,12 @@ g.fzf_colors = {
   pointer = {'fg', 'Exception'},
   marker =  {'fg', 'Keyword'},
   spinner = {'fg', 'Label'},
-  header =  {'fg', 'Comment'}
+  header =  {'fg', 'Comment'},
+  ['fg+'] = {'fg', 'CursorLine', 'CursorColumn', 'Normal'},
+  ['bg+'] = {'bg', 'CursorLine', 'CursorColumn'},
+  ['hl+'] = {'fg', 'Statement'},
 }
 
-g.fzf_colors['fg+'] = {'fg', 'CursorLine', 'CursorColumn', 'Normal'}
-g.fzf_colors['bg+'] = {'bg', 'CursorLine', 'CursorColumn'}
-g.fzf_colors['hl+'] = {'fg', 'Statement'}
 
 -- function! s:build_quickfix_list(lines)
 --   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
