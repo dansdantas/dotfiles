@@ -119,6 +119,7 @@ g['sneak#label'] = 1
 map.set('n', '<leader>to', function() require('telescope.builtin').find_files() end)
 map.set('n', '<leader>tb', function() require('telescope.builtin').buffers() end)
 map.set('n', '<leader>td', function() require('plugins.telescope').search_dotfiles() end)
+map.set('n', '<leader>g',  function() require('telescope.builtin').grep_string() end)
 
 -- Maximize
 map.set('n', '<leader>mt', 'MaximizerToggle<cr>')

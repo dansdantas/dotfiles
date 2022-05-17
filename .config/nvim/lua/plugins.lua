@@ -47,38 +47,27 @@ return require('packer').startup(function(use)
   use 'justinmk/vim-sneak'
 
   -- CoC
-  -- use {'neoclide/coc.nvim', branch = 'release'}
-  -- use 'tpope/vim-endwise'
+  use {'neoclide/coc.nvim', branch = 'release', disable = true}
+  use {'tpope/vim-endwise', disable = true}
 
   -- Coq
   use {'ms-jpq/coq_nvim', branch = 'coq'}
-
-  -- 9000+ Snippets
-  use {'ms-jpq/coq.artifacts', branch = 'artifacts'}
-
-  -- lua & third party sources -- See https://github.com/ms-jpq/coq.thirdparty
-  -- Need to **configure separately**
-  use {'ms-jpq/coq.thirdparty', branch = '3p'}
-  -- - shell repl
-  -- - nvim lua api
-  -- - scientific calculator
-  -- - comment banner
-  -- - etc
+  use {'ms-jpq/coq.artifacts', branch = 'artifacts'} -- 9000+ Snippets
+  use {'ms-jpq/coq.thirdparty', branch = '3p'} -- lua & third party sources
 
   -- LSP
   use 'neovim/nvim-lspconfig'
-  -- use 'nvim-lua/completion-nvim'
-  -- use 'folke/lsp-colors.nvim'
+  use 'folke/lsp-colors.nvim'
 
   -- Completion
-  -- use 'Valloric/MatchTagAlways'
-  -- use 'pechorin/any-jump.vim'
+  use {'Valloric/MatchTagAlways', disable = true}
+  use {'pechorin/any-jump.vim', disable = true}
   use 'jiangmiao/auto-pairs'
   use 'alvan/vim-closetag'
 
   -- Snippets
-  --use 'SirVer/ultisnips'
-  --use 'honza/vim-snippets'
+  use {'SirVer/ultisnips', disable = true}
+  use {'honza/vim-snippets', disable = true}
 
   -- Layout && Status
   use {'mhinz/vim-startify', opt = true, cmd = {'SSave', 'SLoad', 'Startify'}}
