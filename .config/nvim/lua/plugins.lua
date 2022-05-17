@@ -85,7 +85,7 @@ return require('packer').startup(function(use)
   -- Highlighting
   use 'pangloss/vim-javascript'
   use 'othree/javascript-libraries-syntax.vim'
-  use 'vim-ruby/vim-ruby'
+  use {'vim-ruby/vim-ruby', disable = true}
   use 'slim-template/vim-slim'
   use 'mxw/vim-jsx'
   use 'martinda/Jenkinsfile-vim-syntax'
@@ -115,12 +115,16 @@ return require('packer').startup(function(use)
 
   -- Ruby & Rails
   use 'janko-m/vim-test'
-  use 'tpope/vim-rails'
+  use {'tpope/vim-rails', disable = true}
   use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
   use 'benmills/vimux'
 
   -- Debugging
   use 'szw/vim-maximizer'
+
+  -- Lua
+  use 'nanotee/luv-vimdocs'
+  use 'milisims/nvim-luaref'
 
   if PackerBootstrap then
     require('packer').sync()

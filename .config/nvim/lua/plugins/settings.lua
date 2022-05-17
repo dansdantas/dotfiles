@@ -70,6 +70,7 @@ g.python3_host_prog = env.PYENV_ROOT..'/versions/3.8.5/bin/python'
 g.ycm_server_python_interpreter = env.PYENV_ROOT..'/versions/3.8.5/bin/python'
 
 -- Ruby
+g.loaded_ruby_provider = 0
 g.ruby_path = env.RBENV_ROOT..'/shims'
 g.ruby_host_prog = env.RBENV_ROOT..'/shims/ruby'
 
