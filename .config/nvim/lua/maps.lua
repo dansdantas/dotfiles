@@ -26,7 +26,7 @@ map.set('n', '<leader>l', ':bnext<cr>')
 map.set('n', '<C-J>', '<C-W><C-J>')
 map.set('n', '<C-K>', '<C-W><C-K>')
 map.set('n', '<C-L>', '<C-W><C-L>')
-map.set('n', '<C-H>', '<C-W><C-H>')
+map.set('n', '<C-H>', '<C-W><C-H>', {remap = true})
 
 -- Moviments
 map.set('n', ';;', '$')
