@@ -23,10 +23,10 @@ return require('packer').startup(function(use)
   -- Sessions
   use {
     'rmagatti/auto-session',
-    config = function ()
+    config = function()
       require('auto-session').setup {
         log_level = 'info',
-        auto_session_suppression_dirs = {'~/Projects'}
+        auto_session_suppression_dirs = { '~/Projects' }
       }
     end
   }
@@ -131,7 +131,15 @@ return require('packer').startup(function(use)
   use {
     'lewis6991/gitsigns.nvim',
     config = function()
-      require('gitsigns').setup()
+      require('gitsigns').setup({
+        signs = {
+          add = { text = '+' },
+          change = { text = '~' },
+          delete = { text = '_' },
+          topdelete = { text = '‾' },
+          changedelete = { text = '~' },
+        },
+      })
     end
   }
 
