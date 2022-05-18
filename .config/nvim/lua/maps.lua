@@ -16,8 +16,10 @@ map.set('n', '<leader>q', ':q<cr>')
 map.set('n', '<leader>z', ':qa<cr>')
 
 -- Tab & Buffer movements
-map.set('n', '<leader>j', ':tabprevious<cr>')
-map.set('n', '<leader>k', ':tabnext<cr>')
+-- map.set('n', '<leader>j', ':tabprevious<cr>')
+-- map.set('n', '<leader>k', ':tabnext<cr>')
+map.set('n', '<leader>j', ':BufferLineCyclePrev<cr>')
+map.set('n', '<leader>k', ':BufferLineCycleNext<cr>')
 map.set('n', '<leader>;', ':bd!<cr>')
 map.set('n', '<leader>h', ':bprev<cr>')
 map.set('n', '<leader>l', ':bnext<cr>')
@@ -26,7 +28,7 @@ map.set('n', '<leader>l', ':bnext<cr>')
 map.set('n', '<C-J>', '<C-W><C-J>')
 map.set('n', '<C-K>', '<C-W><C-K>')
 map.set('n', '<C-L>', '<C-W><C-L>')
-map.set('n', '<C-H>', '<C-W><C-H>', {remap = true})
+map.set('n', '<C-H>', '<C-W><C-H>')
 
 -- Moviments
 map.set('n', ';;', '$')
@@ -42,7 +44,7 @@ map.set('n', 'Y', 'y$')
 map.set('n', '<C-B>', ':%bd!<cr>')
 
 -- Remove white space
--- map.set('n', '<leader><bs>', ':%s/\s\+$//e<CR>')
+-- map.set('n', '<leader><bs>', vim.cmd[[:%s/\s\+$//e<CR>]])
 
 -- Disable visual mode
 map.set('', 'Q', '<nop>', {remap = true})
@@ -61,11 +63,17 @@ map.set('n', '<leader>r', ':cprevious<cr>')
 map.set('n', ',cs', ':let @+=expand("%")<cr>',   {remap = true})
 map.set('n', ',cl', ':let @+=expand("%:p")<cr>', {remap = true})
 
+-- local help_on_current_word = function()
+--   local word = vim.call('expand', '<cword>')
+--   return vim.cmd('h', word)
+-- end
+
 -- Search current word on help
 -- map.set('n', ',he', 'zyiw:exe "h ".@z."<cr>')
+-- map.set('n', ',he', help_on_current_word)
 
 ---- Search for word under cursor using Ag
 --nmap <Leader>ag "zyiw:exe "Ag ".@z.""<CR>
 
 -- Global folding
--- set.map('n', '<leader>z', ':call FoldingToggleFold()<cr>')
+-- map.set('n', '<leader>z', ':call FoldingToggleFold()<cr>')
