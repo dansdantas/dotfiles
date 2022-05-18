@@ -5,6 +5,7 @@ vim.g.mapleader = ' '
 
 map.set('n', '+', '<C-a>')
 map.set('n', '-', '<C-x>')
+map.set('n', ',l', ':nohl<cr>')
 
 -- reload config
 map.set('n', '<leader><cr>', ':so ~/.config/nvim/init.vim<CR>')
