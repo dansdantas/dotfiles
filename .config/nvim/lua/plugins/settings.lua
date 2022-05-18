@@ -15,7 +15,7 @@ map.set('n', ',al', ':AnyJumpLastResults<cr>') -- " Normal mode: open last close
 -- Startitfy
 g.startify_session_dir = env.XDG_DATA_HOME..'/nvim/session'
 g.startify_disable_at_vimenter = 1
-map.set('n', '<leader>s', ':SSave<cr>')
+map.set('n', '<leader>ss', ':SSave<cr>')
 map.set('n', '<leader>S', ':SLoad ')
 
 -- FZF
@@ -109,7 +109,7 @@ map.set('n', '<leader>tn', ':TestNearest<cr>')
 map.set('n', '<leader>tf', ':TestFile<cr>')
 map.set('n', '<leader>ts', ':TestSuite<cr>')
 map.set('n', '<leader>tl', ':TestLast<cr>')
-map.set('n', '<leader>tg', ':TestVisit<cr>')
+map.set('n', '<leader>tv', ':TestVisit<cr>')
 map.set('n', '<leader>tw', ':TestLastOnlyFail<cr>')
 
 -- Motion
@@ -117,13 +117,28 @@ g['sneak#s_next'] = 1
 g['sneak#label'] = 1
 
 -- Telescope
-map.set('n', '<leader>to', function() require('telescope.builtin').find_files() end)
-map.set('n', '<leader>tb', function() require('telescope.builtin').buffers() end)
-map.set('n', '<leader>td', function() require('plugins.telescope').search_dotfiles() end)
-map.set('n', '<leader>g',  function() require('telescope.builtin').grep_string() end)
+map.set('n', '<leader>to', require('telescope.builtin').find_files)
+map.set('n', '<leader>tb', require('telescope.builtin').buffers)
+map.set('n', '<leader>td', require('plugins.telescope').search_dotfiles)
+map.set('n', '<leader>tg', require('telescope.builtin').grep_string)
+
+map.set('n', '<leader>?', require('telescope.builtin').oldfiles)
+map.set('n', '<leader><space>', require('telescope.builtin').buffers)
+map.set('n', '<leader>sf', function()
+  require('telescope.builtin').find_files { previewer = false }
+end)
+map.set('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find)
+map.set('n', '<leader>sh', require('telescope.builtin').help_tags)
+map.set('n', '<leader>sd', require('telescope.builtin').grep_string)
+map.set('n', '<leader>sp', require('telescope.builtin').live_grep)
+
+map.set('n', '<leader>st', require('telescope.builtin').tags)
+map.set('n', '<leader>so', function()
+  require('telescope.builtin').tags { only_current_buffer = true }
+end)
 
 -- Maximize
-map.set('n', '<leader>mt', 'MaximizerToggle<cr>')
+map.set('n', '<leader>mt', ':MaximizerToggle<cr>')
 
 -- Hslens
 require('hlslens').setup({
