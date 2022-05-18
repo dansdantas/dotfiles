@@ -47,27 +47,36 @@ return require('packer').startup(function(use)
   use 'justinmk/vim-sneak'
 
   -- CoC
-  use {'neoclide/coc.nvim', branch = 'release', disable = true}
-  use {'tpope/vim-endwise', disable = true}
+  -- use {'neoclide/coc.nvim', branch = 'release'}
+  -- use {'tpope/vim-endwise'}
 
   -- Coq
-  use {'ms-jpq/coq_nvim', branch = 'coq'}
-  use {'ms-jpq/coq.artifacts', branch = 'artifacts'} -- 9000+ Snippets
-  use {'ms-jpq/coq.thirdparty', branch = '3p'} -- lua & third party sources
+  -- use {'ms-jpq/coq_nvim', branch = 'coq'}
+  -- use {'ms-jpq/coq.artifacts', branch = 'artifacts'} -- 9000+ Snippets
+  -- use {'ms-jpq/coq.thirdparty', branch = '3p'} -- lua & third party sources
 
   -- LSP
   use 'neovim/nvim-lspconfig'
   use 'folke/lsp-colors.nvim'
 
-  -- Completion
-  use {'Valloric/MatchTagAlways', disable = true}
-  use {'pechorin/any-jump.vim', disable = true}
-  use 'jiangmiao/auto-pairs'
-  use 'alvan/vim-closetag'
+  -- Comp
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
 
   -- Snippets
-  use {'SirVer/ultisnips', disable = true}
-  use {'honza/vim-snippets', disable = true}
+  -- use {'SirVer/ultisnips', disable = true}
+  use 'honza/vim-snippets'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+
+  -- Completion
+  -- use {'Valloric/MatchTagAlways'}
+  -- use {'pechorin/any-jump.vim'}
+  use 'jiangmiao/auto-pairs'
+  use 'alvan/vim-closetag'
 
   -- Layout && Status
   use {'mhinz/vim-startify', opt = true, cmd = {'SSave', 'SLoad', 'Startify'}}
@@ -85,7 +94,7 @@ return require('packer').startup(function(use)
   -- Highlighting
   use 'pangloss/vim-javascript'
   use 'othree/javascript-libraries-syntax.vim'
-  use {'vim-ruby/vim-ruby', disable = true}
+  -- use 'vim-ruby/vim-ruby'
   use 'slim-template/vim-slim'
   use 'mxw/vim-jsx'
   use 'martinda/Jenkinsfile-vim-syntax'
@@ -97,7 +106,7 @@ return require('packer').startup(function(use)
   use 'sheerun/vim-polyglot'
 
   -- Git
-  use {'mhinz/vim-signify', disable = true }
+  -- use 'mhinz/vim-signify'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'tommcdo/vim-fubitive'
@@ -115,7 +124,7 @@ return require('packer').startup(function(use)
 
   -- Ruby & Rails
   use 'janko-m/vim-test'
-  use {'tpope/vim-rails', disable = true}
+  -- use 'tpope/vim-rails'
   use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
   use 'benmills/vimux'
 
