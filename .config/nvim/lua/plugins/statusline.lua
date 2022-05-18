@@ -230,7 +230,7 @@ ins_left {
   end,
 }
 
-ins_left {
+ins_right {
   -- Lsp server name .
   function()
     local msg = 'No Active Lsp'
@@ -247,7 +247,7 @@ ins_left {
     end
     return msg
   end,
-  icon = ' LSP:',
+  icon = '  LSP:',
   color = { fg = '#ffffff', gui = 'bold' },
 }
 
