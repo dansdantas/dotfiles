@@ -66,7 +66,12 @@ return require('packer').startup(function(use)
   }
 
   -- Motion
-  use 'phaazon/hop.nvim'
+  use {
+    'phaazon/hop.nvim',
+    config = function()
+      require('hop').setup()
+    end
+  }
   use 'wellle/targets.vim'
   use 'justinmk/vim-sneak'
   -- use {'pechorin/any-jump.vim'}
