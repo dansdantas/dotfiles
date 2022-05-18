@@ -33,7 +33,7 @@ require('telescope').setup({
       },
     },
 
-    file_sorter =  require('telescope.sorters').get_fzy_sorter,
+    file_sorter = require('telescope.sorters').get_fzy_sorter,
   },
   extensions = {
     fzy_native = {
