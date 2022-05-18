@@ -45,11 +45,33 @@ require('telescope').setup({
 
 require('telescope').load_extension('fzy_native')
 
+-- Mappings
+local map = vim.keymap
+map.set('n', '<leader>to', require('telescope.builtin').find_files)
+map.set('n', '<leader>tb', require('telescope.builtin').buffers)
+map.set('n', '<leader>td', require('plugins.telescope').search_dotfiles)
+map.set('n', '<leader>tg', require('telescope.builtin').grep_string)
+
+map.set('n', '<leader>?', require('telescope.builtin').oldfiles)
+map.set('n', '<leader><space>', require('telescope.builtin').buffers)
+map.set('n', '<leader>sf', function()
+  require('telescope.builtin').find_files { previewer = false }
+end)
+map.set('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find)
+map.set('n', '<leader>sh', require('telescope.builtin').help_tags)
+map.set('n', '<leader>sd', require('telescope.builtin').grep_string)
+map.set('n', '<leader>sp', require('telescope.builtin').live_grep)
+
+map.set('n', '<leader>st', require('telescope.builtin').tags)
+map.set('n', '<leader>so', function()
+  require('telescope.builtin').tags { only_current_buffer = true }
+end)
+
 local M = {}
 
 M.search_dotfiles = function()
   require('telescope.builtin').find_files {
-    prompt_title = 'Dotfiles',
+    prompt_title = 'dotfiles',
     cwd = "$HOME",
     find_command = {
       'dot',
