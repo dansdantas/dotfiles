@@ -10,7 +10,7 @@ map.set('n', '-', '<C-x>')
 map.set('n', ',l', ':nohl<cr>')
 
 -- reload config
-map.set('n', '<leader><cr>', ':so ~/.config/nvim/init.vim<CR>')
+map.set('n', '<leader><cr>', ':so ~/.config/nvim/config.lua<CR>')
 
 -- Handle save
 map.set('n', '<leader>w', ':w!<cr>')
