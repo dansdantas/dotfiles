@@ -117,10 +117,26 @@ return require('packer').startup(function(use)
   use 'martinda/Jenkinsfile-vim-syntax'
 
   -- Color
-  use 'joshdick/onedark.vim'
-  use 'rktjmp/lush.nvim'
+  -- use 'joshdick/onedark.vim'
+  -- use 'sheerun/vim-polyglot'
+  -- use 'rktjmp/lush.nvim'
   use 'ellisonleao/gruvbox.nvim'
-  use 'sheerun/vim-polyglot'
+  use {
+    'navarasu/onedark.nvim',
+    config = function()
+      require('onedark').setup {
+        style = 'darker',
+        code_style = {
+          comments = 'italic',
+          keywords = 'none',
+          functions = 'none',
+          strings = 'none',
+          variables = 'none'
+        },
+      }
+      require('onedark').load()
+    end
+  }
 
   -- Git
   -- use 'mhinz/vim-signify'
