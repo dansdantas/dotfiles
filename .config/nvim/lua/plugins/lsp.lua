@@ -38,7 +38,8 @@ local on_attach = function(_, bufnr)
 end
 
 -- Setup lspconfig.
-require('lspconfig').sumneko_lua.setup {
+local lsp = require('lspconfig')
+lsp.sumneko_lua.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = { debounce_text_changes = 150 },
@@ -66,5 +67,13 @@ require('lspconfig').sumneko_lua.setup {
   },
 }
 
--- require('lspconfig').solargraph.setup{}
--- require('lspconfig').sorbet.setup{}
+local servers = { 'solargraph', 'sorbet', 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
+for _, server in ipairs(servers) do
+  lsp[server].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    },
+  }
+end
