@@ -60,10 +60,6 @@ g.fzf_action = {
   ['ctrl-v'] = 'vsplit',
 }
 
--- Signify
-g.signify_vcs_list = {'git'}
-g.signify_realtime = 1
-
 -- Python
 g.python_host_prog = env.PYENV_ROOT .. '/versions/2.7.18/bin/python'
 g.python3_host_prog = env.PYENV_ROOT .. '/versions/3.8.5/bin/python'
@@ -117,8 +113,3 @@ g['sneak#label'] = 1
 
 -- Maximize
 map.set('n', '<leader>mt', ':MaximizerToggle<cr>')
-
--- Hslens
-require('hlslens').setup({
-  calm_down = true,
-})

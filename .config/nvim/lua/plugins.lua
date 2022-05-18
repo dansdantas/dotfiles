@@ -14,10 +14,18 @@ return require('packer').startup(function(use)
   use 'tpope/vim-repeat'
   use 'tpope/vim-abolish' -- Search and replace subvert pattern
   use 'alvan/vim-closetag'
+  use 'karb94/neoscroll.nvim'
 
   -- Search
   use 'markonm/traces.vim'
-  use 'kevinhwang91/nvim-hlslens'
+  use {
+    'kevinhwang91/nvim-hlslens',
+    config = function()
+      require('hlslens').setup({
+        calm_down = true,
+      })
+    end
+  }
   -- use 'haya14busa/is.vim' -- Missing review
 
   -- Sessions
