@@ -22,10 +22,14 @@ require('telescope').setup({
         ["C-q"] = actions.send_to_qflist,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
+        ["<C-b>"] = actions.preview_scrolling_down,
+        ["<C-f>"] = actions.preview_scrolling_up,
       },
       n = {
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
+        ["<C-b>"] = actions.preview_scrolling_down,
+        ["<C-f>"] = actions.preview_scrolling_up,
       },
     },
 
