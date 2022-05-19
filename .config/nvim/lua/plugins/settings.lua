@@ -22,7 +22,6 @@ env.FZF_DEFAULT_COMMAND = [[ag --vimgrep --hidden --ignore .git -l --ignore spec
 
 map.set('n', '<leader>o', ':FZF<cr>')
 map.set('n', '<leader>b', ':Buffers<cr>')
-map.set('n', '<leader>c', ':Commits<cr>')
 map.set('n', '<leader>aa', ':Ag<Space>')
 map.set('n', '<leader>e', ':BLines<cr>')
 map.set('n', '<leader>i', ':Commands<cr>')

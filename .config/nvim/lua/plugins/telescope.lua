@@ -81,3 +81,5 @@ map.set('n', '<leader>st', require('telescope.builtin').tags)
 map.set('n', '<leader>so', function()
   require('telescope.builtin').tags { only_current_buffer = true }
 end)
+
+map.set('n', '<leader>c', require('telescope.builtin').git_commits)
