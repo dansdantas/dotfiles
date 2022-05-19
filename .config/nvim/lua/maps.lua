@@ -16,7 +16,7 @@ map.set('n', '<leader><cr>', ':so ~/.config/nvim/config.lua<CR>')
 map.set('n', '<leader>w', ':w!<cr>')
 map.set('n', '<leader>x', ':x!<cr>')
 map.set('n', '<leader>q', ':q<cr>')
-map.set('n', '<leader>z', ':qa<cr>')
+map.set('n', '<leader>Q', ':qa<cr>')
 
 -- Tab & Buffer movements
 -- map.set('n', '<leader>j', ':tabprevious<cr>')
@@ -81,4 +81,4 @@ end
 map.set('n', '<leader>ag', search_current_word)
 
 -- Global folding
--- map.set('n', '<leader>z', ':call FoldingToggleFold()<cr>')
+map.set('n', '<leader>z', ':Fold<cr>')
