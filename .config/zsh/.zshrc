@@ -9,3 +9,4 @@
 .  $ZDOTDIR/completion
 .  $ZDOTDIR/custom
 .  $ZDOTDIR/scripts
+.  $ZDOTDIR/work
