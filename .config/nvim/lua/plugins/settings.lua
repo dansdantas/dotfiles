@@ -21,10 +21,7 @@ map.set('n', '<leader>S', ':SLoad ')
 env.FZF_DEFAULT_COMMAND = [[ag --vimgrep --hidden --ignore .git -l --ignore spec/fixtures -g ""]]
 
 map.set('n', '<leader>o', ':FZF<cr>')
-map.set('n', '<leader>b', ':Buffers<cr>')
 map.set('n', '<leader>aa', ':Ag<Space>')
-map.set('n', '<leader>e', ':BLines<cr>')
-map.set('n', '<leader>i', ':Commands<cr>')
 
 -- Center window
 g.fzf_layout = { down = '40%', window = { width = 0.9, height = 0.6 } }

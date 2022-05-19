@@ -2,6 +2,10 @@ Problems:
   - fzf_action
   - ale errors on status line?
   - folding function
+  - coc:
+    - fix errors
+    - folding based on treesitter or function
+    - missing commands
   - config plugins:
     - statusline
     - bufferline

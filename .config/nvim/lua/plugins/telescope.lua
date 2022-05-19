@@ -64,6 +64,7 @@ end
 local map = vim.keymap
 map.set('n', '<leader>to', require('telescope.builtin').find_files)
 map.set('n', '<leader>tb', require('telescope.builtin').buffers)
+map.set('n', '<leader>b', require('telescope.builtin').buffers)
 map.set('n', '<leader>td', search_dotfiles)
 map.set('n', '<leader>tg', require('telescope.builtin').grep_string)
 
@@ -73,6 +74,7 @@ map.set('n', '<leader>sf', function()
   require('telescope.builtin').find_files { previewer = false }
 end)
 map.set('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find)
+map.set('n', '<leader>e', require('telescope.builtin').current_buffer_fuzzy_find)
 map.set('n', '<leader>sh', require('telescope.builtin').help_tags)
 map.set('n', '<leader>sd', require('telescope.builtin').grep_string)
 map.set('n', '<leader>sp', require('telescope.builtin').live_grep)
@@ -83,3 +85,4 @@ map.set('n', '<leader>so', function()
 end)
 
 map.set('n', '<leader>c', require('telescope.builtin').git_commits)
+map.set('n', '<leader>i', require('telescope.builtin').commands)
