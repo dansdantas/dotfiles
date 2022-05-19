@@ -1,4 +1,3 @@
-local api = vim.api
 local env = vim.env
 local g   = vim.g
 local map = vim.keymap
