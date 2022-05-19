@@ -59,9 +59,12 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'slim-template/vim-slim'
 Plug 'mxw/vim-jsx'
+Plug 'martinda/Jenkinsfile-vim-syntax'
 
 " Color
 Plug 'joshdick/onedark.vim'
+Plug 'ellisonleao/gruvbox.nvim'
+Plug 'sheerun/vim-polyglot'
 
 " Git
 Plug 'mhinz/vim-signify'
