@@ -1,4 +1,4 @@
-local o = vim.o
+local o = vim.opt
 local g = vim.g
 
 --- General
@@ -59,3 +59,7 @@ o.undodir = undo_dir
 -- Folding
 o.foldmethod = 'manual'
 o.foldlevel = 9999
+
+-- Completion
+o.updatetime = 300 -- Reduce updatetime
+o.shortmess:append({ ['c'] = true })
