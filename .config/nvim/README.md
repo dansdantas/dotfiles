@@ -1,15 +1,11 @@
 Problems:
-  - fzf_action
-  - ale errors on status line?
-  - folding function
-  - coc:
-    - fix errors
-    - folding based on treesitter or function
-    - missing commands
   - config plugins:
+    - treesitter
+    - telescope
+    - cmp
+    - lsp
     - statusline
     - bufferline
     - auto_pairs
-    - lsp
-    - cmp
-    - more snippets?
+  - ale errors on status line?
+  - fzf_action?
