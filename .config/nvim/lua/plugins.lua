@@ -72,18 +72,10 @@ return require('packer').startup(function(use)
       require('hop').setup()
     end
   }
+
   use 'wellle/targets.vim'
   use 'justinmk/vim-sneak'
   -- use {'pechorin/any-jump.vim'}
-
-  -- CoC
-  -- use {'neoclide/coc.nvim', branch = 'release'}
-  -- use {'tpope/vim-endwise'}
-
-  -- Coq
-  -- use {'ms-jpq/coq_nvim', branch = 'coq'}
-  -- use {'ms-jpq/coq.artifacts', branch = 'artifacts'} -- 9000+ Snippets
-  -- use {'ms-jpq/coq.thirdparty', branch = '3p'} -- lua & third party sources
 
   -- LSP
   use 'neovim/nvim-lspconfig'
@@ -95,6 +87,8 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/cmp-nvim-lua'
+  use 'onsails/lspkind.nvim'
 
   -- Snippets
   -- use {'SirVer/ultisnips'}

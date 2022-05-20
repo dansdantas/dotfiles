@@ -8,24 +8,21 @@ end
 -- Setup nvim-cmp.
 local cmp = require('cmp')
 local luasnip = require('luasnip')
+local lspkind = require('lspkind')
 cmp.setup({
   snippet = {
-    -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
       require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
     end,
   },
   window = {
-    -- completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-y>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
 
     -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
@@ -64,14 +61,29 @@ cmp.setup({
     end)
   }),
   sources = cmp.config.sources({
+    { name = 'nvim_lua' },
+
     { name = 'nvim_lsp' },
-    { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'vsnip' }, -- For vsnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
-  }, {
-    { name = 'buffer' },
-  })
+    { name = 'path' },
+    { name = 'luasnip' },
+    { name = 'buffer', keyword_length = 5 },
+  }),
+  formatting = {
+    format = lspkind.cmp_format({
+      maxwidth = 50,
+      menu = {
+        buffer = '[buf]',
+        nvim_lsp = '[LSP]',
+        nvim_lua = '[api]',
+        path = '[path]',
+        luasnip = '[snip]',
+      }
+    })
+  },
+  experimental = {
+    native_menu = false,
+    ghost_text = true,
+  }
 })
 
 -- Set configuration for specific filetype.
