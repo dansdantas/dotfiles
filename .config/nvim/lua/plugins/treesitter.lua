@@ -22,7 +22,6 @@ local languages = {
   'jsdoc',
   'json',
   'json5',
-  'JSON',
   'lua',
   'make',
   'markdown',
