@@ -1,8 +1,8 @@
 # Monitor
-xrandr --setprovideroutputsource modesetting NVIDIA-0
+# xrandr --setprovideroutputsource modesetting NVIDIA-0
 # xrandr --setprovideroffloadsink NVIDIA Intel
-xrandr --auto
-xrandr --dpi 144
+# xrandr --auto
+# xrandr --dpi 144
 
 # Resources
 xrdb -merge ~/.Xresources
@@ -15,3 +15,6 @@ compton &
 
 # Window manager
 exec bspwm
+
+# Rearrange monitors
+~/.local/share/screenlayout/triple-monitor.sh
