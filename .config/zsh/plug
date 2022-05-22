@@ -18,11 +18,11 @@ antigen bundles <<EOBUNDLES
   web-search
   colored-man-pages
 
-  zdharma/fast-syntax-highlighting
+  zdharma/fast-syntax-highlighting@main
   MichaelAquilina/zsh-you-should-use
   hlissner/zsh-autopair
   lukechilds/zsh-nvm
-  unixorn/git-extra-commands
+  unixorn/git-extra-commands@main
 
   wfxr/forgit
   wfxr/formarks
