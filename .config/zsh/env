@@ -4,12 +4,12 @@
 # Misc
 # -------------------------------------------------------------------
 
-export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:$HOME/.local/bin:$HOME/bin"
-
-# XDG
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/usr/sbin"
+export PATH="$PATH:/usr/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/bin"
 
 # Term definition
 if [ -z "$TMUX" ]
@@ -42,6 +42,7 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PATHMARKS_FILE="$XDG_DATA_HOME/pathmarks/file"
+# export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
 
 # Antigen
 export ANTIGEN_HOME="$XDG_CONFIG_HOME/antigen"
@@ -59,6 +60,17 @@ export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 # Terminfo
 export TERMINFO="$XDG_DATA_HOME/terminfo"
 export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
+
+# Android
+export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
+export ADB_VENDOR_KEY="$XDG_CONFIG_HOME/android"
+
+# AWS
+export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
+export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
+
+# Docker
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 
 # -------------------------------------------------------------------
 # Languages
@@ -79,7 +91,10 @@ export SOLARGRAPH_CACHE="$XDG_CACHE_HOME/solargraph"
 export PRYRC="$XDG_CONFIG_HOME/pry/pryrc"
 
 rbenv() {
-  eval "$(command rbenv init -)"
+  if [[ $RBENV_LOADED != true ]]; then
+    eval "$(command rbenv init -)"
+    export RBENV_LOADED=true
+  fi
   rbenv "$@"
 }
 
@@ -88,8 +103,10 @@ export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export PATH="$PATH:$PYENV_ROOT/bin"
 
 pyenv() {
-  eval "$(command pyenv init -)"
-  eval "$(command pyenv virtualenv-init -)"
+  if [[ $PYENV_LOADED != true ]]; then
+    eval "$(command pyenv init -)"
+    export PYENV_LOADED=true
+  fi
   pyenv "$@"
 }
 
@@ -100,37 +117,21 @@ export PATH="$PATH:$GOPATH/bin"
 # Java 
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
 export JRE_HOME="$JAVA_HOME/jre"
-export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
-export PATH JAVA_HOME
-export CLASSPATH=$JAVA_HOME/lib/tools.jar
-export CLASSPATH=.:$CLASSPATH
-export PATH JAVA_HOME CLASSPATH
+export CLASSPATH="$JAVA_HOME/lib/tools.jar"
+
+export PATH="$JAVA_HOME/bin:$PATH"
+export PATH="$JRE_HOME/bin:$PATH"
 
 # Nvm
 export NVM_LAZY_LOAD=true
 export NVM_DIR="$XDG_DATA_HOME/nvm"
-
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
 # Node
-export NODE_PATH=$NODE_PATH:"$NVM_ROOT/versions/node/v15.11.0/bin/node"
-export NODE_PATH=$NODE_PATH:"$NVM_ROOT/versions/node/v15.11.0/lib/node_modules"
-export PATH=$NODE_PATH:$PATH
+export NODE_PATH="$NVM_DIR/versions/node/v15.11.0"
+export PATH="$NODE_PATH/bin/node:$PATH"
+export PATH="$NODE_PATH/lib/node_modules:$PATH"
 
 # Rust
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export PATH="$CARGO_HOME/bin:$PATH"
-
-# Android
-export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
-export ADB_VENDOR_KEY="$XDG_CONFIG_HOME/android"
-
-# AWS
-export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
-export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
-
-# Docker
-export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
-
-# Inputrc
-# export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
