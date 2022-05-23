@@ -15,16 +15,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
-
-# Rust
-export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
-export PATH="$CARGO_HOME/bin:$PATH"
-
-# Golang
-export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
-export PATH="$PATH:$GOPATH/bin"
-
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
 fi
