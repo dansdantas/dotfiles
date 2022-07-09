@@ -17,8 +17,8 @@ require('lualine').setup {
   options = {
     icons_enabled = true,
     theme = 'auto',
-    component_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     disabled_filetypes = {},
     always_divide_middle = true,
     globalstatus = false,
@@ -58,15 +58,11 @@ require('lualine').setup {
           end
           return msg
         end,
-        icon = '  LSP:',
-        color = { fg = '#ffffff', gui = 'bold' },
+        icon = '  :',
+        color = { fg = '#ffffff' },
       },
-
-      'encoding',
-      'fileformat',
-      'filetype',
     },
-    lualine_y = { 'progress' },
+    lualine_y = {},
     lualine_z = { 'location' }
   },
   inactive_sections = {
