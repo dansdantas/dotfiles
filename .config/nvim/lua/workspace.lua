@@ -27,6 +27,7 @@ local function npcall(fn, ...)
 end
 
 local get_workspace_from_user = function(workspace_folder)
+  -- Start from current dir and not file name
   workspace_folder = workspace_folder or npcall(vfn.input, 'Folder: ', vfn.expand('%:p:h'), 'dir')
   if not (workspace_folder and #workspace_folder > 0) then
     return
@@ -52,6 +53,7 @@ M.add_dir = function(workspace_folder)
 end
 
 M.remove_dir = function(workspace_folder)
+  -- TODO: list already added workspaces instead of searching
   workspace_folder = get_workspace_from_user(workspace_folder)
 
   if not workspace_folder then
@@ -62,8 +64,12 @@ M.remove_dir = function(workspace_folder)
   M.search_dirs[uri] = nil
 end
 
-M.list_dirs = function ()
+M.list_dirs = function()
   return M.search_dirs
+end
+
+M.clean_dirs = function()
+  M.search_dirs = {}
 end
 
 M.find_files = function()
@@ -78,7 +84,7 @@ M.find_files = function()
   }
 end
 
-M.grep_files = function ()
+M.grep_files = function()
   return print('TODO')
 end
 
