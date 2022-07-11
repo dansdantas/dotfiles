@@ -7,8 +7,13 @@ end
 
 -- Setup nvim-cmp.
 local cmp = require('cmp')
-local luasnip = require('luasnip')
 local lspkind = require('lspkind')
+
+local luasnip = require('luasnip')
+luasnip.config.set_config {
+  history = true,
+}
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -59,7 +64,7 @@ cmp.setup({
       else
         fallback()
       end
-    end)
+    end),
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lua' },
@@ -86,6 +91,18 @@ cmp.setup({
     ghost_text = true,
   }
 })
+
+vim.keymap.set({'i', 's'}, "<C-k>", function ()
+  if luasnip.jumpable(-1) then
+    luasnip.jump(-1)
+  end
+end, { silent = true })
+
+vim.keymap.set("i", "<C-l>", function ()
+  if luasnip.choice_active() then
+    luasnip.change_choice(1)
+  end
+end)
 
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
