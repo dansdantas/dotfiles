@@ -44,7 +44,8 @@ map.set('n', 'Y', 'y$')
 
 -- Buffers
 map.set('n', '<leader>;', ':bd!<cr>')
-map.set('n', ',b', ':%bd!<cr>')
+map.set('n', ',b', ':%bd|e#<cr>')
+map.set('n', ',B', ':%bd!<cr>')
 
 -- Remove white space
 map.set('n', '<leader><bs>', [[:%s/\s\+$//e<CR>]])
