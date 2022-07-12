@@ -51,7 +51,7 @@ local get_workspace_from_user = function(workspace_folder)
   return workspace_folder
 end
 
-local remove_dir_from_list = function (dir)
+local remove_dir_from_list = function(dir)
   if not dir then
     return
   end
@@ -60,7 +60,7 @@ local remove_dir_from_list = function (dir)
   M.search_dirs[uri] = nil
 end
 
-local list_dirs = function ()
+local list_dirs = function()
   local dirs = {}
 
   for _, folder in pairs(M.search_dirs) do
@@ -103,7 +103,7 @@ M.add_dir = function(workspace_folder)
 end
 
 M.remove_dir = function()
-  list_dirs_on_telescope_picker(require("telescope.themes").get_dropdown{})
+  list_dirs_on_telescope_picker(require("telescope.themes").get_dropdown {})
 end
 
 M.list_dirs = function()
@@ -122,7 +122,9 @@ M.find_files = function()
 end
 
 M.grep_files = function()
-  return print('TODO')
+  return require('telescope.builtin').grep_string {
+    search_dirs = list_dirs(),
+  }
 end
 
 return M
