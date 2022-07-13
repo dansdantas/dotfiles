@@ -3,18 +3,20 @@ local actions = require('telescope.actions')
 require('telescope').setup({
   defaults = {
     vimgrep_arguments = {
-      'ag',
-      '--vimgrep',
-      '--hidden',
-      '--ignore .git',
-      '-l',
-      '--ignore spec/fixtures',
-      '-g'
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--trim"
     },
 
     file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
     grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
     qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+    file_sorter      = require('telescope.sorters').get_fzy_sorter,
 
     mappings = {
       i = {
@@ -34,8 +36,6 @@ require('telescope').setup({
         ["<C-f>"] = actions.preview_scrolling_up,
       },
     },
-
-    file_sorter = require('telescope.sorters').get_fzy_sorter,
   },
   extensions = {
     fzy_native = {
