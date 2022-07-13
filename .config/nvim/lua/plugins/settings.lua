@@ -37,17 +37,22 @@ g.fzf_colors = {
   ['hl+'] = { 'fg', 'Statement' },
 }
 
--- function! s:build_quickfix_list(lines)
---   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
---   copen
---   cc
--- endfunction
--- 'ctrl-q': function('s:build_quickfix_list'),
+local build_quickfix_list = function(lines)
+  local files = {}
+
+  for _, file in pairs(lines) do
+    table.insert(files, { filename = file })
+  end
+
+  vim.fn.setqflist(files)
+  vim.cmd(':copen')
+end
 
 g.fzf_action = {
   ['ctrl-t'] = 'tab split',
   ['ctrl-x'] = 'split',
   ['ctrl-v'] = 'vsplit',
+  ['ctrl-q'] = build_quickfix_list,
 }
 
 -- Python

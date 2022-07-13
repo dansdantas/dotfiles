@@ -8,4 +8,3 @@ Problems:
     - bufferline
     - auto_pairs
   - ale errors on status line?
-  - fzf_action?
