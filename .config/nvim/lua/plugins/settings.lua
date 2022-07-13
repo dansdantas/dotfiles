@@ -5,11 +5,7 @@ local v   = vim.v
 
 -- AnyJump
 g.any_jump_disable_default_keybindings = 1
-
-map.set('n', ',aj', ':AnyJump<cr>') -- Normal mode: Jump to definition under cursore
 map.set('x', ',aj', ':AnyJumpVisual') -- Visual mode: jump to selected text in visual mode
-map.set('n', ',ab', ':AnyJumpBack<cr>') -- Normal mode: open previous opened file (after jump)
-map.set('n', ',al', ':AnyJumpLastResults<cr>') -- " Normal mode: open last closed search window again
 
 -- Startitfy
 g.startify_session_dir = env.XDG_DATA_HOME .. '/nvim/session'
@@ -76,13 +72,6 @@ g.ale_linters = {
   ruby = { 'reek', 'rubocop', 'ruby', 'rails_best_practices' }
 }
 
-map.set('n', '<leader>ak', ':ALEPrevious<cr>')
-map.set('n', '<leader>aK', ':ALEPreviousWrap<cr>')
-map.set('n', '<leader>aj', ':ALENext<cr>')
-map.set('n', '<leader>aJ', ':ALENextWrap<cr>')
-map.set('n', '<leader>al', ':ALELint<cr>')
-map.set('n', '<leader>at', ':ALEToggle<cr>')
-
 -- Vue
 g.used_javascript_libs = 'underscore,vue,jquery'
 
@@ -90,13 +79,6 @@ g.used_javascript_libs = 'underscore,vue,jquery'
 v['test#strategy'] = 'vimux'
 g['test#preserve_screen'] = 1
 g['test#echo_command'] = 0
-
-map.set('n', '<leader>tn', ':TestNearest<cr>')
-map.set('n', '<leader>tf', ':TestFile<cr>')
-map.set('n', '<leader>ts', ':TestSuite<cr>')
-map.set('n', '<leader>tl', ':TestLast<cr>')
-map.set('n', '<leader>tv', ':TestVisit<cr>')
-map.set('n', '<leader>tw', ':TestLastOnlyFail<cr>')
 
 -- Motion
 g['sneak#s_next'] = 1

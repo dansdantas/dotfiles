@@ -18,7 +18,7 @@ wk.register({
       s = {
         f = { function() return tbuiltin.find_files { previewer = false } end, "files without preview" },
         g = { tbuiltin.live_grep, "live grep" }
-      }
+      },
     },
 
     b = {
@@ -50,7 +50,16 @@ wk.register({
     Q = { ":qa<cr>", "Quit" },
 
     o = { ":FZF<cr>", "FZF" },
-    aa = { ':Ag<Space>', "search with ag" },
+
+    a = {
+      a = { ':Ag<Space>', "search with ag", },
+      k = { ':ALEPrevious<cr>', "previous error" },
+      K = { ':ALEPreviousWrap<cr>', "previous wrap" },
+      j = { ':ALENext<cr>', "next error" },
+      J = { ':ALENextWrap<cr>', "next wrap" },
+      l = { ':ALELint<cr>', "lint current buffer" },
+      t = { ':ALEToggle<cr>', "toggle ale" },
+    },
 
     s = {
       name = 'session',
@@ -67,6 +76,22 @@ wk.register({
   },
 
   [","] = {
+    a = {
+      name = 'AnyJump',
+      j = { ':AnyJump<cr>', "Jump to definition under cursore" },
+      b = { ':AnyJumpBack<cr>', "open previous opened file (after jump)" },
+      l = { ':AnyJumpLastResults<cr>', "open last closed search window again" },
+    },
+
+    t = {
+      n = { ':TestNearest<cr>', "test nearest" },
+      f = { ':TestFile<cr>' , "test current file" },
+      s = { ':TestSuite<cr>', "test suite" },
+      l = { ':TestLast<cr>', "run last test" },
+      v = { ':TestVisit<cr>' , "run last visited test" },
+      w = { ':TestLastOnlyFail<cr>', "test only failed" },
+    },
+
     w = {
       name = "workspace",
       a = { workspace.add_dir, "add dir" },
