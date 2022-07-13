@@ -14,14 +14,9 @@ map.set('n', ',al', ':AnyJumpLastResults<cr>') -- " Normal mode: open last close
 -- Startitfy
 g.startify_session_dir = env.XDG_DATA_HOME .. '/nvim/session'
 g.startify_disable_at_vimenter = 1
-map.set('n', '<leader>ss', ':SSave<cr>')
-map.set('n', '<leader>S', ':SLoad ')
 
 -- FZF
 env.FZF_DEFAULT_COMMAND = [[ag --vimgrep --hidden --ignore .git -l --ignore spec/fixtures -g ""]]
-
-map.set('n', '<leader>o', ':FZF<cr>')
-map.set('n', '<leader>aa', ':Ag<Space>')
 
 -- Center window
 g.fzf_layout = { down = '40%', window = { width = 0.9, height = 0.6 } }
@@ -83,9 +78,6 @@ map.set('n', '<leader>aJ', ':ALENextWrap<cr>')
 map.set('n', '<leader>al', ':ALELint<cr>')
 map.set('n', '<leader>at', ':ALEToggle<cr>')
 
--- File manager
-map.set('n', '<leader>F', ':NERDTreeToggle<cr>')
-map.set('n', '<leader>f', ':NERDTreeFind<cr>')
 
 -- Vue
 g.used_javascript_libs = 'underscore,vue,jquery'
@@ -105,6 +97,3 @@ map.set('n', '<leader>tw', ':TestLastOnlyFail<cr>')
 -- Motion
 g['sneak#s_next'] = 1
 g['sneak#label'] = 1
-
--- Maximize
-map.set('n', '<leader>mt', ':MaximizerToggle<cr>')

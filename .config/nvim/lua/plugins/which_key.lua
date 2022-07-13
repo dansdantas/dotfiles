@@ -61,7 +61,21 @@ wk.register({
       u = { ":luafile %<cr>", "current file as lua" }
     },
 
-    Q = { ":qa<cr>", "Quit" }
+    Q = { ":qa<cr>", "Quit" },
+
+    o = { ":FZF<cr>", "FZF" },
+    aa = { ':Ag<Space>', "search with ag" },
+
+    s = {
+      name = 'session',
+      s = { ':SSave<cr>', 'save session' },
+      l = { ':SLoad ', 'load session' }
+    },
+
+    F = { ':NERDTreeToggle<cr>', "toggle nerdtree" },
+    f = { ':NERDTreeFind<cr>', "find current file on nerdtree" },
+
+    mt = { ':MaximizerToggle<cr>', "toggle maximize current buffer" },
   },
 
   [","] = {
