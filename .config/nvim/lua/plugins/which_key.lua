@@ -27,6 +27,7 @@ wk.register({
       d = { search_dotfiles, "dotfiles" },
       g = { tbuiltin.grep_string, "grep" },
       ['?'] = { tbuiltin.oldfiles, "recent files" },
+      e = { tbuiltin.current_buffer_fuzzy_find, "fuzzy find on buffer" },
 
       s = {
         f = { function() return tbuiltin.find_files { previewer = false } end, "files without preview" },
@@ -34,13 +35,8 @@ wk.register({
       }
     },
 
-    e = { tbuiltin.current_buffer_fuzzy_find, "fuzzy find on buffer" },
-
-
     b = {
       name = "buffer",
-      f = { tbuiltin.buffers, "find buffers" },
-      e = { tbuiltin.current_buffer_fuzzy_find, "fuzzy find on buffer" },
       c = { ":bd!<cr>", "close" },
       d = { ":bd|e#<cr>", "close all but current" },
       D = { ":%bd!<cr>", "close all" },
