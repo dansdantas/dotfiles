@@ -71,6 +71,12 @@ local list_dirs = function()
 end
 
 local list_dirs_on_telescope_picker = function(opts)
+  local dirs = list_dirs()
+  if next(dirs) == nil then
+    print("No directories on workspace")
+    return
+  end
+
   opts = opts or {}
   pickers.new(opts, {
     prompt_title = "workspaces",
