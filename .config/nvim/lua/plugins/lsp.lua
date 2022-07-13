@@ -42,41 +42,55 @@ end
 
 -- Setup lspconfig.
 local lsp = require('lspconfig')
-lsp.sumneko_lua.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  flags = { debounce_text_changes = 150 },
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-        -- Setup your lua path
-        path = runtime_path,
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { 'vim' },
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-}
 
-local servers = { 'solargraph', 'sorbet', 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'vimls'}
-for _, server in ipairs(servers) do
-  lsp[server].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
+local servers = {
+  solargraph = { disable = true },
+  sorbet = { disable = true },
+  clangd = { disable = true },
+  rust_analyzer = { disable = true },
+  pyright = { disable = true },
+  tsserver = { disable = true },
+  vimls = { disable = true },
+  sumneko_lua = {
+    settings = {
+      Lua = {
+        runtime = {
+          -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+          version = 'LuaJIT',
+          -- Setup your lua path
+          path = runtime_path,
+        },
+        diagnostics = {
+          -- Get the language server to recognize the `vim` global
+          globals = { 'vim' },
+        },
+        workspace = {
+          -- Make the server aware of Neovim runtime files
+          library = vim.api.nvim_get_runtime_file("", true),
+        },
+        -- Do not send telemetry data containing a randomized but unique identifier
+        telemetry = {
+          enable = false,
+        },
+      },
     },
   }
+}
+
+local default_conf = {
+  flags = { debounce_text_changes = 150, },
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
+for server, conf in pairs(servers) do
+  local full_conf = TableMerge(default_conf, conf)
+  lsp[server].setup(full_conf)
 end
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = true,
+  underline = true,
+  signs = true,
+  update_in_insert = false
+})
