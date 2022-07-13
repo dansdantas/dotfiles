@@ -21,9 +21,6 @@ local on_attach = function(_, bufnr)
   map.set('n', 'K', vim.lsp.buf.hover, opts)
   map.set('n', 'gi', vim.lsp.buf.implementation, opts)
   map.set('n', ',k', vim.lsp.buf.signature_help, opts)
-  -- map.set('n', ',wa', vim.lsp.buf.add_workspace_folder, opts)
-  -- map.set('n', ',wr', vim.lsp.buf.remove_workspace_folder, opts)
-  -- map.set('n', ',wl', function() return P(vim.lsp.buf.list_workspace_folders()) end, opts)
   map.set('n', 'gy', vim.lsp.buf.type_definition, opts)
   map.set('n', ',rn', vim.lsp.buf.rename, opts)
   map.set('n', ',ca', vim.lsp.buf.code_action, opts)
@@ -33,7 +30,11 @@ local on_attach = function(_, bufnr)
   map.set('n', '[d', vim.diagnostic.goto_prev, opts)
   map.set('n', ']d', vim.diagnostic.goto_next, opts)
   map.set('n', ',q', vim.diagnostic.setqflist, opts)
-  map.set({ 'n', 'v' }, ',f', vim.lsp.buf.formatting, opts)
+
+  map.set({ 'n', 'v' }, ',f', function()
+    return vim.lsp.buf.format { async = true }
+  end, opts)
+
   map.set('n', ',so', require('telescope.builtin').lsp_document_symbols, opts)
 
   vim.api.nvim_create_user_command("Format", vim.lsp.buf.formatting, {})

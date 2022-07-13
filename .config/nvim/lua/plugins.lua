@@ -31,14 +31,14 @@ return require('packer').startup(function(use)
   -- Sessions
   use {
     'rmagatti/session-lens',
-    requires = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'},
+    requires = { 'rmagatti/auto-session', 'nvim-telescope/telescope.nvim' },
     config = function()
       require('auto-session').setup {
         log_level = 'info',
         auto_session_suppression_dirs = { '~/Projects' }
       }
       require('session-lens').setup {
-        path_display = {'shorten'},
+        path_display = { 'shorten' },
         theme_conf = { border = false },
       }
     end
@@ -135,7 +135,8 @@ return require('packer').startup(function(use)
   use {
     'navarasu/onedark.nvim',
     config = function()
-      require('onedark').setup {
+      local onedark = require('onedark')
+      onedark.setup {
         style = 'darker',
         code_style = {
           comments = 'italic',
@@ -145,7 +146,7 @@ return require('packer').startup(function(use)
           variables = 'none'
         },
       }
-      require('onedark').load()
+      onedark.load()
     end
   }
 
