@@ -17,6 +17,7 @@ local search_dotfiles = function()
   }
 end
 
+wk.setup {}
 wk.register({
   ["<leader>"] = {
     t = {
@@ -47,6 +48,7 @@ wk.register({
 
     g = {
       name = "Git",
+      t = { require('neogit').open, "neogit" },
       c = { tbuiltin.git_commits, "commits" },
       b = { tbuiltin.git_branches, "branches" },
       s = { ":Git status<cr>", "status" }

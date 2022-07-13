@@ -80,6 +80,7 @@ return require('packer').startup(function(use)
 
   use 'wellle/targets.vim'
   use 'justinmk/vim-sneak'
+  use { "folke/which-key.nvim" }
   -- use {'pechorin/any-jump.vim'}
 
   -- LSP
