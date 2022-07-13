@@ -3,12 +3,29 @@ P = function(v)
   return v
 end
 
-AddToDo = function ()
+M = {}
+
+M.add_to_todo = function ()
   local branch_name = vim.fn.system([[printf $(git rev-parse --abbrev-ref HEAD)]])
   vim.fn.execute('normal! i @todo ' ..branch_name .. ' -')
 end
 
-local folding_toggle = function()
+M.search_dotfiles = function()
+  require('telescope.builtin').find_files {
+    prompt_title = 'dotfiles',
+    cwd = "$HOME",
+    find_command = {
+      'dot',
+      'ls-tree',
+      '--full-tree',
+      '-r',
+      '--name-only',
+      'HEAD'
+    }
+  }
+end
+
+M.folding_toggle = function()
   if vim.fn.foldlevel('.') == 0 then
     -- No fold exists at the current line,
     -- so create a fold based on indentation
@@ -67,4 +84,4 @@ local folding_toggle = function()
   end
 end
 
-vim.api.nvim_create_user_command('Fold', folding_toggle, {})
+return M

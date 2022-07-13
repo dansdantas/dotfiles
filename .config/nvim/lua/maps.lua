@@ -80,15 +80,3 @@ end
 
 -- Search for word under cursor using Ag
 map.set('n', '<leader>ag', search_current_word)
-
--- Global folding
-map.set('n', '<leader>z', ':Fold<cr>')
-
--- Workspace search
-local workspace = require('workspace')
-map.set('n', ',wa', workspace.add_dir)
-map.set('n', ',wr', workspace.remove_dir)
-map.set('n', ',wf', workspace.find_files)
-map.set('n', ',wl', function() return P(workspace.list_dirs()) end)
-map.set('n', ',wg', workspace.grep_files)
-map.set('n', ',wc', workspace.clean_dirs)

@@ -1,21 +1,7 @@
 local tbuiltin = require("telescope.builtin")
 local wk = require("which-key")
 local workspace = require("workspace")
-
-local search_dotfiles = function()
-  require('telescope.builtin').find_files {
-    prompt_title = 'dotfiles',
-    cwd = "$HOME",
-    find_command = {
-      'dot',
-      'ls-tree',
-      '--full-tree',
-      '-r',
-      '--name-only',
-      'HEAD'
-    }
-  }
-end
+local functions = require('functions')
 
 wk.setup {}
 wk.register({
@@ -24,7 +10,7 @@ wk.register({
       name = "Telescope",
       o = { tbuiltin.find_files, "files" },
       b = { tbuiltin.buffers, "buffers" },
-      d = { search_dotfiles, "dotfiles" },
+      d = { functions.search_dotfiles, "dotfiles" },
       g = { tbuiltin.grep_string, "grep" },
       ['?'] = { tbuiltin.oldfiles, "recent files" },
       e = { tbuiltin.current_buffer_fuzzy_find, "fuzzy find on buffer" },
@@ -76,6 +62,8 @@ wk.register({
     f = { ':NERDTreeFind<cr>', "find current file on nerdtree" },
 
     mt = { ':MaximizerToggle<cr>', "toggle maximize current buffer" },
+
+    z = { functions.folding_toggle, "toggle folding" }
   },
 
   [","] = {

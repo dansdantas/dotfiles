@@ -78,7 +78,6 @@ map.set('n', '<leader>aJ', ':ALENextWrap<cr>')
 map.set('n', '<leader>al', ':ALELint<cr>')
 map.set('n', '<leader>at', ':ALEToggle<cr>')
 
-
 -- Vue
 g.used_javascript_libs = 'underscore,vue,jquery'
 
