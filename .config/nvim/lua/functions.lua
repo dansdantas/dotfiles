@@ -3,11 +3,26 @@ P = function(v)
   return v
 end
 
+TableMerge = function(t1, t2)
+  for k, v in pairs(t2) do
+    if type(v) == "table" then
+      if type(t1[k] or false) == "table" then
+        TableMerge(t1[k] or {}, t2[k] or {})
+      else
+        t1[k] = v
+      end
+    else
+      t1[k] = v
+    end
+  end
+  return t1
+end
+
 M = {}
 
-M.add_to_todo = function ()
+M.add_to_todo = function()
   local branch_name = vim.fn.system([[printf $(git rev-parse --abbrev-ref HEAD)]])
-  vim.fn.execute('normal! i @todo ' ..branch_name .. ' -')
+  vim.fn.execute('normal! i @todo ' .. branch_name .. ' -')
 end
 
 M.search_dotfiles = function()
@@ -30,12 +45,12 @@ M.folding_toggle = function()
     -- No fold exists at the current line,
     -- so create a fold based on indentation
 
-    local l_min = vim.fn.line('.')   -- current line number
-    local l_max = vim.fn.line('$')   --  last line number
+    local l_min = vim.fn.line('.') -- current line number
+    local l_max = vim.fn.line('$') --  last line number
     local i_min = vim.fn.indent('.') -- indentation of the current line
     local l = l_min + 1
 
-    local isBlank = function (x)
+    local isBlank = function(x)
       return not not tostring(x):find("^%s*$")
     end
     -- Search downward for the last line whose indentation > i_min
@@ -47,7 +62,7 @@ M.folding_toggle = function()
       if line_length > 0 and not isBlank(line) then
         if vim.fn.indent(l) <= i_min then
           -- we've gone too far
-          l = l - 1  -- backtrack one line
+          l = l - 1 -- backtrack one line
           break
         end
       end
@@ -57,7 +72,7 @@ M.folding_toggle = function()
 
     -- Clamp l to the last line
     if l > l_max then
-       l = l_max
+      l = l_max
     end
 
     -- " Backtrack to the last non-blank line
@@ -75,7 +90,7 @@ M.folding_toggle = function()
     -- "execute "normal i" . l_min . "," . l . " fold"   print debug info
 
     if l > l_min then
-       -- Create the fold from l_min to l
+      -- Create the fold from l_min to l
       vim.fn.execute(l_min .. "," .. l .. " fold")
     end
   else
