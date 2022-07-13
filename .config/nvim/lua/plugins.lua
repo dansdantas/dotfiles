@@ -121,6 +121,7 @@ return require('packer').startup(function(use)
   -- Syntax
   -- use 'tomtom/tcomment_vim'
   -- use 'dense-analysis/ale'
+  use 'mfussenegger/nvim-lint'
   use 'editorconfig/editorconfig-vim'
   use {
     'numToStr/Comment.nvim',
@@ -178,6 +179,30 @@ return require('packer').startup(function(use)
           changedelete = { text = '~' },
         },
       })
+    end
+  }
+  use {
+    "TimUntersberger/neogit",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+    },
+    config = function()
+      require('neogit').setup {
+        integrations = {
+          diffview = true,
+        }
+      }
+      require("diffview").setup {
+        hooks = {
+          diff_buf_read = function()
+            -- Change local options in diff buffers
+            vim.opt_local.wrap = false
+            vim.opt_local.list = false
+            vim.opt_local.colorcolumn = { 80 }
+          end,
+        }
+      }
     end
   }
 

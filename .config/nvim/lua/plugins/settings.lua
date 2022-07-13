@@ -83,3 +83,9 @@ g['test#echo_command'] = 0
 -- Motion
 g['sneak#s_next'] = 1
 g['sneak#label'] = 1
+
+-- Linter
+require('lint').linters_by_ft = {
+  ruby = { 'ruby' },
+  lua = { 'luacheck' }
+}
