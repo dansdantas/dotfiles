@@ -1,15 +1,25 @@
-local api = vim.api
+local autocommand = vim.api.nvim_create_autocmd
 
-api.nvim_create_autocmd('FileType vue', { command = 'syntax sync fromstart' })
+autocommand("FileType", {
+  pattern = "vue",
+  command = 'syntax sync fromstart'
+})
 
-api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+autocommand({ 'BufRead', 'BufNewFile' }, {
   pattern = { '*.arb' },
   command = 'setfiletype ruby'
 })
 
-local packer_user_config = api.nvim_create_augroup('PackerUserConfig', {})
-api.nvim_create_autocmd({ 'BufWritePost' }, {
+local packer_user_config = vim.api.nvim_create_augroup('PackerUserConfig', {})
+autocommand({ 'BufWritePost' }, {
   pattern = { 'plugins.lua' },
   command = 'source <afile> | PackerCompile',
   group = packer_user_config
+})
+
+autocommand("FileType", {
+  pattern = "qf",
+  callback = function ()
+    vim.opt_local.buflisted = false
+  end
 })
