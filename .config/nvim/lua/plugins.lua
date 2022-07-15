@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Commands
-  use 'tpope/vim-surround'
+  use { "kylechui/nvim-surround", config = function() require("nvim-surround").setup {} end }
   use 'tpope/vim-repeat'
   use 'tpope/vim-abolish' -- Search and replace subvert pattern
   use 'alvan/vim-closetag'
