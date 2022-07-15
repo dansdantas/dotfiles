@@ -84,7 +84,7 @@ return require('packer').startup(function(use)
   use 'wellle/targets.vim'
   use { "ggandor/leap.nvim", config = function() require('leap').set_default_keymaps() end }
   use { "folke/which-key.nvim" }
-  -- use {'pechorin/any-jump.vim'}
+  use { 'pechorin/any-jump.vim' }
 
   -- LSP
   use 'neovim/nvim-lspconfig'
