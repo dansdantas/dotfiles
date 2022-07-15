@@ -35,7 +35,6 @@ return require('packer').startup(function(use)
       })
     end
   }
-  -- use 'haya14busa/is.vim' -- Missing review
 
   -- Sessions
   use {
