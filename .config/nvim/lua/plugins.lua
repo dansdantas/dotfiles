@@ -100,7 +100,6 @@ return require('packer').startup(function(use)
   use 'onsails/lspkind.nvim'
 
   -- Snippets
-  -- use {'SirVer/ultisnips'}
   use 'honza/vim-snippets'
   use { 'saadparwaiz1/cmp_luasnip', requires = { { 'L3MON4D3/LuaSnip' } } }
 
@@ -113,8 +112,6 @@ return require('packer').startup(function(use)
   }
 
   -- Syntax
-  -- use 'tomtom/tcomment_vim'
-  -- use 'dense-analysis/ale'
   use 'mfussenegger/nvim-lint'
   use 'editorconfig/editorconfig-vim'
   use {
@@ -133,9 +130,6 @@ return require('packer').startup(function(use)
   use 'martinda/Jenkinsfile-vim-syntax'
 
   -- Color
-  -- use 'joshdick/onedark.vim'
-  -- use 'sheerun/vim-polyglot'
-  -- use 'rktjmp/lush.nvim'
   use 'ellisonleao/gruvbox.nvim'
   use {
     'navarasu/onedark.nvim',
@@ -156,7 +150,6 @@ return require('packer').startup(function(use)
   }
 
   -- Git
-  -- use 'mhinz/vim-signify'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'tommcdo/vim-fubitive'
@@ -204,7 +197,6 @@ return require('packer').startup(function(use)
   use 'mattn/emmet-vim'
   use 'tmhedberg/matchit'
   use 'jiangmiao/auto-pairs'
-  -- use {'Valloric/MatchTagAlways'}
 
   -- Ruby & Rails
   use 'janko-m/vim-test'
