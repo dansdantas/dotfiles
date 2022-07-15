@@ -1,10 +1,15 @@
-Problems:
+Priorities:
+  - Remove commented plugins
+  - Move all maps to which-key
   - config plugins:
-    - treesitter
-    - telescope
     - cmp
     - lsp
-    - statusline
-    - bufferline
-    - auto_pairs
+    - settings
+    - telescope
+  - finalize statusline
+  - adjust config for bufferline
+  - Refactor maps on which-key
+
+Investigate:
+  - fix Neogit problem with commiting bare repo
   - ale errors on status line?
