@@ -42,7 +42,11 @@ require('telescope').setup({
       override_generic_sorter = false,
       override_file_sorter = true,
     },
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown{}
+    }
   },
 })
 
 require('telescope').load_extension('fzy_native')
+require("telescope").load_extension("ui-select")
