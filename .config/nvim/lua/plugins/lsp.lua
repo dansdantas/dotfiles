@@ -46,13 +46,23 @@ end
 local lsp = require('lspconfig')
 
 local servers = {
-  solargraph = { disable = true },
-  sorbet = { disable = true },
-  clangd = { disable = true },
-  rust_analyzer = { disable = true },
-  pyright = { disable = true },
-  tsserver = { disable = true },
-  vimls = { disable = true },
+  clangd = {},
+  gopls = {},
+  pyright = {},
+  rust_analyzer = {},
+  tsserver = { settings = { autostart = false } },
+  vimls = {},
+  solargraph = {
+    settings = {
+      init_options = {
+        formatting = true
+      },
+      autostart = false,
+      solargraph = {
+        diagnostics = true,
+      }
+    }
+  },
   sumneko_lua = {
     settings = {
       Lua = {
@@ -64,7 +74,7 @@ local servers = {
         },
         diagnostics = {
           -- Get the language server to recognize the `vim` global
-          globals = { 'vim' },
+          globals = { 'vim', 'table', 'pairs' },
         },
         workspace = {
           -- Make the server aware of Neovim runtime files
