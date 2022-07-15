@@ -81,15 +81,8 @@ return require('packer').startup(function(use)
   }
 
   -- Motion
-  use {
-    'phaazon/hop.nvim',
-    config = function()
-      require('hop').setup()
-    end
-  }
-
   use 'wellle/targets.vim'
-  use 'justinmk/vim-sneak'
+  use { "ggandor/leap.nvim", config = function() require('leap').set_default_keymaps() end }
   use { "folke/which-key.nvim" }
   -- use {'pechorin/any-jump.vim'}
 
