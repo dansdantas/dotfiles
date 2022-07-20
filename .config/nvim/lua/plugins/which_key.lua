@@ -78,7 +78,7 @@ wk.register({
   [","] = {
     a = {
       name = 'AnyJump',
-      j = { ':AnyJump<cr>', "Jump to definition under cursore" },
+      j = { ':AnyJump<cr>', "jump to definition under cursore" },
       b = { ':AnyJumpBack<cr>', "open previous opened file (after jump)" },
       l = { ':AnyJumpLastResults<cr>', "open last closed search window again" },
     },
@@ -102,4 +102,8 @@ wk.register({
       l = { function() return P(workspace.list_dirs()) end, "list dirs" }
     },
   },
+})
+
+wk.register({
+  [",aj"] = { ":AnyJumpVisual", "jump to definition under visual cursor", mode = "v" },
 })
