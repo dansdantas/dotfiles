@@ -8,7 +8,7 @@ g.any_jump_disable_default_keybindings = 1
 map.set('x', ',aj', ':AnyJumpVisual') -- Visual mode: jump to selected text in visual mode
 
 -- Startitfy
-g.startify_session_dir = env.XDG_DATA_HOME .. '/nvim/session'
+g.startify_session_dir = vim.fn.stdpath('data') .. '/session'
 g.startify_disable_at_vimenter = 1
 
 -- FZF
