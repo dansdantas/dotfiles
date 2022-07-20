@@ -33,8 +33,10 @@ cmp.setup({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ---@diagnostic disable-next-line: missing-parameter
-    ['<C-y>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
+    ['<C-y>'] = { i = cmp.mapping.confirm({ select = false }), },
+    ['<C-n>'] = { i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), },
+    ['<C-p>'] = { i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), },
+    ['<C-e>'] = { i = cmp.mapping.abort(), },
 
     -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ['<CR>'] = cmp.mapping.confirm({ cmpselect = true, behavior = cmp.ConfirmBehavior.Replace }),
