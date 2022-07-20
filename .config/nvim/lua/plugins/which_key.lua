@@ -27,6 +27,11 @@ wk.register({
       D = { ":%bd!<cr>", "close all" },
     },
 
+    n = { ":cnext<cr>", "next on quickfix list" },
+    r = { ":cprevious<cr>", "previous on quick list" },
+    N = { ":lnext<cr>", "next on location list" },
+    R = { ":lprevious<cr>", "previous on location list" },
+
     g = {
       name = "Git",
       t = { require('neogit').open, "neogit" },
