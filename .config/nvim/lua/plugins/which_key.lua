@@ -1,5 +1,7 @@
 local tbuiltin = require("telescope.builtin")
 local wk = require("which-key")
+local gitsigns = require("gitsigns")
+
 local workspace = require("workspace")
 local functions = require('functions')
 
@@ -33,7 +35,17 @@ wk.register({
       t = { require('neogit').open, "neogit" },
       c = { tbuiltin.git_commits, "commits" },
       b = { tbuiltin.git_branches, "branches" },
-      s = { ":Git status<cr>", "status" }
+      s = { ":Git status<cr>", "status" },
+      a = { gitsigns.stage_hunk, "stage hunk" },
+      u = { gitsigns.undo_stage_hunk, "unstage hunk" },
+      A = { gitsigns.stage_buffer, "stage buffer" },
+      U = { gitsigns.reset_buffer_index, "unstage buffer" },
+      p = { gitsigns.prev_hunk, "previous hunk" },
+      n = { gitsigns.next_hunk, "next hunk" },
+      d = { gitsigns.preview_hunk, "preview hunk" },
+      h = { function ()
+        gitsigns.blame_line{full=true}
+      end, "blame line" }
     },
 
     v = {
