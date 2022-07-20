@@ -96,37 +96,27 @@ cmp.setup({
   },
 
   experimental = {
-    native_menu = false,
     ghost_text = true,
   }
 })
 
-vim.keymap.set({'i', 's'}, "<C-k>", function ()
+vim.keymap.set({ 'i', 's' }, "<C-k>", function()
   if luasnip.jumpable(-1) then
     luasnip.jump(-1)
   end
 end, { silent = true })
 
-vim.keymap.set("i", "<C-l>", function ()
+vim.keymap.set("i", "<C-l>", function()
   if luasnip.choice_active() then
     luasnip.change_choice(1)
   end
 end)
 
--- Set configuration for specific filetype.
-cmp.setup.filetype('gitcommit', {
-  sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
-    { name = 'buffer' },
-  })
-})
-
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = 'buffer' }
+    { name = 'buffer', keyword_length = 3 }
   }
 })
 
@@ -134,9 +124,13 @@ cmp.setup.cmdline('/', {
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
+    { name = 'path', group_index = 1 },
+    {
+      name = 'cmdline',
+      keyword_length = 5,
+      max_item_count = 30,
+      group_index = 2
+    }
   })
 })
 
