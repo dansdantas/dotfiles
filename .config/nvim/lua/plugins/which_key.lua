@@ -16,11 +16,8 @@ wk.register({
       g = { tbuiltin.grep_string, "grep" },
       ['?'] = { tbuiltin.oldfiles, "recent files" },
       e = { tbuiltin.current_buffer_fuzzy_find, "fuzzy find on buffer" },
-
-      s = {
-        f = { function() return tbuiltin.find_files { previewer = false } end, "files without preview" },
-        g = { tbuiltin.live_grep, "live grep" }
-      },
+      f = { function() return tbuiltin.find_files { previewer = false } end, "files without preview" },
+      r = { tbuiltin.live_grep, "live grep" }
     },
 
     b = {
