@@ -12,3 +12,10 @@ Priorities:
 Investigate:
   - fix Neogit problem with commiting bare repo
   - ale errors on status line?
+  - sync file history and undo?
+
+Terminal:
+  - update pyenv
+  - update rbenv
+  - update nvm
+  - remove outdated java config
