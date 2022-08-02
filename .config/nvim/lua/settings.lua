@@ -13,6 +13,7 @@ o.splitright = true -- Split right on new split
 o.autowrite = true -- Enable automatically :write before running commands
 o.hidden = true
 o.signcolumn = 'yes' -- Always show the signcolumn
+o.wrap = false -- Remove wrapping on lines that goes over screen width
 
 -- Indentation
 o.shiftwidth = 2 -- Column space on identation << or >>
