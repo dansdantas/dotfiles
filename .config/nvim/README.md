@@ -1,5 +1,4 @@
 Priorities:
-  - Remove commented plugins
   - Move all maps to which-key
   - config plugins:
     - cmp
