@@ -99,4 +99,12 @@ M.folding_toggle = function()
   end
 end
 
+M.help_on_current_word = function()
+  return vim.cmd('help ' .. vim.fn.expand('<cword>'))
+end
+
+M.search_current_word = function()
+  return vim.cmd('Ag ' .. vim.fn.expand('<cword>') .. '<cr>')
+end
+
 return M

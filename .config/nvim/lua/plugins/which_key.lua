@@ -45,9 +45,7 @@ wk.register({
       p = { gitsigns.prev_hunk, "previous hunk" },
       n = { gitsigns.next_hunk, "next hunk" },
       d = { gitsigns.preview_hunk, "preview hunk" },
-      h = { function ()
-        gitsigns.blame_line{full=true}
-      end, "blame line" }
+      h = { function() gitsigns.blame_line { full = true } end, "blame line" }
     },
 
     v = {
@@ -73,6 +71,8 @@ wk.register({
       J = { ':ALENextWrap<cr>', "next wrap" },
       l = { ':ALELint<cr>', "lint current buffer" },
       t = { ':ALEToggle<cr>', "toggle ale" },
+
+      g = { functions.search_current_word, "search current word" }
     },
 
     s = {
@@ -86,7 +86,9 @@ wk.register({
 
     mt = { ':MaximizerToggle<cr>', "toggle maximize current buffer" },
 
-    z = { functions.folding_toggle, "toggle folding" }
+    z = { functions.folding_toggle, "toggle folding" },
+
+    ["<cr>"] = { ":so ~/.config/nvim/config.lua<cr>", "reload config" },
   },
 
   [","] = {
@@ -97,12 +99,15 @@ wk.register({
       l = { ':AnyJumpLastResults<cr>', "open last closed search window again" },
     },
 
+    he = { functions.help_on_current_word, "Help on current word" },
+    l = { ":nohl<cr>", "clear highlight"  },
+
     t = {
       n = { ':TestNearest<cr>', "test nearest" },
-      f = { ':TestFile<cr>' , "test current file" },
+      f = { ':TestFile<cr>', "test current file" },
       s = { ':TestSuite<cr>', "test suite" },
       l = { ':TestLast<cr>', "run last test" },
-      v = { ':TestVisit<cr>' , "run last visited test" },
+      v = { ':TestVisit<cr>', "run last visited test" },
       w = { ':TestLastOnlyFail<cr>', "test only failed" },
     },
 
@@ -116,8 +121,11 @@ wk.register({
       l = { function() return P(workspace.list_dirs()) end, "list dirs" }
     },
   },
+
+  ["+"] = { "<C-a>", "increases number" },
+  ["-"] = { "<C-x>", "decreases number" },
 })
 
 wk.register({
-  [",aj"] = { ":AnyJumpVisual", "jump to definition under visual cursor", mode = "v" },
+  [",aj"] = { ":AnyJumpVisual<cr>", "jump to definition under visual cursor", mode = "v" },
 })

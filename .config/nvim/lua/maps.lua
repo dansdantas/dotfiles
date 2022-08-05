@@ -1,16 +1,9 @@
 local map = vim.keymap
 
 -- Leader
-map.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+-- map.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
-map.set('n', '+', '<C-a>')
-map.set('n', '-', '<C-x>')
-map.set('n', ',l', ':nohl<cr>')
-
--- reload config
-map.set('n', '<leader><cr>', ':so ~/.config/nvim/config.lua<CR>')
 
 -- Handle save
 map.set('n', '<leader>w', ':w!<cr>')
