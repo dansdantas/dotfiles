@@ -86,6 +86,6 @@ g['sneak#label'] = 1
 
 -- Linter
 require('lint').linters_by_ft = {
-  ruby = { 'ruby' },
-  lua = { 'luacheck' }
+  ruby = { "ruby",  "rubocop" },
+  lua = { "luacheck" }
 }
