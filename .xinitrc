@@ -17,4 +17,4 @@ compton &
 exec bspwm
 
 # Rearrange monitors
-~/.local/share/screenlayout/triple-monitor.sh
+~/.local/share/screenlayout/dual-monitor-stand.sh
