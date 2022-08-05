@@ -38,8 +38,6 @@ local on_attach = function(_, bufnr)
   end, opts)
 
   map.set('n', ',so', require('telescope.builtin').lsp_document_symbols, opts)
-
-  vim.api.nvim_create_user_command("Format", vim.lsp.buf.formatting, {})
 end
 
 -- Setup lspconfig.
