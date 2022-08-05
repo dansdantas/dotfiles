@@ -192,9 +192,9 @@ alias dcu="dc up"
 alias dcd="dc down"
 
 # Vim-plug
-alias pi="$EDITOR +PlugInstall"
-alias pc="$EDITOR +PlugClean"
-alias pu="$EDITOR +PlugUpdate"
+alias pi="$EDITOR +PackerInstall"
+alias pc="$EDITOR +PackerClean"
+alias pu="$EDITOR +PackerSync"
 
 # Tmux
 alias tm="tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf"
