@@ -1,6 +1,7 @@
 local tbuiltin = require("telescope.builtin")
 local wk = require("which-key")
 local gitsigns = require("gitsigns")
+local bfl = require("bufferline")
 
 local workspace = require("workspace")
 local functions = require('functions')
@@ -25,6 +26,7 @@ wk.register({
       c = { ":bd!<cr>", "close" },
       d = { ":bd|e#<cr>", "close all but current" },
       D = { ":%bd!<cr>", "close all" },
+      f = { bfl.pick_buffer, "find" }
     },
 
     n = { ":cnext<cr>", "next on quickfix list" },

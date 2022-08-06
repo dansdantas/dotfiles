@@ -16,8 +16,6 @@ map.set('n', '<leader>Q', ':qa<cr>')
 -- map.set('n', '<leader>k', ':tabnext<cr>')
 map.set('n', '<leader>j', ':BufferLineCyclePrev<cr>')
 map.set('n', '<leader>k', ':BufferLineCycleNext<cr>')
-map.set('n', '<leader>h', ':bprev<cr>')
-map.set('n', '<leader>l', ':bnext<cr>')
 
 -- Split
 map.set('n', '<C-J>', '<C-W><C-J>')
