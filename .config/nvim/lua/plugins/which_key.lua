@@ -6,6 +6,16 @@ local bfl = require("bufferline")
 local workspace = require("workspace")
 local functions = require("functions")
 
+local map = vim.keymap
+-- disable keys
+map.set('', 'Q', '<nop>', { remap = true })
+
+-- Disable arrow keys
+map.set('', '<up>', '<nop>', { remap = true })
+map.set('', '<down>', '<nop>', { remap = true })
+map.set('', '<left>', '<nop>', { remap = true })
+map.set('', '<right>', '<nop>', { remap = true })
+
 local start_neogit = function()
   vim.fn.system({
     'touch',
@@ -13,6 +23,9 @@ local start_neogit = function()
   })
   return require('neogit').open()
 end
+
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 wk.setup {}
 wk.register({
@@ -171,3 +184,9 @@ wk.register({
   [",aj"] = { ":AnyJumpVisual<cr>", "jump to definition under visual cursor" },
   ["<leader>y"] = { "\"+y", "copy to clipboard" },
 })
+
+-- remap true
+wk.register({
+  [",cs"] = { ':let @+=expand("%")<cr>', "copy relative path to clipboard" },
+  [',cl'] = { ':let @+=expand("%:p")<cr>', "copy full path to clipboard" }
+}, { noremap = false })
