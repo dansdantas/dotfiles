@@ -4,11 +4,20 @@ local gitsigns = require("gitsigns")
 local bfl = require("bufferline")
 
 local workspace = require("workspace")
-local functions = require('functions')
+local functions = require("functions")
+
+local start_neogit = function()
+  vim.fn.system({
+    'touch',
+    '~/.dotfiles.git/NEOGIT_COMMIT_EDITMSG'
+  })
+  return require('neogit').open()
+end
 
 wk.setup {}
 wk.register({
   ["<leader>"] = {
+    ["<leader>l"] = { ":luafile %<CR>", "reload current lua file" },
     t = {
       name = "Telescope",
       o = { tbuiltin.find_files, "files" },
@@ -55,13 +64,6 @@ wk.register({
       c = { tbuiltin.commands, "commands" },
       h = { tbuiltin.help_tags, "help" },
     },
-
-    l = {
-      name = "load",
-      u = { ":luafile %<cr>", "current file as lua" }
-    },
-
-    Q = { ":qa<cr>", "Quit" },
 
     o = { ":FZF<cr>", "FZF" },
 
