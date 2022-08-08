@@ -1,5 +1,4 @@
 Priorities:
-  - Move all maps to which-key
   - config plugins:
     - cmp
     - lsp

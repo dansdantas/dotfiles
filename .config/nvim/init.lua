@@ -19,8 +19,6 @@ TableMerge = function(t1, t2)
 end
 
 require('settings')
-
-require('maps')
 require('commands')
 require('plugins')
 
