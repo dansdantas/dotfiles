@@ -35,13 +35,19 @@ wk.register({
       c = { ":bd!<cr>", "close" },
       d = { ":bd|e#<cr>", "close all but current" },
       D = { ":%bd!<cr>", "close all" },
-      f = { bfl.pick_buffer, "find" }
+      f = { bfl.pick_buffer, "find" },
+      p = { bfl.toggle_pin, "pin" },
     },
 
+    -- quickfix and location list
     n = { ":cnext<cr>", "next on quickfix list" },
     r = { ":cprevious<cr>", "previous on quick list" },
     N = { ":lnext<cr>", "next on location list" },
     R = { ":lprevious<cr>", "previous on location list" },
+
+    -- buffer movements
+    j = { function() return bfl.cycle(-1) end, "prev buffer" },
+    k = { function() return bfl.cycle(1) end, "next buffer" },
 
     g = {
       name = "Git",
@@ -92,7 +98,22 @@ wk.register({
 
     z = { functions.folding_toggle, "toggle folding" },
 
-    ["<cr>"] = { ":so ~/.config/nvim/config.lua<cr>", "reload config" },
+    -- clipboard
+    p = { "\"+p", "paste from clipboard" },
+    y = { "\"+y", "copy to clipboard" },
+    Y = { "y$", "yank till end of line" },
+
+    ["<cr>"] = { ":so ~/.config/nvim/init.lua<cr>", "reload config" },
+
+    -- handle save
+    w = { ":w!<CR>", "save file" },
+    x = { ":x!<CR>", "close file" },
+    q = { ":q<cr>", "exit file" },
+    Q = { ":qa<cr>", "quit" },
+
+    [";"] = { ":bd!<cr>", "delete buffer" },
+
+    ["<BS>"] = { [[:%s/\s\+$//e<CR>]], "remove whitespaces" },
   },
 
   [","] = {
@@ -103,8 +124,12 @@ wk.register({
       l = { ':AnyJumpLastResults<cr>', "open last closed search window again" },
     },
 
+    -- buffers
+    b = { ":bd|e<cr>", "delete all buffers but current" },
+    B = { ":bd!<cr>", "delete buffer" },
+
     he = { functions.help_on_current_word, "Help on current word" },
-    l = { ":nohl<cr>", "clear highlight"  },
+    l = { ":nohl<cr>", "clear highlight" },
 
     t = {
       n = { ':TestNearest<cr>', "test nearest" },
@@ -128,8 +153,21 @@ wk.register({
 
   ["+"] = { "<C-a>", "increases number" },
   ["-"] = { "<C-x>", "decreases number" },
+
+  -- split
+  ["<C-J>"] = { "<C-W><C-J>", "move to left pane" },
+  ["<C-K>"] = { "<C-W><C-K>", "move to upper pane" },
+  ["<C-L>"] = { "<C-W><C-L>", "move to right pane" },
+  ["<C-H>"] = { "<C-W><C-H>", "move to lower pane" },
+
+  -- movements
+  [";;"] = { "$", "end of line" },
+  ["E"] = { "$", "end of line" },
+  ["B"] = { "^", "start of line" },
 })
 
+-- Visual mappings
 wk.register({
-  [",aj"] = { ":AnyJumpVisual<cr>", "jump to definition under visual cursor", mode = "v" },
+  [",aj"] = { ":AnyJumpVisual<cr>", "jump to definition under visual cursor" },
+  ["<leader>y"] = { "\"+y", "copy to clipboard" },
 })
