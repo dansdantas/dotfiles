@@ -72,7 +72,7 @@ local servers = {
         },
         diagnostics = {
           -- Get the language server to recognize the `vim` global
-          globals = { 'vim', 'table', 'pairs' },
+          globals = { 'vim', 'table', 'pairs', 'package' },
         },
         workspace = {
           -- Make the server aware of Neovim runtime files
