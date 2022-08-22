@@ -43,7 +43,7 @@ require('telescope').setup({
       override_file_sorter = true,
     },
     ["ui-select"] = {
-      require("telescope.themes").get_dropdown{}
+      require("telescope.themes").get_dropdown {}
     }
   },
 })
