@@ -29,6 +29,7 @@ vim.g.maplocalleader = ' '
 
 wk.setup {}
 wk.register({
+  x = {[["_x]], "use x without yanking"},
   ["<leader>"] = {
     ["<leader>l"] = { ":luafile %<CR>", "reload current lua file" },
     t = {
@@ -60,7 +61,9 @@ wk.register({
 
     -- buffer movements
     j = { function() return bfl.cycle(-1) end, "prev buffer" },
+    J = { function() return bfl.move(-1) end, "move buffer to prev" },
     k = { function() return bfl.cycle(1) end, "next buffer" },
+    K = { function() return bfl.move(1) end, "move buffer to next" },
 
     g = {
       name = "Git",
@@ -75,6 +78,7 @@ wk.register({
       p = { gitsigns.prev_hunk, "previous hunk" },
       n = { gitsigns.next_hunk, "next hunk" },
       d = { gitsigns.preview_hunk, "preview hunk" },
+      D = { gitsigns.diffthis, "diff file" },
       h = { function() gitsigns.blame_line { full = true } end, "blame line" }
     },
 
@@ -183,7 +187,7 @@ wk.register({
 wk.register({
   [",aj"] = { ":AnyJumpVisual<cr>", "jump to definition under visual cursor" },
   ["<leader>y"] = { "\"+y", "copy to clipboard" },
-})
+}, { mode = "v" })
 
 -- remap true
 wk.register({
