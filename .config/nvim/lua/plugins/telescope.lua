@@ -1,7 +1,56 @@
-local actions = require('telescope.actions')
+local telescope = require("telescope")
+local actions = require("telescope.actions")
+local previewers = require("telescope.previewers")
+local Job = require("plenary.job")
 
-require('telescope').setup({
+local _bad = { ".*%.csv" } -- Put all filetypes that slow you down in this array
+local bad_files = function(filepath)
+  for _, v in ipairs(_bad) do
+    if filepath:match(v) then
+      return false
+    end
+  end
+
+  return true
+end
+
+local new_maker = function(filepath, bufnr, opts)
+  opts = opts or {}
+
+  -- Remove highlighting on specific files
+  if opts.use_ft_detect == nil then opts.use_ft_detect = true end
+  opts.use_ft_detect = opts.use_ft_detect == false and false or bad_files(filepath)
+
+  -- Do not preview on certain file size
+  filepath = vim.fn.expand(filepath)
+  vim.loop.fs_stat(filepath, function(_, stat)
+    if not stat then return end
+    if stat.size > 100000 then
+      return
+    end
+  end)
+
+  Job:new({
+    command = "file",
+    args = { "--mime-type", "-b", filepath },
+    on_exit = function(j)
+      local mime_type = vim.split(j:result()[1], "/")[1]
+      -- If file is binary, do not attempt to preview
+      if mime_type == "text" then
+        previewers.buffer_previewer_maker(filepath, bufnr, opts)
+      else
+        -- maybe we want to write something to the buffer here
+        vim.schedule(function()
+          vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "BINARY" })
+        end)
+      end
+    end
+  }):sync()
+end
+
+telescope.setup({
   defaults = {
+    buffer_previewer_maker = new_maker,
     vimgrep_arguments = {
       "rg",
       "--color=never",
@@ -13,15 +62,16 @@ require('telescope').setup({
       "--trim"
     },
 
-    file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
-    grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
-    qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
-    file_sorter      = require('telescope.sorters').get_fzy_sorter,
+    file_previewer   = previewers.vim_buffer_cat.new,
+    grep_previewer   = previewers.vim_buffer_vimgrep.new,
+    qflist_previewer = previewers.vim_buffer_qflist.new,
+    file_sorter      = require("telescope.sorters").get_fzy_sorter,
 
     mappings = {
       i = {
         ["C-x"] = false,
-        ["C-q"] = actions.send_to_qflist,
+        ["<C-q>"] = actions.send_to_qflist,
+        ["<C-s>"] = actions.cycle_previewers_next,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-b>"] = actions.preview_scrolling_down,
@@ -46,7 +96,13 @@ require('telescope').setup({
       require("telescope.themes").get_dropdown {}
     }
   },
+  pickers = {
+    find_files = {
+      find_command = { "fd", "--type", "f", "--strip-cwd-prefix" }
+    },
+
+  }
 })
 
-require('telescope').load_extension('fzy_native')
-require("telescope").load_extension("ui-select")
+telescope.load_extension("fzy_native")
+telescope.load_extension("ui-select")
