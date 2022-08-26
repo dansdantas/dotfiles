@@ -2,13 +2,14 @@ local env = vim.env
 local g   = vim.g
 local map = vim.keymap
 local v   = vim.v
+local fn  = vim.fn
 
 -- AnyJump
 g.any_jump_disable_default_keybindings = 1
 map.set('x', ',aj', ':AnyJumpVisual') -- Visual mode: jump to selected text in visual mode
 
 -- Startitfy
-g.startify_session_dir = vim.fn.stdpath('data') .. '/session'
+g.startify_session_dir = fn.stdpath('data') .. '/sessions'
 g.startify_disable_at_vimenter = 1
 
 -- FZF
@@ -40,7 +41,7 @@ local build_quickfix_list = function(lines)
     table.insert(files, { filename = file })
   end
 
-  vim.fn.setqflist(files)
+  fn.setqflist(files)
   vim.cmd(':copen')
 end
 
@@ -86,6 +87,6 @@ g['sneak#label'] = 1
 
 -- Linter
 require('lint').linters_by_ft = {
-  ruby = { "ruby",  "rubocop" },
+  ruby = { "ruby", "rubocop" },
   lua = { "luacheck" }
 }
