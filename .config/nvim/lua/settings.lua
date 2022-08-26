@@ -64,3 +64,9 @@ o.foldlevel = 9999
 -- Completion
 o.updatetime = 300 -- Reduce updatetime
 o.shortmess:append({ ['c'] = true })
+
+-- New filetype_lua
+if not vim.fn.has("nvim-0.8") then
+  vim.g.do_filetype_lua = 1
+  vim.g.did_load_filetypes = 0
+end
