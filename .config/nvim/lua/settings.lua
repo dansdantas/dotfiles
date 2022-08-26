@@ -58,8 +58,9 @@ o.undofile = true
 o.undodir = undo_dir
 
 -- Folding
-o.foldmethod = 'manual'
-o.foldlevel = 9999
+o.foldmethod = "expr"
+o.foldexpr   = "nvim_treesitter#foldexpr()"
+o.foldlevel  = 9999
 
 -- Completion
 o.updatetime = 300 -- Reduce updatetime
