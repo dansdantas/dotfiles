@@ -20,7 +20,7 @@ luasnip.config.set_config {
 cmp.setup({
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      luasnip.lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
 
@@ -75,11 +75,13 @@ cmp.setup({
   }),
 
   sources = cmp.config.sources({
-    { name = 'buffer', keyword_length = 5 },
     { name = 'luasnip' },
     { name = 'nvim_lsp' },
-    { name = 'nvim_lua' },
+  }, {
+    { name = 'buffer', keyword_length = 3 },
     { name = 'path' },
+  }, {
+    { name = 'nvim_lua' },
   }),
 
   formatting = {
@@ -106,13 +108,21 @@ vim.keymap.set({ 'i', 's' }, "<C-k>", function()
   end
 end, { silent = true })
 
+vim.keymap.set({ 'i', "s" }, "<C-space>", function()
+  if luasnip.expandable() then
+    luasnip.expand()
+  elseif luasnip.jumpable() then
+    luasnip.jump()
+  end
+end, { silent = true })
+
 vim.keymap.set("i", "<C-l>", function()
   if luasnip.choice_active() then
     luasnip.change_choice(1)
   end
 end)
 
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+-- `/` cmdline setup.
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
@@ -120,7 +130,7 @@ cmp.setup.cmdline('/', {
   }
 })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+-- `:` cmdline setup.
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
