@@ -1,8 +1,5 @@
 local languages = {
   'bash',
-  'c',
-  'c_sharp',
-  'cmake',
   'comment',
   'css',
   'dockerfile',
@@ -80,4 +77,7 @@ require('nvim-treesitter.configs').setup {
       },
     },
   },
+  endwise = {
+    enable = true
+  }
 }
