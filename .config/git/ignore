@@ -19,7 +19,6 @@ tmp/**/*
 .python-version
 .nvmrc
 vendor/assets/bower_components
-vendor
 dump.rdb
 .solargraph.yml
 .reek.yml
