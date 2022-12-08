@@ -122,6 +122,8 @@ end
 
 M.find_files = function()
   return require("telescope.builtin").find_files {
+    hidden = true,
+    shorten_path = true,
     search_dirs = list_dirs(),
     width = .25
   }

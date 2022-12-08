@@ -15,6 +15,7 @@ local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 luasnip.config.set_config {
   history = true,
+  updateevents = "TextChanged,TextChangedI",
 }
 
 cmp.setup({
@@ -120,7 +121,7 @@ vim.keymap.set("i", "<C-l>", function()
   if luasnip.choice_active() then
     luasnip.change_choice(1)
   end
-end)
+end, { silent = true })
 
 -- `/` cmdline setup.
 cmp.setup.cmdline('/', {
