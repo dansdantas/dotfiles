@@ -1,0 +1,126 @@
+const {
+    aceVimMap,
+    mapkey,
+    imap,
+    imapkey,
+    getClickableElements,
+    vmapkey,
+    map,
+    unmap,
+    cmap,
+    addSearchAlias,
+    removeSearchAlias,
+    tabOpenLink,
+    readText,
+    Clipboard,
+    Front,
+    Hints,
+    Visual,
+    RUNTIME
+} = api;
+
+// an example to create a new mapping `ctrl-y`
+mapkey('<Ctrl-y>', 'Show me the money', function() {
+    Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
+});
+
+// an example to replace `T` with `gt`, click `Default mappings` to see how `T` works.
+map('gt', 'T');
+
+// an example to remove mapkey `Ctrl-i`
+unmap('<Ctrl-i>');
+
+// Omnibar
+cmap('<Ctrl-n>', '<Tab>');
+cmap('<Ctrl-p>', '<Shift-Tab>');
+
+
+// ************************* Vimium *************************
+
+// Scrolling
+map('u', 'e');
+map('K', 'R');
+map('J', 'E');
+map('gt', 'R');
+map('gT', 'E');
+
+// Follow links
+map('<Alt-f>', 'cf');
+map('F', 'gf');
+map('gf', 'w');
+
+// Bookmark
+unmap('B');
+map('B', 'b');
+
+// History
+unmap('H');
+unmap('L');
+map('H', 'S');
+map('L', 'D');
+
+// Clipboard
+//map('p', "Open the clipboard's URL in the current tab", function() {
+//    Front.getContentFromClipboard(function(response) {
+//        window.location.href = response.data;
+//    });
+//});
+
+map('P', 'cc');
+
+map('gi', 'i');
+map('`', '\'');
+
+// save default key `t` to temp key `>_t`
+map('>_t', 't');
+// create a new key `t` for default key `on`
+map('t', 'on');
+// create a new key `o` for saved temp key `>_t`
+map('o', '>_t');
+
+map('I', '');
+
+// ************************* Theme *************************
+settings.theme = `
+.sk_theme {
+    font-family: Input Sans Condensed, Charcoal, sans-serif;
+    font-size: 10pt;
+    background: #24272e;
+    color: #abb2bf;
+}
+.sk_theme tbody {
+    color: #fff;
+}
+.sk_theme input {
+    color: #d0d0d0;
+}
+.sk_theme .url {
+    color: #61afef;
+}
+.sk_theme .annotation {
+    color: #56b6c2;
+}
+.sk_theme .omnibar_highlight {
+    color: #528bff;
+}
+.sk_theme .omnibar_timestamp {
+    color: #e5c07b;
+}
+.sk_theme .omnibar_visitcount {
+    color: #98c379;
+}
+.sk_theme #sk_omnibarSearchResult ul li:nth-child(odd) {
+    background: #303030;
+}
+.sk_theme #sk_omnibarSearchResult ul li.focused {
+    background: #3e4452;
+}
+#sk_status, #sk_find {
+    font-size: 20pt;
+}`;
+
+Hints.style('border: solid 2px #373B41; color:#52C196; background: initial; background-color: #1D1F21;');
+Hints.style("border: solid 2px #373B41 !important; padding: 1px !important; color: #C5C8C6 !important; background: #1D1F21 !important;", "text");
+Visual.style('marks', 'background-color: #52C19699;');
+Visual.style('cursor', 'background-color: #81A2BE;');
+// click `Save` button to make above settings to take effect.
