@@ -4,9 +4,14 @@ Priorities:
     - lsp
     - settings
     - telescope
+    - snippets
   - finalize statusline
   - adjust config for bufferline
   - Refactor maps on which-key
+  - add Prettier
+  - configure null-ls
+  - take a look at mason.nvim
+  - change LspInstall to update automatically
 
 Investigate:
   - fix Neogit problem with commiting bare repo
