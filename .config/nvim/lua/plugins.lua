@@ -113,6 +113,15 @@ return require('packer').startup(function(use)
     end
   }
 
+  use({
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup({
+        disable_filetype = { "TelescopePrompt", "vim" },
+      })
+    end,
+  })
+
   -- Highlighting
   use 'pangloss/vim-javascript'
   use 'othree/javascript-libraries-syntax.vim'
@@ -188,7 +197,6 @@ return require('packer').startup(function(use)
   -- Html
   use 'mattn/emmet-vim'
   use 'tmhedberg/matchit'
-  use 'jiangmiao/auto-pairs'
 
   -- Ruby & Rails
   use 'janko-m/vim-test'
