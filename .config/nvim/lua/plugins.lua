@@ -82,6 +82,9 @@ return require('packer').startup(function(use)
   use "williamboman/nvim-lsp-installer"
   use 'folke/lsp-colors.nvim'
 
+  -- Linters
+  use({ "jose-elias-alvarez/null-ls.nvim" })
+
   -- Comp
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
