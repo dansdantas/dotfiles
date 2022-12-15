@@ -23,6 +23,9 @@ o.expandtab = true -- Convert tabs to spaces
 o.smartindent = true -- Automatically inserts one extra level of indentation
 o.shiftround = true -- Calculate shiftwidth based on line start
 
+-- Chars
+o.list = true
+
 -- Colors configuration
 g.onedark_terminal_italics = 1
 g.onedark_hide_endofbuffer = 1
