@@ -47,22 +47,26 @@ local lsp = require("lspconfig")
 
 local servers = {
   clangd = {},
-  gopls = {},
+  gopls = {
+    settings = {
+      cmd = { "gopls" },
+      gopls = {
+        experimentalPostfixCompletions = true,
+        analyses = {
+          unusedparams = true,
+          shadow = true,
+        },
+        staticcheck = true,
+      },
+    },
+    init_options = {
+      usePlaceholders = true,
+    },
+  },
   pyright = {},
   rust_analyzer = {},
-  tsserver = { settings = { autostart = false } },
+  tsserver = {},
   vimls = {},
-  solargraph = {
-    settings = {
-      init_options = {
-        formatting = true
-      },
-      autostart = false,
-      solargraph = {
-        diagnostics = true,
-      }
-    }
-  },
   sumneko_lua = {
     settings = {
       Lua = {
@@ -105,4 +109,5 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
   underline = true,
   signs = true,
   update_in_insert = false,
+  show_diagnostic_autocmds = { 'InsertLeave' },
 })
