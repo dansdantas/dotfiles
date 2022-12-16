@@ -30,7 +30,7 @@ vim.g.maplocalleader = ' '
 
 wk.setup {}
 wk.register({
-  x = {[["_x]], "use x without yanking"},
+  x = { [["_x]], "use x without yanking" },
   ["<leader>"] = {
     ["<leader>l"] = { ":luafile %<CR>", "reload current lua file" },
     t = {
@@ -108,12 +108,12 @@ wk.register({
       s = { ':SSave<cr>', 'save session' },
       l = { ':SLoad ', 'load session' },
       o = {
-        function ()
+        function()
           vim.opt.list = not vim.opt.list:get()
         end, 'toggle listchars display'
       },
       f = {
-        function ()
+        function()
           local function telescope_buffer_dir()
             return vim.fn.expand('%:p:h')
           end
