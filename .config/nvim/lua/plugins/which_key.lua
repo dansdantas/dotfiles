@@ -1,3 +1,4 @@
+local telescope = require("telescope")
 local tbuiltin = require("telescope.builtin")
 local wk = require("which-key")
 local gitsigns = require("gitsigns")
@@ -106,6 +107,11 @@ wk.register({
       name = 'session',
       s = { ':SSave<cr>', 'save session' },
       l = { ':SLoad ', 'load session' },
+      o = {
+        function ()
+          vim.opt.list = not vim.opt.list:get()
+        end, 'toggle listchars display'
+      },
       f = {
         function ()
           local function telescope_buffer_dir()
