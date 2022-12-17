@@ -40,7 +40,7 @@ cmp.setup({
     ['<C-e>'] = { i = cmp.mapping.abort(), },
 
     -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    ['<CR>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+    ['<CR>'] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
 
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
