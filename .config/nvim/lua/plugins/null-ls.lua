@@ -12,7 +12,9 @@ null.setup({
     null.builtins.completion.luasnip,
     null.builtins.code_actions.eslint,
 
-    diagnostics.selene,
+    diagnostics.selene.with({
+      extra_args = { "-c ~/.config/selene/config.toml" },
+    }),
     diagnostics.eslint.with({
       diagnostics_format = '[eslint] #{m}\n(#{c})',
     }),

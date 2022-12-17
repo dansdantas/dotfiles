@@ -1,0 +1,13 @@
+---
+base: lua51
+globals:
+  vim:
+    any: true
+  table:
+    any: true
+  pairs:
+    any: true
+  package:
+    any: true
+  require:
+    any: true
