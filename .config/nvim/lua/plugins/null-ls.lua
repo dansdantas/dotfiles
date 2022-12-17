@@ -1,7 +1,8 @@
 local status, null = pcall(require, "null-ls")
-if (not status) then return end
+if not status then return end
 
 local formatting = null.builtins.formatting
+local diagnostics = null.builtins.diagnostics
 
 null.setup({
   sources = {
@@ -10,7 +11,9 @@ null.setup({
 
     null.builtins.completion.luasnip,
     null.builtins.code_actions.eslint,
-    null.builtins.diagnostics.eslint.with({
+
+    diagnostics.selene,
+    diagnostics.eslint.with({
       diagnostics_format = '[eslint] #{m}\n(#{c})',
     }),
   },
