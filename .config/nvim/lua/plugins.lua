@@ -79,9 +79,18 @@ return require('packer').startup(function(use)
   use { 'pechorin/any-jump.vim' }
 
   -- LSP
-  use 'neovim/nvim-lspconfig'
-  use "williamboman/nvim-lsp-installer"
-  use 'folke/lsp-colors.nvim'
+  use {
+    "neovim/nvim-lspconfig",
+    requires = {
+      -- Automatically install LSPs to stdpath for neovim
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+
+      -- Useful status updates for LSP
+      "j-hui/fidget.nvim",
+      "folke/lsp-colors.nvim",
+    },
+  }
 
   -- Linters
   use({ "jose-elias-alvarez/null-ls.nvim" })

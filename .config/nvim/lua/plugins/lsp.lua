@@ -2,44 +2,65 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-require("nvim-lsp-installer").setup({})
+require("mason").setup({
+  ui = {
+    check_outdated_packages_on_open = false,
+  }
+})
+require("fidget").setup{}
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local on_attach = function(_, bufnr)
-  local function buf_set_option(...)
-    vim.api.nvim_buf_set_option(bufnr, ...)
+  -- Mappings.
+  local nmap = function(keys, func, desc)
+    if desc then
+      desc = 'LSP: ' .. desc
+    end
+
+    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  local map = vim.keymap
+  nmap(',rn', vim.lsp.buf.rename, '[R]e[n]ame')
+  nmap(',ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-  --Enable completion triggered by <c-x><c-o>
-  buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+  nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+  nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
 
-  -- Mappings.
-  local opts = { silent = true, buffer = bufnr }
+  nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
+  nmap(',ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+  nmap(',ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  map.set("n", "gD", vim.lsp.buf.declaration, opts)
-  map.set("n", "gd", vim.lsp.buf.definition, opts)
-  map.set("n", "K", vim.lsp.buf.hover, opts)
-  map.set("n", "gi", vim.lsp.buf.implementation, opts)
-  map.set("n", ",k", vim.lsp.buf.signature_help, opts)
-  map.set("n", "gy", vim.lsp.buf.type_definition, opts)
-  map.set("n", ",rn", vim.lsp.buf.rename, opts)
-  map.set("n", ",ca", vim.lsp.buf.code_action, opts)
-  map.set("n", "gr", vim.lsp.buf.references, opts)
-  map.set("n", ",e", vim.diagnostic.open_float, opts)
-  map.set("n", ",d", vim.diagnostic.setqflist, opts)
-  map.set("n", "[d", vim.diagnostic.goto_prev, opts)
-  map.set("n", "]d", vim.diagnostic.goto_next, opts)
-  map.set("n", ",q", vim.diagnostic.setqflist, opts)
+  -- Diagnostics
+  nmap(",e", vim.diagnostic.open_float, "Open diagnostic float")
+  nmap("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
+  nmap("]d", vim.diagnostic.goto_next, "Next diagnostic")
+  nmap(",q", vim.diagnostic.setqflist, "Move diagnostics to qlist")
 
-  map.set({ "n", "v" }, ",f", function()
-    return vim.lsp.buf.format({ async = true })
-  end, opts)
+  -- See `:help K` for why this keymap
+  nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
-  map.set("n", ",so", require("telescope.builtin").lsp_document_symbols, opts)
+  -- Lesser used LSP functionality
+  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+
+  -- nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
+  -- nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+  -- nmap('<leader>wl', function()
+  --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  -- end, '[W]orkspace [L]ist Folders')
+
+  -- Create a command `:Format` local to the LSP buffer
+  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+    if vim.lsp.buf.format then
+      vim.lsp.buf.format()
+    elseif vim.lsp.buf.formatting then
+      vim.lsp.buf.formatting()
+    end
+  end, { desc = 'Format current buffer with LSP' })
+
+  nmap(',f', ':Format<cr>', 'Format current buffer with LSP')
 end
 
 -- Setup lspconfig.
@@ -98,6 +119,15 @@ local default_conf = {
   capabilities = capabilities,
   on_attach = on_attach,
 }
+
+local server_names = {}
+for server, _ in pairs(servers) do
+  table.insert(server_names, server)
+end
+
+require("mason-lspconfig").setup({
+  ensure_installed = server_names,
+})
 
 for server, conf in pairs(servers) do
   local full_conf = TableMerge(default_conf, conf)
