@@ -4,6 +4,10 @@ if not status then return end
 local formatting = null.builtins.formatting
 local diagnostics = null.builtins.diagnostics
 
+require("mason-null-ls").setup({
+  ensure_installed = { "stylua", "eslint_d", "rubocop", "prettierd" }
+})
+
 null.setup({
   sources = {
     formatting.stylua,

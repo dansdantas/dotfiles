@@ -107,7 +107,12 @@ return require('packer').startup(function(use)
   }
 
   -- Linters
-  use({ "jose-elias-alvarez/null-ls.nvim" })
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = {
+      "jayp0521/mason-null-ls.nvim",
+    }
+  })
 
   -- Comp
   use 'hrsh7th/nvim-cmp'
