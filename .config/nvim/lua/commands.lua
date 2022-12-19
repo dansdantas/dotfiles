@@ -3,12 +3,12 @@ local aug = vim.api.nvim_create_augroup
 
 au("FileType", {
   pattern = "vue",
-  command = "syntax sync fromstart"
+  command = "syntax sync fromstart",
 })
 
 au({ "BufRead", "BufNewFile" }, {
   pattern = { "*.arb" },
-  command = "setfiletype ruby"
+  command = "setfiletype ruby",
 })
 
 au({ "BufWritePost" }, {
@@ -21,7 +21,7 @@ au("FileType", {
   pattern = "qf",
   callback = function()
     vim.opt_local.buflisted = false
-  end
+  end,
 })
 
 au("BufWritePre", {
@@ -29,14 +29,14 @@ au("BufWritePre", {
   callback = function()
     print("called")
     vim.fn.system({ "touch", "~/.dotfiles.git/NEOGIT_COMMIT_EDITMSG" })
-  end
+  end,
 })
 
 au({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
   group = aug("TS_FOLD_WORKAROUND", { clear = true }),
   callback = function()
     vim.opt.foldmethod = "expr"
-    vim.opt.foldexpr   = "nvim_treesitter#foldexpr()"
-    vim.opt.foldlevel  = 9999
-  end
+    vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+    vim.opt.foldlevel = 9999
+  end,
 })

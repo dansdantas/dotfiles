@@ -1,11 +1,11 @@
 ---@diagnostic disable: undefined-doc-name
 local vfn = vim.fn
 
-local pickers = require "telescope.pickers"
-local finders = require "telescope.finders"
+local pickers = require("telescope.pickers")
+local finders = require("telescope.finders")
 local conf = require("telescope.config").values
-local actions = require "telescope.actions"
-local action_state = require "telescope.actions.state"
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
 
 local M = {}
 
@@ -38,13 +38,13 @@ end
 
 local get_workspace_from_user = function(workspace_folder)
   -- Start from current dir and not file name
-  workspace_folder = workspace_folder or npcall(vfn.input, 'Folder: ', vfn.expand('%:p:h'), 'dir')
+  workspace_folder = workspace_folder or npcall(vfn.input, "Folder: ", vfn.expand("%:p:h"), "dir")
   if not (workspace_folder and #workspace_folder > 0) then
     return
   end
 
   if vfn.isdirectory(workspace_folder) == 0 then
-    print(workspace_folder, ' is not a valid directory')
+    print(workspace_folder, " is not a valid directory")
     return
   end
 
@@ -78,21 +78,23 @@ local list_dirs_on_telescope_picker = function(opts)
   end
 
   opts = opts or {}
-  pickers.new(opts, {
-    prompt_title = "workspaces",
-    finder = finders.new_table {
-      results = list_dirs(),
-    },
-    sorter = conf.generic_sorter(opts),
-    attach_mappings = function(prompt_bufnr)
-      actions.select_default:replace(function()
-        actions.close(prompt_bufnr)
-        local selection = action_state.get_selected_entry()
-        remove_dir_from_list(selection[1])
-      end)
-      return true
-    end,
-  }):find()
+  pickers
+    .new(opts, {
+      prompt_title = "workspaces",
+      finder = finders.new_table({
+        results = list_dirs(),
+      }),
+      sorter = conf.generic_sorter(opts),
+      attach_mappings = function(prompt_bufnr)
+        actions.select_default:replace(function()
+          actions.close(prompt_bufnr)
+          local selection = action_state.get_selected_entry()
+          remove_dir_from_list(selection[1])
+        end)
+        return true
+      end,
+    })
+    :find()
 end
 
 -- Exposed actions
@@ -109,7 +111,7 @@ M.add_dir = function(workspace_folder)
 end
 
 M.remove_dir = function()
-  list_dirs_on_telescope_picker(require("telescope.themes").get_dropdown {})
+  list_dirs_on_telescope_picker(require("telescope.themes").get_dropdown({}))
 end
 
 M.list_dirs = function()
@@ -121,18 +123,18 @@ M.clean_dirs = function()
 end
 
 M.find_files = function()
-  return require("telescope.builtin").find_files {
+  return require("telescope.builtin").find_files({
     hidden = true,
     shorten_path = true,
     search_dirs = list_dirs(),
-    width = .25
-  }
+    width = 0.25,
+  })
 end
 
 M.grep_files = function()
-  return require('telescope.builtin').grep_string {
+  return require("telescope.builtin").grep_string({
     search_dirs = list_dirs(),
-  }
+  })
 end
 
 return M

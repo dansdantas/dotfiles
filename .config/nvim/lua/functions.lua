@@ -1,33 +1,33 @@
-M = {}
+local M = {}
 
 M.add_to_todo = function()
   local branch_name = vim.fn.system([[printf $(git rev-parse --abbrev-ref HEAD)]])
-  vim.fn.execute('normal! i @todo ' .. branch_name .. ' -')
+  vim.fn.execute("normal! i @todo " .. branch_name .. " -")
 end
 
 M.search_dotfiles = function()
-  require('telescope.builtin').find_files {
-    prompt_title = 'dotfiles',
+  require("telescope.builtin").find_files({
+    prompt_title = "dotfiles",
     cwd = "$HOME",
     find_command = {
-      'dot',
-      'ls-tree',
-      '--full-tree',
-      '-r',
-      '--name-only',
-      'HEAD'
-    }
-  }
+      "dot",
+      "ls-tree",
+      "--full-tree",
+      "-r",
+      "--name-only",
+      "HEAD",
+    },
+  })
 end
 
 M.folding_toggle = function()
-  if vim.fn.foldlevel('.') == 0 then
+  if vim.fn.foldlevel(".") == 0 then
     -- No fold exists at the current line,
     -- so create a fold based on indentation
 
-    local l_min = vim.fn.line('.') -- current line number
-    local l_max = vim.fn.line('$') --  last line number
-    local i_min = vim.fn.indent('.') -- indentation of the current line
+    local l_min = vim.fn.line(".") -- current line number
+    local l_max = vim.fn.line("$") --  last line number
+    local i_min = vim.fn.indent(".") -- indentation of the current line
     local l = l_min + 1
 
     local isBlank = function(x)
@@ -75,16 +75,16 @@ M.folding_toggle = function()
     end
   else
     -- Delete the fold on the current line
-    vim.cmd [[normal zd]]
+    vim.cmd([[normal zd]])
   end
 end
 
 M.help_on_current_word = function()
-  return vim.cmd('help ' .. vim.fn.expand('<cword>'))
+  return vim.cmd("help " .. vim.fn.expand("<cword>"))
 end
 
 M.search_current_word = function()
-  return vim.cmd('Ag ' .. vim.fn.expand('<cword>') .. '<cr>')
+  return vim.cmd("Ag " .. vim.fn.expand("<cword>") .. "<cr>")
 end
 
 return M

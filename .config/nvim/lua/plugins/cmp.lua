@@ -1,4 +1,4 @@
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 local has_words_before = function()
   if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
@@ -9,14 +9,14 @@ local has_words_before = function()
 end
 
 -- Setup nvim-cmp.
-local cmp = require('cmp')
-local lspkind = require('lspkind')
+local cmp = require("cmp")
+local lspkind = require("lspkind")
 
-local luasnip = require('luasnip')
-luasnip.config.set_config {
+local luasnip = require("luasnip")
+luasnip.config.set_config({
   history = true,
   updateevents = "TextChanged,TextChangedI",
-}
+})
 
 cmp.setup({
   snippet = {
@@ -31,16 +31,16 @@ cmp.setup({
   },
 
   mapping = cmp.mapping.preset.insert({
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ---@diagnostic disable-next-line: missing-parameter
-    ['<C-y>'] = { i = cmp.mapping.confirm({ select = false }), },
-    ['<C-n>'] = { i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), },
-    ['<C-p>'] = { i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), },
-    ['<C-e>'] = { i = cmp.mapping.abort(), },
+    ["<C-y>"] = { i = cmp.mapping.confirm({ select = false }) },
+    ["<C-n>"] = { i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },
+    ["<C-p>"] = { i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
+    ["<C-e>"] = { i = cmp.mapping.abort() },
 
     -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    ['<CR>'] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
+    ["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
 
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -64,7 +64,7 @@ cmp.setup({
       end
     end, { "i", "s" }),
 
-    ['<C-j>'] = cmp.mapping(function(fallback)
+    ["<C-j>"] = cmp.mapping(function(fallback)
       if luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
       elseif has_words_before() then
@@ -76,40 +76,40 @@ cmp.setup({
   }),
 
   sources = cmp.config.sources({
-    { name = 'luasnip' },
-    { name = 'nvim_lsp' },
+    { name = "luasnip" },
+    { name = "nvim_lsp" },
   }, {
-    { name = 'buffer', keyword_length = 3 },
-    { name = 'path' },
+    { name = "buffer", keyword_length = 3 },
+    { name = "path" },
   }, {
-    { name = 'nvim_lua' },
+    { name = "nvim_lua" },
   }),
 
   formatting = {
     format = lspkind.cmp_format({
       maxwidth = 50,
       menu = {
-        buffer = '[buf]',
-        nvim_lsp = '[LSP]',
-        nvim_lua = '[api]',
-        path = '[path]',
-        luasnip = '[snip]',
-      }
-    })
+        buffer = "[buf]",
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[api]",
+        path = "[path]",
+        luasnip = "[snip]",
+      },
+    }),
   },
 
   experimental = {
     ghost_text = true,
-  }
+  },
 })
 
-vim.keymap.set({ 'i', 's' }, "<C-k>", function()
+vim.keymap.set({ "i", "s" }, "<C-k>", function()
   if luasnip.jumpable(-1) then
     luasnip.jump(-1)
   end
 end, { silent = true })
 
-vim.keymap.set({ 'i', "s" }, "<C-space>", function()
+vim.keymap.set({ "i", "s" }, "<C-space>", function()
   if luasnip.expand_or_locally_jumpable() then
     luasnip.expand_or_jump()
   end
@@ -122,25 +122,25 @@ vim.keymap.set("i", "<C-l>", function()
 end, { silent = true })
 
 -- `/` cmdline setup.
-cmp.setup.cmdline('/', {
+cmp.setup.cmdline("/", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = 'buffer', keyword_length = 3 }
-  }
+    { name = "buffer", keyword_length = 3 },
+  },
 })
 
 -- `:` cmdline setup.
-cmp.setup.cmdline(':', {
+cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    { name = 'path', group_index = 1 },
+    { name = "path", group_index = 1 },
     {
-      name = 'cmdline',
+      name = "cmdline",
       keyword_length = 5,
       max_item_count = 30,
-      group_index = 2
-    }
-  })
+      group_index = 2,
+    },
+  }),
 })
 
 require("luasnip.loaders.from_vscode").lazy_load()
