@@ -1,6 +1,8 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
+local PackerBootstrap
+
 if fn.empty(fn.glob(install_path)) > 0 then
   PackerBootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
 end
@@ -10,7 +12,10 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Commands
-  use { "kylechui/nvim-surround", config = function() require("nvim-surround").setup {} end }
+  use {
+    "kylechui/nvim-surround",
+    config = function() require("nvim-surround").setup {} end
+   }
   use 'tpope/vim-repeat'
   use 'tpope/vim-abolish' -- Search and replace subvert pattern
   use 'alvan/vim-closetag'
@@ -88,7 +93,10 @@ return require('packer').startup(function(use)
 
   -- Motion
   use 'wellle/targets.vim'
-  use { "ggandor/leap.nvim", config = function() require('leap').set_default_keymaps() end }
+  use {
+    "ggandor/leap.nvim",
+    config = function() require('leap').set_default_keymaps() end
+  }
   use { "folke/which-key.nvim" }
   use { 'pechorin/any-jump.vim' }
 
