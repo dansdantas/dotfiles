@@ -61,6 +61,11 @@ return require('packer').startup(function(use)
     end
   }
 
+  use {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    after = "nvim-treesitter",
+  }
+
   use "RRethy/nvim-treesitter-endwise"
   use 'nvim-treesitter/playground'
 
