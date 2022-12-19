@@ -21,6 +21,7 @@ end
 require("settings")
 require("commands")
 require("plugins")
+require("ls")
 
 require("plugins.settings")
 require("plugins.statusline")
