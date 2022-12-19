@@ -18,20 +18,13 @@ map.set('', '<down>', '<nop>', { remap = true })
 map.set('', '<left>', '<nop>', { remap = true })
 map.set('', '<right>', '<nop>', { remap = true })
 
-local start_neogit = function()
-  vim.fn.system({
-    'touch',
-    '~/.dotfiles.git/NEOGIT_COMMIT_EDITMSG'
-  })
-  return require('neogit').open()
-end
-
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 wk.setup {}
 wk.register({
   x = { [["_x]], "use x without yanking" },
+  ["<C-p>"] = { tbuiltin.git_files, "project files" },
   ["<leader>"] = {
     ["<leader>l"] = { ":luafile %<CR>", "reload current lua file" },
     t = {
