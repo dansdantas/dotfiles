@@ -30,6 +30,7 @@ return require('packer').startup(function(use)
   -- Sessions
   use {
     'rmagatti/session-lens',
+    after = 'telescope.nvim',
     requires = { 'rmagatti/auto-session', 'nvim-telescope/telescope.nvim' },
     config = function()
       require('auto-session').setup {
