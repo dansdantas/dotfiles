@@ -66,7 +66,14 @@ wk.register({
       t = { require('neogit').open, "neogit" },
       c = { tbuiltin.git_commits, "commits" },
       b = { tbuiltin.git_branches, "branches" },
-      s = { ":Git status<cr>", "status" },
+      s = {
+        function()
+          tbuiltin.git_status({
+            is_bare = vim.env.GIT_WORK_TREE,
+          })
+        end,
+        "status"
+       },
       a = { gitsigns.stage_hunk, "stage hunk" },
       u = { gitsigns.undo_stage_hunk, "unstage hunk" },
       A = { gitsigns.stage_buffer, "stage buffer" },
