@@ -57,6 +57,8 @@ return require('packer').startup(function(use)
   use "RRethy/nvim-treesitter-endwise"
   use 'nvim-treesitter/playground'
 
+  use { "aarondiel/spread.nvim" }
+
   -- FZF
   use { 'junegunn/fzf', run = 'cd $XDG_DATA_HOME/fzf && ./install --xdg --no-update-rc' }
   use 'junegunn/fzf.vim'

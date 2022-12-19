@@ -3,6 +3,7 @@ local tbuiltin = require("telescope.builtin")
 local wk = require("which-key")
 local gitsigns = require("gitsigns")
 local bfl = require("bufferline")
+local spread = require("spread")
 
 local workspace = require("workspace")
 local functions = require("functions")
@@ -104,7 +105,7 @@ wk.register({
     },
 
     s = {
-      name = 'session',
+      d = { tbuiltin.diagnostics, "search diagnostics"},
       s = { ':SSave<cr>', 'save session' },
       l = { ':SLoad ', 'load session' },
       o = {
@@ -129,7 +130,10 @@ wk.register({
             layout_config = { height = 40 }
           })
         end, "file browser"
-      }
+      },
+
+      p = { spread.out, "spread params" },
+      c = { spread.combine, "combine params" },
     },
 
     F = { ':NERDTreeToggle<cr>', "toggle nerdtree" },
