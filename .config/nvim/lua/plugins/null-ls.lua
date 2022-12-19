@@ -8,19 +8,24 @@ require("mason-null-ls").setup({
   ensure_installed = { "stylua", "eslint_d", "rubocop", "prettierd" }
 })
 
+local sources = {
+  formatting.stylua,
+  formatting.eslint_d,
+  formatting.prettierd,
+
+  null.builtins.completion.luasnip,
+  null.builtins.code_actions.eslint,
+}
+
+for _, diag in pairs({ "eslint_d", "rubocop", "selene"}) do
+  table.insert(
+    sources,
+    diagnostics[diag].with({
+      diagnostics_format = "[" .. diag .. "] #{m}\n(#{c})",
+    })
+  )
+end
+
 null.setup({
-  sources = {
-    formatting.stylua,
-    formatting.eslint,
-
-    null.builtins.completion.luasnip,
-    null.builtins.code_actions.eslint,
-
-    diagnostics.selene.with({
-      extra_args = { "-c ~/.config/selene/config.toml" },
-    }),
-    diagnostics.eslint.with({
-      diagnostics_format = '[eslint] #{m}\n(#{c})',
-    }),
-  },
+  sources = sources,
 })
