@@ -11,3 +11,9 @@ globals:
     any: true
   require:
     any: true
+  pcall:
+   any: true
+  P:
+    any: true
+  TableMerge:
+    any: true
