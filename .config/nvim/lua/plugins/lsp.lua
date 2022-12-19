@@ -84,6 +84,17 @@ local servers = {
   rust_analyzer = {},
   tsserver = {},
   vimls = {},
+  solargraph = {
+    autostart = false,
+    settings = {
+      init_options = {
+        formatting = true
+      },
+      solargraph = {
+        diagnostics = true,
+      }
+    }
+  },
   sumneko_lua = {
     settings = {
       Lua = {
