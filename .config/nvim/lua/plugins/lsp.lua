@@ -138,7 +138,8 @@ require("mason-lspconfig").setup({
 })
 
 for server, conf in pairs(servers) do
-	local full_conf = TableMerge(default_conf, conf)
+	local base_conf = table.copy(default_conf)
+	local full_conf = table.merge(base_conf, conf)
 	lsp[server].setup(full_conf)
 end
 
