@@ -47,6 +47,7 @@ o.sidescroll = 1
 o.hlsearch = false -- Do not highlight searches by default
 o.ignorecase = true -- Ignore case when searching...
 o.smartcase = true -- ...unless we type a capital
+o.incsearch = true
 
 -- Abbreviations
 vim.cmd([[iabbr pry binding.pry]])
@@ -66,7 +67,7 @@ o.foldexpr = "nvim_treesitter#foldexpr()"
 o.foldlevel = 9999
 
 -- Completion
-o.updatetime = 300 -- Reduce updatetime
+o.updatetime = 50 -- Reduce updatetime
 o.shortmess:append({ ["c"] = true })
 
 -- New filetype_lua
