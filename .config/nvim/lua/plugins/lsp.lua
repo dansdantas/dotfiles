@@ -125,7 +125,7 @@ local servers = {
 local default_conf = {
 	flags = { debounce_text_changes = 150 },
 	capabilities = capabilities,
-	on_attach = on_attach,
+	on_attach = require('functions').on_attach_lsp,
 }
 
 local server_names = {}
