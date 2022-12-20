@@ -7,7 +7,7 @@ local formatting = null.builtins.formatting
 local diagnostics = null.builtins.diagnostics
 
 require("mason-null-ls").setup({
-	ensure_installed = { "stylua", "eslint_d", "rubocop", "prettierd" },
+	ensure_installed = { "stylua", "eslint_d", "prettierd" },
 })
 
 local sources = {
@@ -19,7 +19,7 @@ local sources = {
 	null.builtins.code_actions.eslint,
 }
 
-for _, diag in pairs({ "eslint_d", "rubocop", "selene" }) do
+for _, diag in pairs({ "eslint_d", "selene" }) do
 	table.insert(
 		sources,
 		diagnostics[diag].with({
