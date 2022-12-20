@@ -104,14 +104,14 @@ wk.register({
 				end,
 				"status",
 			},
-			a = { gitsigns.stage_hunk, "stage hunk" },
-			u = { gitsigns.undo_stage_hunk, "unstage hunk" },
-			A = { gitsigns.stage_buffer, "stage buffer" },
-			U = { gitsigns.reset_buffer_index, "unstage buffer" },
-			p = { gitsigns.prev_hunk, "previous hunk" },
-			n = { gitsigns.next_hunk, "next hunk" },
-			h = { gitsigns.preview_hunk, "preview hunk" },
-			D = { gitsigns.diffthis, "diff file" },
+			a = { gitsigns.stage_hunk, "[A]dd hunk" },
+			u = { gitsigns.undo_stage_hunk, "[U]nstage hunk" },
+			A = { gitsigns.stage_buffer, "stage [A]ll buffer" },
+			U = { gitsigns.reset_buffer_index, "[U]nstage all buffer" },
+			p = { gitsigns.prev_hunk, "[P]revious hunk" },
+			n = { gitsigns.next_hunk, "[N]ext hunk" },
+			h = { gitsigns.preview_hunk, "preview [H]unk" },
+			D = { gitsigns.diffthis, "[D]iff file" },
 			b = {
 				function()
 					gitsigns.blame_line({ full = true })
