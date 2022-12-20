@@ -3,11 +3,25 @@ P = function(v)
   return v
 end
 
-TableMerge = function(t1, t2)
+function table.copy(orig)
+    local orig_type = type(orig)
+    local copy
+    if orig_type == 'table' then
+        copy = {}
+        for orig_key, orig_value in pairs(orig) do
+            copy[orig_key] = orig_value
+        end
+    else -- number, string, boolean, etc
+        copy = orig
+    end
+    return copy
+end
+
+function table.merge(t1, t2)
   for k, v in pairs(t2) do
     if type(v) == "table" then
       if type(t1[k] or false) == "table" then
-        TableMerge(t1[k] or {}, t2[k] or {})
+        table.merge(t1[k] or {}, t2[k] or {})
       else
         t1[k] = v
       end
