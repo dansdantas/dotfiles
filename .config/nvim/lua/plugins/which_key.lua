@@ -95,8 +95,7 @@ wk.register({
 		g = {
 			name = "Git",
 			t = { require("neogit").open, "neogit" },
-			c = { tbuiltin.git_commits, "commits" },
-			b = { tbuiltin.git_branches, "branches" },
+			c = { ":Git commit<cr>", "[C]ommit" },
 			s = {
 				function()
 					tbuiltin.git_status({
@@ -111,9 +110,9 @@ wk.register({
 			U = { gitsigns.reset_buffer_index, "unstage buffer" },
 			p = { gitsigns.prev_hunk, "previous hunk" },
 			n = { gitsigns.next_hunk, "next hunk" },
-			d = { gitsigns.preview_hunk, "preview hunk" },
+			h = { gitsigns.preview_hunk, "preview hunk" },
 			D = { gitsigns.diffthis, "diff file" },
-			h = {
+			b = {
 				function()
 					gitsigns.blame_line({ full = true })
 				end,
