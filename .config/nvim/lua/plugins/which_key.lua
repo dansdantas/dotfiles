@@ -19,6 +19,12 @@ map.set("", "<down>", "<nop>", { remap = true })
 map.set("", "<left>", "<nop>", { remap = true })
 map.set("", "<right>", "<nop>", { remap = true })
 
+map.set("n", "J", "mzJ`z")
+map.set("n", "<C-d>", "<C-d>zz")
+map.set("n", "<C-u>", "<C-u>zz")
+map.set("n", "n", "nzzzv")
+map.set("n", "N", "Nzzzv")
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -253,6 +259,8 @@ wk.register({
 wk.register({
 	[",aj"] = { ":AnyJumpVisual<cr>", "jump to definition under visual cursor" },
 	["<leader>y"] = { '"+y', "copy to clipboard" },
+	J = { ":m '>+1<CR>gv=gv", "move selected lines downwards" },
+	K = { ":m '<-2<CR>gv=gv", "move selected lines upwards" },
 }, { mode = "v" })
 
 -- remap true
