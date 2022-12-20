@@ -3,6 +3,7 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 require("mason").setup({
+	PATH = 'append',
 	ui = {
 		check_outdated_packages_on_open = false,
 	},
