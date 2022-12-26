@@ -3,7 +3,7 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 require("mason").setup({
-	PATH = 'append',
+	PATH = "append",
 	ui = {
 		check_outdated_packages_on_open = false,
 	},
@@ -77,7 +77,7 @@ local servers = {
 local default_conf = {
 	flags = { debounce_text_changes = 150 },
 	capabilities = capabilities,
-	on_attach = require('functions').on_attach_lsp,
+	on_attach = require("functions").on_attach_lsp,
 }
 
 local server_names = {}

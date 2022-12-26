@@ -30,5 +30,5 @@ end
 
 null.setup({
 	sources = sources,
-	on_attach = require('functions').on_attach_lsp,
+	on_attach = require("functions").on_attach_lsp,
 })
