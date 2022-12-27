@@ -49,7 +49,6 @@ if [ -z "$MACOS" ]; then
 elif then;
   # All mac os related settings
   export ANTIGEN_HOME=/usr/local/share/antigen
-  echo "MacOS"
 fi
 
 # -------------------------------------------------------------------
