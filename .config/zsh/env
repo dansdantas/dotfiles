@@ -42,7 +42,6 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PATHMARKS_FILE="$XDG_DATA_HOME/pathmarks/file"
-# export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
 
 # Antigen
 export ANTIGEN_HOME="$XDG_CONFIG_HOME/antigen"
