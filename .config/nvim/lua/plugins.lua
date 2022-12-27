@@ -298,6 +298,18 @@ return require("packer").startup(function(use)
 	use("nanotee/luv-vimdocs")
 	use("milisims/nvim-luaref")
 
+	use({
+		"ray-x/go.nvim",
+		require = {
+			"ray-x/guihua.lua", -- recommanded if need floating window support,
+			"neovim/nvim-lspconfig",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("go").setup()
+		end,
+	})
+
 	if PackerBootstrap then
 		require("packer").sync()
 	end
