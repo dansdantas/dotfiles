@@ -106,7 +106,7 @@ rbenv() {
 
 # PyEnv
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
-export PATH="$PATH:$PYENV_ROOT/bin"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 pyenv() {
   if [[ $PYENV_LOADED != true ]]; then
