@@ -25,9 +25,11 @@ alias ngrok="$HOME/Projects/tools/ngrok"
 alias zlt="time zsh -i -c exit"
 alias sha='shasum -a 256 '
 
-# Xclip
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
+if [ -z "$MACOS" ]; then
+  # Xclip
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
+fi
 
 # Compress and Extract
 alias zip='zip -r'
