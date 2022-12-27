@@ -177,6 +177,7 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/cmp-nvim-lua")
 	use("onsails/lspkind.nvim")
+	use("amarakon/nvim-cmp-buffer-lines")
 
 	-- Snippets
 	use("honza/vim-snippets")

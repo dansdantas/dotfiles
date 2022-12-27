@@ -80,6 +80,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 	}, {
 		{ name = "buffer", keyword_length = 3 },
+		{ name = "buffer-lines" },
 		{ name = "path" },
 	}, {
 		{ name = "nvim_lua" },
@@ -112,6 +113,12 @@ end, { silent = true })
 vim.keymap.set({ "i", "s" }, "<C-space>", function()
 	if luasnip.expand_or_locally_jumpable() then
 		luasnip.expand_or_jump()
+	end
+end, { silent = true })
+
+vim.keymap.set({ "i", "s" }, "<C-j>", function()
+	if luasnip.locally_jumpable() then
+		luasnip.locally_jump()
 	end
 end, { silent = true })
 
