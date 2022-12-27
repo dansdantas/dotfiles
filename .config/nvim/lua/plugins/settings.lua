@@ -1,7 +1,6 @@
 local env = vim.env
 local g = vim.g
 local map = vim.keymap
-local v = vim.v
 local fn = vim.fn
 
 -- AnyJump
@@ -77,9 +76,10 @@ g.ale_linters = {
 g.used_javascript_libs = "underscore,vue,jquery"
 
 -- Test
-v["test#strategy"] = "vimux"
+g["test#strategy"] = "floaterm"
 g["test#preserve_screen"] = 1
 g["test#echo_command"] = 0
+g["test#neovim#term_position"] = "vert botright 50"
 
 -- Motion
 g["sneak#s_next"] = 1
