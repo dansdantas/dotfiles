@@ -11,15 +11,15 @@ require("mason-null-ls").setup({
 })
 
 local sources = {
-	formatting.stylua,
 	formatting.eslint_d,
 	formatting.prettierd,
+	formatting.goimports,
 
 	null.builtins.completion.luasnip,
 	null.builtins.code_actions.eslint,
 }
 
-for _, diag in pairs({ "eslint_d", "selene" }) do
+for _, diag in pairs({ "eslint_d", "selene", "golangci_lint" }) do
 	table.insert(
 		sources,
 		diagnostics[diag].with({
