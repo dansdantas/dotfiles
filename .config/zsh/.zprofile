@@ -10,6 +10,10 @@ export BROWSER="brave-desktop"
 export READER="zathura"
 export FILE="vifm"
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export MACOS=true
+fi
+
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
