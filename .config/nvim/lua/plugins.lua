@@ -282,20 +282,19 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- Html
+	-- Testing
+	use("janko-m/vim-test")
+	use({ "tpope/vim-dispatch", opt = true, cmd = { "Dispatch", "Make", "Focus", "Start" } })
+	use("benmills/vimux")
+	use("szw/vim-maximizer")
+	use("voldikss/vim-floaterm")
+
+	-- Languages
 	use("mattn/emmet-vim")
 	use("tmhedberg/matchit")
 
-	-- Ruby & Rails
-	use("janko-m/vim-test")
 	-- use 'tpope/vim-rails'
-	use({ "tpope/vim-dispatch", opt = true, cmd = { "Dispatch", "Make", "Focus", "Start" } })
-	use("benmills/vimux")
 
-	-- Debugging
-	use("szw/vim-maximizer")
-
-	-- Lua
 	use("nanotee/luv-vimdocs")
 	use("milisims/nvim-luaref")
 
