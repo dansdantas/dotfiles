@@ -150,6 +150,17 @@ return require("packer").startup(function(use)
 		},
 	})
 
+	-- Dap
+	use({
+		"mfussenegger/nvim-dap",
+		requires = {
+			"rcarriga/nvim-dap-ui",
+			"theHamsta/nvim-dap-virtual-text",
+			"nvim-telescope/telescope-dap.nvim",
+			"leoluz/nvim-dap-go",
+		},
+	})
+
 	-- Linters
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
