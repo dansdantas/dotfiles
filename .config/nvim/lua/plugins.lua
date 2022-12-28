@@ -192,7 +192,6 @@ return require("packer").startup(function(use)
 	})
 
 	-- Syntax
-	use("mfussenegger/nvim-lint")
 	use("editorconfig/editorconfig-vim")
 	use({
 		"numToStr/Comment.nvim",

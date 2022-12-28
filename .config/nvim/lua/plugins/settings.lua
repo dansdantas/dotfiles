@@ -80,13 +80,3 @@ g["test#strategy"] = "floaterm"
 g["test#preserve_screen"] = 1
 g["test#echo_command"] = 0
 g["test#neovim#term_position"] = "vert botright 50"
-
--- Motion
-g["sneak#s_next"] = 1
-g["sneak#label"] = 1
-
--- Linter
-require("lint").linters_by_ft = {
-	ruby = { "ruby", "rubocop" },
-	lua = { "luacheck" },
-}
