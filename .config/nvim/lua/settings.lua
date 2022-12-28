@@ -50,10 +50,7 @@ o.smartcase = true -- ...unless we type a capital
 o.incsearch = true
 
 -- Abbreviations
-vim.cmd([[iabbr pry binding.pry]])
 vim.cmd([[iabbr dbg debugger]])
-vim.cmd([[iabbr log console.log]])
-vim.cmd([[abbr todo: <esc>:call AddToDo()<cr>]])
 
 -- Keep undo history across sessions, by storing in file
 local undo_dir = vim.env.XDG_DATA_HOME .. "/nvim/undo"
