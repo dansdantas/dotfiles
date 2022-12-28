@@ -240,8 +240,7 @@ return require("packer").startup(function(use)
 	-- Git
 	use("tpope/vim-fugitive")
 	use("tpope/vim-rhubarb")
-	use("tommcdo/vim-fubitive")
-	use("sodapopcan/vim-twiggy")
+	use("tommcdo/vim-fubitive") -- Bitbucket support on fugitive GBrowse
 	use({
 		"lewis6991/gitsigns.nvim",
 		config = function()
@@ -283,14 +282,15 @@ return require("packer").startup(function(use)
 
 	-- Testing
 	use("janko-m/vim-test")
-	use({ "tpope/vim-dispatch", opt = true, cmd = { "Dispatch", "Make", "Focus", "Start" } })
 	use("benmills/vimux")
-	use("szw/vim-maximizer")
 	use("voldikss/vim-floaterm")
+
+	use({ "tpope/vim-dispatch", opt = true, cmd = { "Dispatch", "Make", "Focus", "Start" } })
+	use("szw/vim-maximizer")
 
 	-- Languages
 	use("mattn/emmet-vim")
-	use("tmhedberg/matchit")
+	use("andymass/vim-matchup")
 
 	-- use 'tpope/vim-rails'
 
