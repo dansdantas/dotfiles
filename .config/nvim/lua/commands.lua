@@ -1,11 +1,6 @@
 local au = vim.api.nvim_create_autocmd
 local aug = vim.api.nvim_create_augroup
 
-au("FileType", {
-	pattern = "vue",
-	command = "syntax sync fromstart",
-})
-
 au({ "BufRead", "BufNewFile" }, {
 	pattern = { "*.arb" },
 	command = "setfiletype ruby",
