@@ -5,6 +5,8 @@ Priorities:
     - settings
     - telescope
     - snippets
+    - any-jump
+    - vim-startify
   - finalize statusline
   - adjust config for bufferline
   - Refactor maps on which-key

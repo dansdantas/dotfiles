@@ -61,20 +61,6 @@ g.loaded_ruby_provider = 0
 g.ruby_path = env.RBENV_ROOT .. "/shims"
 g.ruby_host_prog = env.RBENV_ROOT .. "/shims/ruby"
 
--- ALE
-g.ale_completion_enabled = 1
-g.ale_sign_column_always = 1
-g.ale_echo_msg_format = "[%linter%] %s"
-g.ale_sign_error = "•"
-g.ale_sign_warning = "•"
-g.ale_linters = {
-	javascript = { "jshint", "eslint" },
-	ruby = { "reek", "rubocop", "ruby", "rails_best_practices" },
-}
-
--- Vue
-g.used_javascript_libs = "underscore,vue,jquery"
-
 -- Test
 g["test#strategy"] = "floaterm"
 g["test#preserve_screen"] = 1
