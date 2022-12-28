@@ -1,109 +1,16 @@
 " -------------------------------------------------------------------
-" Keymaps
-" -------------------------------------------------------------------
-
-" reload config
-nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
-
-nnoremap + <C-a>
-nnoremap - <C-x>
-
-" === Handle save ===
-nnoremap <leader>w :w!<cr>
-nnoremap <leader>x :x!<cr>
-nnoremap <leader>q :q<cr>
-nnoremap <leader>z :qa<cr>
-
-" === Tab & Buffer movements ===
-nnoremap <leader>j :tabprevious<cr>
-nnoremap <leader>k :tabnext<cr>
-nnoremap <leader>; :bd!<cr>
-nnoremap <leader>h :bprev<cr>
-nnoremap <leader>l :bnext<cr>
-
-" === Split ===
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" === Moviments ===
-nnoremap ;; $
-nnoremap B ^
-nnoremap E $
-
-" === Clipboard ===
-nnoremap <leader>p "+p
-nnoremap <leader>y "+y
-vnoremap <leader>y "+y
-noremap Y y$
-
-" === Buffers ===
-nnoremap <C-B> :%bd!<CR>
-
-" === Remove white spaces ===
-nnoremap <Leader><BS> :%s/\s\+$//e<CR>
-
-" === Disable visual mode
-map Q <nop>
-
-" Disable arrow keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-
-" Quickfix
-nnoremap <Leader>n :cnext<CR>
-nnoremap <Leader>r :cprevious<CR>
-
-" Copy current file path to clipboard
-nmap ,cs :let @+=expand("%")<CR>
-nmap ,cl :let @+=expand("%:p")<CR>
-
-" Search current word on help
-nmap ,he "zyiw:exe "h ".@z.""<CR>
-
-" Search for word under cursor using Ag
-nmap <Leader>ag "zyiw:exe "Ag ".@z.""<CR>
-
-" Global folding
-nnoremap <Leader>z :call FoldingToggleFold()<cr>
-
-" -------------------------------------------------------------------
 " Plugins configurations
 " -------------------------------------------------------------------
 
 " === AnyJump ===
 let g:any_jump_disable_default_keybindings = 1
 
-" Normal mode: Jump to definition under cursore
-nnoremap ,aj :AnyJump<CR>
-
-" Visual mode: jump to selected text in visual mode
-xnoremap ,aj :AnyJumpVisual<CR>
-
-" Normal mode: open previous opened file (after jump)
-nnoremap ,ab :AnyJumpBack<CR>
-
-" Normal mode: open last closed search window again
-nnoremap ,al :AnyJumpLastResults<CR>
-
 " === Startitfy ===
 let g:startify_session_dir = '$XDG_DATA_HOME/nvim/session'
 let g:startify_disable_at_vimenter = 1
-nnoremap <leader>s :SSave<CR>
-nnoremap <leader>S :SLoad<space>
 
 " === FZF ===
 let $FZF_DEFAULT_COMMAND = 'ag --vimgrep --hidden --ignore .git -l --ignore spec/fixtures -g ""'
-
-nnoremap <leader>o :FZF<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>c :Commits<CR>
-nnoremap <leader>aa :Ag<Space>
-nnoremap <leader>e :BLines<CR>
-nnoremap <leader>i :Commands<CR>
 
 " Center window
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
@@ -140,8 +47,6 @@ let g:fzf_action = {
 " === Deoplete ===
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#tag#cache_limit_size = 5000000
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " === StatusLine ===
 let g:lightline = {
@@ -212,31 +117,13 @@ let g:ale_linters = {
 \ 'ruby': ['reek', 'rubocop', 'ruby', 'rails_best_practices']
 \}
 
-nnoremap <leader>ak :ALEPrevious<CR>
-nnoremap <leader>aK :ALEPreviousWrap<CR>
-nnoremap <leader>aj :ALENext<CR>
-nnoremap <leader>aJ :ALENextWrap<CR>
-nnoremap <leader>al :ALELint<CR>
-nnoremap <leader>at :ALEToggle<CR>
-
-" === File manager ===
-nnoremap <leader>F :NERDTreeToggle<CR>
-nnoremap <leader>f :NERDTreeFind<CR>
-
 " === Vue ===
-autocmd FileType vue syntax sync fromstart
 let g:used_javascript_libs = 'underscore,vue,jquery'
 
 " === Test ===
 let test#strategy = "vimux"
 let g:test#preserve_screen = 1
 let g:test#echo_command = 0
-nnoremap <leader>tn :TestNearest<CR>
-nnoremap <leader>tf :TestFile<CR>
-nnoremap <leader>ts :TestSuite<CR>
-nnoremap <leader>tl :TestLast<CR>
-nnoremap <leader>tg :TestVisit<CR>
-nnoremap <leader>tw :TestLastOnlyFail<CR>
 
 " === Motion ===
 let g:sneak#s_next = 1
@@ -253,52 +140,12 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 let g:coc_snippet_next = '<tab>'
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" if has('patch8.1.1068')
-"   " Use `complete_info` if your (Neo)Vim version supports it.
-"   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-" else
-"   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" endif
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -311,13 +158,6 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap ,f  <Plug>(coc-format-selected)
-nmap ,f  <Plug>(coc-format-selected)
-
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -325,34 +165,6 @@ augroup mygroup
   " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
-
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap ,as  <Plug>(coc-codeaction-selected)
-nmap ,as  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current line.
-nmap ,ac  <Plug>(coc-codeaction)
-
-" Apply AutoFix to problem on the current line.
-" nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Introduce function text object
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-
-" Use <TAB> for selections ranges.
-" NOTE: Requires 'textDocument/selectionRange' support from the language server.
-" coc-tsserver, coc-python are the examples of servers that support it.
-" nmap <silent> <TAB> <Plug>(coc-range-select)
-" xmap <silent> <TAB> <Plug>(coc-range-select)
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-nmap ,f :Format<cr>
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
@@ -365,108 +177,10 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" == CoCList ===
-
-" Show all diagnostics.
-nnoremap <silent> ,d  :<C-u>CocList diagnostics<cr>
-
-" Manage extensions.
-nnoremap <silent> ,e  :<C-u>CocList extensions<cr>
-
-" Show commands.
-nnoremap <silent> ,co  :<C-u>CocList commands<cr>
-
-" Find symbol of current document.
-nnoremap <silent> ,o  :<C-u>CocList outline<cr>
-
-" Search workspace symbols.
-nnoremap <silent> ,s  :<C-u>CocList -I symbols<cr>
-
-" Do default action for next item.
-nnoremap <silent> ,j  :<C-u>CocNext<CR>
-
-" Do default action for previous item.
-nnoremap <silent> ,k  :<C-u>CocPrev<CR>
-
-" Resume latest coc list.
-nnoremap <silent> ,p  :<C-u>CocListResume<CR>
-
 " === CocSnippets ===
-
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
 
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-" Maximize
-nnoremap <leader>mt :MaximizerToggle<CR>
-
-" -------------------------------------------------------------------
-" Functions
-" -------------------------------------------------------------------
-
-function! AddToDo()
-    let branch_name = system('printf $(git rev-parse --abbrev-ref HEAD)')
-    execute 'normal! i @todo '.branch_name.' -'
-    startinsert!
-endfunction
-
-""" folding
-function! FoldingToggleFold()
-   if foldlevel('.') == 0
-      " No fold exists at the current line,
-      " so create a fold based on indentation
-
-      let l_min = line('.')   " the current line number
-      let l_max = line('$')   " the last line number
-      let i_min = indent('.') " the indentation of the current line
-      let l = l_min + 1
-
-      " Search downward for the last line whose indentation > i_min
-      while l <= l_max
-         " if this line is not blank ...
-         if strlen(getline(l)) > 0 && getline(l) !~ '^\s*$'
-            if indent(l) <= i_min
-
-               " we've gone too far
-               let l = l - 1    " backtrack one line
-               break
-            endif
-         endif
-         let l = l + 1
-      endwhile
-
-      " Clamp l to the last line
-      if l > l_max
-         let l = l_max
-      endif
-
-      " Backtrack to the last non-blank line
-      while l > l_min
-         if strlen(getline(l)) > 0 && getline(l) !~ '^\s*$'
-            break
-         endif
-         let l = l - 1
-      endwhile
-
-      "execute "normal i" . l_min . "," . l . " fold"   " print debug info
-
-      if l > l_min
-         " Create the fold from l_min to l
-         execute l_min . "," . l . " fold"
-      endif
-   else
-      " Delete the fold on the current line
-      normal zd
-   endif
-endfunction
