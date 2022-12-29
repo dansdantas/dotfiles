@@ -70,7 +70,6 @@ telescope.setup({
 		file_previewer = previewers.vim_buffer_cat.new,
 		grep_previewer = previewers.vim_buffer_vimgrep.new,
 		qflist_previewer = previewers.vim_buffer_qflist.new,
-		file_sorter = require("telescope.sorters").get_fzy_sorter,
 
 		mappings = {
 			i = {
@@ -129,6 +128,6 @@ telescope.setup({
 	},
 })
 
-telescope.load_extension("fzy_native")
 telescope.load_extension("ui-select")
 telescope.load_extension("file_browser")
+telescope.load_extension("fzf")
