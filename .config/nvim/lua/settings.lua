@@ -1,5 +1,4 @@
 local o = vim.opt
-local g = vim.g
 
 --- General
 o.encoding = "utf-8" -- Set encoding
@@ -25,13 +24,6 @@ o.shiftround = true -- Calculate shiftwidth based on line start
 
 -- Chars
 o.list = true
-
--- Colors configuration
-g.onedark_terminal_italics = 1
-g.onedark_hide_endofbuffer = 1
-o.termguicolors = true -- Enable true color
-o.background = "dark" -- Force dark background
-vim.cmd([[colorscheme onedark]]) -- Set colorscheme
 
 -- Turn off swap files
 o.swapfile = false -- Disable create of swap file

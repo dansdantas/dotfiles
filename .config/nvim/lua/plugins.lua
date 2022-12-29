@@ -222,6 +222,10 @@ return require("packer").startup(function(use)
 	use({
 		"navarasu/onedark.nvim",
 		config = function()
+			vim.g.onedark_terminal_italics = 1
+			vim.g.onedark_hide_endofbuffer = 1
+			vim.o.termguicolors = true -- Enable true color
+			vim.o.background = "dark" -- Force dark background
 			local onedark = require("onedark")
 			onedark.setup({
 				style = "darker",
