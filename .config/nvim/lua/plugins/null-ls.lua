@@ -29,7 +29,5 @@ null.setup({
 	on_attach = require("functions").on_attach_lsp,
 	debouce = 150,
 	diagnostics_format = "[#{c}] #{m} (#{s})",
-	diagnostic_config = {
-		method = null.methods.DIAGNOSTICS_ON_SAVE,
-	}
+	diagnostic_config = { method = null.methods.DIAGNOSTICS_ON_SAVE },
 })
