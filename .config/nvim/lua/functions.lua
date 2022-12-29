@@ -153,6 +153,16 @@ M.on_attach_lsp = function(_, bufnr)
 	end, { desc = "Format current buffer with LSP" })
 
 	nmap(",f", ":Format<cr>", "Format current buffer with LSP")
+
+	vim.keymap.set("v", ",f", function()
+		vim.lsp.buf.format({
+			range = {
+				start = vim.api.nvim_buf_get_mark(bufnr, "<"),
+				["end"] = vim.api.nvim_buf_get_mark(bufnr, ">"),
+			},
+			async = true,
+		})
+	end, { desc = "LSP: range formatting" })
 end
 
 return M
