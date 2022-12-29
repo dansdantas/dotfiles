@@ -7,6 +7,7 @@ Priorities:
     - snippets
     - any-jump
     - vim-startify
+    - mason
   - finalize statusline
   - adjust config for bufferline
   - Refactor maps on which-key
