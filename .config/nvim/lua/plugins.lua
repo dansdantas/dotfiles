@@ -310,7 +310,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"ray-x/go.nvim",
-		require = {
+		requires = {
 			"ray-x/guihua.lua", -- recommanded if need floating window support,
 			"neovim/nvim-lspconfig",
 			"nvim-treesitter/nvim-treesitter",
