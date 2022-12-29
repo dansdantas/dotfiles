@@ -61,6 +61,8 @@ return require("packer").startup(function(use)
 	use({
 		"nvim-tree/nvim-tree.lua",
 		requires = { "nvim-tree/nvim-web-devicons" },
+		opt = true,
+		cmd = { "NvimTreeFindFile", "NvimTreeToggle" },
 		config = function()
 			vim.g.loaded_netrw = 1
 			vim.g.loaded_netrwPlugin = 1

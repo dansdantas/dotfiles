@@ -4,7 +4,6 @@ local wk = require("which-key")
 local gitsigns = require("gitsigns")
 local bfl = require("bufferline")
 local spread = require("spread")
-local tree = require("nvim-tree.api").tree
 
 local workspace = require("workspace")
 local functions = require("functions")
@@ -174,7 +173,7 @@ wk.register({
 			c = { spread.combine, "combine params" },
 		},
 
-		F = { tree.toggle, "toggle nerdtree" },
+		F = { ":NvimTreeToggle<cr>", "toggle nerdtree" },
 		f = { ":NvimTreeFindFile<cr>", "find current file on nerdtree" },
 
 		mt = { ":MaximizerToggle<cr>", "toggle maximize current buffer" },
