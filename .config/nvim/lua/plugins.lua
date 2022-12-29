@@ -123,7 +123,7 @@ return require("packer").startup(function(use)
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 			{ "nvim-telescope/telescope-file-browser.nvim" },
-			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make", cond = vim.fn.executable("make") == 1 },
+			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 		},
 	})
 
