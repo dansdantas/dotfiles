@@ -14,21 +14,22 @@ local sources = {
 	formatting.eslint_d,
 	formatting.prettierd,
 	formatting.goimports,
+	formatting.stylua,
+
+	diagnostics.eslint_d,
+	diagnostics.selene,
+	diagnostics.golangci_lint,
 
 	null.builtins.completion.luasnip,
 	null.builtins.code_actions.eslint,
 }
 
-for _, diag in pairs({ "eslint_d", "selene", "golangci_lint" }) do
-	table.insert(
-		sources,
-		diagnostics[diag].with({
-			diagnostics_format = "[" .. diag .. "] #{m}\n(#{c})",
-		})
-	)
-end
-
 null.setup({
 	sources = sources,
 	on_attach = require("functions").on_attach_lsp,
+	debouce = 150,
+	diagnostics_format = "[#{c}] #{m} (#{s})",
+	diagnostic_config = {
+		method = null.methods.DIAGNOSTICS_ON_SAVE,
+	}
 })
