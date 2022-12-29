@@ -1,13 +1,11 @@
 Priorities:
   - config plugins:
-    - cmp
-    - lsp
     - settings
     - telescope
     - snippets
     - any-jump
     - vim-startify
-    - mason
+  - split mason config from lsp
   - finalize statusline
   - adjust config for bufferline
   - Refactor maps on which-key
@@ -17,8 +15,6 @@ Priorities:
   - change LspInstall to update automatically
 
 Investigate:
-  - fix Neogit problem with commiting bare repo
-  - ale errors on status line?
   - sync file history and undo?
 
 Terminal:
