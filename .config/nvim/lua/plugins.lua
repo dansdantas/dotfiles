@@ -187,10 +187,10 @@ return require("packer").startup(function(use)
 
 	-- Layout && Status
 	use({ "mhinz/vim-startify", opt = true, cmd = { "SSave", "SLoad", "Startify" } })
-	use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
+	use({ "akinsho/bufferline.nvim", requires = "nvim-tree/nvim-web-devicons" })
 	use({
 		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
 
 	-- Syntax
