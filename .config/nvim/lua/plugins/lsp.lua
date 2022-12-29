@@ -102,3 +102,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	update_in_insert = false,
 	show_diagnostic_autocmds = { "InsertLeave" },
 })
+
+vim.diagnostic.config({
+	update_in_insert = false,
+})
