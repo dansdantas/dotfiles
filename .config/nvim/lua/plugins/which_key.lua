@@ -108,9 +108,11 @@ wk.register({
 			c = { ":Git commit<cr>", "[C]ommit" },
 			s = {
 				function()
-					tbuiltin.git_status({
-						is_bare = vim.env.GIT_WORK_TREE,
-					})
+					if vim.env.GIT_WORK_TREE then
+						vim.cmd([[Git status]])
+					else
+						tbuiltin.git_status()
+					end
 				end,
 				"[S]tatus",
 			},
