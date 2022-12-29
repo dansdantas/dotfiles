@@ -32,6 +32,5 @@ au({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
 	callback = function()
 		vim.opt.foldmethod = "expr"
 		vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-		vim.opt.foldlevel = 9999
 	end,
 })
