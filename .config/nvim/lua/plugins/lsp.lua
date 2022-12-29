@@ -11,6 +11,7 @@ require("mason").setup({
 require("fidget").setup({})
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Setup lspconfig.
 local lsp = require("lspconfig")
@@ -18,8 +19,8 @@ local lsp = require("lspconfig")
 local servers = {
 	clangd = {},
 	gopls = {
+		cmd = { "gopls" },
 		settings = {
-			cmd = { "gopls" },
 			gopls = {
 				experimentalPostfixCompletions = true,
 				analyses = {
