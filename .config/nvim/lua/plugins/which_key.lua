@@ -38,7 +38,8 @@ wk.register({
 			o = { tbuiltin.find_files, "files" },
 			b = { tbuiltin.buffers, "buffers" },
 			d = { functions.search_dotfiles, "dotfiles" },
-			g = { tbuiltin.grep_string, "grep" },
+			w = { tbuiltin.grep_string, "find [W]ord" },
+			g = { tbuiltin.live_grep, "by [G]rep" },
 			["?"] = { tbuiltin.oldfiles, "recent files" },
 			e = { tbuiltin.current_buffer_fuzzy_find, "fuzzy find on buffer" },
 			f = {
@@ -47,7 +48,17 @@ wk.register({
 				end,
 				"files without preview",
 			},
-			r = { tbuiltin.live_grep, "live grep" },
+		},
+
+		["/"] = {
+			function()
+				-- You can pass additional configuration to telescope to change theme, layout, etc.
+				require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+					winblend = 10,
+					previewer = false,
+				}))
+			end,
+			"[/] Fuzzily search in current buffer]",
 		},
 
 		b = {
