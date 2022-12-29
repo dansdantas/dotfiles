@@ -19,6 +19,14 @@ au("FileType", {
 	end,
 })
 
+au("FileType", {
+	pattern = { "go", "lua" },
+	callback = function()
+		vim.bo.expandtab = false
+		vim.wo.list = false
+	end,
+})
+
 au("BufWritePre", {
 	pattern = "NeogitCommitMessage",
 	callback = function()
