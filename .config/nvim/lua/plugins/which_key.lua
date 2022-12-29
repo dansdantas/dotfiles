@@ -93,7 +93,7 @@ wk.register({
 
 		g = {
 			name = "Git",
-			t = { require("neogit").open, "neogit" },
+			g = { require("neogit").open, "neogit" },
 			c = { ":Git commit<cr>", "[C]ommit" },
 			s = {
 				function()
@@ -101,7 +101,7 @@ wk.register({
 						is_bare = vim.env.GIT_WORK_TREE,
 					})
 				end,
-				"status",
+				"[S]tatus",
 			},
 			a = { gitsigns.stage_hunk, "[A]dd hunk" },
 			u = { gitsigns.undo_stage_hunk, "[U]nstage hunk" },
@@ -110,12 +110,14 @@ wk.register({
 			p = { gitsigns.prev_hunk, "[P]revious hunk" },
 			n = { gitsigns.next_hunk, "[N]ext hunk" },
 			h = { gitsigns.preview_hunk, "preview [H]unk" },
-			D = { gitsigns.diffthis, "[D]iff file" },
+			d = { gitsigns.diffthis, "[D]iff file" },
+			q = { gitsigns.setqflist, "populate hunks to loclist" },
+			t = { gitsigns.toggle_deleted, "[T]oggle deleted hunks" },
 			b = {
 				function()
 					gitsigns.blame_line({ full = true })
 				end,
-				"blame line",
+				"[B]lame",
 			},
 		},
 
