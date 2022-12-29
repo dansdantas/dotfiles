@@ -172,14 +172,18 @@ return require("packer").startup(function(use)
 	})
 
 	-- Comp
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/cmp-nvim-lua")
-	use("onsails/lspkind.nvim")
-	use("amarakon/nvim-cmp-buffer-lines")
+	use({
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-nvim-lua",
+			"onsails/lspkind.nvim",
+			"amarakon/nvim-cmp-buffer-lines",
+		},
+	})
 
 	-- Snippets
 	use("honza/vim-snippets")
