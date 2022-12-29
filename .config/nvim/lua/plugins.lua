@@ -210,12 +210,12 @@ return require("packer").startup(function(use)
 	})
 
 	-- Highlighting
-	use("pangloss/vim-javascript")
-	use("othree/javascript-libraries-syntax.vim")
-	-- use 'vim-ruby/vim-ruby'
-	use("slim-template/vim-slim")
-	use("mxw/vim-jsx")
-	use("martinda/Jenkinsfile-vim-syntax")
+	-- use("pangloss/vim-javascript")
+	-- use("othree/javascript-libraries-syntax.vim")
+	-- use("slim-template/vim-slim")
+	-- use("mxw/vim-jsx")
+	-- use("martinda/Jenkinsfile-vim-syntax")
+	-- use("sheerun/vim-polyglot")
 
 	-- Color
 	use("ellisonleao/gruvbox.nvim")
@@ -293,6 +293,7 @@ return require("packer").startup(function(use)
 	use("andymass/vim-matchup")
 
 	-- use 'tpope/vim-rails'
+	-- use 'vim-ruby/vim-ruby'
 
 	use("nanotee/luv-vimdocs")
 	use("milisims/nvim-luaref")
