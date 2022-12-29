@@ -136,8 +136,9 @@ wk.register({
 
 		v = {
 			name = "Vim",
-			c = { tbuiltin.commands, "commands" },
-			h = { tbuiltin.help_tags, "help" },
+			c = { tbuiltin.commands, "[C]ommands" },
+			h = { tbuiltin.help_tags, "[H]elp" },
+			d = { tbuiltin.diagnostics, "[D]iagnostics" },
 		},
 
 		o = { ":FZF<cr>", "FZF" },
