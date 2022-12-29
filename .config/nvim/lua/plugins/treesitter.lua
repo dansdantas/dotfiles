@@ -1,10 +1,13 @@
 local languages = {
 	"bash",
+	"c",
 	"comment",
+	"cpp",
 	"css",
 	"dockerfile",
 	"go",
 	"graphql",
+	"help",
 	"html",
 	"http",
 	"java",
@@ -25,25 +28,20 @@ local languages = {
 	"vim",
 	"vue",
 	"yaml",
-	"help",
 }
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = languages,
-	highlight = {
-		enable = true, -- false will disable the whole extension
-	},
+	highlight = { enable = true },
+	indent = { enable = true },
 	incremental_selection = {
 		enable = true,
 		keymaps = {
-			init_selection = "gnn",
-			node_incremental = "grn",
-			scope_incremental = "grc",
-			node_decremental = "grm",
+			init_selection = "<c-space>",
+			node_incremental = "<c-space>",
+			scope_incremental = "<c-s>",
+			node_decremental = "<c-backspace>",
 		},
-	},
-	indent = {
-		enable = true,
 	},
 	textobjects = {
 		select = {
@@ -51,6 +49,8 @@ require("nvim-treesitter.configs").setup({
 			lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
 			keymaps = {
 				-- You can use the capture groups defined in textobjects.scm
+				["aa"] = "@parameter.outer",
+				["ia"] = "@parameter.inner",
 				["af"] = "@function.outer",
 				["if"] = "@function.inner",
 				["ac"] = "@class.outer",
@@ -75,6 +75,15 @@ require("nvim-treesitter.configs").setup({
 			goto_previous_end = {
 				["[M"] = "@function.outer",
 				["[]"] = "@class.outer",
+			},
+		},
+		swap = {
+			enable = true,
+			swap_next = {
+				["<leader>a"] = "@parameter.inner",
+			},
+			swap_previous = {
+				["<leader>A"] = "@parameter.inner",
 			},
 		},
 	},
