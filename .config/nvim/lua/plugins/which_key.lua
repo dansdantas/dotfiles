@@ -35,13 +35,12 @@ wk.register({
 		["<leader>l"] = { ":luafile %<CR>", "reload current lua file" },
 		t = {
 			name = "Telescope",
-			o = { tbuiltin.find_files, "files" },
-			b = { tbuiltin.buffers, "buffers" },
-			d = { functions.search_dotfiles, "dotfiles" },
+			o = { tbuiltin.find_files, "[O]pen files" },
+			b = { tbuiltin.buffers, "[B]uffers" },
+			d = { functions.search_dotfiles, "[D]otfiles" },
 			w = { tbuiltin.grep_string, "find [W]ord" },
 			g = { tbuiltin.live_grep, "by [G]rep" },
 			["?"] = { tbuiltin.oldfiles, "recent files" },
-			e = { tbuiltin.current_buffer_fuzzy_find, "fuzzy find on buffer" },
 			f = {
 				function()
 					return tbuiltin.find_files({ previewer = false })

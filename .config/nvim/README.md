@@ -1,7 +1,5 @@
 Priorities:
   - config plugins:
-    - settings
-    - telescope
     - snippets
     - any-jump
     - vim-startify
