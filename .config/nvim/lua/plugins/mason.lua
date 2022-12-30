@@ -8,9 +8,9 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-	ensure_installed = utils.lsp_server_names,
+	ensure_installed = utils.lsp_server_names(),
 })
 
 require("mason-null-ls").setup({
-	ensure_installed = { "stylua", "eslint_d", "prettierd" },
+	ensure_installed = { "stylua", "eslint_d", "prettierd", "goimports", "selene", "golangci_lint", "eslint" },
 })
