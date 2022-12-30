@@ -1,5 +1,4 @@
 Terminal:
-  - update pyenv
   - update rbenv
   - update nvm
   - remove outdated java config

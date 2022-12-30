@@ -47,8 +47,8 @@ g.fzf_action = {
 
 -- Python
 g.python_host_prog = env.PYENV_ROOT .. "/versions/2.7.18/bin/python"
-g.python3_host_prog = env.PYENV_ROOT .. "/versions/3.8.5/bin/python"
-g.ycm_server_python_interpreter = env.PYENV_ROOT .. "/versions/3.8.5/bin/python"
+g.python3_host_prog = env.PYENV_ROOT .. "/versions/3.11.1/bin/python"
+g.ycm_server_python_interpreter = env.PYENV_ROOT .. "/versions/3.11.1/bin/python"
 
 -- Ruby
 g.loaded_ruby_provider = 0
