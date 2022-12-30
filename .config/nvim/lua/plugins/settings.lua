@@ -1,11 +1,9 @@
 local env = vim.env
 local g = vim.g
-local map = vim.keymap
 local fn = vim.fn
 
 -- AnyJump
 g.any_jump_disable_default_keybindings = 1
-map.set("x", ",aj", ":AnyJumpVisual") -- Visual mode: jump to selected text in visual mode
 
 -- Startitfy
 g.startify_session_dir = fn.stdpath("data") .. "/sessions"

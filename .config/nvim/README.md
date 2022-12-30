@@ -1,7 +1,6 @@
 Priorities:
   - config plugins:
     - snippets
-    - any-jump
     - vim-startify
   - split mason config from lsp
   - finalize statusline

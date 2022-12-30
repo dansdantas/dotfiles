@@ -216,9 +216,9 @@ wk.register({
 	[","] = {
 		a = {
 			name = "AnyJump",
-			j = { ":AnyJump<cr>", "jump to definition under cursore" },
-			b = { ":AnyJumpBack<cr>", "open previous opened file (after jump)" },
-			l = { ":AnyJumpLastResults<cr>", "open last closed search window again" },
+			j = { ":AnyJump<cr>", "[J]ump to definition under cursor" },
+			b = { ":AnyJumpBack<cr>", "jump [B]ack to previous opened file (after jump)" },
+			l = { ":AnyJumpLastResults<cr>", "open [L]ast closed search window again" },
 		},
 
 		-- buffers
@@ -270,7 +270,7 @@ wk.register({
 
 -- Visual mappings
 wk.register({
-	[",aj"] = { ":AnyJumpVisual<cr>", "jump to definition under visual cursor" },
+	[",aj"] = { ":AnyJumpVisual<cr>", "[J]ump to definition under visual cursor" },
 	["<leader>y"] = { '"+y', "copy to clipboard" },
 	J = { ":m '>+1<CR>gv=gv", "move selected lines downwards" },
 	K = { ":m '<-2<CR>gv=gv", "move selected lines upwards" },
