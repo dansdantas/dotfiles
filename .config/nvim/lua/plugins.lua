@@ -185,7 +185,7 @@ return require("packer").startup(function(use)
 
 	-- Snippets
 	use("honza/vim-snippets")
-	use({ "saadparwaiz1/cmp_luasnip", requires = { { "L3MON4D3/LuaSnip" } } })
+	use({ "saadparwaiz1/cmp_luasnip", requires = { "L3MON4D3/LuaSnip" } })
 
 	-- Layout && Status
 	use({ "akinsho/bufferline.nvim", requires = "nvim-tree/nvim-web-devicons" })
