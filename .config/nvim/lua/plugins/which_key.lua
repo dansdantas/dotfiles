@@ -148,6 +148,7 @@ wk.register({
 		d = { gitsigns.diffthis, "[D]iff file" },
 		q = { gitsigns.setqflist, "populate hunks to loclist" },
 		t = { gitsigns.toggle_deleted, "[T]oggle deleted hunks" },
+		r = { gitsigns.reset_buffer, "[R]eset buffer" },
 		b = {
 			function()
 				gitsigns.blame_line({ full = true })
