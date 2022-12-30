@@ -5,10 +5,6 @@ local fn = vim.fn
 -- AnyJump
 g.any_jump_disable_default_keybindings = 1
 
--- Startitfy
-g.startify_session_dir = fn.stdpath("data") .. "/sessions"
-g.startify_disable_at_vimenter = 1
-
 -- FZF
 env.FZF_DEFAULT_COMMAND = [[ag --vimgrep --hidden --ignore .git -l --ignore spec/fixtures -g ""]]
 

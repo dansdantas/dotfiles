@@ -1,7 +1,6 @@
 Priorities:
   - config plugins:
     - snippets
-    - vim-startify
   - split mason config from lsp
   - finalize statusline
   - adjust config for bufferline

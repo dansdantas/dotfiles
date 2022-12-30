@@ -188,7 +188,6 @@ return require("packer").startup(function(use)
 	use({ "saadparwaiz1/cmp_luasnip", requires = { { "L3MON4D3/LuaSnip" } } })
 
 	-- Layout && Status
-	use({ "mhinz/vim-startify", opt = true, cmd = { "SSave", "SLoad", "Startify" } })
 	use({ "akinsho/bufferline.nvim", requires = "nvim-tree/nvim-web-devicons" })
 	use({
 		"nvim-lualine/lualine.nvim",

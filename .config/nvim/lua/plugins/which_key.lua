@@ -156,8 +156,6 @@ wk.register({
 
 		s = {
 			d = { tbuiltin.diagnostics, "search diagnostics" },
-			s = { ":SSave<cr>", "save session" },
-			l = { ":SLoad ", "load session" },
 			o = {
 				function()
 					vim.opt.list = not vim.opt.list:get()
