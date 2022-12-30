@@ -2,12 +2,6 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-require("mason").setup({
-	PATH = "append",
-	ui = {
-		check_outdated_packages_on_open = false,
-	},
-})
 require("fidget").setup({})
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -79,15 +73,6 @@ local default_conf = {
 	capabilities = capabilities,
 	on_attach = require("functions").on_attach_lsp,
 }
-
-local server_names = {}
-for server, _ in pairs(servers) do
-	table.insert(server_names, server)
-end
-
-require("mason-lspconfig").setup({
-	ensure_installed = server_names,
-})
 
 for server, conf in pairs(servers) do
 	local base_conf = table.copy(default_conf)

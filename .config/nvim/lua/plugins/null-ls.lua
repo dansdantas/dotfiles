@@ -6,10 +6,6 @@ end
 local formatting = null.builtins.formatting
 local diagnostics = null.builtins.diagnostics
 
-require("mason-null-ls").setup({
-	ensure_installed = { "stylua", "eslint_d", "prettierd" },
-})
-
 local sources = {
 	formatting.eslint_d,
 	formatting.prettierd,
