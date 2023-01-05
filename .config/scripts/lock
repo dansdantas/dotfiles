@@ -21,13 +21,13 @@ convert $img -scale 10% -scale 1000% $img
 convert $img $icon -gravity center -composite $img
 
 # Pause notifications
-notify-send "DUNST_COMMAND_PAUSE"
+dunstctl set-paused true
 
 # Finally run i3lock itself
 i3lock -n -u -i $img
 
 # Resume notifications
-notify-send "DUNST_COMMAND_RESUME"
+dunstctl set-paused false
 
 # Remove image
 rm $img
