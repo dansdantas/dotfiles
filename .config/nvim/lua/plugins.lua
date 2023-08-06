@@ -62,10 +62,11 @@ return require("packer").startup(function(use)
 	use({
 		"nvim-tree/nvim-tree.lua",
 		requires = { "nvim-tree/nvim-web-devicons" },
-		opt = true,
-		cmd = { "NvimTreeFindFile", "NvimTreeToggle" },
+		-- opt = true,
+		-- cmd = { "NvimTreeFindFile", "NvimTreeToggle" },
 		config = function()
 			require("nvim-tree").setup({
+				on_attach = require("utils").on_attach_nvim_tree,
 				sort_by = "case_sensitive",
 				view = {
 					adaptive_size = true,
@@ -77,9 +78,6 @@ return require("packer").startup(function(use)
 				},
 				renderer = {
 					group_empty = true,
-				},
-				ignore_ft_on_setup = {
-					"gitcommit",
 				},
 			})
 		end,
@@ -121,7 +119,10 @@ return require("packer").startup(function(use)
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 			{ "nvim-telescope/telescope-file-browser.nvim" },
-			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+			},
 		},
 	})
 
@@ -145,7 +146,7 @@ return require("packer").startup(function(use)
 			"williamboman/mason-lspconfig.nvim",
 
 			-- Useful status updates for LSP
-			"j-hui/fidget.nvim",
+			{ "j-hui/fidget.nvim", tag = "legacy" },
 			"folke/lsp-colors.nvim",
 		},
 	})
