@@ -63,10 +63,8 @@ require("lazy").setup({
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		lazy = true,
 		module = true,
+		cmd = { "NvimTreeFindFile", "NvimTreeToggle" },
 		config = function()
-			-- vim.g.loaded_netrw = 1
-			-- vim.g.loaded_netrwPlugin = 1
-
 			require("nvim-tree").setup({
 				sort_by = "case_sensitive",
 				view = {
@@ -80,18 +78,8 @@ require("lazy").setup({
 				renderer = {
 					group_empty = true,
 				},
-				ignore_ft_on_setup = {
-					"gitcommit",
-				},
 			})
 		end,
-	},
-
-	{
-		"scrooloose/nerdtree",
-		opt = true,
-		cmd = { "NERDTreeFind", "NERDTreeToggle" },
-		dependencies = { { "Xuyuanp/nerdtree-git-plugin", opt = true } },
 	},
 
 	-- Treesitter
@@ -116,7 +104,7 @@ require("lazy").setup({
 	},
 
 	-- FZF
-	{ "junegunn/fzf", run = "cd $XDG_DATA_HOME/fzf && ./install --xdg --no-update-rc" },
+	{ "junegunn/fzf", build = "cd $XDG_DATA_HOME/fzf && ./install --xdg --no-update-rc" },
 	"junegunn/fzf.vim",
 
 	-- Telescope
@@ -124,9 +112,12 @@ require("lazy").setup({
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-telescope/telescope-fzy-native.nvim" },
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 			{ "nvim-telescope/telescope-file-browser.nvim" },
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+			},
 		},
 	},
 
@@ -151,7 +142,7 @@ require("lazy").setup({
 			"williamboman/mason-lspconfig.nvim",
 
 			-- ful status updates for LSP
-			"j-hui/fidget.nvim",
+			{ "j-hui/fidget.nvim", tag = "legacy" },
 			"folke/lsp-colors.nvim",
 		},
 	},
@@ -167,14 +158,6 @@ require("lazy").setup({
 		},
 	},
 
-	-- {
-	-- 	"ThePrimeagen/refactoring.nvim",
-	-- 	dependencies = {
-	-- 		{ "nvim-lua/plenary.nvim" },
-	-- 		{ "nvim-treesitter/nvim-treesitter" },
-	-- 	},
-	-- },
-
 	-- Linters
 	{
 		"jose-elias-alvarez/null-ls.nvim",
@@ -184,14 +167,18 @@ require("lazy").setup({
 	},
 
 	-- Comp
-	"hrsh7th/nvim-cmp",
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-buffer",
-	"hrsh7th/cmp-path",
-	"hrsh7th/cmp-cmdline",
-	"hrsh7th/cmp-nvim-lua",
-	"onsails/lspkind.nvim",
-	"amarakon/nvim-cmp-buffer-lines",
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-nvim-lua",
+			"onsails/lspkind.nvim",
+			"amarakon/nvim-cmp-buffer-lines",
+		},
+	},
 
 	-- Snippets
 	"honza/vim-snippets",
