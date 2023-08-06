@@ -86,9 +86,10 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		module = true,
-		build = function()
-			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
-		end,
+		-- build = function()
+		-- 	pcall(require("nvim-treesitter.install").update({ with_sync = true }))
+		-- end,
+		-- build = ":TSUpdate",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"RRethy/nvim-treesitter-endwise",
@@ -147,6 +148,17 @@ require("lazy").setup({
 		},
 	},
 
+	-- {
+	-- 	"nvimdev/lspsaga.nvim",
+	-- 	config = function()
+	-- 		require("lspsaga").setup({})
+	-- 	end,
+	-- 	dependencies = {
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 	},
+	-- },
+
 	-- Dap
 	{
 		"mfussenegger/nvim-dap",
@@ -177,6 +189,7 @@ require("lazy").setup({
 			"hrsh7th/cmp-nvim-lua",
 			"onsails/lspkind.nvim",
 			"amarakon/nvim-cmp-buffer-lines",
+			"lukas-reineke/cmp-under-comparator",
 		},
 	},
 
@@ -191,6 +204,29 @@ require("lazy").setup({
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
 	},
+
+	-- {
+	-- 	"sunjon/shade.nvim",
+	-- 	config = function()
+	-- 		require("shade").setup({
+	-- 			overlay_opacity = 50,
+	-- 			opacity_step = 1,
+	-- 			keys = {
+	-- 				brightness_up = "<C-Up>",
+	-- 				brightness_down = "<C-Down>",
+	-- 				toggle = "<Leader>s",
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
+	{
+		"winston0410/range-highlight.nvim",
+		dependencies = {
+			"winston0410/cmd-parser.nvim",
+		},
+		config = true,
+	},
+	-- "folke/twilight.nvim",
 
 	-- Syntax
 	"editorconfig/editorconfig-vim",
