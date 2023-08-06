@@ -7,7 +7,6 @@ local languages = {
 	"dockerfile",
 	"go",
 	"graphql",
-	"help",
 	"html",
 	"http",
 	"java",
