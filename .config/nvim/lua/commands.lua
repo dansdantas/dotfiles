@@ -6,12 +6,6 @@ au({ "BufRead", "BufNewFile" }, {
 	command = "setfiletype ruby",
 })
 
-au({ "BufWritePost" }, {
-	group = aug("PackerUserConfig", { clear = true }),
-	pattern = { "plugins.lua" },
-	command = "source <afile> | PackerCompile",
-})
-
 au("FileType", {
 	pattern = "qf",
 	callback = function()
