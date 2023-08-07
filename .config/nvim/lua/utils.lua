@@ -23,7 +23,9 @@ M.lsp_server_configs = {
 		},
 	},
 	pyright = {},
-	rust_analyzer = {},
+	rust_analyzer = {
+		cmd = { "rustup", "run", "stable", "rust-analyzer" },
+	},
 	tsserver = {},
 	vimls = {},
 	solargraph = {

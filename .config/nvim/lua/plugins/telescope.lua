@@ -26,7 +26,7 @@ local new_maker = function(filepath, bufnr, opts)
 
 	-- Do not preview on certain file size
 	filepath = vim.fn.expand(filepath)
-	vim.loop.fs_stat(filepath, function(_, stat)
+	vim.uv.fs_stat(filepath, function(_, stat)
 		if not stat then
 			return
 		end
