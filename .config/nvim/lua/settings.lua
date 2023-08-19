@@ -54,6 +54,7 @@ o.undodir = undo_dir
 o.foldmethod = "expr"
 o.foldexpr = "nvim_treesitter#foldexpr()"
 o.foldlevel = 9999
+o.foldenable = false
 
 -- Completion
 o.updatetime = 50 -- Reduce updatetime
