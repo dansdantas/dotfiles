@@ -155,6 +155,7 @@ wk.register({
 			end,
 			"[B]lame",
 		},
+		["!"] = { ":Git commit --amend<cr>", "[G]it [C]ommit ammend" },
 	},
 
 	v = {
