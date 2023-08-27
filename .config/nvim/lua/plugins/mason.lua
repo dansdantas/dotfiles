@@ -1,4 +1,4 @@
-local utils = require("utils")
+local utils = require("lsp.utils")
 
 require("mason").setup({
 	PATH = "append",
