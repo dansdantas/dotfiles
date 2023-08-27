@@ -9,12 +9,12 @@ local lsp = require("lspconfig")
 local default_conf = {
 	flags = { debounce_text_changes = 150 },
 	capabilities = capabilities,
-	on_attach = require("functions").on_attach_lsp,
+	on_attach = require("lsp.utils").on_attach,
 }
 
 local utils = require("lsp.utils")
 
-for server, conf in pairs(utils.lsp_server_configs) do
+for server, conf in pairs(utils.server_configs) do
 	local base_conf = table.copy(default_conf)
 	local full_conf = table.merge(base_conf, conf)
 	lsp[server].setup(full_conf)

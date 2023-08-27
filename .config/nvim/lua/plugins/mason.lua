@@ -1,4 +1,4 @@
-local utils = require("lsp.utils")
+local lsp = require("lsp.utils")
 
 require("mason").setup({
 	PATH = "append",
@@ -8,7 +8,7 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-	ensure_installed = utils.lsp_server_names(),
+	ensure_installed = lsp.server_names(),
 })
 
 require("mason-null-ls").setup({

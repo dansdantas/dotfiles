@@ -22,7 +22,7 @@ local sources = {
 
 null.setup({
 	sources = sources,
-	on_attach = require("functions").on_attach_lsp,
+	on_attach = require("lsp.utils").on_attach,
 	debouce = 150,
 	diagnostics_format = "[#{c}] #{m} (#{s})",
 	diagnostic_config = { method = null.methods.DIAGNOSTICS_ON_SAVE },
