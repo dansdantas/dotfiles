@@ -116,21 +116,24 @@ M.on_attach_lsp = function(_, bufnr)
 		vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
 	end
 
+	local tbuiltin = require("telescope.builtin")
+
 	nmap(",rn", vim.lsp.buf.rename, "[R]e[n]ame")
 	nmap(",ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
 	nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-	nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+	nmap("gr", tbuiltin.lsp_references, "[G]oto [R]eferences")
 	nmap("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+	nmap("gt", ":Lspsaga finder tyd+ref+imp+def<CR>", "Show type, implementation, definition and references")
 
 	nmap("gy", vim.lsp.buf.type_definition, "Type [D]efinition")
-	nmap(",ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-	nmap(",ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+	nmap(",ds", tbuiltin.lsp_document_symbols, "[D]ocument [S]ymbols")
+	nmap(",ws", tbuiltin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
 	-- Diagnostics
 	nmap(",e", vim.diagnostic.open_float, "Open diagnostic float")
-	nmap("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
-	nmap("]d", vim.diagnostic.goto_next, "Next diagnostic")
+	nmap("[d", ":Lspsaga diagnostic_jump_prev<CR>", "Previous diagnostic")
+	nmap("]d", ":Lspsaga diagnostic_jump_next<CR>", "Next diagnostic")
 	nmap(",q", vim.diagnostic.setqflist, "Move diagnostics to qlist")
 
 	-- See `:help K` for why this keymap
@@ -163,6 +166,13 @@ M.on_attach_lsp = function(_, bufnr)
 			async = true,
 		})
 	end, { desc = "LSP: range formatting" })
+
+	vim.keymap.set(
+		{ "i" },
+		"<C-h>",
+		vim.lsp.buf.signature_help,
+		{ silent = true, noremap = true, desc = "toggle signature" }
+	)
 end
 
 return M
