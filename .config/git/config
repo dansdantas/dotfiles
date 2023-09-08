@@ -1,6 +1,6 @@
 [user]
 	name = Daniel Santos Dantas
-  email = dansdantas@gmail.com
+  email = daniel@sdantas.dev
 [push]
   default = simple
 	followtags = true
