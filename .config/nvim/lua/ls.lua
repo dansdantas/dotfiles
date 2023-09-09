@@ -7,7 +7,7 @@ local f = ls.function_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 ls.add_snippets("go", {
-	s("fmt", t([[import "fmt"]]))
+	s("fmt", t([[import "fmt"]])),
 })
 
 ls.add_snippets("lua", {

@@ -5,16 +5,15 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Setup lspconfig.
 local lsp = require("lspconfig")
+local lsp_utils = require("lsp.utils")
 
 local default_conf = {
 	flags = { debounce_text_changes = 150 },
 	capabilities = capabilities,
-	on_attach = require("lsp.utils").on_attach,
+	on_attach = lsp_utils.on_attach,
 }
 
-local utils = require("lsp.utils")
-
-for server, conf in pairs(utils.server_configs) do
+for server, conf in pairs(lsp_utils.server_configs) do
 	local base_conf = table.copy(default_conf)
 	local full_conf = table.merge(base_conf, conf)
 	lsp[server].setup(full_conf)

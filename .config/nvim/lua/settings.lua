@@ -14,6 +14,10 @@ o.hidden = true
 o.signcolumn = "yes" -- Always show the signcolumn
 o.wrap = false -- Remove wrapping on lines that goes over screen width
 
+-- Color
+o.termguicolors = true -- Enable true color
+o.background = "dark" -- Force dark background
+
 -- Indentation
 o.shiftwidth = 2 -- Column space on identation << or >>
 o.tabstop = 2 -- Default tab space to 2 on tabs
