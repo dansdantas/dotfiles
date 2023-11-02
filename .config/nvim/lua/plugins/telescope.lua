@@ -90,11 +90,6 @@ telescope.setup({
 				["<C-f>"] = actions.preview_scrolling_up,
 			},
 		},
-		borderchars = {
-			prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
-			results = { " " },
-			preview = { " " },
-		},
 	},
 	extensions = {
 		fzy_native = {
