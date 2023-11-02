@@ -57,6 +57,7 @@ require("lazy").setup({
 
 	-- Manipulate files
 	"tpope/vim-eunuch", -- UNIX commands
+	{ "stevearc/oil.nvim", config = true },
 	{
 		"nvim-tree/nvim-tree.lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -142,16 +143,16 @@ require("lazy").setup({
 		},
 	},
 
-	-- {
-	-- 	"nvimdev/lspsaga.nvim",
-	-- 	config = function()
-	-- 		require("lspsaga").setup({})
-	-- 	end,
-	-- 	dependencies = {
-	-- 		"nvim-treesitter/nvim-treesitter",
-	-- 		"nvim-tree/nvim-web-devicons",
-	-- 	},
-	-- },
+	{
+		"nvimdev/lspsaga.nvim",
+		config = function()
+			require("lspsaga").setup({})
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
 
 	-- Dap
 	{
@@ -227,9 +228,7 @@ require("lazy").setup({
 	{
 		"numToStr/Comment.nvim",
 		module = true,
-		config = function()
-			require("Comment").setup({ ignore = "^$" })
-		end,
+		opts = { ignore = "^$" },
 	},
 
 	{
