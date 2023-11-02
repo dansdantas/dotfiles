@@ -23,6 +23,7 @@ local languages = {
 	"ruby",
 	"rust",
 	"scss",
+	"terraform",
 	"typescript",
 	"vim",
 	"vue",
