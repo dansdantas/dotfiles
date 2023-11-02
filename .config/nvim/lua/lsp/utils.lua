@@ -82,21 +82,6 @@ local filetype = function(bufnr)
 	return vim.filetype.match({ filename = vim.api.nvim_buf_get_name(bufnr) })
 end
 
-local lsp_formatting = function(bufnr)
-	vim.lsp.buf.format({
-		filter = function(client)
-			if filetype(bufnr) == "lua" then
-				-- For lua files use formatter from null-ls
-				-- apply whatever logic you want (in this example, we'll only use null-ls)
-				return client.name == "null-ls"
-			end
-			return true
-		end,
-		bufnr = bufnr,
-		async = true,
-	})
-end
-
 M.on_attach = function(_, bufnr)
 	-- Mappings.
 	local nmap = function(keys, func, desc)
@@ -142,8 +127,18 @@ M.on_attach = function(_, bufnr)
 
 	-- Create a command `:Format` local to the LSP buffer
 	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-		-- vim.lsp.buf.format({ async = true })
-		lsp_formatting(bufnr)
+		vim.lsp.buf.format({
+			filter = function(client)
+				if filetype(bufnr) == "lua" then
+					-- For lua files use formatter from null-ls
+					-- apply whatever logic you want (in this example, we'll only use null-ls)
+					return client.name == "null-ls"
+				end
+				return true
+			end,
+			bufnr = bufnr,
+			async = true,
+		})
 	end, { desc = "Format current buffer with LSP" })
 
 	nmap(",f", ":Format<cr>", "Format current buffer with LSP")
