@@ -18,6 +18,8 @@ luasnip.config.set_config({
 	updateevents = "TextChanged,TextChangedI",
 })
 
+luasnip.filetype_extend("ruby", { "rails" })
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
