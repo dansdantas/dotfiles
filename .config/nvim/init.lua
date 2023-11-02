@@ -42,7 +42,7 @@ require("plugins")
 require("ls")
 
 require("plugins.settings")
-require("plugins.statusline")
+require("statusline")
 require("plugins.bufferline")
 require("plugins.mason")
 require("lsp")
