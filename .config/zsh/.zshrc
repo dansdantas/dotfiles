@@ -9,4 +9,4 @@
 .  $ZDOTDIR/completion
 .  $ZDOTDIR/custom
 .  $ZDOTDIR/scripts
-.  $ZDOTDIR/work
+source_file_if_exists $ZDOTDIR/work

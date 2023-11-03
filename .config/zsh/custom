@@ -24,3 +24,7 @@ function nvre {
   arr=($(nvr --serverlist))
   nvr --servername=${arr[1]} --remote "$1"
 }
+
+function source_file_if_exists {
+  [[ -f "$1" ]] && source "$1"
+}
