@@ -43,7 +43,6 @@ require("ls")
 
 require("plugins.settings")
 require("statusline")
-require("plugins.bufferline")
 require("plugins.mason")
 require("lsp")
 require("plugins.telescope")
