@@ -6,7 +6,7 @@ export PATH="$(du "$HOME/.config/scripts" | cut -f2 | tr '\n' ':' | sed 's/:*$//
 # Defaults
 export EDITOR="nvim"
 export TERMINAL="kitty"
-export BROWSER="brave-desktop"
+export BROWSER="brave"
 export READER="zathura"
 export FILE="vifm"
 
