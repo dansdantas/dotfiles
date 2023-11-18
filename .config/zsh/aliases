@@ -189,7 +189,7 @@ alias hrdsl="heb rake db:schema:load"
 alias hl="he logs -t"
 
 # Docker
-alias dc="docker-compose"
+alias dc="docker compose"
 alias dcu="dc up"
 alias dcd="dc down"
 

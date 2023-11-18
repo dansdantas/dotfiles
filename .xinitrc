@@ -11,10 +11,7 @@ xrdb -merge ~/.Xresources
 udiskie &
 
 # Compton
-compton &
+picom &
 
 # Window manager
 exec bspwm
-
-# Rearrange monitors
-~/.local/share/screenlayout/dual-monitor-stand.sh
