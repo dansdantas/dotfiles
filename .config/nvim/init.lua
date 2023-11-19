@@ -33,8 +33,8 @@ end
 
 safeRequire("config.lazy")
 safeRequire("config.options")
+safeRequire("config.autocommands")
 
-require("commands")
 require("ls")
 require("statusline")
 require("lsp")

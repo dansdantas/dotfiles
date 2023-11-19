@@ -1,5 +1,6 @@
 local au = vim.api.nvim_create_autocmd
 local aug = vim.api.nvim_create_augroup
+local opt_local = vim.opt_local
 
 au({ "BufRead", "BufNewFile" }, {
 	pattern = { "*.arb" },
@@ -34,5 +35,16 @@ au({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
 	callback = function()
 		vim.opt.foldmethod = "expr"
 		vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+	end,
+})
+
+-- no list chars in special buffers
+au({ "BufNew", "BufReadPost" }, {
+	callback = function()
+		vim.defer_fn(function()
+			if vim.bo.buftype ~= "" and vim.bo.ft ~= "query" then
+				opt_local.list = false
+			end
+		end, 1)
 	end,
 })
