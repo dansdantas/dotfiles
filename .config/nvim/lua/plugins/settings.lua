@@ -2,9 +2,6 @@ local env = vim.env
 local g = vim.g
 local fn = vim.fn
 
--- AnyJump
-g.any_jump_disable_default_keybindings = 1
-
 -- FZF
 env.FZF_DEFAULT_COMMAND = "rg --hidden --files -g '' 2>/dev/null"
 

@@ -121,7 +121,6 @@ require("lazy").setup({
 		end,
 	},
 	"folke/which-key.nvim",
-	"pechorin/any-jump.vim",
 
 	-- LSP
 	{

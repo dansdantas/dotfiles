@@ -236,13 +236,6 @@ wk.register({
 
 -- , mappings
 wk.register({
-	a = {
-		name = "AnyJump",
-		j = { ":AnyJump<cr>", "[J]ump to definition under cursor" },
-		b = { ":AnyJumpBack<cr>", "jump [B]ack to previous opened file (after jump)" },
-		l = { ":AnyJumpLastResults<cr>", "open [L]ast closed search window again" },
-	},
-
 	-- buffers
 	b = { ":bd|e<cr>", "delete all buffers but current" },
 	B = { ":bd!<cr>", "delete buffer" },
