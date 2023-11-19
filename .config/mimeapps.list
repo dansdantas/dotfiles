@@ -12,8 +12,6 @@ x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/discord-378347429537251328=discord-378347429537251328.desktop
 
 [Added Associations]
-text/plain=libreoffice-writer.desktop;
-application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 video/x-matroska=mpv.desktop;
 video/mp4=mpv.desktop;
 application/xml=nvim.desktop;
@@ -24,3 +22,5 @@ image/webp=brave-browser.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-V21YV0.desktop;userapp-Telegram Desktop-BSRG10.desktop;org.telegram.desktop.desktop;
 text/csv=libreoffice-calc.desktop;
 image/jpeg=sxiv.desktop;
+text/plain=nvim.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
