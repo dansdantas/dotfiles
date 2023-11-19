@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Fix monitor positions
+$HOME/.local/share/screenlayout/dual-monitor-stand.sh
+
+# Need sleep while screenlayout adjust monitors. Without it commands run before everything is set
+sleep 3
+
+# force workspaces to start on middle monitor
+bspc monitor DP-2 -d 1 2 3 4 5
+bspc monitor DP-0 -d 6 7 8 9
+bspc monitor DP-0 -s DP-2
+
+# wallpapers
+nitrogen --restore
