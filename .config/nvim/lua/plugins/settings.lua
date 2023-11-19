@@ -6,7 +6,7 @@ local fn = vim.fn
 g.any_jump_disable_default_keybindings = 1
 
 -- FZF
-env.FZF_DEFAULT_COMMAND = [[ag --vimgrep --hidden --ignore .git -l --ignore spec/fixtures -g ""]]
+env.FZF_DEFAULT_COMMAND = "rg --hidden --files -g '' 2>/dev/null"
 
 -- Center window
 g.fzf_layout = { down = "40%", window = { width = 0.9, height = 0.6 } }
