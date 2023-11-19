@@ -1,3 +1,4 @@
+-- Bootstrap Lazy.nvim plugin manager https://github.com/folke/lazy.nvim#-installation
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
 	vim.fn.system({
@@ -336,4 +337,7 @@ require("lazy").setup({
 		},
 		opts = {},
 	},
+
+	-- moving inside custom before moving back to plugins
+	{ import = "custom.plugins" },
 })
