@@ -31,13 +31,11 @@ opt.colorcolumn = "120" -- Add delimitation line on 120 character
 opt.wrap = false -- Remove wrapping on lines that goes over screen width
 
 -- status bar & cmdline
-opt.cmdheight = 0
 opt.history = 400 -- reduce noise for command history search
 opt.shortmess:append("sSI") -- reduce info in :messages
 opt.report = 9001 -- disable "x more/fewer lines" messages
 
 -- Workspace
-opt.cursorline = true
 opt.signcolumn = "yes:1" -- Always show the signcolumn
 
 -- Color
