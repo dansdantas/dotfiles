@@ -27,8 +27,7 @@ map.set("n", "<C-u>", "<C-u>zz")
 map.set("n", "n", "nzzzv")
 map.set("n", "N", "Nzzzv")
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+map.set({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<cr>")
 
 wk.setup({})
 

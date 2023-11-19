@@ -36,6 +36,9 @@ function table.merge(t1, t2)
 	return t1
 end
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 require("settings")
 require("commands")
 require("plugins")
