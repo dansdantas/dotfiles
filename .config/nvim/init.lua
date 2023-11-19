@@ -2,40 +2,14 @@ if vim.loader then
 	vim.loader.enable()
 end
 
-P = function(v)
-	print(vim.inspect(v))
-	return v
-end
+local utils = require('config.utils')
 
-function table.copy(orig)
-	local orig_type = type(orig)
-	local copy
-	if orig_type == "table" then
-		copy = {}
-		for orig_key, orig_value in pairs(orig) do
-			copy[orig_key] = orig_value
-		end
-	else -- number, string, boolean, etc
-		copy = orig
-	end
-	return copy
-end
+-- Globals
+P = utils.print
+table.copy = utils.table_copy
+table.merge = utils.table_merge
 
-function table.merge(t1, t2)
-	for k, v in pairs(t2) do
-		if type(v) == "table" then
-			if type(t1[k] or false) == "table" then
-				table.merge(t1[k] or {}, t2[k] or {})
-			else
-				t1[k] = v
-			end
-		else
-			t1[k] = v
-		end
-	end
-	return t1
-end
-
+-- Leader should be defined before everything is configured
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
