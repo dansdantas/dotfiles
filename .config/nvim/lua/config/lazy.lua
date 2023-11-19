@@ -160,25 +160,6 @@ require("lazy").setup({
 		},
 	},
 
-	-- Comp
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			"hrsh7th/cmp-nvim-lua",
-			"onsails/lspkind.nvim",
-			"amarakon/nvim-cmp-buffer-lines",
-			"lukas-reineke/cmp-under-comparator",
-		},
-	},
-
-	-- Snippets
-	"honza/vim-snippets",
-	{ "saadparwaiz1/cmp_luasnip", dependencies = { { "L3MON4D3/LuaSnip" } } },
-
 	-- Layout && Status
 	{ "mhinz/vim-startify", cmd = { "SSave", "SLoad", "Startify" } },
 
