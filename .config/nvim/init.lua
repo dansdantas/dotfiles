@@ -36,5 +36,4 @@ safeRequire("config.options")
 safeRequire("config.autocommands")
 
 require("ls")
-require("statusline")
 require("lsp")

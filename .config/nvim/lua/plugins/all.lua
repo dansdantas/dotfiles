@@ -100,27 +100,6 @@ return {
 	-- Layout && Status
 	{ "mhinz/vim-startify", cmd = { "SSave", "SLoad", "Startify" } },
 
-	{
-		"akinsho/bufferline.nvim",
-		dependencies = "nvim-tree/nvim-web-devicons",
-		opts = {
-			options = {
-				indicator = {
-					style = "none",
-				},
-				tab_size = 10,
-				diagnostics = "nvim_lsp",
-				show_buffer_close_icons = false,
-				separator_style = { "", "" },
-			},
-		},
-	},
-
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
-
 	-- {
 	-- 	"sunjon/shade.nvim",
 	-- 	config = function()
