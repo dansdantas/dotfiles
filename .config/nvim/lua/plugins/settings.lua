@@ -45,16 +45,6 @@ g.fzf_action = {
 	["ctrl-q"] = build_quickfix_list,
 }
 
--- Python
-g.python_host_prog = env.PYENV_ROOT .. "/versions/2.7.18/bin/python"
-g.python3_host_prog = env.PYENV_ROOT .. "/versions/3.11.1/bin/python"
-g.ycm_server_python_interpreter = env.PYENV_ROOT .. "/versions/3.11.1/bin/python"
-
--- Ruby
-g.loaded_ruby_provider = 0
-g.ruby_path = env.RBENV_ROOT .. "/shims"
-g.ruby_host_prog = env.RBENV_ROOT .. "/shims/ruby"
-
 -- Test
 g["test#strategy"] = "floaterm"
 g["test#preserve_screen"] = 1

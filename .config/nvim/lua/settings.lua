@@ -63,3 +63,15 @@ o.foldenable = false
 -- Completion
 o.updatetime = 50 -- Reduce updatetime
 o.shortmess:append({ ["c"] = true })
+
+local g = vim.g
+local env = vim.env
+
+-- Python
+g.python_host_prog = env.PYENV_ROOT .. "/versions/2.7.18/bin/python"
+g.python3_host_prog = env.PYENV_ROOT .. "/versions/3.11.1/bin/python"
+
+-- Ruby
+g.loaded_ruby_provider = 0
+g.ruby_path = env.RBENV_ROOT .. "/shims"
+g.ruby_host_prog = env.RBENV_ROOT .. "/shims/ruby"
