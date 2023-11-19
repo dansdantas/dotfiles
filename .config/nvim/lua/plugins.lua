@@ -13,13 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- Commands
-	{
-		"kylechui/nvim-surround",
-		module = true,
-		config = function()
-			require("nvim-surround").setup({})
-		end,
-	},
+	{ "kylechui/nvim-surround", opts = {} },
 
 	"tpope/vim-repeat",
 	"tpope/vim-abolish", -- Search and replace subvert pattern
@@ -144,9 +138,7 @@ require("lazy").setup({
 
 	{
 		"nvimdev/lspsaga.nvim",
-		config = function()
-			require("lspsaga").setup({})
-		end,
+		opts = {},
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons",
@@ -197,19 +189,17 @@ require("lazy").setup({
 	{
 		"akinsho/bufferline.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
-		config = function()
-			require("bufferline").setup({
-				options = {
-					indicator = {
-						style = "none",
-					},
-					tab_size = 10,
-					diagnostics = "nvim_lsp",
-					show_buffer_close_icons = false,
-					separator_style = { "", "" },
+		opts = {
+			options = {
+				indicator = {
+					style = "none",
 				},
-			})
-		end,
+				tab_size = 10,
+				diagnostics = "nvim_lsp",
+				show_buffer_close_icons = false,
+				separator_style = { "", "" },
+			},
+		},
 	},
 
 	{
@@ -250,12 +240,9 @@ require("lazy").setup({
 
 	{
 		"windwp/nvim-autopairs",
-		module = true,
-		config = function()
-			require("nvim-autopairs").setup({
-				disable_filetype = { "TelescopePrompt", "vim" },
-			})
-		end,
+		opts = {
+			disable_filetype = { "TelescopePrompt", "vim" },
+		},
 	},
 
 	-- Color
@@ -288,21 +275,20 @@ require("lazy").setup({
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
 	"tommcdo/vim-fubitive", -- Bitbucket support on fugitive GBrowse
+
 	{
 		"lewis6991/gitsigns.nvim",
-		module = true,
-		config = function()
-			require("gitsigns").setup({
-				signs = {
-					add = { text = "+" },
-					change = { text = "~" },
-					delete = { text = "_" },
-					topdelete = { text = "‾" },
-					changedelete = { text = "~" },
-				},
-			})
-		end,
+		opts = {
+			signs = {
+				add = { text = "+" },
+				change = { text = "~" },
+				delete = { text = "_" },
+				topdelete = { text = "‾" },
+				changedelete = { text = "~" },
+			},
+		},
 	},
+
 	{
 		"TimUntersberger/neogit",
 		dependencies = {
@@ -353,9 +339,6 @@ require("lazy").setup({
 			"neovim/nvim-lspconfig",
 			"nvim-treesitter/nvim-treesitter",
 		},
-		module = true,
-		config = function()
-			require("go").setup({})
-		end,
+		opts = {},
 	},
 })
