@@ -30,7 +30,7 @@ local languages = {
 	"yaml",
 }
 
-require("nvim-treesitter.configs").setup({
+local options = {
 	sync_install = false,
 	ensure_installed = languages,
 	highlight = { enable = true },
@@ -91,4 +91,17 @@ require("nvim-treesitter.configs").setup({
 	endwise = {
 		enable = true,
 	},
-})
+}
+
+return {
+	"nvim-treesitter/nvim-treesitter",
+	event = "VeryLazy",
+	build = ":TSUpdate",
+	main = "nvim-treesitter.configs",
+	opts = options,
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		"RRethy/nvim-treesitter-endwise",
+		"nvim-treesitter/playground",
+	},
+}

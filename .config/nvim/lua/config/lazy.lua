@@ -1,6 +1,6 @@
 -- Bootstrap Lazy.nvim plugin manager https://github.com/folke/lazy.nvim#-installation
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.uv.fs_stat(lazypath) then
+if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
 		"clone",
@@ -72,39 +72,10 @@ require("lazy").setup({
 		end,
 	},
 
-	-- Treesitter
-	{
-		"nvim-treesitter/nvim-treesitter",
-		module = true,
-		-- build = function()
-		-- 	pcall(require("nvim-treesitter.install").update({ with_sync = true }))
-		-- end,
-		-- build = ":TSUpdate",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
-			"RRethy/nvim-treesitter-endwise",
-			"nvim-treesitter/playground",
-		},
-	},
-
 	{
 		"aarondiel/spread.nvim",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
-		},
-	},
-
-	-- Telescope
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = {
-			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-telescope/telescope-ui-select.nvim" },
-			{ "nvim-telescope/telescope-file-browser.nvim" },
-			{
-				"nvim-telescope/telescope-fzf-native.nvim",
-				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-			},
 		},
 	},
 
@@ -117,7 +88,6 @@ require("lazy").setup({
 			require("leap").set_default_keymaps()
 		end,
 	},
-	"folke/which-key.nvim",
 
 	-- LSP
 	{
@@ -138,25 +108,6 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons",
-		},
-	},
-
-	-- Dap
-	{
-		"mfussenegger/nvim-dap",
-		dependencies = {
-			"rcarriga/nvim-dap-ui",
-			"theHamsta/nvim-dap-virtual-text",
-			"nvim-telescope/telescope-dap.nvim",
-			"leoluz/nvim-dap-go",
-		},
-	},
-
-	-- Linters
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		dependencies = {
-			"jayp0521/mason-null-ls.nvim",
 		},
 	},
 
