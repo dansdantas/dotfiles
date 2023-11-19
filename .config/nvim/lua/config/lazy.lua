@@ -93,10 +93,6 @@ require("lazy").setup({
 		},
 	},
 
-	-- FZF
-	{ "junegunn/fzf", build = "cd $XDG_DATA_HOME/fzf && ./install --xdg --no-update-rc" },
-	"junegunn/fzf.vim",
-
 	-- Telescope
 	{
 		"nvim-telescope/telescope.nvim",
