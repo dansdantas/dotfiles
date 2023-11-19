@@ -179,7 +179,6 @@ wk.register({
 	},
 
 	s = {
-		d = { tbuiltin.diagnostics, "search diagnostics" },
 		o = {
 			function()
 				vim.opt.list = not vim.opt.list:get()
