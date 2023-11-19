@@ -311,12 +311,6 @@ require("lazy").setup({
 		end,
 	},
 
-	-- Testing
-	"janko-m/vim-test",
-	"benmills/vimux",
-	"voldikss/vim-floaterm",
-
-	{ "tpope/vim-dispatch", cmd = { "Dispatch", "Make", "Focus", "Start" } },
 	"szw/vim-maximizer",
 
 	-- Languages
