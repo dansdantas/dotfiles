@@ -13,9 +13,10 @@ table.merge = utils.table_merge
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+require("config.lazy")
+
 require("settings")
 require("commands")
-require("plugins")
 require("ls")
 
 require("plugins.settings")
