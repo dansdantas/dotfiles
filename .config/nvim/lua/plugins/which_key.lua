@@ -8,7 +8,7 @@ local function config()
 	local spread = require("spread")
 
 	-- own stuff
-	local workspace = require("workspace")
+	local workspace = require("config.workspace")
 	local utils = require("config.utils")
 
 	local map = vim.keymap
