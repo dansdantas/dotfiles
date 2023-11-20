@@ -9,7 +9,7 @@ local function config()
 
 	-- own stuff
 	local workspace = require("workspace")
-	local functions = require("functions")
+	local utils = require("config.utils")
 
 	local map = vim.keymap
 
@@ -60,7 +60,7 @@ local function config()
 			name = "Telescope",
 			o = { tbuiltin.find_files, "[O]pen files" },
 			b = { tbuiltin.buffers, "[B]uffers" },
-			d = { functions.search_dotfiles, "[D]otfiles" },
+			d = { utils.search_dotfiles, "[D]otfiles" },
 			w = { tbuiltin.grep_string, "find [W]ord" },
 			g = { tbuiltin.live_grep, "by [G]rep" },
 			["?"] = { tbuiltin.oldfiles, "recent files" },
@@ -176,7 +176,7 @@ local function config()
 			l = { ":ALELint<cr>", "lint current buffer" },
 			t = { ":ALEToggle<cr>", "toggle ale" },
 
-			g = { functions.search_current_word, "search current word" },
+			g = { utils.search_current_word, "search current word" },
 		},
 
 		s = {
@@ -215,7 +215,7 @@ local function config()
 
 		mt = { ":MaximizerToggle<cr>", "toggle maximize current buffer" },
 
-		z = { functions.folding_toggle, "toggle folding" },
+		z = { utils.folding_toggle, "toggle folding" },
 
 		-- clipboard
 		p = { '"+p', "paste from clipboard" },
@@ -241,7 +241,7 @@ local function config()
 		b = { ":bd|e<cr>", "delete all buffers but current" },
 		B = { ":bd!<cr>", "delete buffer" },
 
-		he = { functions.help_on_current_word, "Help on current word" },
+		he = { utils.help_on_current_word, "Help on current word" },
 		l = { ":nohl<cr>", "clear highlight" },
 
 		t = {

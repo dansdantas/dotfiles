@@ -6,8 +6,6 @@ local utils = require("config.utils")
 
 -- Globals
 P = utils.print
-table.copy = utils.table_copy
-table.merge = utils.table_merge
 
 -- Leader should be defined before everything is configured
 vim.g.mapleader = " "
