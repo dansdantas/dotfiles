@@ -1,0 +1,35 @@
+return {
+	-- Syntax
+	"editorconfig/editorconfig-vim",
+	{
+		"numToStr/Comment.nvim",
+		module = true,
+		opts = { ignore = "^$" },
+	},
+
+	{
+		"windwp/nvim-autopairs",
+		opts = {
+			disable_filetype = { "TelescopePrompt", "vim" },
+		},
+	},
+
+	-- Languages
+	"mattn/emmet-vim",
+	"andymass/vim-matchup",
+
+	--  'tpope/vim-rails'
+	--  'vim-ruby/vim-ruby'
+
+	"milisims/nvim-luaref",
+
+	{
+		"ray-x/go.nvim",
+		dependencies = {
+			"ray-x/guihua.lua", -- recommanded if need floating window support,
+			"neovim/nvim-lspconfig",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		opts = {},
+	},
+}

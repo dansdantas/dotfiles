@@ -57,6 +57,9 @@ return {
 	-- 	--   If not available, we use `mini` as the fallback
 	-- 	"rcarriga/nvim-notify",
 	-- },
+	-- Layout && Status
+	{ "mhinz/vim-startify", cmd = { "SSave", "SLoad", "Startify" } },
+
 	{
 		"rcarriga/nvim-notify",
 		config = function ()
