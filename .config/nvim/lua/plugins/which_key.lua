@@ -253,7 +253,11 @@ local function config()
 			w = { ":TestLastOnlyFail<cr>", "test only failed" },
 		},
 
-		gc = { ":Git commit --amend<cr>", "[G]it [C]ommit ammend" },
+		g = {
+			a = { ":Git commit --amend<cr>", "[G]it Commit [a]mmend" },
+			b = { tbuiltin.git_branches, "[G]it [B]ranches" },
+			c = { tbuiltin.git_commits, "[G]it [C]ommits" },
+		},
 
 		w = {
 			name = "workspace",
