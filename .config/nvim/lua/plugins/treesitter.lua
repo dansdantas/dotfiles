@@ -33,8 +33,14 @@ local languages = {
 local options = {
 	sync_install = false,
 	ensure_installed = languages,
-	highlight = { enable = true },
+
+	highlight = {
+		enable = true,
+		disable = { "css" },
+	},
+
 	indent = { enable = true },
+
 	incremental_selection = {
 		enable = true,
 		keymaps = {
@@ -94,14 +100,16 @@ local options = {
 }
 
 return {
-	"nvim-treesitter/nvim-treesitter",
-	event = "VeryLazy",
-	build = ":TSUpdate",
-	main = "nvim-treesitter.configs",
-	opts = options,
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		"RRethy/nvim-treesitter-endwise",
-		"nvim-treesitter/playground",
+	{
+		"nvim-treesitter/nvim-treesitter",
+		event = "VeryLazy",
+		build = ":TSUpdate",
+		main = "nvim-treesitter.configs",
+		opts = options,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			"RRethy/nvim-treesitter-endwise",
+			"nvim-treesitter/playground",
+		},
 	},
 }
