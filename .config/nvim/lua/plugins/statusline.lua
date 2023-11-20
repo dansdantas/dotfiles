@@ -1,18 +1,3 @@
-local onedark = require("onedark.palette").darker
-local colors = {
-	bg = onedark.bg0,
-	fg = onedark.fg,
-	yellow = onedark.yellow,
-	cyan = onedark.cyan,
-	darkblue = onedark.dark_cyan,
-	green = onedark.green,
-	orange = onedark.orange,
-	violet = onedark.dark_purple,
-	magenta = onedark.purple,
-	blue = onedark.blue,
-	red = onedark.red,
-}
-
 return {
 	{ "mhinz/vim-startify", cmd = { "SSave", "SLoad", "Startify" } },
 
@@ -54,11 +39,6 @@ return {
 						"diagnostics",
 						sources = { "nvim_diagnostic" },
 						symbols = { error = " ", warn = " ", info = " " },
-						diagnostics_color = {
-							color_error = { fg = colors.red },
-							color_warn = { fg = colors.yellow },
-							color_info = { fg = colors.cyan },
-						},
 					},
 				},
 				lualine_c = { { "filename", path = 1 } },

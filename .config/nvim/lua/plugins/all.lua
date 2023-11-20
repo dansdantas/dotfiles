@@ -116,32 +116,6 @@ return {
 		},
 	},
 
-	-- Color
-	"ellisonleao/gruvbox.nvim",
-	{
-		"navarasu/onedark.nvim",
-		priority = 1000,
-		module = true,
-		config = function()
-			vim.g.onedark_terminal_italics = 1
-			vim.g.onedark_hide_endofbuffer = 1
-			vim.o.termguicolors = true -- Enable true color
-			vim.o.background = "dark" -- Force dark background
-			local onedark = require("onedark")
-			onedark.setup({
-				style = "darker",
-				code_style = {
-					comments = "italic",
-					keywords = "none",
-					functions = "none",
-					strings = "none",
-					variables = "none",
-				},
-			})
-			onedark.load()
-		end,
-	},
-
 	"szw/vim-maximizer",
 
 	-- Languages
