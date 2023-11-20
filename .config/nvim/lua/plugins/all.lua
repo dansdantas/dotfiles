@@ -75,28 +75,6 @@ return {
 		end,
 	},
 
-	-- LSP
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			-- Automatically install LSPs to stdpath for neovim
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
-
-			-- ful status updates for LSP
-			{ "j-hui/fidget.nvim", tag = "legacy", opts = {} },
-		},
-	},
-
-	{
-		"nvimdev/lspsaga.nvim",
-		opts = {},
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
-		},
-	},
-
 	-- Layout && Status
 	{ "mhinz/vim-startify", cmd = { "SSave", "SLoad", "Startify" } },
 
