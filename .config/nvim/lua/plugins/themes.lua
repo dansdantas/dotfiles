@@ -1,29 +1,29 @@
 -- INFO only the first theme will be used
 local lightThemes = {
 	{ "EdenEast/nightfox.nvim", name = "dawnfox" },
-	{
-		"sainnhe/everforest",
-		init = function()
-			vim.g.everforest_background = "hard"
-		end,
-	},
-	{
-		"marko-cerovac/material.nvim",
-		init = function()
-			vim.g.material_style = "lighter"
-		end,
-		opts = { lualine_style = "stealth", high_visibility = { lighter = false } },
-	},
+	-- {
+	-- 	"sainnhe/everforest",
+	-- 	init = function()
+	-- 		vim.g.everforest_background = "hard"
+	-- 	end,
+	-- },
+	-- {
+	-- 	"marko-cerovac/material.nvim",
+	-- 	init = function()
+	-- 		vim.g.material_style = "lighter"
+	-- 	end,
+	-- 	opts = { lualine_style = "stealth", high_visibility = { lighter = false } },
+	-- },
 }
 
 local darkThemes = {
 	{ "navarasu/onedark.nvim", opts = { style = "darker" } },
-	{ "folke/tokyonight.nvim", opts = { style = "moon" } },
-	"ellisonleao/gruvbox.nvim",
-	"AlexvZyl/nordic.nvim",
-	"sainnhe/gruvbox-material",
-	"sainnhe/sonokai",
-	"rebelot/kanagawa.nvim",
+	-- { "folke/tokyonight.nvim", opts = { style = "moon" } },
+	-- "ellisonleao/gruvbox.nvim",
+	-- "AlexvZyl/nordic.nvim",
+	-- "sainnhe/gruvbox-material",
+	-- "sainnhe/sonokai",
+	-- "rebelot/kanagawa.nvim",
 }
 
 --------------------------------------------------------------------------------
