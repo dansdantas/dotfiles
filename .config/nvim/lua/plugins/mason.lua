@@ -1,6 +1,4 @@
 local function config()
-	local lsp = require("lsp.utils")
-
 	require("mason").setup({
 		PATH = "append",
 		ui = {
@@ -9,7 +7,7 @@ local function config()
 	})
 
 	require("mason-lspconfig").setup({
-		ensure_installed = lsp.server_names(),
+		ensure_installed = vim.g.myLsps,
 	})
 
 	require("mason-null-ls").setup({
@@ -40,7 +38,6 @@ local function config()
 
 	null.setup({
 		sources = sources,
-		on_attach = require("lsp.utils").on_attach,
 		debouce = 150,
 		diagnostics_format = "[#{c}] #{m} (#{s})",
 		diagnostic_config = { method = null.methods.DIAGNOSTICS_ON_SAVE },
