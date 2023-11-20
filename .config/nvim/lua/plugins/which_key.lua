@@ -257,6 +257,7 @@ local function config()
 			a = { ":Git commit --amend<cr>", "[G]it Commit [a]mmend" },
 			b = { tbuiltin.git_branches, "[G]it [B]ranches" },
 			c = { tbuiltin.git_commits, "[G]it [C]ommits" },
+			h = { gitsigns.select_hunk, "[G]it select [h]unk" },
 		},
 
 		w = {
