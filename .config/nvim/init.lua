@@ -34,5 +34,4 @@ end
 safeRequire("config.lazy")
 safeRequire("config.options")
 safeRequire("config.autocmds")
-
-require("ls")
+safeRequire("config.snippets")
