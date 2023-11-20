@@ -61,7 +61,7 @@ return {
 						},
 					},
 				},
-				lualine_c = { "filename" },
+				lualine_c = { { "filename", path = 1 } },
 				lualine_x = {
 					{
 						-- Lsp server name .
