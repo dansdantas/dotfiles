@@ -44,6 +44,12 @@ local function config()
 					["<C-f>"] = actions.preview_scrolling_up,
 				},
 			},
+
+			pickers = {
+				find_files = {
+					find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
+				},
+			},
 		},
 
 		extensions = {
@@ -74,11 +80,6 @@ local function config()
 						end,
 					},
 				},
-			},
-		},
-		pickers = {
-			find_files = {
-				find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
 			},
 		},
 	})
