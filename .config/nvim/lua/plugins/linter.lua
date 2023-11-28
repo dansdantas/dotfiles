@@ -9,17 +9,14 @@ local function config()
 	local diagnostics = null.builtins.diagnostics
 
 	local sources = {
-		formatting.eslint_d,
 		formatting.prettierd,
 		formatting.goimports,
 		formatting.stylua,
 
-		diagnostics.eslint_d,
 		diagnostics.selene,
 		diagnostics.golangci_lint,
 
 		null.builtins.completion.luasnip,
-		null.builtins.code_actions.eslint,
 	}
 
 	null.setup({
