@@ -1,3 +1,4 @@
+--# selene: allow(mixed_table) -- lazy.nvim uses them
 vim.g.myLsps = { -- variable used by MasonToolInstaller
 	"clangd",
 	"gopls",
