@@ -61,10 +61,10 @@ return {
 	-- Layout && Status
 	{ "mhinz/vim-startify", cmd = { "SSave", "SLoad", "Startify" } },
 
-	{
-		"rcarriga/nvim-notify",
-		config = function ()
-			vim.notify = require('notify')
-		end
-	}
+	-- {
+	-- 	"rcarriga/nvim-notify",
+	-- 	config = function ()
+	-- 		vim.notify = require('notify')
+	-- 	end
+	-- }
 }
