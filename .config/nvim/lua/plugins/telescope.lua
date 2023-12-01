@@ -1,3 +1,4 @@
+--# selene: allow(mixed_table) -- lazy.nvim uses them
 local function config()
 	local telescope = require("telescope")
 	local actions = require("telescope.actions")
@@ -93,6 +94,45 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		config = config,
+		keys = {
+			-- stylua: ignore start
+			{ "<C-p>", function() require("telescope.builtin").git_files() end, desc = "project files" },
+			{ "<leader>to", function() require("telescope.builtin").find_files() end, desc = "[O]pen files"  },
+			{ "<leader>tb", function() require("telescope.builtin").buffers() end, desc = "[B]uffers" },
+			{ "<leader>td", function() require("config.utils").search_dotfiles() end, desc = "[D]otfiles" },
+			{ "<leader>tw", function() require("telescope.builtin").grep_string() end, desc = "find [W]ord" },
+			{ "<leader>tg", function() require("telescope.builtin").live_grep() end, desc = "by [G]rep" },
+			{ "<leader>t?", function() require("telescope.builtin").oldfiles() end, desc = "recent files" },
+
+			{ "<leader>ts", function() require("telescope.builtin").grep_string({ search = [[TODO:|todo!\(.*\)]] }) end, desc = "grep todos" },
+
+			{
+				"<leader>f", 
+				function()
+					return require("telescope.builtin").find_files({ previewer = false })
+				end,
+				desc = "files without preview",
+			},
+
+			{
+				"<leader>/",
+				function()
+					-- You can pass additional configuration to telescope to change theme, layout, etc.
+					local dropdown = require("telescope.themes").get_dropdown({
+						winblend = 10,
+						previewer = false,
+					})
+
+					require("telescope.builtin").current_buffer_fuzzy_find(dropdown)
+				end,
+				desc = "[/] Fuzzily search in current buffer]",
+			},
+
+			-- Git
+			{ ",gb", function() require("telescope.builtin").git_branches() end, "git branches" },
+			{ ",gc", function() require("telescope.builtin").git_commits() end, "git commits" },
+			-- stylua: ignore end
+		},
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-ui-select.nvim" },

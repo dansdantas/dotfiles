@@ -46,7 +46,7 @@ if [ -z "$MACOS" ]; then
   # AWS
   export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
   export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
-elif then;
+else
   # All mac os related settings
   export ANTIGEN_HOME=/usr/local/share/antigen
 fi

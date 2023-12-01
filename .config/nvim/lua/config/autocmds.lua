@@ -2,10 +2,8 @@ local au = vim.api.nvim_create_autocmd
 local aug = vim.api.nvim_create_augroup
 local opt_local = vim.opt_local
 
-au({ "BufRead", "BufNewFile" }, {
-	pattern = { "*.arb" },
-	command = "setfiletype ruby",
-})
+--------------------------------------------------------------------------------
+-- FILETYPE
 
 au("FileType", {
 	pattern = "qf",
@@ -15,11 +13,42 @@ au("FileType", {
 })
 
 au("FileType", {
+	pattern = { "lua" },
+	callback = function()
+		opt_local.path:append("./lua")
+	end,
+})
+
+au("FileType", {
+	group = aug("personal/close_with_q", { clear = true }),
+	desc = "Close with <q>",
+	pattern = {
+		"help",
+		"man",
+		"qf",
+		"query",
+		"scratch",
+		"spectre_panel",
+	},
+	callback = function(args)
+		vim.keymap.set("n", "q", "<cmd>quit<cr>", { buffer = args.buf })
+	end,
+})
+
+au("FileType", {
 	pattern = { "go", "lua", "rust" },
 	callback = function()
 		vim.bo.expandtab = false
 		vim.wo.list = false
 	end,
+})
+
+--------------------------------------------------------------------------------
+-- BUF
+
+au({ "BufRead", "BufNewFile" }, {
+	pattern = { "*.arb" },
+	command = "setfiletype ruby",
 })
 
 au("BufWritePre", {

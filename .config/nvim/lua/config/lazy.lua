@@ -1,6 +1,6 @@
 -- Bootstrap Lazy.nvim plugin manager https://github.com/folke/lazy.nvim#-installation
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
 		"clone",
@@ -13,11 +13,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
-	-- colorschemes to use during installation
-	install = { colorscheme = { "onedark", "tokyonight", "dawnfox", "habamax" } },
+	install = { 
+		-- Do not automatically install on startup.
+		missing = false,
+		-- colorschemes to use during installation
+		colorscheme = { "onedark", "tokyonight", "dawnfox", "habamax" }
+	},
+
+	-- Don't bother me when tweaking plugins.
+	change_detection = { notify = false },
 
 	ui = {
-		wrap = true,
 		size = { width = 1, height = 0.93 }, -- not full height, so search is visible
 	},
 
@@ -28,8 +34,6 @@ require("lazy").setup("plugins", {
 	},
 
 	diff = { cmd = "browser" }, -- view diffs with "d" in the browser
-	change_detection = { notify = false },
-	readme = { enabled = true },
 
 	performance = {
 		rtp = {

@@ -1,3 +1,4 @@
+--# selene: allow(mixed_table) -- lazy.nvim uses them
 vim.g.myLsps = { -- variable used by MasonToolInstaller
 	"clangd",
 	"gopls",
@@ -375,7 +376,6 @@ local function lspDiagnosticSettings()
 	})
 end
 
-
 local function setupAllLsps()
 	-- Enable snippets-completion (nvim_cmp) and folding (nvim-ufo)
 	local lspCapabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -400,8 +400,22 @@ return {
 		end,
 		dependencies = {
 			-- Automatically install LSPs to stdpath for neovim
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
+			{
+				"williamboman/mason.nvim",
+				opts = {
+					PATH = "append",
+					ui = {
+						check_outdated_packages_on_open = false,
+					},
+				},
+			},
+
+			{
+				"williamboman/mason-lspconfig.nvim",
+				opts = {
+					ensure_installed = vim.g.myLsps,
+				},
+			},
 
 			-- ful status updates for LSP
 			{ "j-hui/fidget.nvim", tag = "legacy", opts = {} },

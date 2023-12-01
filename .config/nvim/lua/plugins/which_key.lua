@@ -1,9 +1,9 @@
+--# selene: allow(mixed_table) -- lazy.nvim uses them
 local function config()
 	-- plugins
 	local telescope = require("telescope")
 	local tbuiltin = require("telescope.builtin")
 	local wk = require("which-key")
-	local gitsigns = require("gitsigns")
 	local bfl = require("bufferline")
 	local spread = require("spread")
 
@@ -30,13 +30,25 @@ local function config()
 
 	map.set({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<cr>")
 
+	map.set("n", "z=", function()
+		vim.ui.select(
+			vim.fn.spellsuggest(vim.fn.expand("<cword>")),
+			{},
+			vim.schedule_wrap(function(selected)
+				if selected then
+					vim.cmd("normal! ciw" .. selected)
+				end
+			end)
+		)
+	end, { desc = "Spelling suggestions" })
+
+	map.set('n', 'U', '<C-r>', { desc = 'Redo' })
+
 	wk.setup({})
 
 	-- Base mappings
 	wk.register({
 		x = { [["_x]], "use x without yanking" },
-
-		["<C-p>"] = { tbuiltin.git_files, "project files" },
 
 		["+"] = { "<C-a>", "increases number" },
 		["-"] = { "<C-x>", "decreases number" },
@@ -56,32 +68,6 @@ local function config()
 	-- Leader mappings
 	wk.register({
 		["<leader>l"] = { ":luafile %<CR>", "reload current lua file" },
-		t = {
-			name = "Telescope",
-			o = { tbuiltin.find_files, "[O]pen files" },
-			b = { tbuiltin.buffers, "[B]uffers" },
-			d = { utils.search_dotfiles, "[D]otfiles" },
-			w = { tbuiltin.grep_string, "find [W]ord" },
-			g = { tbuiltin.live_grep, "by [G]rep" },
-			["?"] = { tbuiltin.oldfiles, "recent files" },
-			f = {
-				function()
-					return tbuiltin.find_files({ previewer = false })
-				end,
-				"files without preview",
-			},
-		},
-
-		["/"] = {
-			function()
-				-- You can pass additional configuration to telescope to change theme, layout, etc.
-				require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-					winblend = 10,
-					previewer = false,
-				}))
-			end,
-			"[/] Fuzzily search in current buffer]",
-		},
 
 		b = {
 			name = "buffer",
@@ -122,40 +108,6 @@ local function config()
 				return bfl.move(1)
 			end,
 			"move buffer to next",
-		},
-
-		g = {
-			name = "Git",
-			g = { require("neogit").open, "neogit" },
-			c = { ":Git commit<cr>", "[C]ommit" },
-			s = {
-				function()
-					if vim.env.GIT_WORK_TREE then
-						vim.cmd([[Git status]])
-					else
-						tbuiltin.git_status()
-					end
-				end,
-				"[S]tatus",
-			},
-			a = { gitsigns.stage_hunk, "[A]dd hunk" },
-			u = { gitsigns.undo_stage_hunk, "[U]nstage hunk" },
-			A = { gitsigns.stage_buffer, "stage [A]ll buffer" },
-			U = { gitsigns.reset_buffer_index, "[U]nstage all buffer" },
-			p = { gitsigns.prev_hunk, "[P]revious hunk" },
-			n = { gitsigns.next_hunk, "[N]ext hunk" },
-			h = { gitsigns.preview_hunk, "preview [H]unk" },
-			d = { gitsigns.diffthis, "[D]iff file" },
-			q = { gitsigns.setqflist, "populate hunks to loclist" },
-			t = { gitsigns.toggle_deleted, "[T]oggle deleted hunks" },
-			r = { gitsigns.reset_buffer, "[R]eset buffer" },
-			b = {
-				function()
-					gitsigns.blame_line({ full = true })
-				end,
-				"[B]lame",
-			},
-			["!"] = { ":Git commit --amend<cr>", "[G]it [C]ommit ammend" },
 		},
 
 		v = {
@@ -251,13 +203,6 @@ local function config()
 			l = { ":TestLast<cr>", "run last test" },
 			v = { ":TestVisit<cr>", "run last visited test" },
 			w = { ":TestLastOnlyFail<cr>", "test only failed" },
-		},
-
-		g = {
-			a = { ":Git commit --amend<cr>", "[G]it Commit [a]mmend" },
-			b = { tbuiltin.git_branches, "[G]it [B]ranches" },
-			c = { tbuiltin.git_commits, "[G]it [C]ommits" },
-			h = { gitsigns.select_hunk, "[G]it select [h]unk" },
 		},
 
 		w = {

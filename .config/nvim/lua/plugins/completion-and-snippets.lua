@@ -1,6 +1,5 @@
+--# selene: allow(mixed_table) -- lazy.nvim uses them
 local function config()
-	vim.opt.completeopt = { "menu", "menuone", "noselect" }
-
 	local has_words_before = function()
 		if vim.api.nvim_get_option_value("buftype", {}) == "prompt" then
 			return false
@@ -54,8 +53,8 @@ local function config()
 						fallback()
 					end
 				end,
-				s = cmp.mapping.confirm({ select = true }),
-				c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+				s = cmp.mapping.confirm({ select = false }),
+				c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
 			}),
 
 			["<Tab>"] = cmp.mapping(function(fallback)
