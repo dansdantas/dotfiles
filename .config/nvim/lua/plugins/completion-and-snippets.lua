@@ -1,7 +1,5 @@
 --# selene: allow(mixed_table) -- lazy.nvim uses them
 local function config()
-	vim.opt.completeopt = { "menu", "menuone", "noselect" }
-
 	local has_words_before = function()
 		if vim.api.nvim_get_option_value("buftype", {}) == "prompt" then
 			return false

@@ -4,7 +4,7 @@ local opt = vim.opt
 -- FILETYPES
 
 -- make zsh files recognized as sh for bash-ls & treesitter
-vim.filetype.add {
+vim.filetype.add({
 	extension = {
 		zsh = "sh",
 		sh = "sh", -- force sh-files with zsh-shebang to still get sh as filetype
@@ -14,7 +14,7 @@ vim.filetype.add {
 		[".zshenv"] = "sh",
 		[".ignore"] = "gitignore", -- fd ignore files
 	},
-}
+})
 
 --------------------------------------------------------------------------------
 -- General
@@ -32,7 +32,13 @@ opt.wrap = false -- Remove wrapping on lines that goes over screen width
 
 -- status bar & cmdline
 opt.history = 400 -- reduce noise for command history search
-opt.shortmess:append("sSI") -- reduce info in :messages
+opt.shortmess:append({ -- reduce info in :messages
+	w = true,
+	W = true,
+	I = true,
+	S = true,
+	s = true,
+})
 opt.report = 9001 -- disable "x more/fewer lines" messages
 
 -- Workspace
@@ -90,7 +96,6 @@ opt.incsearch = true
 opt.showmatch = true
 opt.matchtime = 1 -- deci-seconds
 
-
 -- Keep undo history across sessions, by storing in file
 local undo_dir = vim.env.XDG_DATA_HOME .. "/nvim/undo"
 vim.fn.system({ "mkdir", "-p", undo_dir })
@@ -99,13 +104,15 @@ opt.undodir = undo_dir
 
 -- Folding
 opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.wo.foldtext = 'v:lua.vim.treesitter.foldtext()'
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 opt.foldlevel = 9999
 opt.foldenable = false
 
 -- Completion
 opt.updatetime = 50 -- Reduce updatetime
 opt.shortmess:append({ ["c"] = true })
+opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 -- opt.updatetime = 250 -- also affects cursorword symbols and lsp-hints
 -- opt.timeoutlen = 666 -- also affects duration until which-key is shown
 
@@ -119,8 +126,7 @@ opt.splitbelow = true -- Split below on new split
 opt.splitright = true -- Split right on new split
 
 -- Popups & Cmdline
-opt.pumwidth = 15 -- min width
-opt.pumheight = 12 -- max height
+opt.pumheight = 15 -- max height
 
 -- Clipboard
 opt.clipboard = "unnamedplus"
