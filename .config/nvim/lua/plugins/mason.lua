@@ -1,20 +1,5 @@
 --# selene: allow(mixed_table) -- lazy.nvim uses them
 local function config()
-	require("mason").setup({
-		PATH = "append",
-		ui = {
-			check_outdated_packages_on_open = false,
-		},
-	})
-
-	require("mason-lspconfig").setup({
-		ensure_installed = vim.g.myLsps,
-	})
-
-	require("mason-null-ls").setup({
-		ensure_installed = { "stylua", "eslint_d", "prettierd", "goimports", "selene", "golangci_lint", "eslint" },
-	})
-
 	local status, null = pcall(require, "null-ls")
 	if not status then
 		return
@@ -46,19 +31,16 @@ local function config()
 end
 
 return {
-	{
-		-- Automatically install LSPs to stdpath for neovim
-		{ "williamboman/mason.nvim", config = config },
-		"williamboman/mason-lspconfig.nvim",
-
-		-- ful status updates for LSP
-		{ "j-hui/fidget.nvim", tag = "legacy", opts = {} },
-	},
-
 	{ -- Linters
 		"jose-elias-alvarez/null-ls.nvim",
+		config = config,
 		dependencies = {
-			"jayp0521/mason-null-ls.nvim",
+			{
+				"jayp0521/mason-null-ls.nvim",
+				opts = {
+					ensure_installed = { "stylua", "prettierd", "goimports", "selene", "golangci_lint" },
+				},
+			},
 		},
 	},
 }
