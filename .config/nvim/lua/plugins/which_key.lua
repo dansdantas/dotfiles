@@ -51,8 +51,6 @@ local function config()
 	wk.register({
 		x = { [["_x]], "use x without yanking" },
 
-		["<C-p>"] = { tbuiltin.git_files, "project files" },
-
 		["+"] = { "<C-a>", "increases number" },
 		["-"] = { "<C-x>", "decreases number" },
 
@@ -71,32 +69,6 @@ local function config()
 	-- Leader mappings
 	wk.register({
 		["<leader>l"] = { ":luafile %<CR>", "reload current lua file" },
-		t = {
-			name = "Telescope",
-			o = { tbuiltin.find_files, "[O]pen files" },
-			b = { tbuiltin.buffers, "[B]uffers" },
-			d = { utils.search_dotfiles, "[D]otfiles" },
-			w = { tbuiltin.grep_string, "find [W]ord" },
-			g = { tbuiltin.live_grep, "by [G]rep" },
-			["?"] = { tbuiltin.oldfiles, "recent files" },
-			f = {
-				function()
-					return tbuiltin.find_files({ previewer = false })
-				end,
-				"files without preview",
-			},
-		},
-
-		["/"] = {
-			function()
-				-- You can pass additional configuration to telescope to change theme, layout, etc.
-				require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-					winblend = 10,
-					previewer = false,
-				}))
-			end,
-			"[/] Fuzzily search in current buffer]",
-		},
 
 		b = {
 			name = "buffer",
