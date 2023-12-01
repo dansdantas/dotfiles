@@ -31,6 +31,20 @@ local function config()
 
 	map.set({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<cr>")
 
+	map.set("n", "z=", function()
+		vim.ui.select(
+			vim.fn.spellsuggest(vim.fn.expand("<cword>")),
+			{},
+			vim.schedule_wrap(function(selected)
+				if selected then
+					vim.cmd("normal! ciw" .. selected)
+				end
+			end)
+		)
+	end, { desc = "Spelling suggestions" })
+
+	map.set('n', 'U', '<C-r>', { desc = 'Redo' })
+
 	wk.setup({})
 
 	-- Base mappings
