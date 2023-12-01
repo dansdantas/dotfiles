@@ -18,6 +18,9 @@ local lightThemes = {
 }
 
 local darkThemes = {
+	"folke/tokyonight.nvim",
+	"AlexvZyl/nordic.nvim",
+	"ray-x/aurora",
 	{ "tiagovla/tokyodark.nvim", opts = {} },
 	{ "navarasu/onedark.nvim", opts = { style = "darker" } },
 	-- { "folke/tokyonight.nvim", opts = { style = "moon" } },
