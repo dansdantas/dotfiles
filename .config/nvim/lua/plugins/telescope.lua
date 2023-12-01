@@ -126,7 +126,11 @@ return {
 					require("telescope.builtin").current_buffer_fuzzy_find(dropdown)
 				end,
 				desc = "[/] Fuzzily search in current buffer]",
-			}
+			},
+
+			-- Git
+			{ ",gb", function() require("telescope.builtin").git_branches() end, "git branches" },
+			{ ",gc", function() require("telescope.builtin").git_commits() end, "git commits" },
 			-- stylua: ignore end
 		},
 		dependencies = {

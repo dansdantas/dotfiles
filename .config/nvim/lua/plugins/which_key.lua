@@ -4,7 +4,6 @@ local function config()
 	local telescope = require("telescope")
 	local tbuiltin = require("telescope.builtin")
 	local wk = require("which-key")
-	local gitsigns = require("gitsigns")
 	local bfl = require("bufferline")
 	local spread = require("spread")
 
@@ -111,40 +110,6 @@ local function config()
 			"move buffer to next",
 		},
 
-		g = {
-			name = "Git",
-			g = { require("neogit").open, "neogit" },
-			c = { ":Git commit<cr>", "[C]ommit" },
-			s = {
-				function()
-					if vim.env.GIT_WORK_TREE then
-						vim.cmd([[Git status]])
-					else
-						tbuiltin.git_status()
-					end
-				end,
-				"[S]tatus",
-			},
-			a = { gitsigns.stage_hunk, "[A]dd hunk" },
-			u = { gitsigns.undo_stage_hunk, "[U]nstage hunk" },
-			A = { gitsigns.stage_buffer, "stage [A]ll buffer" },
-			U = { gitsigns.reset_buffer_index, "[U]nstage all buffer" },
-			p = { gitsigns.prev_hunk, "[P]revious hunk" },
-			n = { gitsigns.next_hunk, "[N]ext hunk" },
-			h = { gitsigns.preview_hunk, "preview [H]unk" },
-			d = { gitsigns.diffthis, "[D]iff file" },
-			q = { gitsigns.setqflist, "populate hunks to loclist" },
-			t = { gitsigns.toggle_deleted, "[T]oggle deleted hunks" },
-			r = { gitsigns.reset_buffer, "[R]eset buffer" },
-			b = {
-				function()
-					gitsigns.blame_line({ full = true })
-				end,
-				"[B]lame",
-			},
-			["!"] = { ":Git commit --amend<cr>", "[G]it [C]ommit ammend" },
-		},
-
 		v = {
 			name = "Vim",
 			c = { tbuiltin.commands, "[C]ommands" },
@@ -238,13 +203,6 @@ local function config()
 			l = { ":TestLast<cr>", "run last test" },
 			v = { ":TestVisit<cr>", "run last visited test" },
 			w = { ":TestLastOnlyFail<cr>", "test only failed" },
-		},
-
-		g = {
-			a = { ":Git commit --amend<cr>", "[G]it Commit [a]mmend" },
-			b = { tbuiltin.git_branches, "[G]it [B]ranches" },
-			c = { tbuiltin.git_commits, "[G]it [C]ommits" },
-			h = { gitsigns.select_hunk, "[G]it select [h]unk" },
 		},
 
 		w = {
