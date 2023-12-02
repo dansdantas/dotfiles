@@ -125,7 +125,7 @@ function M.help_on_current_word()
 end
 
 function M.search_current_word()
-	return vim.cmd("Ag " .. vim.fn.expand("<cword>") .. "<cr>")
+	return vim.cmd("Rg " .. vim.fn.expand("<cword>") .. "<cr>")
 end
 
 return M

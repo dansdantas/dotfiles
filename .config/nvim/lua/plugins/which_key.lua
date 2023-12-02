@@ -41,7 +41,7 @@ local function config()
 		)
 	end, { desc = "Spelling suggestions" })
 
-	map.set('n', 'U', '<C-r>', { desc = 'Redo' })
+	map.set("n", "U", "<C-r>", { desc = "Redo" })
 
 	wk.setup({})
 
@@ -119,14 +119,6 @@ local function config()
 		o = { ":FZF<cr>", "FZF" },
 
 		a = {
-			a = { ":Ag<Space>", "search with ag" },
-			k = { ":ALEPrevious<cr>", "previous error" },
-			K = { ":ALEPreviousWrap<cr>", "previous wrap" },
-			j = { ":ALENext<cr>", "next error" },
-			J = { ":ALENextWrap<cr>", "next wrap" },
-			l = { ":ALELint<cr>", "lint current buffer" },
-			t = { ":ALEToggle<cr>", "toggle ale" },
-
 			g = { utils.search_current_word, "search current word" },
 		},
 
@@ -173,7 +165,7 @@ local function config()
 		["<cr>"] = { ":so ~/.config/nvim/init.lua<cr>", "reload config" },
 
 		-- handle save
-		w = { ":w!<CR>", "save file" },
+		w = { ":silent w!<CR>", "save file" },
 		x = { ":x!<CR>", "close file" },
 		q = { ":q<cr>", "exit file" },
 		Q = { ":qa<cr>", "quit" },
