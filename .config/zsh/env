@@ -28,6 +28,9 @@ export EDP0=eDP-1-1
 export HDMI0=HDMI0
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 
+# Antigen
+export ANTIGEN_HOME="$XDG_CONFIG_HOME/antigen"
+
 if [ -z "$MACOS" ]; then
   # Term definition
   if [ -z "$TMUX" ]
@@ -37,8 +40,6 @@ if [ -z "$MACOS" ]; then
     export TERM='tmux-256color'
   fi
 
-  export ANTIGEN_HOME="$XDG_CONFIG_HOME/antigen"
-
   # Android
   export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
   export ADB_VENDOR_KEY="$XDG_CONFIG_HOME/android"
@@ -46,9 +47,6 @@ if [ -z "$MACOS" ]; then
   # AWS
   export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
   export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
-else
-  # All mac os related settings
-  export ANTIGEN_HOME=/usr/local/share/antigen
 fi
 
 # -------------------------------------------------------------------
