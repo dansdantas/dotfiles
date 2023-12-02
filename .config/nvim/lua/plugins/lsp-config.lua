@@ -340,8 +340,7 @@ local function on_attach_lsp_callback(_, bufnr)
 	--   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	-- end, '[W]orkspace [L]ist Folders')
 
-	-- Create a command `:Format` local to the LSP buffer
-	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+	vim.keymap.set("n", ",f", function()
 		vim.lsp.buf.format({
 			filter = function(client)
 				if filetype(bufnr) == "lua" then
@@ -354,9 +353,7 @@ local function on_attach_lsp_callback(_, bufnr)
 			bufnr = bufnr,
 			async = true,
 		})
-	end, { desc = "Format current buffer with LSP" })
-
-	nmap(",f", ":Format<cr>", "Format current buffer with LSP")
+	end, { noremap = true})
 
 	vim.keymap.set("v", ",f", function()
 		vim.lsp.buf.format({
