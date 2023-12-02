@@ -308,8 +308,23 @@ local function on_attach_lsp_callback(_, bufnr)
 
 	-- Diagnostics
 	nmap(",e", vim.diagnostic.open_float, "Open diagnostic float")
-	nmap("[d", ":Lspsaga diagnostic_jump_prev<CR>", "Previous diagnostic")
-	nmap("]d", ":Lspsaga diagnostic_jump_next<CR>", "Next diagnostic")
+
+	nmap("[d", function()
+		require("lspsaga.diagnostic"):goto_prev()
+	end, "Previous diagnostic")
+	nmap("]d", function()
+		require("lspsaga.diagnostic"):goto_next()
+	end, "Next diagnostic")
+
+	nmap("[D", function()
+		require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+	end, "Previous diagnostic")
+
+	nmap("]D", function()
+		require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
+	end, "Next diagnostic")
+	-- stylua: ignore start
+
 	nmap(",q", vim.diagnostic.setqflist, "Move diagnostics to qlist")
 
 	-- See `:help K` for why this keymap
