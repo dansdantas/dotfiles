@@ -31,12 +31,4 @@ return {
 				},
 		},
 	},
-
-	{
-		"winston0410/range-highlight.nvim",
-		opts = {},
-		dependencies = {
-			"winston0410/cmd-parser.nvim",
-		},
-	},
 }
