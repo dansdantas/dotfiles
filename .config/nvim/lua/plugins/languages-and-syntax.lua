@@ -8,13 +8,6 @@ return {
 		opts = { ignore = "^$" },
 	},
 
-	{
-		"windwp/nvim-autopairs",
-		opts = {
-			disable_filetype = { "TelescopePrompt", "vim" },
-		},
-	},
-
 	-- Languages
 	"mattn/emmet-vim",
 	"andymass/vim-matchup",

@@ -214,6 +214,12 @@ return {
 
 			-- "tamago324/cmp-zsh", -- some shell completions
 			-- "dmitmel/cmp-cmdline-history",
+			{
+				"windwp/nvim-autopairs",
+				opts = {
+					disable_filetype = { "TelescopePrompt", "vim" },
+				},
+			},
 		},
 	},
 }
