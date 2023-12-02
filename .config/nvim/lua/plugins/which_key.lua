@@ -5,7 +5,6 @@ local function config()
 	local tbuiltin = require("telescope.builtin")
 	local wk = require("which-key")
 	local bfl = require("bufferline")
-	local spread = require("spread")
 
 	-- own stuff
 	local workspace = require("config.workspace")
@@ -157,9 +156,6 @@ local function config()
 				end,
 				"file browser",
 			},
-
-			p = { spread.out, "spread params" },
-			c = { spread.combine, "combine params" },
 		},
 
 		F = { ":NvimTreeToggle<cr>", "toggle nerdtree" },
