@@ -36,7 +36,6 @@ opt.shortmess:append({ -- reduce info in :messages
 	w = true,
 	W = true,
 	I = true,
-	S = true,
 	s = true,
 })
 opt.report = 9001 -- disable "x more/fewer lines" messages
