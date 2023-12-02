@@ -113,4 +113,19 @@ return {
 			"nvim-treesitter/playground",
 		},
 	},
+
+	{
+		"Wansmer/treesj",
+		keys = {
+			-- stylua: ignore start
+			{ "<space>st", function() require("treesj").toggle() end, desc = "" },
+			{ "<space>sj", function() require("treesj").join() end, desc = "" },
+			{ "<space>ss", function() require("treesj").split() end, desc = "" },
+			-- stylua: ignore end
+		},
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		opts = {
+			use_default_keymaps = false,
+		},
+	},
 }
