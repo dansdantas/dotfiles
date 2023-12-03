@@ -278,10 +278,6 @@ serverConfigs.yamlls = {
 
 --------------------------------------------------------------------------------
 -- Helpers
-local filetype = function(bufnr)
-	return vim.filetype.match({ filename = vim.api.nvim_buf_get_name(bufnr) })
-end
-
 local function on_attach_lsp_callback(_, bufnr)
 	-- Mappings.
 	local nmap = function(keys, func, desc)
