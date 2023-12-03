@@ -340,31 +340,6 @@ local function on_attach_lsp_callback(_, bufnr)
 	--   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	-- end, '[W]orkspace [L]ist Folders')
 
-	vim.keymap.set("n", ",f", function()
-		vim.lsp.buf.format({
-			filter = function(client)
-				if filetype(bufnr) == "lua" then
-					-- For lua files use formatter from null-ls
-					-- apply whatever logic you want (in this example, we'll only use null-ls)
-					return client.name == "null-ls"
-				end
-				return true
-			end,
-			bufnr = bufnr,
-			async = true,
-		})
-	end, { noremap = true})
-
-	vim.keymap.set("v", ",f", function()
-		vim.lsp.buf.format({
-			range = {
-				start = vim.api.nvim_buf_get_mark(bufnr, "<"),
-				["end"] = vim.api.nvim_buf_get_mark(bufnr, ">"),
-			},
-			async = true,
-		})
-	end, { desc = "LSP: range formatting" })
-
 	vim.keymap.set(
 		{ "i" },
 		"<C-h>",
