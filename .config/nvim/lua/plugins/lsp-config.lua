@@ -313,11 +313,11 @@ local function on_attach_lsp_callback(_, bufnr)
 	end, "Next diagnostic")
 
 	nmap("[D", function()
-		require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+		vim.diagnostic.goto_prev()
 	end, "Previous diagnostic")
 
 	nmap("]D", function()
-		require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
+		vim.diagnostic.goto_next()
 	end, "Next diagnostic")
 	-- stylua: ignore start
 
