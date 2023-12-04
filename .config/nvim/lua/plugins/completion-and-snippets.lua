@@ -46,8 +46,8 @@ return {
 
 					---@diagnostic disable-next-line: missing-parameter
 					["<C-y>"] = { i = cmp.mapping.confirm({ select = false }) },
-					["<C-n>"] = { i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },
-					["<C-p>"] = { i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
+					["<C-n>"] = { i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }) },
+					["<C-p>"] = { i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }) },
 					["<C-e>"] = { i = cmp.mapping.abort() },
 					["/"] = { i = cmp.mapping.close() },
 
@@ -69,7 +69,7 @@ return {
 							if #cmp.get_entries() == 1 then
 								cmp.confirm({ select = true })
 							else
-								cmp.select_next_item()
+								cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
 							end
 						elseif luasnip.expand_or_jumpable() then
 							luasnip.expand_or_jump()
@@ -85,7 +85,7 @@ return {
 
 					["<S-Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
-							cmp.select_prev_item()
+							cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
 						elseif luasnip.jumpable(-1) then
 							luasnip.jump(-1)
 						else
