@@ -192,6 +192,7 @@ return {
 				event = "InsertEnter",
 				dependencies = {
 					"honza/vim-snippets", -- more snippets
+					"rafamadriz/friendly-snippets" -- vsode like snippets
 				},
 				opts = function()
 					local types = require("luasnip.util.types")
