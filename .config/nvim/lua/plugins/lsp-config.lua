@@ -70,6 +70,7 @@ serverConfigs.lua_ls = {
 				globals = { "vim", "table", "pairs", "package", "require", "ipairs", "pcall" },
 				disable = { "trailing-space" }, -- formatter already does that
 			},
+			format = { enable = false },
 			hint = {
 				enable = true, -- enabled inlay hints
 				setType = true,
