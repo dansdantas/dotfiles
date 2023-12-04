@@ -2,10 +2,8 @@ if vim.loader then
 	vim.loader.enable()
 end
 
-local utils = require("config.utils")
-
 -- Globals
-P = utils.print
+P = require("config.utils").print
 
 -- Leader should be defined before everything is configured
 vim.g.mapleader = " "
