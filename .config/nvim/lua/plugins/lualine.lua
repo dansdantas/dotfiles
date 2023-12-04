@@ -5,6 +5,15 @@ return {
 	{
 		"akinsho/bufferline.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
+		lazy = false,
+		keys = {
+			{ "<leader>j", function() require("bufferline").cycle(-1) end, desc = "previous buffer"},
+			{ "<leader>J", function() require("bufferline").move(-1) end, desc = "move buffer backwards"},
+			{ "<leader>h", function() require("bufferline").cycle(1) end, desc = "next buffer"},
+			{ "<leader>H", function() require("bufferline").move(1) end, desc = "move buffer forwards"},
+			{ "<leader>bf", function() require("bufferline").pick_buffer() end, desc = "select buffer"},
+			{ "<leader>bp", function() require("bufferline").toggle_pin() end, desc = "toggle pin"},
+		},
 		opts = {
 			options = {
 				indicator = {

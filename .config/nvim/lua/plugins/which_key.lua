@@ -2,7 +2,6 @@
 local function config()
 	-- plugins
 	local wk = require("which-key")
-	local bfl = require("bufferline")
 
 	-- own stuff
 	local workspace = require("config.workspace")
@@ -71,8 +70,6 @@ local function config()
 			c = { ":bd!<cr>", "close" },
 			d = { ":bd|e#<cr>", "close all but current" },
 			D = { ":%bd!<cr>", "close all" },
-			f = { bfl.pick_buffer, "find" },
-			p = { bfl.toggle_pin, "pin" },
 		},
 
 		-- quickfix and location list
@@ -80,32 +77,6 @@ local function config()
 		r = { ":cprevious<cr>", "previous on quick list" },
 		N = { ":lnext<cr>", "next on location list" },
 		R = { ":lprevious<cr>", "previous on location list" },
-
-		-- buffer movements
-		j = {
-			function()
-				return bfl.cycle(-1)
-			end,
-			"prev buffer",
-		},
-		J = {
-			function()
-				return bfl.move(-1)
-			end,
-			"move buffer to prev",
-		},
-		k = {
-			function()
-				return bfl.cycle(1)
-			end,
-			"next buffer",
-		},
-		K = {
-			function()
-				return bfl.move(1)
-			end,
-			"move buffer to next",
-		},
 
 		o = { ":FZF<cr>", "FZF" },
 
