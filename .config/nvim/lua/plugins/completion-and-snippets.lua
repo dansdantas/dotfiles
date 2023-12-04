@@ -128,6 +128,9 @@ local function config()
 		},
 	})
 
+	-- Inside a snippet, use backspace to remove the placeholder.
+	vim.keymap.set("s", "<BS>", "<C-O>s")
+
 	-- `/` cmdline setup.
 	cmp.setup.cmdline("/", {
 		mapping = cmp.mapping.preset.cmdline(),
