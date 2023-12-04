@@ -128,6 +128,32 @@ return {
 				desc = "[/] Fuzzily search in current buffer]",
 			},
 
+			{
+				"<leader>sf",
+				function ()
+					local function telescope_buffer_dir()
+						return vim.fn.expand("%:p:h")
+					end
+
+					require("telescope").extensions.file_browser.file_browser({
+						path = "%:p:h",
+						cwd = telescope_buffer_dir(),
+						respect_gitignore = false,
+						hidden = true,
+						grouped = true,
+						previewer = false,
+						initial_mode = "normal",
+						layout_config = { height = 40 },
+					})
+				end,
+				desc = "file browser",
+			},
+
+			-- Vim
+			{ "<leader>vc", function() require("telescope.builtin").commands() end, desc = "Vim commands" },
+			{ "<leader>vh", function() require("telescope.builtin").help_tags() end, desc = "Vim help" },
+			{ "<leader>vd", function() require("telescope.builtin").diagnostics() end, desc = "Vim diagnostics" },
+
 			-- Git
 			{ ",gb", function() require("telescope.builtin").git_branches() end, "git branches" },
 			{ ",gc", function() require("telescope.builtin").git_commits() end, "git commits" },

@@ -1,8 +1,6 @@
 --# selene: allow(mixed_table) -- lazy.nvim uses them
 local function config()
 	-- plugins
-	local telescope = require("telescope")
-	local tbuiltin = require("telescope.builtin")
 	local wk = require("which-key")
 	local bfl = require("bufferline")
 
@@ -109,13 +107,6 @@ local function config()
 			"move buffer to next",
 		},
 
-		v = {
-			name = "Vim",
-			c = { tbuiltin.commands, "[C]ommands" },
-			h = { tbuiltin.help_tags, "[H]elp" },
-			d = { tbuiltin.diagnostics, "[D]iagnostics" },
-		},
-
 		o = { ":FZF<cr>", "FZF" },
 
 		a = {
@@ -128,25 +119,6 @@ local function config()
 					vim.opt.list = not vim.opt.list:get()
 				end,
 				"toggle listchars display",
-			},
-			f = {
-				function()
-					local function telescope_buffer_dir()
-						return vim.fn.expand("%:p:h")
-					end
-
-					telescope.extensions.file_browser.file_browser({
-						path = "%:p:h",
-						cwd = telescope_buffer_dir(),
-						respect_gitignore = false,
-						hidden = true,
-						grouped = true,
-						previewer = false,
-						initial_mode = "normal",
-						layout_config = { height = 40 },
-					})
-				end,
-				"file browser",
 			},
 		},
 
