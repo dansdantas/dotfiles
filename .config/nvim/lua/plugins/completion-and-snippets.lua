@@ -7,6 +7,7 @@ return {
 			local cmp = require("cmp")
 			local lspkind = require("lspkind")
 			local luasnip = require("luasnip")
+			local compare = require("cmp.config.compare")
 
 			local has_words_before = function()
 				if vim.api.nvim_get_option_value("buftype", {}) == "prompt" then
@@ -108,7 +109,7 @@ return {
 					{ name = "luasnip" },
 					{ name = "nvim_lsp" },
 				}, {
-					{ name = "buffer", keyword_length = 3 },
+					{ name = "fuzzy_buffer" },
 					{ name = "buffer-lines" },
 					{ name = "async_path" },
 				}, {
@@ -119,7 +120,7 @@ return {
 					format = lspkind.cmp_format({
 						maxwidth = 50,
 						menu = {
-							buffer = "[buf]",
+							fuzzy_buffer = "[buf]",
 							nvim_lsp = "[LSP]",
 							nvim_lua = "[api]",
 							async_path = "[path]",
@@ -130,15 +131,15 @@ return {
 
 				sorting = {
 					comparators = {
-						cmp.config.compare.offset,
-						cmp.config.compare.exact,
-						cmp.config.compare.score,
+						compare.offset,
+						compare.exact,
+						compare.score,
 						require("cmp-under-comparator").under,
-						cmp.config.compare.recently_used,
-						cmp.config.compare.kind,
-						cmp.config.compare.sort_text,
-						cmp.config.compare.length,
-						cmp.config.compare.order,
+						compare.recently_used,
+						compare.kind,
+						compare.sort_text,
+						compare.length,
+						compare.order,
 					},
 				},
 
@@ -158,7 +159,7 @@ return {
 			cmp.setup.cmdline("/", {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = {
-					{ name = "buffer", keyword_length = 3 },
+					{ name = "fuzzy_buffer" },
 				},
 			})
 
@@ -181,7 +182,7 @@ return {
 		end,
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp", -- LSP input
-			"hrsh7th/cmp-buffer",
+			{ "tzachar/cmp-fuzzy-buffer", dependencies = { "tzachar/fuzzy.nvim" } },
 			"FelipeLema/cmp-async-path",
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lua",
