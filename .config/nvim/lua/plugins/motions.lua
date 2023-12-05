@@ -18,5 +18,10 @@ return {
 		end,
 	},
 
-	"szw/vim-maximizer",
+	{
+		"szw/vim-maximizer",
+		keys = {
+			{ "<leader>mt", ":MaximizerToggle<cr>", desc = "toggle maximize on current buffer" },
+		},
+	},
 }

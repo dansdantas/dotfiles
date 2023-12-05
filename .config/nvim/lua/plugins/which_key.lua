@@ -96,8 +96,6 @@ local function config()
 		F = { ":NvimTreeToggle<cr>", "toggle nerdtree" },
 		f = { ":NvimTreeFindFile<cr>", "find current file on nerdtree" },
 
-		mt = { ":MaximizerToggle<cr>", "toggle maximize current buffer" },
-
 		z = { utils.folding_toggle, "toggle folding" },
 
 		-- clipboard
