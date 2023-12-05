@@ -110,7 +110,7 @@ opt.foldlevel = 9999
 opt.foldenable = false
 
 -- Completion
-opt.updatetime = 50 -- Reduce updatetime
+opt.updatetime = 250 -- Reduce updatetime
 opt.shortmess:append({ ["c"] = true })
 opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 -- opt.updatetime = 250 -- also affects cursorword symbols and lsp-hints
