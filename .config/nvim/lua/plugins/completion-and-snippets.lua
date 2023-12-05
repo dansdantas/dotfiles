@@ -128,6 +128,20 @@ return {
 					}),
 				},
 
+				sorting = {
+					comparators = {
+						cmp.config.compare.offset,
+						cmp.config.compare.exact,
+						cmp.config.compare.score,
+						require("cmp-under-comparator").under,
+						cmp.config.compare.recently_used,
+						cmp.config.compare.kind,
+						cmp.config.compare.sort_text,
+						cmp.config.compare.length,
+						cmp.config.compare.order,
+					},
+				},
+
 				experimental = {
 					ghost_text = true,
 				},
@@ -192,7 +206,7 @@ return {
 				event = "InsertEnter",
 				dependencies = {
 					"honza/vim-snippets", -- more snippets
-					"rafamadriz/friendly-snippets" -- vsode like snippets
+					"rafamadriz/friendly-snippets", -- vsode like snippets
 				},
 				opts = function()
 					local types = require("luasnip.util.types")
