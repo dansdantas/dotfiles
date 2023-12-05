@@ -412,6 +412,9 @@ return {
 			lightbulb = {
 				enable = false,
 			},
+			symbol_in_winbar = {
+				enable = false,
+			},
 		},
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
