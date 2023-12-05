@@ -110,7 +110,7 @@ return {
 				}, {
 					{ name = "buffer", keyword_length = 3 },
 					{ name = "buffer-lines" },
-					{ name = "path" },
+					{ name = "async_path" },
 				}, {
 					{ name = "nvim_lua" },
 				}),
@@ -122,7 +122,7 @@ return {
 							buffer = "[buf]",
 							nvim_lsp = "[LSP]",
 							nvim_lua = "[api]",
-							path = "[path]",
+							async_path = "[path]",
 							luasnip = "[snip]",
 						},
 					}),
@@ -152,7 +152,7 @@ return {
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = cmp.config.sources({
-					{ name = "path", group_index = 1 },
+					{ name = "async_path", group_index = 1 },
 					{
 						name = "cmdline",
 						keyword_length = 5,
@@ -168,7 +168,7 @@ return {
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp", -- LSP input
 			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
+			"FelipeLema/cmp-async-path",
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lua",
 
