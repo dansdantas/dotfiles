@@ -19,8 +19,8 @@ return {
 		},
 		keys = {
 			-- stylua: ignore start
-			{ "]g", function() require("gitsigns").next_hunk() end, desc = "next hunk" },
-			{ "[g", function() require("gitsigns").prev_hunk() end, desc = "previous hunk" },
+			{ "]g", function() require("gitsigns").next_hunk({navigation_message = false, wrap = false}) end, desc = "next hunk" },
+			{ "[g", function() require("gitsigns").prev_hunk({navigation_message = false, wrap = false}) end, desc = "previous hunk" },
 			{ "<leader>ga", function() require("gitsigns").stage_hunk() end, "add hunk" },
 			{ "<leader>gA", function() require("gitsigns").stage_buffer() end, "stage entire buffer" },
 			{ "<leader>gu", function() require("gitsigns").undo_stage_hunk() end, "unstage hunk" },
