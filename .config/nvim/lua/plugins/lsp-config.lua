@@ -383,24 +383,6 @@ return {
 			lspDiagnosticSettings()
 		end,
 		dependencies = {
-			-- Automatically install LSPs to stdpath for neovim
-			{
-				"williamboman/mason.nvim",
-				opts = {
-					PATH = "append",
-					ui = {
-						check_outdated_packages_on_open = false,
-					},
-				},
-			},
-
-			{
-				"williamboman/mason-lspconfig.nvim",
-				opts = {
-					ensure_installed = vim.g.myLsps,
-				},
-			},
-
 			-- ful status updates for LSP
 			{ "j-hui/fidget.nvim", tag = "legacy", opts = {} },
 		},

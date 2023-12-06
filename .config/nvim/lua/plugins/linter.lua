@@ -45,14 +45,20 @@ local formatters = {
 }
 
 local dontInstall = {
-	"zsh", -- builtin
-	"trim_whitespace", -- not real formatters, but pseudo-formatters from conform.nvim
+	-- builtin
+	"zsh",
+	"ruby",
+	"gofmt",
+	"golangcilint",
+
+	-- not real formatters, but pseudo-formatters from conform.nvim
+	"trim_whitespace",
 	"trim_newlines",
 	"squeeze_blanks",
 	"injected",
-	"gofmt",
-	"golangcilint",
-	"ruby",
+
+	-- using rustup to maintain
+	"rust_analyzer",
 }
 
 --------------------------------------------------------------------------------
@@ -160,13 +166,25 @@ return {
 		opts = formatterConfig,
 	},
 
+	-- bridge between tool installer and lspconfig
+	{ "williamboman/mason-lspconfig.nvim", opts = {} },
+
 	{ -- auto-install missing linters & formatters
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		event = "VeryLazy",
 		keys = {
 			{ "<leader>pM", vim.cmd.MasonToolsUpdate, desc = " Mason Update" },
 		},
-		dependencies = "williamboman/mason.nvim",
+		dependencies = {
+			-- Automatically install LSPs to stdpath for neovim
+			"williamboman/mason.nvim",
+			opts = {
+				PATH = "append",
+				ui = {
+					check_outdated_packages_on_open = false,
+				},
+			},
+		},
 		config = function()
 			local lsps = vim.tbl_values(vim.g.lspToMasonMap)
 			local myTools = toolsToAutoinstall(linters, formatters, lsps, dontInstall)
