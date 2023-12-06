@@ -173,7 +173,7 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		event = "VeryLazy",
 		keys = {
-			{ "<leader>pM", vim.cmd.MasonToolsUpdate, desc = " Mason Update" },
+			{ "<leader>mp", vim.cmd.MasonToolsUpdate, desc = " Mason Update" },
 		},
 		dependencies = {
 			-- Automatically install LSPs to stdpath for neovim
