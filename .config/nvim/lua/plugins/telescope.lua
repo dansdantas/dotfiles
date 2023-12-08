@@ -47,10 +47,6 @@ local function config()
 		},
 
 		extensions = {
-			fzy_native = {
-				override_generic_sorter = false,
-				override_file_sorter = true,
-			},
 			["ui-select"] = {
 				require("telescope.themes").get_dropdown({}),
 			},
