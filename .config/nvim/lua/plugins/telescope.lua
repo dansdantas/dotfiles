@@ -96,11 +96,12 @@ return {
 			{ "<leader>tw", function() require("telescope.builtin").grep_string() end, desc = "find [W]ord" },
 			{ "<leader>tg", function() require("telescope.builtin").live_grep() end, desc = "by [G]rep" },
 			{ "<leader>t?", function() require("telescope.builtin").oldfiles() end, desc = "recent files" },
+			{ "<leader>tq", function() require("telescope.builtin").quickfix() end, desc = "quickfix entries" },
 
 			{ "<leader>ts", function() require("telescope.builtin").grep_string({ search = [[TODO:|todo!\(.*\)]] }) end, desc = "grep todos" },
 
 			{
-				"<leader>f", 
+				"<leader>tf", 
 				function()
 					return require("telescope.builtin").find_files({ previewer = false })
 				end,
