@@ -15,17 +15,6 @@ local function config()
 				ls_short = true, -- ls is only used when displaying directories
 			},
 
-			vimgrep_arguments = {
-				"rg",
-				"--color=never",
-				"--no-heading",
-				"--with-filename",
-				"--line-number",
-				"--column",
-				"--smart-case",
-				"--trim",
-			},
-
 			mappings = {
 				i = {
 					["C-x"] = false,
