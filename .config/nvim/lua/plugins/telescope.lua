@@ -140,9 +140,11 @@ return {
 			},
 
 			-- Vim
-			{ "<leader>vc", function() require("telescope.builtin").commands() end, desc = "Vim commands" },
+			{ "<leader>vc", function() require("telescope.builtin").command_history() end, desc = "Vim command history" },
+			{ "<leader>vC", function() require("telescope.builtin").commands() end, desc = "Vim commands" },
 			{ "<leader>vh", function() require("telescope.builtin").help_tags() end, desc = "Vim help" },
 			{ "<leader>vd", function() require("telescope.builtin").diagnostics() end, desc = "Vim diagnostics" },
+			{ "<leader>vk", function() require("telescope.builtin").keymaps() end, desc = "Vim keymaps" },
 
 			-- Git
 			{ ",gb", function() require("telescope.builtin").git_branches() end, "git branches" },
