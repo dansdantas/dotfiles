@@ -2,6 +2,7 @@
 local function config()
 	local telescope = require("telescope")
 	local actions = require("telescope.actions")
+	local layout = require("telescope.actions.layout")
 	local fb_actions = require("telescope").extensions.file_browser.actions
 
 	telescope.setup({
@@ -26,19 +27,22 @@ local function config()
 					["<C-f>"] = actions.preview_scrolling_up,
 					["<Esc>"] = actions.close,
 					["<C-r>"] = actions.select_all,
+					["<A-t>"] = layout.toggle_preview,
 				},
 				n = {
 					["<C-j>"] = actions.move_selection_next,
 					["<C-k>"] = actions.move_selection_previous,
 					["<C-b>"] = actions.preview_scrolling_down,
 					["<C-f>"] = actions.preview_scrolling_up,
+					["<A-t>"] = layout.toggle_preview,
 				},
 			},
+		},
 
-			pickers = {
-				find_files = {
-					find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
-				},
+		pickers = {
+			find_files = {
+				find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden" , "--exclude", "**/.git/*" },
+				-- find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
 			},
 		},
 
