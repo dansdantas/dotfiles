@@ -24,8 +24,6 @@ local function config()
 	map.set("n", "n", "nzzzv")
 	map.set("n", "N", "Nzzzv")
 
-	map.set({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<cr>")
-
 	map.set("n", "z=", function()
 		vim.ui.select(
 			vim.fn.spellsuggest(vim.fn.expand("<cword>")),

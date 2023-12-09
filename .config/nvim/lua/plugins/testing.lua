@@ -12,8 +12,17 @@ return {
 			g["test#neovim#term_position"] = "vert botright 50"
 		end,
 	},
-	"benmills/vimux",
-	"voldikss/vim-floaterm",
+
+	{
+		"akinsho/toggleterm.nvim",
+		opts = {
+			direction = "float",
+			autochdir = true,
+		},
+		keys = {
+			{ "<A-d>", function() require("toggleterm").toggle() end, mode = { "n", "t" } },
+		},
+	},
 
 	{ "tpope/vim-dispatch", cmd = { "Dispatch", "Make", "Focus", "Start" } },
 }
