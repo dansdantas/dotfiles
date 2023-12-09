@@ -1,3 +1,4 @@
+--# selene: allow(mixed_table) -- lazy.nvim uses them
 -- Eviline config for lualine
 -- Author: shadmansaleh
 -- Credit: glepnir
