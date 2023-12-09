@@ -39,13 +39,6 @@ local function config()
 			},
 		},
 
-		pickers = {
-			find_files = {
-				find_command = { "fd", "--type", "f", "--strip-cwd-prefix", "--hidden" , "--exclude", "**/.git/*" },
-				-- find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-			},
-		},
-
 		extensions = {
 			["ui-select"] = {
 				require("telescope.themes").get_dropdown({}),
