@@ -2,6 +2,7 @@
 return {
 	{
 		"janko-m/vim-test",
+		dependencies = { "voldikss/vim-floaterm" },
 		init = function()
 			local g = vim.g
 
