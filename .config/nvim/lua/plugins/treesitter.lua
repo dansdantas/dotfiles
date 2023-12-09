@@ -129,4 +129,16 @@ return {
 			max_join_length = 240,
 		},
 	},
+
+	{
+		"Wansmer/sibling-swap.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		keys = {
+			-- stylua: ignore start
+			{ "<space>sl", function() require("sibling-swap").swap_with_right() end, desc = "" },
+			{ "<space>sh", function() require("sibling-swap").swap_with_left() end, desc = "" },
+			-- stylua: ignore end
+		},
+		opts = { use_default_keymaps = false },
+	},
 }
