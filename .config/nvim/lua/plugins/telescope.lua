@@ -1,81 +1,84 @@
 --# selene: allow(mixed_table) -- lazy.nvim uses them
-local function config()
-	local telescope = require("telescope")
-	local actions = require("telescope.actions")
-	local layout = require("telescope.actions.layout")
-	local fb_actions = require("telescope").extensions.file_browser.actions
-
-	telescope.setup({
-		defaults = {
-			results_title = false,
-			dynamic_preview_title = true,
-
-			preview = {
-				timeout = 400, -- ms
-				filesize_limit = 1, -- Mb
-				ls_short = true, -- ls is only used when displaying directories
-			},
-
-			mappings = {
-				i = {
-					["C-x"] = false,
-					["<C-q>"] = actions.send_to_qflist,
-					["<C-s>"] = actions.cycle_previewers_next,
-					["<C-j>"] = actions.move_selection_next,
-					["<C-k>"] = actions.move_selection_previous,
-					["<C-b>"] = actions.preview_scrolling_down,
-					["<C-f>"] = actions.preview_scrolling_up,
-					["<Esc>"] = actions.close,
-					["<C-r>"] = actions.select_all,
-					["<A-t>"] = layout.toggle_preview,
-				},
-				n = {
-					["<C-j>"] = actions.move_selection_next,
-					["<C-k>"] = actions.move_selection_previous,
-					["<C-b>"] = actions.preview_scrolling_down,
-					["<C-f>"] = actions.preview_scrolling_up,
-					["<A-t>"] = layout.toggle_preview,
-				},
-			},
-		},
-
-		extensions = {
-			["ui-select"] = {
-				require("telescope.themes").get_dropdown({}),
-			},
-			file_browser = {
-				theme = "dropdown",
-				-- disables netrw and use telescope-file-browser in its place
-				hijack_netrw = true,
-				mappings = {
-					-- your custom insert mode mappings
-					["i"] = {
-						["<C-w>"] = function()
-							vim.cmd("normal vbd")
-						end,
-					},
-					["n"] = {
-						-- your custom normal mode mappings
-						["N"] = fb_actions.create,
-						["h"] = fb_actions.goto_parent_dir,
-						["/"] = function()
-							vim.cmd("startinsert")
-						end,
-					},
-				},
-			},
-		},
-	})
-
-	telescope.load_extension("ui-select")
-	telescope.load_extension("file_browser")
-	telescope.load_extension("fzf")
-end
-
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		config = config,
+		config = function(_, opts)
+			local telescope = require("telescope")
+			telescope.setup(opts)
+
+			telescope.load_extension("ui-select")
+			telescope.load_extension("file_browser")
+			telescope.load_extension("fzf")
+		end,
+
+		opts = function()
+			local actions = require("telescope.actions")
+			local layout = require("telescope.actions.layout")
+			local fb_actions = require("telescope").extensions.file_browser.actions
+
+			return {
+				defaults = {
+					results_title = false,
+					dynamic_preview_title = true,
+
+					preview = {
+						timeout = 400, -- ms
+						filesize_limit = 1, -- Mb
+						ls_short = true, -- ls is only used when displaying directories
+					},
+
+					mappings = {
+						i = {
+							["C-x"] = false,
+							["<C-q>"] = actions.send_to_qflist,
+							["<C-s>"] = actions.cycle_previewers_next,
+							["<C-j>"] = actions.move_selection_next,
+							["<C-k>"] = actions.move_selection_previous,
+							["<C-b>"] = actions.preview_scrolling_down,
+							["<C-f>"] = actions.preview_scrolling_up,
+							["<Esc>"] = actions.close,
+							["<C-r>"] = actions.select_all,
+							["<A-t>"] = layout.toggle_preview,
+						},
+						n = {
+							["<C-j>"] = actions.move_selection_next,
+							["<C-k>"] = actions.move_selection_previous,
+							["<C-b>"] = actions.preview_scrolling_down,
+							["<C-f>"] = actions.preview_scrolling_up,
+							["<A-t>"] = layout.toggle_preview,
+						},
+					},
+				},
+
+				extensions = {
+					["ui-select"] = {
+						require("telescope.themes").get_dropdown({}),
+					},
+					file_browser = {
+						theme = "dropdown",
+						-- disables netrw and use telescope-file-browser in its place
+						hijack_netrw = true,
+						mappings = {
+							-- your custom insert mode mappings
+							["i"] = {
+								["<C-w>"] = function()
+									vim.cmd("normal vbd")
+								end,
+							},
+							["n"] = {
+								-- your custom normal mode mappings
+								["N"] = fb_actions.create,
+								["h"] = fb_actions.goto_parent_dir,
+								["/"] = function()
+									vim.cmd("startinsert")
+								end,
+							},
+						},
+					},
+				},
+			}
+		end,
+
 		keys = {
 			-- stylua: ignore start
 			{ "<C-p>", function() require("telescope.builtin").git_files() end, desc = "project files" },
