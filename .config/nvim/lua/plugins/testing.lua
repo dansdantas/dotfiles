@@ -2,7 +2,6 @@
 return {
 	{
 		"janko-m/vim-test",
-		dependencies = { "voldikss/vim-floaterm" },
 		init = function()
 			local g = vim.g
 
@@ -12,16 +11,20 @@ return {
 			g["test#echo_command"] = 0
 			g["test#neovim#term_position"] = "vert botright 50"
 		end,
-	},
 
-	{
-		"akinsho/toggleterm.nvim",
-		opts = {
-			direction = "float",
-			autochdir = true,
-		},
-		keys = {
-			{ "<A-d>", function() require("toggleterm").toggle() end, mode = { "n", "t" } },
+		dependencies = {
+			{
+				"voldikss/vim-floaterm",
+				lazy = false,
+				keys = {
+					-- stylua: ignore start
+					{ "<A-t>", function() vim.cmd("FloatermToggle") end, mode = { "n", "t" } },
+					{ "<A-n>", function() vim.cmd("FloatermNext") end, mode = { "n", "t" } },
+					{ "<A-p>", function() vim.cmd("FloatermPrev") end, mode = { "n", "t" } },
+					{ "<A-e>", function() vim.cmd("FloatermNew --width=0.9 --height=0.9") end, mode = { "n", "t" } },
+					-- stylua: ignore end
+				},
+			},
 		},
 	},
 
