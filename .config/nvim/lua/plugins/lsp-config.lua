@@ -384,7 +384,7 @@ return {
 		end,
 		dependencies = {
 			-- ful status updates for LSP
-			{ "j-hui/fidget.nvim", tag = "legacy", opts = {} },
+			{ "j-hui/fidget.nvim", opts = {} },
 		},
 	},
 
