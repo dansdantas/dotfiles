@@ -142,6 +142,11 @@ return {
 		opts = { use_default_keymaps = false },
 	},
 
-	{ "chrisgrieser/nvim-various-textobjs", lazy = false, opts = { useDefaultKeymaps = true } },
+	{
+		"chrisgrieser/nvim-various-textobjs",
+		lazy = false,
+		opts = { useDefaultKeymaps = true, disabledKeymaps = { "gc" } },
+	},
+
 	{ "nvim-treesitter/nvim-treesitter-textobjects", dependencies = { "nvim-treesitter/nvim-treesitter" } },
 }
