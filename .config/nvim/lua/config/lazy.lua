@@ -13,11 +13,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
-	install = { 
+	install = {
 		-- Do not automatically install on startup.
 		missing = false,
 		-- colorschemes to use during installation
-		colorscheme = { "onedark", "tokyonight", "dawnfox", "habamax" }
+		colorscheme = { "onedark", "tokyonight", "dawnfox", "habamax" },
 	},
 
 	-- Don't bother me when tweaking plugins.
