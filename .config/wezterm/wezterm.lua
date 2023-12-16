@@ -31,10 +31,38 @@ local action = wezterm.action
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 5000 }
 config.keys = {
 	--------------------------------------------------------------------------------
-	-- Emit events
-	{ key = "g", mods = "LEADER", action = action({ EmitEvent = "toggle-tab-bar" }) },
-	{ key = "r", mods = "LEADER", action = action({ EmitEvent = "restore-window" }) },
-	{ key = "m", mods = "LEADER", action = action({ EmitEvent = "maximize-window" }) },
+	-- Callbacks
+	{
+		key = "g",
+		mods = "LEADER",
+		action = wezterm.action_callback(function(window, _, _)
+			local overrides = window:get_config_overrides() or {}
+			if overrides.enable_tab_bar == nil then
+				overrides.enable_tab_bar = false
+			else
+				overrides.enable_tab_bar = not overrides.enable_tab_bar
+			end
+			window:set_config_overrides(overrides)
+		end),
+	},
+
+	{
+		key = "m",
+		mods = "LEADER",
+		action = wezterm.action_callback(function(window, _, _)
+			window:maximize()
+		end),
+	},
+
+	{
+		key = "r",
+		mods = "LEADER",
+		action = wezterm.action_callback(function(window, _, _)
+			window:restore()
+		end),
+	},
+
+	{ key = "=", mods = "LEADER", action = action.ResetFontSize },
 
 	--------------------------------------------------------------------------------
 	-- Movements
@@ -92,24 +120,6 @@ local mux = wezterm.mux
 wezterm.on("gui-startup", function()
 	local _, _, window = mux.spawn_window({})
 	window:gui_window():maximize()
-end)
-
-wezterm.on("maximize-window", function(window, _)
-	window:maximize()
-end)
-
-wezterm.on("restore-window", function(window, _)
-	window:restore()
-end)
-
-wezterm.on("toggle-tab-bar", function(window, _)
-	local overrides = window:get_config_overrides() or {}
-	if not overrides.enable_tab_bar then
-		overrides.enable_tab_bar = true
-	else
-		overrides.enable_tab_bar = false
-	end
-	window:set_config_overrides(overrides)
 end)
 
 return config
