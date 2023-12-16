@@ -30,7 +30,7 @@ return {
 
 					mappings = {
 						i = {
-							["C-x"] = false,
+							["<C-u>"] = false,
 							["<C-q>"] = actions.send_to_qflist,
 							["<C-s>"] = actions.cycle_previewers_next,
 							["<C-j>"] = actions.move_selection_next,
