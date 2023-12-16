@@ -144,10 +144,12 @@ return {
 			{ "<leader>vh", function() require("telescope.builtin").help_tags() end, desc = "Vim help" },
 			{ "<leader>vd", function() require("telescope.builtin").diagnostics() end, desc = "Vim diagnostics" },
 			{ "<leader>vk", function() require("telescope.builtin").keymaps() end, desc = "Vim keymaps" },
+			{ "<leader>vo", function() require("telescope.builtin").vim_options() end, desc = "Vim options" },
 
 			-- Git
 			{ ",gb", function() require("telescope.builtin").git_branches() end, "git branches" },
 			{ ",gc", function() require("telescope.builtin").git_commits() end, "git commits" },
+			{ ",gC", function() require("telescope.builtin").git_bcommits() end, "git commits with preview" },
 			-- stylua: ignore end
 		},
 		dependencies = {
