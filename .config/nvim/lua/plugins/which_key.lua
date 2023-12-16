@@ -44,9 +44,6 @@ local function config()
 	wk.register({
 		x = { [["_x]], "use x without yanking" },
 
-		["+"] = { "<C-a>", "increases number" },
-		["-"] = { "<C-x>", "decreases number" },
-
 		-- split
 		["<C-J>"] = { "<C-W><C-J>", "move to left pane" },
 		["<C-K>"] = { "<C-W><C-K>", "move to upper pane" },

@@ -26,4 +26,21 @@ return {
 	},
 
 	"xiyaowong/virtcolumn.nvim",
+
+	{
+		"nat-418/boole.nvim",
+		keys = {
+			{ "+", "<C-a>" },
+			{ "-", "<C-x>" },
+		},
+		opts = {
+			mappings = {
+				increment = "<C-a>",
+				decrement = "<C-x>",
+			},
+			additions = {
+				{ "true", "false" },
+			},
+		},
+	},
 }
