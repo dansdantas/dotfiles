@@ -46,6 +46,14 @@ if [ -z "$MACOS" ]; then
 	# AWS
 	export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 	export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
+
+	# Java
+	export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
+	export JRE_HOME="$JAVA_HOME/jre"
+	export CLASSPATH="$JAVA_HOME/lib/tools.jar"
+else
+	# Java
+	export JAVA_HOME="/opt/homebrew/Cellar/openjdk/21.0.1"
 fi
 
 # -------------------------------------------------------------------
@@ -121,11 +129,6 @@ pyenv() {
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export GOBIN="$GOPATH/bin"
 export PATH="$PATH:$GOBIN"
-
-# Java 
-export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
-export JRE_HOME="$JAVA_HOME/jre"
-export CLASSPATH="$JAVA_HOME/lib/tools.jar"
 
 export PATH="$JAVA_HOME/bin:$PATH"
 export PATH="$JRE_HOME/bin:$PATH"
