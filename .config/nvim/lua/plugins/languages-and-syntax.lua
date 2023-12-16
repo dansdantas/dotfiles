@@ -1,10 +1,8 @@
 --# selene: allow(mixed_table) -- lazy.nvim uses them
 return {
 	-- Syntax
-	"editorconfig/editorconfig-vim",
 	{
 		"numToStr/Comment.nvim",
-		module = true,
 		opts = { ignore = "^$" },
 	},
 
@@ -26,4 +24,6 @@ return {
 		},
 		opts = {},
 	},
+
+	"xiyaowong/virtcolumn.nvim",
 }
