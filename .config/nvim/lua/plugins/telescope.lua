@@ -9,6 +9,7 @@ return {
 			telescope.load_extension("ui-select")
 			telescope.load_extension("file_browser")
 			telescope.load_extension("fzf")
+			telescope.load_extension("egrepify")
 		end,
 
 		opts = function()
@@ -87,8 +88,10 @@ return {
 			{ "<leader>td", function() require("config.utils").search_dotfiles() end, desc = "[D]otfiles" },
 			{ "<leader>tw", function() require("telescope.builtin").grep_string() end, desc = "find [W]ord" },
 			{ "<leader>tg", function() require("telescope.builtin").live_grep() end, desc = "by [G]rep" },
+			{ "<leader>tG", function() require("telescope").extensions.egrepify.egrepify{} end, desc = "by [G]rep" },
 			{ "<leader>t?", function() require("telescope.builtin").oldfiles() end, desc = "recent files" },
 			{ "<leader>tq", function() require("telescope.builtin").quickfix() end, desc = "quickfix entries" },
+			{ "<leader>tc", function() require("telescope.builtin").colorscheme() end, desc = "colors" },
 
 			{ "<leader>ts", function() require("telescope.builtin").grep_string({ search = [[TODO:|todo!\(.*\)]] }) end, desc = "grep todos" },
 
@@ -148,9 +151,10 @@ return {
 			-- stylua: ignore end
 		},
 		dependencies = {
-			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-telescope/telescope-ui-select.nvim" },
-			{ "nvim-telescope/telescope-file-browser.nvim" },
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-ui-select.nvim",
+			"nvim-telescope/telescope-file-browser.nvim",
+			{ "fdschmidt93/telescope-egrepify.nvim", dependencies = "nvim-lua/plenary.nvim" },
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
