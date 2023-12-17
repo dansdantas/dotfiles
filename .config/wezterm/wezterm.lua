@@ -10,7 +10,7 @@ config.window_decorations = "RESIZE"
 config.scrollback_lines = 1024000
 
 config.use_fancy_tab_bar = false
-config.enable_tab_bar = true
+config.enable_tab_bar = false
 config.tab_bar_at_bottom = true
 
 config.native_macos_fullscreen_mode = true
@@ -47,7 +47,7 @@ config.keys = {
 		action = callback(function(window, _, _)
 			local overrides = window:get_config_overrides() or {}
 			if overrides.enable_tab_bar == nil then
-				overrides.enable_tab_bar = false
+				overrides.enable_tab_bar = true
 			else
 				overrides.enable_tab_bar = not overrides.enable_tab_bar
 			end
