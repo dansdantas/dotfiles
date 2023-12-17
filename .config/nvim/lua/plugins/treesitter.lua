@@ -145,7 +145,10 @@ return {
 	{
 		"chrisgrieser/nvim-various-textobjs",
 		lazy = false,
-		opts = { useDefaultKeymaps = true, disabledKeymaps = { "gc" } },
+		opts = {
+			useDefaultKeymaps = true,
+			disabledKeymaps = { "gc", "in", "an", "il", "al" },
+		},
 	},
 
 	{ "nvim-treesitter/nvim-treesitter-textobjects", dependencies = { "nvim-treesitter/nvim-treesitter" } },
