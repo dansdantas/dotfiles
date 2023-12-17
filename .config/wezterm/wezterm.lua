@@ -110,6 +110,7 @@ config.keys = {
 	{ key = "P", mods = "CMD", action = wezterm.action.ActivateCommandPalette },
 
 	{ key = "d", mods = "LEADER", action = action.DetachDomain("CurrentPaneDomain") },
+	{ key = "f", mods = "CMD", action = action({ Search = { CaseInSensitiveString = "" } }) },
 
 	--------------------------------------------------------------------------------
 	-- Workspaces
@@ -151,6 +152,39 @@ for i = 1, 8 do
 		action = action.ActivateTab(i - 1),
 	})
 end
+
+--------------------------------------------------------------------------------
+-- Copy mode
+config.key_tables = {
+	copy_mode = {
+		{ key = "Escape", mods = "NONE", action = wezterm.action({ CopyMode = "Close" }) },
+		{ key = "h", mods = "NONE", action = wezterm.action({ CopyMode = "MoveLeft" }) },
+		{ key = "j", mods = "NONE", action = wezterm.action({ CopyMode = "MoveDown" }) },
+		{ key = "k", mods = "NONE", action = wezterm.action({ CopyMode = "MoveUp" }) },
+		{ key = "l", mods = "NONE", action = wezterm.action({ CopyMode = "MoveRight" }) },
+		-- { key = " ", mods = "NONE", action = wezterm.action({ CopyMode = "ToggleSelectionByCell" }) },
+		-- Enter search mode to edit the pattern.
+		-- When the search pattern is an empty string the existing pattern is preserved
+		{ key = "/", mods = "NONE", action = wezterm.action({ Search = { CaseInSensitiveString = "" } }) },
+		-- navigate any search mode results
+		{ key = "n", mods = "NONE", action = wezterm.action({ CopyMode = "NextMatch" }) },
+		{ key = "N", mods = "SHIFT", action = wezterm.action({ CopyMode = "PriorMatch" }) },
+
+		-- Vim like
+		{ key = "y", mods = "NONE", action = wezterm.action({ CopyMode = "AcceptPattern" }) },
+		{ key = "u", mods = "CTRL", action = wezterm.action({ CopyMode = "NextMatchPage" }) },
+		{ key = "b", mods = "CTRL", action = wezterm.action({ CopyMode = "PriorMatchPage" }) },
+	},
+	search_mode = {
+		{ key = "u", mods = "CTRL", action = wezterm.action({ CopyMode = "NextMatchPage" }) },
+		{ key = "b", mods = "CTRL", action = wezterm.action({ CopyMode = "PriorMatchPage" }) },
+		{ key = "w", mods = "CTRL", action = wezterm.action({ CopyMode = "ClearPattern" }) },
+		{ key = "Escape", mods = "NONE", action = wezterm.action({ CopyMode = "Close" }) },
+		-- Go back to copy mode when pressing enter, so that we can use unmodified keys like "n"
+		-- to navigate search results without conflicting with typing into the search area.
+		{ key = "Enter", mods = "NONE", action = "ActivateCopyMode" },
+	},
+}
 
 --------------------------------------------------------------------------------
 -- Events
