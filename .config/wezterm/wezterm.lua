@@ -4,7 +4,11 @@ local config = {}
 --------------------------------------------------------------------------------
 -- Options
 config.color_scheme = "Tokyo Night"
-config.font = wezterm.font("Fantasque Sans Mono")
+-- config.font = wezterm.font("Fantasque Sans Mono")
+-- config.font = wezterm.font("Fira Code")
+-- config.font = wezterm.font("Liberation Mono")
+-- config.font = wezterm.font("JetBrains Mono")
+config.font = wezterm.font("Monaco")
 config.window_decorations = "RESIZE"
 
 config.scrollback_lines = 1024000
@@ -146,6 +150,7 @@ config.keys = {
 			end),
 		}),
 	},
+
 }
 
 for i = 1, 8 do
@@ -173,15 +178,20 @@ config.key_tables = {
 		-- navigate any search mode results
 		{ key = "n", mods = "NONE", action = action({ CopyMode = "NextMatch" }) },
 		{ key = "N", mods = "SHIFT", action = action({ CopyMode = "PriorMatch" }) },
-
-		-- Vim like
 		{ key = "y", mods = "NONE", action = action({ CopyMode = "AcceptPattern" }) },
-		{ key = "u", mods = "CTRL", action = action({ CopyMode = "NextMatchPage" }) },
-		{ key = "b", mods = "CTRL", action = action({ CopyMode = "PriorMatchPage" }) },
+
+		-- Scrollback
+		{ key = "u", mods = "CTRL", action = action.ScrollByPage(-1) },
+		{ key = "b", mods = "CTRL", action = action.ScrollByPage(1) },
+		{ key = "G", mods = "NONE", action = action.ScrollToBottom },
+		{ key = "g", mods = "NONE", action = action.ScrollToTop },
 	},
 	search_mode = {
-		{ key = "u", mods = "CTRL", action = action({ CopyMode = "NextMatchPage" }) },
-		{ key = "b", mods = "CTRL", action = action({ CopyMode = "PriorMatchPage" }) },
+		-- Scrollback
+		{ key = "u", mods = "CTRL", action = action.ScrollByPage(-1) },
+		{ key = "b", mods = "CTRL", action = action.ScrollByPage(1) },
+		{ key = "Enter", mods = "CTRL", action = action.ScrollToBottom },
+
 		{ key = "w", mods = "CTRL", action = action({ CopyMode = "ClearPattern" }) },
 		{ key = "Escape", mods = "NONE", action = action({ CopyMode = "Close" }) },
 		-- Go back to copy mode when pressing enter, so that we can use unmodified keys like "n"
