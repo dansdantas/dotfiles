@@ -4,11 +4,7 @@ local config = {}
 --------------------------------------------------------------------------------
 -- Options
 config.color_scheme = "Tokyo Night"
--- config.font = wezterm.font("Fantasque Sans Mono")
--- config.font = wezterm.font("Fira Code")
--- config.font = wezterm.font("Liberation Mono")
--- config.font = wezterm.font("JetBrains Mono")
-config.font = wezterm.font("Monaco")
+config.font = wezterm.font("Fantasque Sans Mono")
 config.window_decorations = "RESIZE"
 
 config.scrollback_lines = 1024000
