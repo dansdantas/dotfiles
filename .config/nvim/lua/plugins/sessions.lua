@@ -1,20 +1,14 @@
 --# selene: allow(mixed_table) -- lazy.nvim uses them
 return {
 	{
-		"rmagatti/session-lens",
+		"rmagatti/auto-session",
 		opts = {
-			path_display = { "shorten" },
-			theme_conf = { border = false },
-		},
-		dependencies = {
-			{
-				"rmagatti/auto-session",
-				opts = {
-					log_level = "error",
-					auto_session_suppression_dirs = { "~/Projects" },
-				},
+			log_level = "error",
+			auto_session_suppression_dirs = { "~/Projects" },
+			session_lens = {
+				path_display = { "shorten" },
+				theme_conf = { border = false },
 			},
-			"nvim-telescope/telescope.nvim",
 		},
 	},
 }
