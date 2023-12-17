@@ -35,6 +35,8 @@ config.skip_close_confirmation_for_processes_named = {
 }
 
 local action = wezterm.action
+local callback = wezterm.action_callback
+
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 5000 }
 config.keys = {
 	--------------------------------------------------------------------------------
@@ -42,7 +44,7 @@ config.keys = {
 	{
 		key = "g",
 		mods = "LEADER",
-		action = wezterm.action_callback(function(window, _, _)
+		action = callback(function(window, _, _)
 			local overrides = window:get_config_overrides() or {}
 			if overrides.enable_tab_bar == nil then
 				overrides.enable_tab_bar = false
@@ -56,7 +58,7 @@ config.keys = {
 	{
 		key = "m",
 		mods = "LEADER",
-		action = wezterm.action_callback(function(window, _, _)
+		action = callback(function(window, _, _)
 			window:maximize()
 		end),
 	},
@@ -64,7 +66,7 @@ config.keys = {
 	{
 		key = "r",
 		mods = "LEADER",
-		action = wezterm.action_callback(function(window, _, _)
+		action = callback(function(window, _, _)
 			window:restore()
 		end),
 	},
@@ -92,6 +94,7 @@ config.keys = {
 
 	--------------------------------------------------------------------------------
 	-- Tabs
+
 	{ key = "n", mods = "LEADER", action = action.ActivateTabRelative(-1) },
 	{ key = "p", mods = "LEADER", action = action.ActivateTabRelative(1) },
 
@@ -114,6 +117,7 @@ config.keys = {
 
 	--------------------------------------------------------------------------------
 	-- Workspaces
+
 	{ key = "w", mods = "LEADER", action = action.ShowLauncherArgs({ flags = "FUZZY|TABS|WORKSPACES" }) },
 	{ key = "N", mods = "LEADER", action = action.SwitchWorkspaceRelative(1) },
 	{ key = "P", mods = "LEADER", action = action.SwitchWorkspaceRelative(-1) },
@@ -127,7 +131,7 @@ config.keys = {
 				{ Foreground = { AnsiColor = "Fuchsia" } },
 				{ Text = "Enter name for new workspace" },
 			}),
-			action = wezterm.action_callback(function(window, pane, line)
+			action = callback(function(window, pane, line)
 				-- line will be `nil` if they hit escape without entering anything
 				-- An empty string if they just hit enter
 				-- Or the actual line of text they wrote
@@ -154,32 +158,32 @@ for i = 1, 8 do
 end
 
 --------------------------------------------------------------------------------
--- Copy mode
+-- Copy/Search modes
 config.key_tables = {
 	copy_mode = {
-		{ key = "Escape", mods = "NONE", action = wezterm.action({ CopyMode = "Close" }) },
-		{ key = "h", mods = "NONE", action = wezterm.action({ CopyMode = "MoveLeft" }) },
-		{ key = "j", mods = "NONE", action = wezterm.action({ CopyMode = "MoveDown" }) },
-		{ key = "k", mods = "NONE", action = wezterm.action({ CopyMode = "MoveUp" }) },
-		{ key = "l", mods = "NONE", action = wezterm.action({ CopyMode = "MoveRight" }) },
+		{ key = "Escape", mods = "NONE", action = action({ CopyMode = "Close" }) },
+		{ key = "h", mods = "NONE", action = action({ CopyMode = "MoveLeft" }) },
+		{ key = "j", mods = "NONE", action = action({ CopyMode = "MoveDown" }) },
+		{ key = "k", mods = "NONE", action = action({ CopyMode = "MoveUp" }) },
+		{ key = "l", mods = "NONE", action = action({ CopyMode = "MoveRight" }) },
 		-- { key = " ", mods = "NONE", action = wezterm.action({ CopyMode = "ToggleSelectionByCell" }) },
 		-- Enter search mode to edit the pattern.
 		-- When the search pattern is an empty string the existing pattern is preserved
-		{ key = "/", mods = "NONE", action = wezterm.action({ Search = { CaseInSensitiveString = "" } }) },
+		{ key = "/", mods = "NONE", action = action({ Search = { CaseInSensitiveString = "" } }) },
 		-- navigate any search mode results
-		{ key = "n", mods = "NONE", action = wezterm.action({ CopyMode = "NextMatch" }) },
-		{ key = "N", mods = "SHIFT", action = wezterm.action({ CopyMode = "PriorMatch" }) },
+		{ key = "n", mods = "NONE", action = action({ CopyMode = "NextMatch" }) },
+		{ key = "N", mods = "SHIFT", action = action({ CopyMode = "PriorMatch" }) },
 
 		-- Vim like
-		{ key = "y", mods = "NONE", action = wezterm.action({ CopyMode = "AcceptPattern" }) },
-		{ key = "u", mods = "CTRL", action = wezterm.action({ CopyMode = "NextMatchPage" }) },
-		{ key = "b", mods = "CTRL", action = wezterm.action({ CopyMode = "PriorMatchPage" }) },
+		{ key = "y", mods = "NONE", action = action({ CopyMode = "AcceptPattern" }) },
+		{ key = "u", mods = "CTRL", action = action({ CopyMode = "NextMatchPage" }) },
+		{ key = "b", mods = "CTRL", action = action({ CopyMode = "PriorMatchPage" }) },
 	},
 	search_mode = {
-		{ key = "u", mods = "CTRL", action = wezterm.action({ CopyMode = "NextMatchPage" }) },
-		{ key = "b", mods = "CTRL", action = wezterm.action({ CopyMode = "PriorMatchPage" }) },
-		{ key = "w", mods = "CTRL", action = wezterm.action({ CopyMode = "ClearPattern" }) },
-		{ key = "Escape", mods = "NONE", action = wezterm.action({ CopyMode = "Close" }) },
+		{ key = "u", mods = "CTRL", action = action({ CopyMode = "NextMatchPage" }) },
+		{ key = "b", mods = "CTRL", action = action({ CopyMode = "PriorMatchPage" }) },
+		{ key = "w", mods = "CTRL", action = action({ CopyMode = "ClearPattern" }) },
+		{ key = "Escape", mods = "NONE", action = action({ CopyMode = "Close" }) },
 		-- Go back to copy mode when pressing enter, so that we can use unmodified keys like "n"
 		-- to navigate search results without conflicting with typing into the search area.
 		{ key = "Enter", mods = "NONE", action = "ActivateCopyMode" },
