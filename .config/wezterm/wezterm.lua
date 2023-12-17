@@ -27,6 +27,13 @@ config.window_frame = {
 	border_top_height = "0",
 }
 
+config.skip_close_confirmation_for_processes_named = {
+	"bash",
+	"sh",
+	"zsh",
+	"tmux",
+}
+
 local action = wezterm.action
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 5000 }
 config.keys = {
@@ -95,7 +102,7 @@ config.keys = {
 	{ key = "a", mods = "LEADER|CTRL", action = action.ActivateLastTab },
 
 	{ key = "&", mods = "LEADER", action = action.CloseCurrentTab({ confirm = true }) },
-	{ key = "w", mods = "LEADER", action = action.ShowTabNavigator },
+	{ key = "T", mods = "LEADER", action = action.ShowTabNavigator },
 
 	--------------------------------------------------------------------------------
 	-- Actions
@@ -103,6 +110,37 @@ config.keys = {
 	{ key = "P", mods = "CMD", action = wezterm.action.ActivateCommandPalette },
 
 	{ key = "d", mods = "LEADER", action = action.DetachDomain("CurrentPaneDomain") },
+
+	--------------------------------------------------------------------------------
+	-- Workspaces
+	{ key = "w", mods = "LEADER", action = action.ShowLauncherArgs({ flags = "FUZZY|TABS|WORKSPACES" }) },
+	{ key = "N", mods = "LEADER", action = action.SwitchWorkspaceRelative(1) },
+	{ key = "P", mods = "LEADER", action = action.SwitchWorkspaceRelative(-1) },
+
+	{
+		key = "s",
+		mods = "LEADER",
+		action = action.PromptInputLine({
+			description = wezterm.format({
+				{ Attribute = { Intensity = "Bold" } },
+				{ Foreground = { AnsiColor = "Fuchsia" } },
+				{ Text = "Enter name for new workspace" },
+			}),
+			action = wezterm.action_callback(function(window, pane, line)
+				-- line will be `nil` if they hit escape without entering anything
+				-- An empty string if they just hit enter
+				-- Or the actual line of text they wrote
+				if line then
+					window:perform_action(
+						action.SwitchToWorkspace({
+							name = line,
+						}),
+						pane
+					)
+				end
+			end),
+		}),
+	},
 }
 
 for i = 1, 8 do
