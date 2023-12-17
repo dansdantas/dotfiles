@@ -5,7 +5,13 @@ local config = {}
 -- Options
 --------------------------------------------------------------------------------
 config.color_scheme = "Tokyo Night"
-config.font = wezterm.font("Fantasque Sans Mono")
+config.font = wezterm.font({
+	family = "Fantasque Sans Mono",
+	harfbuzz_features = { "ss01=1" },
+})
+
+config.default_workspace = "dot"
+config.check_for_updates = false
 
 -- Mirror scrollback line from tmux
 config.scrollback_lines = 1024000
@@ -16,8 +22,8 @@ config.enable_tab_bar = false
 config.tab_bar_at_bottom = true
 
 config.inactive_pane_hsb = {
-  saturation = 0.9,
-  brightness = 0.8,
+	saturation = 0.9,
+	brightness = 0.8,
 }
 
 -- Fullscreen
