@@ -111,8 +111,6 @@ config.keys = {
 	-- Actions
 	{ key = "[", mods = "LEADER", action = action.QuickSelect },
 	{ key = "P", mods = "CMD", action = wezterm.action.ActivateCommandPalette },
-
-	{ key = "d", mods = "LEADER", action = action.DetachDomain("CurrentPaneDomain") },
 	{ key = "f", mods = "CMD", action = action({ Search = { CaseInSensitiveString = "" } }) },
 
 	--------------------------------------------------------------------------------
