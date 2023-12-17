@@ -37,13 +37,17 @@ return {
 			{
 				"<leader>gs",
 				function() 
-					if vim.env.GIT_WORK_TREE then
-						vim.cmd([[Git status]])
-					else
-						require("telescope.builtin").git_status()
+					local opts = {}
+
+					-- Env variables GIT_WORK_TREE and GIT_DIR solves problems with not finding git still need conditional
+					-- because of expanding files with -u tries to read every file on $HOME
+					if vim.env.GIT_WORK_TREE == vim.env.HOME then
+						opts.expand_dir = false
 					end
+
+					require("telescope.builtin").git_status(opts)
 				end,
-				desc = "[B]lame"
+				desc = "status"
 			},
 			{ "<leader>gc", ":Git commit<cr>", desc = "commit" },
 			{ "<leader>g!", ":Git commit --amend<cr>", desc = "commit with amend" },
