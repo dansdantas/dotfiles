@@ -21,17 +21,17 @@ return {
 			-- stylua: ignore start
 			{ "]g", function() require("gitsigns").next_hunk({navigation_message = false, wrap = false}) end, desc = "next hunk" },
 			{ "[g", function() require("gitsigns").prev_hunk({navigation_message = false, wrap = false}) end, desc = "previous hunk" },
-			{ "<leader>ga", function() require("gitsigns").stage_hunk() end, "add hunk" },
-			{ "<leader>gA", function() require("gitsigns").stage_buffer() end, "stage entire buffer" },
-			{ "<leader>gu", function() require("gitsigns").undo_stage_hunk() end, "unstage hunk" },
-			{ "<leader>gU", function() require("gitsigns").reset_buffer_index() end, "unstage entire buffer" },
-			{ "<leader>gp", function() require("gitsigns").preview_hunk() end, "preview hunk" },
-			{ ",gh", function() require("gitsigns").select_hunk() end, "select hunk" },
+			{ "<leader>ga", function() require("gitsigns").stage_hunk() end, desc = "add hunk" },
+			{ "<leader>gA", function() require("gitsigns").stage_buffer() end, desc = "stage entire buffer" },
+			{ "<leader>gu", function() require("gitsigns").undo_stage_hunk() end, desc = "unstage hunk" },
+			{ "<leader>gU", function() require("gitsigns").reset_buffer_index() end, desc = "unstage entire buffer" },
+			{ "<leader>gp", function() require("gitsigns").preview_hunk() end, desc = "preview hunk" },
+			{ ",gh", function() require("gitsigns").select_hunk() end, desc = "select hunk" },
 
-			{ "<leader>gd", function() require("gitsigns").diffthis() end, "diff file" },
-			{ "<leader>gq", function() require("gitsigns").setqflist() end, "populate hunks to loclist" },
-			{ "<leader>gt", function() require("gitsigns").toggle_deleted() end, "toggle deleted hunks" },
-			{ "<leader>gR", function() require("gitsigns").reset_buffer() end, "reset buffer" },
+			{ "<leader>gd", function() require("gitsigns").diffthis() end, desc = "diff file" },
+			{ "<leader>gq", function() require("gitsigns").setqflist() end, desc = "populate hunks to loclist" },
+			{ "<leader>gt", function() require("gitsigns").toggle_deleted() end, desc = "toggle deleted hunks" },
+			{ "<leader>gR", function() require("gitsigns").reset_buffer() end, desc = "reset buffer" },
 			{ "<leader>gb", function() require("gitsigns").blame_line({ full = true }) end, desc = "[B]lame" },
 
 			{
@@ -47,7 +47,7 @@ return {
 
 					require("telescope.builtin").git_status(opts)
 				end,
-				desc = "status"
+				desc = "git status"
 			},
 			{ "<leader>gc", ":Git commit<cr>", desc = "commit" },
 			{ "<leader>g!", ":Git commit --amend<cr>", desc = "commit with amend" },
