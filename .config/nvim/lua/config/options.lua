@@ -128,9 +128,6 @@ opt.splitright = true -- Split right on new split
 -- Popups & Cmdline
 opt.pumheight = 15 -- max height
 
--- Clipboard
-opt.clipboard = "unnamedplus"
-
 -- Abbreviations
 vim.cmd([[iabbr dbg debugger]])
 
