@@ -1,20 +1,16 @@
 --# selene: allow(mixed_table) -- lazy.nvim uses them
 return {
-	"markonm/traces.vim",
+	-- Manipulate files
+	"tpope/vim-eunuch", -- UNIX commands
+	"markonm/traces.vim", -- substitute commands
+	{ "stevearc/oil.nvim", opts = {} },
 
 	{
 		"kevinhwang91/nvim-hlslens",
-		module = true,
-		config = function()
-			require("hlslens").setup({
-				calm_down = true,
-			})
-		end,
+		opts = {
+			calm_down = true,
+		},
 	},
-
-	-- Manipulate files
-	"tpope/vim-eunuch", -- UNIX commands
-	{ "stevearc/oil.nvim", opts = {} },
 
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -22,13 +18,13 @@ return {
 		cmd = { "NvimTreeFindFile", "NvimTreeToggle" },
 		main = "nvim-tree",
 		opts = {
-				sort_by = "case_sensitive",
-				view = {
-					adaptive_size = true,
-				},
-				renderer = {
-					group_empty = true,
-				},
+			sort_by = "case_sensitive",
+			view = {
+				adaptive_size = true,
+			},
+			renderer = {
+				group_empty = true,
+			},
 		},
 	},
 }
