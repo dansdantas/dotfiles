@@ -2,18 +2,27 @@
 return {
 	-- Syntax
 	{
-		"numToStr/Comment.nvim",
-		opts = { ignore = "^$" },
+		"ckolkey/ts-node-action",
+		dependencies = { "nvim-treesitter" },
+		opts = {},
+		keys = {
+			-- stylua: ignore start
+			{ "<c-c>", function() require("ts-node-action").node_action() end },
+			-- stylua: ignore end
+		},
 	},
+
+	"xiyaowong/virtcolumn.nvim",
+	{ "vidocqh/auto-indent.nvim", opts = {} },
+	{ "sQVe/sort.nvim", opts = {} },
+	{ "numToStr/Comment.nvim", opts = { ignore = "^$" } },
 
 	-- Languages
 	"mattn/emmet-vim",
 	"andymass/vim-matchup",
-
+	"milisims/nvim-luaref",
 	--  'tpope/vim-rails'
 	--  'vim-ruby/vim-ruby'
-
-	"milisims/nvim-luaref",
 
 	{
 		"ray-x/go.nvim",
@@ -24,8 +33,6 @@ return {
 		},
 		opts = {},
 	},
-
-	"xiyaowong/virtcolumn.nvim",
 
 	{
 		"nat-418/boole.nvim",
