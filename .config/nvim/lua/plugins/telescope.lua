@@ -149,7 +149,7 @@ return {
 			-- Git
 			{ ",gb", function() require("telescope.builtin").git_branches() end, "git branches" },
 			{ ",gc", function() require("telescope.builtin").git_commits() end, "git commits" },
-			{ ",gC", function() require("telescope.builtin").git_bcommits() end, "git commits with preview" },
+			{ ",gC", function() require("telescope.builtin").git_bcommits() end, "git commits for current buffer" },
 			-- stylua: ignore end
 		},
 		dependencies = {
