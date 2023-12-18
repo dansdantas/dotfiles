@@ -12,7 +12,6 @@ return {
 		},
 	},
 
-	"xiyaowong/virtcolumn.nvim",
 	{ "vidocqh/auto-indent.nvim", opts = {} },
 	{ "sQVe/sort.nvim", opts = {} },
 	{ "numToStr/Comment.nvim", opts = { ignore = "^$" } },
