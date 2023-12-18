@@ -32,7 +32,8 @@ return {
 			{ "<leader>gq", function() require("gitsigns").setqflist() end, desc = "populate hunks to loclist" },
 			{ "<leader>gt", function() require("gitsigns").toggle_deleted() end, desc = "toggle deleted hunks" },
 			{ "<leader>gR", function() require("gitsigns").reset_buffer() end, desc = "reset buffer" },
-			{ "<leader>gb", function() require("gitsigns").blame_line({ full = true }) end, desc = "[B]lame" },
+			{ "<leader>gb", function() require("gitsigns").blame_line() end, desc = "blame line virtual" },
+			{ "<leader>gB", function() require("gitsigns").blame_line({ full = true }) end, desc = "blame line" },
 
 			{
 				"<leader>gs",
