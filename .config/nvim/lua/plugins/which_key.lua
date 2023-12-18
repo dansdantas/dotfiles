@@ -75,11 +75,8 @@ local function config()
 
 		o = { ":FZF<cr>", "FZF" },
 
-		a = {
-			g = { utils.search_current_word, "search current word" },
-		},
-
 		s = {
+			w = { utils.search_current_word, "search current word" },
 			o = {
 				function()
 					vim.opt.list = not vim.opt.list:get()
