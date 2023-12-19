@@ -196,6 +196,7 @@ return {
 			-- "dmitmel/cmp-cmdline-history",
 			{
 				"windwp/nvim-autopairs",
+				lazy = false,
 				opts = {
 					disable_filetype = { "TelescopePrompt", "vim" },
 				},
