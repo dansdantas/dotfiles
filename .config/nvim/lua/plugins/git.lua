@@ -7,6 +7,7 @@ return {
 		"lewis6991/gitsigns.nvim",
 		lazy = false,
 		opts = {
+			numhl = true,
 			signs = {
 				add = { text = "+" },
 				change = { text = "~" },
@@ -19,17 +20,21 @@ return {
 			-- stylua: ignore start
 			{ "]g", function() require("gitsigns").next_hunk({navigation_message = false, wrap = false}) end, desc = "next hunk" },
 			{ "[g", function() require("gitsigns").prev_hunk({navigation_message = false, wrap = false}) end, desc = "previous hunk" },
+			{ "<leader>gn", function() require("gitsigns").next_hunk({navigation_message = false}) end, desc = "next hunk" },
+			{ "<leader>gp", function() require("gitsigns").prev_hunk({navigation_message = false}) end, desc = "previous hunk" },
 			{ "<leader>ga", function() require("gitsigns").stage_hunk() end, desc = "add hunk" },
 			{ "<leader>gA", function() require("gitsigns").stage_buffer() end, desc = "stage entire buffer" },
 			{ "<leader>gu", function() require("gitsigns").undo_stage_hunk() end, desc = "unstage hunk" },
 			{ "<leader>gU", function() require("gitsigns").reset_buffer_index() end, desc = "unstage entire buffer" },
-			{ "<leader>gp", function() require("gitsigns").preview_hunk() end, desc = "preview hunk" },
+			{ "<leader>gP", function() require("gitsigns").preview_hunk() end, desc = "preview hunk" },
 			{ ",gh", function() require("gitsigns").select_hunk() end, desc = "select hunk" },
-
+			{ "ih", function() require("gitsigns").select_hunk() end, mode = { "o", "x" }, desc = "hunk" },
+			
 			{ "<leader>gd", function() require("gitsigns").diffthis() end, desc = "diff file" },
 			{ "<leader>gq", function() require("gitsigns").setqflist() end, desc = "populate hunks to loclist" },
 			{ "<leader>gt", function() require("gitsigns").toggle_deleted() end, desc = "toggle deleted hunks" },
 			{ "<leader>gR", function() require("gitsigns").reset_buffer() end, desc = "reset buffer" },
+			{ "<leader>gr", function() require("gitsigns").reset_hunk() end, desc = "reset hunk" },
 			{ "<leader>gb", function() require("gitsigns").blame_line() end, desc = "blame line virtual" },
 			{ "<leader>gB", function() require("gitsigns").blame_line({ full = true }) end, desc = "blame line" },
 
