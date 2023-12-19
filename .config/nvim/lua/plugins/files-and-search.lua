@@ -4,13 +4,7 @@ return {
 	"tpope/vim-eunuch", -- UNIX commands
 	"markonm/traces.vim", -- substitute commands
 	{ "stevearc/oil.nvim", opts = {} },
-
-	{
-		"kevinhwang91/nvim-hlslens",
-		opts = {
-			calm_down = true,
-		},
-	},
+	{ "kevinhwang91/nvim-hlslens", opts = { calm_down = true } },
 
 	{
 		"nvim-tree/nvim-tree.lua",
