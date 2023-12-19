@@ -191,16 +191,10 @@ return {
 			"lukas-reineke/cmp-under-comparator",
 
 			"saadparwaiz1/cmp_luasnip", -- adapter for snippet engine
+			"windwp/nvim-autopairs", -- rules and opts defined in their own file
 
 			-- "tamago324/cmp-zsh", -- some shell completions
 			-- "dmitmel/cmp-cmdline-history",
-			{
-				"windwp/nvim-autopairs",
-				lazy = false,
-				opts = {
-					disable_filetype = { "TelescopePrompt", "vim" },
-				},
-			},
 
 			{ -- snippet engine
 				"L3MON4D3/LuaSnip",
