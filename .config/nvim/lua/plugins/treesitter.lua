@@ -227,5 +227,9 @@ return {
 		},
 	},
 
-	{ "nvim-treesitter/nvim-treesitter-textobjects", dependencies = { "nvim-treesitter/nvim-treesitter" } },
+	{
+		"abecodes/tabout.nvim",
+		opts = { tabkey = "<C-t>" },
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
 }
