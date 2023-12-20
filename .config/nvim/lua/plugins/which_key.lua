@@ -79,6 +79,7 @@ local function config()
 			w = { utils.search_current_word, "search current word" },
 			o = {
 				function()
+					---@diagnostic disable-next-line: undefined-field
 					vim.opt.list = not vim.opt.list:get()
 				end,
 				"toggle listchars display",
