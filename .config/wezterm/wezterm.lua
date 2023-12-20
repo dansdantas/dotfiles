@@ -210,6 +210,16 @@ config.key_tables = {
 }
 
 --------------------------------------------------------------------------------
+-- Mouse
+config.mouse_bindings = {
+	{
+		event = { Up = { streak = 1, button = "Left" } },
+		mods = "CMD",
+		action = action.OpenLinkAtMouseCursor,
+	},
+}
+
+--------------------------------------------------------------------------------
 -- Events
 local mux = wezterm.mux
 wezterm.on("gui-startup", function()
