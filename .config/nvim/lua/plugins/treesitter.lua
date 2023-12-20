@@ -5,6 +5,11 @@ return {
 		event = "VeryLazy",
 		build = ":TSUpdate",
 		main = "nvim-treesitter.configs",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			"RRethy/nvim-treesitter-endwise",
+			"nvim-treesitter/playground",
+		},
 		opts = {
 			ensure_installed = {
 				"bash",
@@ -137,15 +142,15 @@ return {
 				},
 			},
 		},
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
-			"RRethy/nvim-treesitter-endwise",
-			"nvim-treesitter/playground",
-		},
 	},
 
 	{
 		"Wansmer/treesj",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		opts = {
+			use_default_keymaps = false,
+			max_join_length = 240,
+		},
 		keys = {
 			-- stylua: ignore start
 			{ "<space>st", function() require("treesj").toggle() end, desc = "" },
@@ -153,15 +158,11 @@ return {
 			{ "<space>sp", function() require("treesj").split() end, desc = "" },
 			-- stylua: ignore end
 		},
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		opts = {
-			use_default_keymaps = false,
-			max_join_length = 240,
-		},
 	},
 
 	{
 		"Wansmer/sibling-swap.nvim",
+		opts = { use_default_keymaps = false },
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		keys = {
 			-- stylua: ignore start
@@ -169,7 +170,6 @@ return {
 			{ "<space>sh", function() require("sibling-swap").swap_with_left() end, desc = "" },
 			-- stylua: ignore end
 		},
-		opts = { use_default_keymaps = false },
 	},
 
 	{
