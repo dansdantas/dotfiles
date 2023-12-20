@@ -1,3 +1,5 @@
+---@diagnostic disable: param-type-mismatch
+--# selene: allow(mixed_table) -- lazy.nvim uses them
 local M = {}
 
 function M.print(v)
@@ -37,9 +39,8 @@ end
 ---runs :normal natively with bang
 ---@param cmdStr string
 function M.normal(cmdStr)
-	vim.cmd.normal { cmdStr, bang = true }
+	vim.cmd.normal({ cmdStr, bang = true })
 end
-
 
 function M.add_to_todo()
 	local branch_name = vim.fn.system([[printf $(git rev-parse --abbrev-ref HEAD)]])
