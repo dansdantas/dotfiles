@@ -49,7 +49,6 @@ map.set("n", "z=", function()
 	)
 end, { desc = "Spelling suggestions" })
 
-
 --------------------------------------------------------------------------------
 -- Leader
 --------------------------------------------------------------------------------
@@ -95,7 +94,6 @@ map.set("n", "<leader>y", '"+y', { desc = "copy to clipboard" })
 map.set("v", "<leader>y", '"+y', { desc = "copy line to clipboard" })
 
 map.set("n", "<leader>z", utils.folding_toggle, { desc = "toggle folding" })
-
 
 --------------------------------------------------------------------------------
 -- ,
