@@ -147,9 +147,9 @@ return {
 			{ "<leader>vo", function() require("telescope.builtin").vim_options() end, desc = "Vim: options" },
 
 			-- Git
-			{ ",gb", function() require("telescope.builtin").git_branches() end, "Git: branches" },
-			{ ",gc", function() require("telescope.builtin").git_commits() end, "Git: commits" },
-			{ ",gC", function() require("telescope.builtin").git_bcommits() end, "Git: commits for current buffer" },
+			{ ",gb", function() require("telescope.builtin").git_branches() end, desc = "Git: branches" },
+			{ ",gc", function() require("telescope.builtin").git_commits() end, desc = "Git: commits" },
+			{ ",gC", function() require("telescope.builtin").git_bcommits() end, desc = "Git: commits for current buffer" },
 			-- stylua: ignore end
 		},
 		dependencies = {
