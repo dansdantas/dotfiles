@@ -25,8 +25,6 @@ return {
 			"rcarriga/nvim-notify",
 		},
 	},
-	-- Layout && Status
-	{ "mhinz/vim-startify", cmd = { "SSave", "SLoad", "Startify" } },
 
 	{
 		"itchyny/vim-highlighturl",
