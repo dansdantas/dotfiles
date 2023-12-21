@@ -291,58 +291,56 @@ local function on_attach_lsp_callback(_, bufnr)
 
 	local tbuiltin = require("telescope.builtin")
 
-	nmap(",rn", vim.lsp.buf.rename, "[R]e[n]ame")
-	nmap(",ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+	nmap(",rn", vim.lsp.buf.rename, "rename")
+	nmap(",ca", vim.lsp.buf.code_action, "code action")
 
-	nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-	nmap("gr", tbuiltin.lsp_references, "[G]oto [R]eferences")
-	nmap("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-	nmap("gt", ":Lspsaga finder tyd+ref+imp+def<CR>", "Show type, implementation, definition and references")
+	nmap("gd", vim.lsp.buf.definition, "go to definition")
+	nmap("gD", vim.lsp.buf.declaration, "go to declaration")
+	nmap("gr", tbuiltin.lsp_references, "go to references")
+	nmap("gi", vim.lsp.buf.implementation, "go to implementation")
 
-	nmap("gy", vim.lsp.buf.type_definition, "Type [D]efinition")
-	nmap(",ds", tbuiltin.lsp_document_symbols, "[D]ocument [S]ymbols")
-	nmap(",ws", tbuiltin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+	nmap("gt", ":Lspsaga finder tyd+ref+imp+def<CR>", "show type, implementation, definition and references [saga]")
+
+	nmap("gy", vim.lsp.buf.type_definition, "type definition")
+	nmap(",ds", tbuiltin.lsp_document_symbols, "document symbols")
+	nmap(",ws", tbuiltin.lsp_dynamic_workspace_symbols, "workspace symbols")
 
 	-- Diagnostics
-	nmap(",e", vim.diagnostic.open_float, "Open diagnostic float")
+	nmap(",e", vim.diagnostic.open_float, "open diagnostic float")
 
 	nmap("[d", function()
 		require("lspsaga.diagnostic"):goto_prev()
-	end, "Previous diagnostic")
+	end, "previous diagnostic [saga]")
 	nmap("]d", function()
 		require("lspsaga.diagnostic"):goto_next()
-	end, "Next diagnostic")
+	end, "next diagnostic [saga]")
 
 	nmap("[D", function()
 		vim.diagnostic.goto_prev()
-	end, "Previous diagnostic")
+	end, "previous diagnostic")
 
 	nmap("]D", function()
 		vim.diagnostic.goto_next()
-	end, "Next diagnostic")
-	-- stylua: ignore start
+	end, "next diagnostic")
 
-	nmap(",q", vim.diagnostic.setqflist, "Move diagnostics to qlist")
+	nmap(",q", vim.diagnostic.setqflist, "move diagnostics to qlist")
 
 	-- See `:help K` for why this keymap
-	nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-	nmap(",k", vim.lsp.buf.signature_help, "Signature Documentation")
+	nmap("K", vim.lsp.buf.hover, "hover Documentation")
+	nmap(",k", vim.lsp.buf.signature_help, "signature Documentation")
 
-	-- Lesser used LSP functionality
-	nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+	vim.keymap.set(
+		{ "i" },
+		"<C-h>",
+		vim.lsp.buf.signature_help,
+		{ silent = true, noremap = true, desc = "LSP: toggle signature" }
+	)
 
 	-- nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
 	-- nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
 	-- nmap('<leader>wl', function()
 	--   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	-- end, '[W]orkspace [L]ist Folders')
-
-	vim.keymap.set(
-		{ "i" },
-		"<C-h>",
-		vim.lsp.buf.signature_help,
-		{ silent = true, noremap = true, desc = "toggle signature" }
-	)
 end
 
 --------------------------------------------------------------------------------
@@ -409,12 +407,12 @@ return {
 		opts = {},
 		keys = {
 			-- stylua: ignore start
-			{ "gpd", function() require("goto-preview").goto_preview_definition() end, desc = "preview definition" },
-			{ "gpt", function() require("goto-preview").goto_preview_type_definition() end, desc = "preview type definition" },
-			{ "gpi", function() require("goto-preview").goto_preview_implementation() end, desc = "preview implementation" },
-			{ "gpD", function() require("goto-preview").goto_preview_declaration() end, desc = "preview declaration" },
-			{ "gP", function() require("goto-preview").close_all_win() end, desc = "close preview windows" },
-			{ "gpr", function() require("goto-preview").goto_preview_references() end, desc = "preview references" },
+			{ "gpd", function() require("goto-preview").goto_preview_definition() end, desc = "GoToPreview: definition" },
+			{ "gpt", function() require("goto-preview").goto_preview_type_definition() end, desc = "GoToPreview: type definition" },
+			{ "gpi", function() require("goto-preview").goto_preview_implementation() end, desc = "GoToPreview: implementation" },
+			{ "gpD", function() require("goto-preview").goto_preview_declaration() end, desc = "GoToPreview: declaration" },
+			{ "gP", function() require("goto-preview").close_all_win() end, desc = "GoToPreview: close windows" },
+			{ "gpr", function() require("goto-preview").goto_preview_references() end, desc = "GoToPreview: references" },
 			-- stylua: ignore end
 		},
 	},

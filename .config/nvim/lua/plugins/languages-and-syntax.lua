@@ -7,7 +7,7 @@ return {
 		opts = {},
 		keys = {
 			-- stylua: ignore start
-			{ "<c-c>", function() require("ts-node-action").node_action() end },
+			{ "<c-c>", function() require("ts-node-action").node_action() end, desc = "TS: node action" },
 			-- stylua: ignore end
 		},
 	},

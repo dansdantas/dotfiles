@@ -25,7 +25,7 @@ return {
 				function()
 					require("telescope").extensions.neoclip.default()
 				end,
-				desc = "show yanked lines",
+				desc = "Neoclip: show yanked lines",
 			},
 		},
 		opts = {

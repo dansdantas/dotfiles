@@ -153,9 +153,9 @@ return {
 		},
 		keys = {
 			-- stylua: ignore start
-			{ "<space>st", function() require("treesj").toggle() end, desc = "" },
-			{ "<space>sc", function() require("treesj").join() end, desc = "" },
-			{ "<space>sp", function() require("treesj").split() end, desc = "" },
+			{ "<space>st", function() require("treesj").toggle() end, desc = "TS: toggle split/join param" },
+			{ "<space>sc", function() require("treesj").join() end, desc = "TS: join params" },
+			{ "<space>sp", function() require("treesj").split() end, desc = "TS: split params" },
 			-- stylua: ignore end
 		},
 	},
@@ -166,8 +166,8 @@ return {
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		keys = {
 			-- stylua: ignore start
-			{ "<space>sl", function() require("sibling-swap").swap_with_right() end, desc = "" },
-			{ "<space>sh", function() require("sibling-swap").swap_with_left() end, desc = "" },
+			{ "<space>sl", function() require("sibling-swap").swap_with_right() end, desc = "TS: swap with right sibling" },
+			{ "<space>sh", function() require("sibling-swap").swap_with_left() end, desc = "TS: swap with left sibling" },
 			-- stylua: ignore end
 		},
 	},
