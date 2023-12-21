@@ -18,14 +18,14 @@ return {
 	end,
 	keys = {
 		-- stylua: ignore start
-		{ ",do", function() require("dapui").open() end, desc = "[D]ap open" },
-		{ ",dx", function() require("dapui").close() end, desc = "[D]ap open" },
-		{ ",dc", function() require("dap").continue() end, desc = "[D]ap [C]ontinue"},
-		{ ",dp", function() require("dap").step_into() end, desc = "[D]ap step over" },
-		{ ",dn", function() require("dap").step_over() end, desc = "[D]ap step into" },
-		{ ",dO", function() require("dap").step_out() end, desc = "[D]ap step out" },
-		{ ",dt", function() require("dap").toggle_breakpoint() end, desc = "[D]ap [T]oggle breakpoint" },
-		{ ",de", function() require("dap-go").debug_test() end, desc = "[D]ap D[e]bug" },
+		{ ",do", function() require("dapui").open() end, desc = "Dap: open" },
+		{ ",dx", function() require("dapui").close() end, desc = "Dap: close" },
+		{ ",dc", function() require("dap").continue() end, desc = "Dap: continue"},
+		{ ",dO", function() require("dap").step_into() end, desc = "Dap: step over" },
+		{ ",di", function() require("dap").step_over() end, desc = "Dap: step into" },
+		{ ",do", function() require("dap").step_out() end, desc = "Dap: step out" },
+		{ ",dt", function() require("dap").toggle_breakpoint() end, desc = "Dap: toggle breakpoint" },
+		{ ",de", function() require("dap-go").debug_test() end, desc = "Dap: debug" },
 		-- stylua: ignore end
 
 		{
@@ -33,7 +33,7 @@ return {
 			function()
 				require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
 			end,
-			desc = "[D]ap set breakpoint",
+			desc = "Dap: set breakpoint",
 		},
 
 		{
@@ -41,7 +41,7 @@ return {
 			function()
 				require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
 			end,
-			desc = "[D]ap set [l]og point message",
+			desc = "Dap: set log point message",
 		},
 	},
 	dependencies = {

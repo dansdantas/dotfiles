@@ -145,12 +145,12 @@ return {
 						callback = vim.cmd.update,
 					})
 				end,
-				desc = "format file",
+				desc = "Format: file",
 			},
 			{
 				",f",
 				mode = { "v" },
-				desc = "Format range",
+				desc = "Format: range",
 				function()
 					require("conform").format({
 						async = true,
@@ -173,7 +173,7 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		event = "VeryLazy",
 		keys = {
-			{ "<leader>mp", vim.cmd.MasonToolsUpdate, desc = " Mason Update" },
+			{ "<leader>mp", vim.cmd.MasonToolsUpdate, desc = " Mason: Update" },
 		},
 		dependencies = {
 			-- Automatically install LSPs to stdpath for neovim

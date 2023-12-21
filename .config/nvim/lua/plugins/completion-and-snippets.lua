@@ -251,32 +251,32 @@ return {
 						if luasnip.expand_or_locally_jumpable() then
 							luasnip.expand_or_jump()
 						end
-					end, { silent = true })
+					end, { silent = true, desc = "Snip: expand or jump locally" })
 
 					vim.keymap.set({ "i", "s" }, "<C-k>", function()
 						if luasnip.jumpable(-1) then
 							luasnip.jump(-1)
 						end
-					end, { silent = true })
+					end, { silent = true, desc = "Snip: jump backwards" })
 
 					vim.keymap.set({ "i", "s" }, "<C-j>", function()
 						if luasnip.locally_jumpable(1) then
 							luasnip.locally_jump(1)
 						end
-					end, { silent = true })
+					end, { silent = true, desc = "Snip: jump forwards" })
 
 					-- Use <C-c> to select a choice in a snippet.
 					vim.keymap.set({ "i", "s" }, "<C-c>", function()
 						if luasnip.choice_active() then
 							require("luasnip.extras.select_choice")()
 						end
-					end, { desc = "Select choice" })
+					end, { desc = "Snip: select choice" })
 
 					vim.keymap.set("i", "<C-l>", function()
 						if luasnip.choice_active() then
 							luasnip.change_choice(1)
 						end
-					end, { silent = true })
+					end, { silent = true, desc = "Snip: next choice" })
 
 					-- extend ruby snippets to rails
 					require("luasnip").filetype_extend("ruby", { "rails" })

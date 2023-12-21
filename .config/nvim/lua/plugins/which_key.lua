@@ -26,6 +26,9 @@ local function config()
 
 	-- Leader mappings
 	wk.register({
+		g = { name = "git" },
+		t = { name = "telescope" },
+
 		["<leader>l"] = { ":luafile %<CR>", "reload current lua file" },
 
 		b = {
@@ -79,6 +82,8 @@ local function config()
 
 	-- Only for declaration purposes
 	wk.register({
+		d = { name = "dap" },
+		g = { name = "git" },
 		t = { name = "testing" },
 		w = { name = "workspace" },
 	}, { prefix = "," })

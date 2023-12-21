@@ -18,10 +18,10 @@ return {
 				lazy = false,
 				keys = {
 					-- stylua: ignore start
-					{ "<A-t>", function() vim.cmd("FloatermToggle") end, mode = { "n", "t" } },
-					{ "<A-n>", function() vim.cmd("FloatermNext") end, mode = { "n", "t" } },
-					{ "<A-p>", function() vim.cmd("FloatermPrev") end, mode = { "n", "t" } },
-					{ "<A-e>", function() vim.cmd("FloatermNew --width=0.9 --height=0.9") end, mode = { "n", "t" } },
+					{ "<A-t>", function() vim.cmd("FloatermToggle") end, mode = { "n", "t" }, desc = "Floaterm: toggle" },
+					{ "<A-n>", function() vim.cmd("FloatermNext") end, mode = { "n", "t" }, desc = "Floaterm: next" },
+					{ "<A-p>", function() vim.cmd("FloatermPrev") end, mode = { "n", "t" }, desc = "Floaterm: prev" },
+					{ "<A-e>", function() vim.cmd("FloatermNew --width=0.9 --height=0.9") end, mode = { "n", "t" }, desc = "Floaterm: new" },
 					-- stylua: ignore end
 				},
 			},

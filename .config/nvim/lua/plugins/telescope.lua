@@ -82,25 +82,25 @@ return {
 
 		keys = {
 			-- stylua: ignore start
-			{ "<C-p>", function() require("telescope.builtin").git_files() end, desc = "project files" },
-			{ "<leader>to", function() require("telescope.builtin").find_files() end, desc = "[O]pen files"  },
-			{ "<leader>tb", function() require("telescope.builtin").buffers() end, desc = "[B]uffers" },
-			{ "<leader>td", function() require("config.utils").search_dotfiles() end, desc = "[D]otfiles" },
-			{ "<leader>tw", function() require("telescope.builtin").grep_string() end, desc = "find [W]ord" },
-			{ "<leader>tg", function() require("telescope.builtin").live_grep() end, desc = "by [G]rep" },
-			{ "<leader>tG", function() require("telescope").extensions.egrepify.egrepify{} end, desc = "by [G]rep" },
-			{ "<leader>t?", function() require("telescope.builtin").oldfiles() end, desc = "recent files" },
-			{ "<leader>tq", function() require("telescope.builtin").quickfix() end, desc = "quickfix entries" },
-			{ "<leader>tc", function() require("telescope.builtin").colorscheme() end, desc = "colors" },
+			{ "<C-p>", function() require("telescope.builtin").git_files() end, desc = "Telescope: project files" },
+			{ "<leader>to", function() require("telescope.builtin").find_files() end, desc = "Telescope: files"  },
+			{ "<leader>tb", function() require("telescope.builtin").buffers() end, desc = "Telescope: buffers" },
+			{ "<leader>td", function() require("config.utils").search_dotfiles() end, desc = "Telescope: dotfiles" },
+			{ "<leader>tw", function() require("telescope.builtin").grep_string() end, desc = "Telescope: find word" },
+			{ "<leader>tg", function() require("telescope.builtin").live_grep() end, desc = "Telescope: grep" },
+			{ "<leader>tG", function() require("telescope").extensions.egrepify.egrepify{} end, desc = "Telescope: egrepify" },
+			{ "<leader>t?", function() require("telescope.builtin").oldfiles() end, desc = "Telescope: recent files" },
+			{ "<leader>tq", function() require("telescope.builtin").quickfix() end, desc = "Telescope: quickfix entries" },
+			{ "<leader>tc", function() require("telescope.builtin").colorscheme() end, desc = "Telescope: colors" },
 
-			{ "<leader>ts", function() require("telescope.builtin").grep_string({ search = [[TODO:|todo!\(.*\)]] }) end, desc = "grep todos" },
+			{ "<leader>ts", function() require("telescope.builtin").grep_string({ search = [[TODO:|todo!\(.*\)]] }) end, desc = "Telescope: grep todos" },
 
 			{
 				"<leader>tf", 
 				function()
 					return require("telescope.builtin").find_files({ previewer = false })
 				end,
-				desc = "files without preview",
+				desc = "Telescope: files without preview",
 			},
 
 			{
@@ -114,7 +114,7 @@ return {
 
 					require("telescope.builtin").current_buffer_fuzzy_find(dropdown)
 				end,
-				desc = "[/] Fuzzily search in current buffer]",
+				desc = "Telescope: fuzzily search in current buffer",
 			},
 
 			{
@@ -135,21 +135,21 @@ return {
 						layout_config = { height = 40 },
 					})
 				end,
-				desc = "file browser",
+				desc = "Telescope: file browser",
 			},
 
 			-- Vim
-			{ "<leader>vc", function() require("telescope.builtin").command_history() end, desc = "Vim command history" },
-			{ "<leader>vC", function() require("telescope.builtin").commands() end, desc = "Vim commands" },
-			{ "<leader>vh", function() require("telescope.builtin").help_tags() end, desc = "Vim help" },
-			{ "<leader>vd", function() require("telescope.builtin").diagnostics() end, desc = "Vim diagnostics" },
-			{ "<leader>vk", function() require("telescope.builtin").keymaps() end, desc = "Vim keymaps" },
-			{ "<leader>vo", function() require("telescope.builtin").vim_options() end, desc = "Vim options" },
+			{ "<leader>vc", function() require("telescope.builtin").command_history() end, desc = "Vim: command history" },
+			{ "<leader>vC", function() require("telescope.builtin").commands() end, desc = "Vim: commands" },
+			{ "<leader>vh", function() require("telescope.builtin").help_tags() end, desc = "Vim: help" },
+			{ "<leader>vd", function() require("telescope.builtin").diagnostics() end, desc = "Vim: diagnostics" },
+			{ "<leader>vk", function() require("telescope.builtin").keymaps() end, desc = "Vim: keymaps" },
+			{ "<leader>vo", function() require("telescope.builtin").vim_options() end, desc = "Vim: options" },
 
 			-- Git
-			{ ",gb", function() require("telescope.builtin").git_branches() end, "git branches" },
-			{ ",gc", function() require("telescope.builtin").git_commits() end, "git commits" },
-			{ ",gC", function() require("telescope.builtin").git_bcommits() end, "git commits for current buffer" },
+			{ ",gb", function() require("telescope.builtin").git_branches() end, "Git: branches" },
+			{ ",gc", function() require("telescope.builtin").git_commits() end, "Git: commits" },
+			{ ",gC", function() require("telescope.builtin").git_bcommits() end, "Git: commits for current buffer" },
 			-- stylua: ignore end
 		},
 		dependencies = {
