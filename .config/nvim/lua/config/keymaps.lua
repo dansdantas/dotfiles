@@ -80,10 +80,16 @@ map.set("n", "<leader>F", ":NvimTreeToggle<cr>", { desc = "toggle nerdtree" })
 map.set("n", "<leader>f", ":NvimTreeFindFile<cr>", { desc = "find current file on nerdtree" })
 
 -- save/quit actions
-map.set("n", "<leader>w", ":silent w!<CR>", { desc = "save file" })
-map.set("n", "<leader>x", ":x!<CR>", { desc = "close file" })
-map.set("n", "<leader>q", ":q<cr>", { desc = "exit file" })
-map.set("n", "<leader>Q", ":qa<cr>", { desc = "quit" })
+map.set("n", "<leader>w", function()
+	vim.cmd.write({ bang = true })
+end, { desc = "save file", silent = true })
+
+map.set("n", "<leader>x", function()
+	vim.cmd.xit({ bang = true })
+end, { desc = "close file" })
+
+map.set("n", "<leader>q", vim.cmd.quit, { desc = "exit file" })
+map.set("n", "<leader>Q", vim.cmd.qall, { desc = "quit" })
 
 -- clipboard
 map.set("n", "<leader>Y", "y$", { desc = "yank till end of line" })
