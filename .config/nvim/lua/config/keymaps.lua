@@ -3,6 +3,8 @@ local utils = require("config.utils")
 
 --------------------------------------------------------------------------------
 -- No prefix
+--------------------------------------------------------------------------------
+
 map.set("", "Q", "<nop>", { remap = true }) -- disable keys
 
 -- Disable arrow keys
@@ -11,8 +13,19 @@ map.set("", "<down>", "<nop>", { remap = true })
 map.set("", "<left>", "<nop>", { remap = true })
 map.set("", "<right>", "<nop>", { remap = true })
 
+-- movements
+map.set("n", ";;", "$", { desc = "end of line" })
+map.set("n", "E", "$", { desc = "end of line" })
+map.set("n", "B", "^", { desc = "start of line" })
+
 map.set("n", "<C-d>", "<C-d>zz")
 map.set("n", "<C-u>", "<C-u>zz")
+
+-- split
+map.set("n", "<C-J>", "<C-W><C-J>", { desc = "move to left pane" })
+map.set("n", "<C-K>", "<C-W><C-K>", { desc = "move to upper pane" })
+map.set("n", "<C-L>", "<C-W><C-L>", { desc = "move to right pane" })
+map.set("n", "<C-H>", "<C-W><C-H>", { desc = "move to lower pane" })
 
 map.set("n", "J", "mzJ`z")
 map.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move selected lines downwards" })
@@ -22,6 +35,7 @@ map.set("n", "n", "nzzzv")
 map.set("n", "N", "Nzzzv")
 
 map.set("n", "U", "<C-r>", { desc = "Redo" })
+map.set("n", "x", [["_x]], { desc = "use x without yanking" })
 
 map.set("n", "z=", function()
 	vim.ui.select(
@@ -35,12 +49,55 @@ map.set("n", "z=", function()
 	)
 end, { desc = "Spelling suggestions" })
 
+
 --------------------------------------------------------------------------------
 -- Leader
+--------------------------------------------------------------------------------
+
+map.set("n", "<leader><leader>l", ":luafile %<CR>", { desc = "reload current lua file" })
+map.set("n", "<leader><BS>", [[:%s/\s\+$//e<CR>]], { desc = "remove whitespaces" })
+map.set("n", "<leader><cr>", ":so ~/.config/nvim/init.lua<cr>", { desc = "reload config" })
+map.set("n", "<leader>;", ":bd!<cr>", { desc = "delete buffer" })
+
+map.set("n", "<leader>bc", ":bd!<cr>", { desc = "close" })
+map.set("n", "<leader>bd", ":bd|e#<cr>", { desc = "close all but current" })
+map.set("n", "<leader>bD", ":%bd!<cr>", { desc = "close all" })
+
+map.set("n", "<leader>n", ":cnext<cr>", { desc = "next on quickfix list" })
+map.set("n", "<leader>r", ":cprevious<cr>", { desc = "previous on quick list" })
+map.set("n", "<leader>N", ":lnext<cr>", { desc = "next on location list" })
+map.set("n", "<leader>R", ":lprevious<cr>", { desc = "previous on location list" })
+
+map.set("n", "<leader>o", ":FZF<cr>", { desc = "FZF" })
+
+map.set("n", "<leader>sw", utils.search_current_word, { desc = "search current word" })
+map.set("n", "<leader>so", function()
+	---@diagnostic disable-next-line: undefined-field
+	vim.opt.list = not vim.opt.list:get()
+end, { desc = "toggle listchars display" })
+
+map.set("n", "<leader>F", ":NvimTreeToggle<cr>", { desc = "toggle nerdtree" })
+map.set("n", "<leader>f", ":NvimTreeFindFile<cr>", { desc = "find current file on nerdtree" })
+
+-- save/quit actions
+map.set("n", "<leader>w", ":silent w!<CR>", { desc = "save file" })
+map.set("n", "<leader>x", ":x!<CR>", { desc = "close file" })
+map.set("n", "<leader>q", ":q<cr>", { desc = "exit file" })
+map.set("n", "<leader>Q", ":qa<cr>", { desc = "quit" })
+
+-- clipboard
+map.set("n", "<leader>Y", "y$", { desc = "yank till end of line" })
+map.set("n", "<leader>p", '"+p', { desc = "paste from clipboard" })
+map.set("n", "<leader>y", '"+y', { desc = "copy to clipboard" })
 map.set("v", "<leader>y", '"+y', { desc = "copy line to clipboard" })
+
+map.set("n", "<leader>z", utils.folding_toggle, { desc = "toggle folding" })
+
 
 --------------------------------------------------------------------------------
 -- ,
+--------------------------------------------------------------------------------
+
 map.set("n", ",cl", ':let @+=expand("%:p")<cr>', { desc = "copy full path to clipboard", remap = true })
 map.set("n", ",cs", ':let @+=expand("%")<cr>', { desc = "copy relative path to clipboard", remap = true })
 map.set("n", ",he", utils.help_on_current_word, { desc = "Help on current word" })
