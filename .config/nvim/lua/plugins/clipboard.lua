@@ -15,18 +15,10 @@ end
 return {
 	{
 		"AckslD/nvim-neoclip.lua",
+		lazy = false,
 		dependencies = {
 			{ "kkharji/sqlite.lua", module = "sqlite" },
 			{ "nvim-telescope/telescope.nvim" },
-		},
-		keys = {
-			{
-				"<leader>tp",
-				function()
-					require("telescope").extensions.neoclip.default()
-				end,
-				desc = "Neoclip: show yanked lines",
-			},
 		},
 		opts = {
 			filter = function(data)
@@ -39,6 +31,15 @@ return {
 						paste = "<A-p>",
 					},
 				},
+			},
+		},
+		keys = {
+			{
+				"<leader>tp",
+				function()
+					require("telescope").extensions.neoclip.default()
+				end,
+				desc = "Neoclip: show yanked lines",
 			},
 		},
 	},
