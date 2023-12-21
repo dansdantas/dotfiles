@@ -4,6 +4,20 @@ return {
 	"tpope/vim-fugitive",
 
 	{
+		"chrisgrieser/nvim-tinygit",
+		ft = { "gitrebase", "gitcommit" }, -- so ftplugins are loaded
+		dependencies = {
+			"stevearc/dressing.nvim",
+			"rcarriga/nvim-notify", -- optional, but recommended
+		},
+		keys = {
+			{ "<leader>gC", function() require("tinygit").smartCommit() end, desc = "git commit" },
+			{ ",gp", function() require("tinygit").push() end, desc = "git push" },
+			{ ",ga", function() require("tinygit").amendOnlyMsg() end, desc = "commit with amend" },
+		},
+	},
+
+	{
 		"lewis6991/gitsigns.nvim",
 		lazy = false,
 		opts = {
@@ -55,7 +69,6 @@ return {
 			},
 			{ "<leader>gc", ":Git commit<cr>", desc = "commit" },
 			{ "<leader>g!", ":Git commit --amend<cr>", desc = "commit with amend" },
-			{ ",ga", ":Git commit --amend<cr>", desc = "commit with amend" },
 		},
 	},
 
