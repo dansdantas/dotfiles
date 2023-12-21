@@ -12,8 +12,6 @@ return {
 		},
 	},
 
-	{ "vidocqh/auto-indent.nvim", opts = {} },
-	{ "sQVe/sort.nvim", opts = {} },
 	{ "numToStr/Comment.nvim", opts = { ignore = "^$" } },
 
 	-- Languages
