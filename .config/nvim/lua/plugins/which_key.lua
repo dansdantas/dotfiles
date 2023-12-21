@@ -8,15 +8,20 @@ return {
 
 		-- Leader mappings
 		wk.register({
-			g = { name = "git" },
-			t = { name = "telescope" },
 			b = { name = "buffer" },
+			g = { name = "git" },
+			s = { name = "swap" },
+			t = { name = "telescope" },
+			v = { name = "vim" },
 		}, { prefix = "<leader>" })
 
 		-- Only for declaration purposes
 		wk.register({
+			c = { name = "clipboard" },
 			d = { name = "dap" },
 			g = { name = "git" },
+			h = { name = "help" },
+			p = { name = "peek" },
 			t = { name = "testing" },
 			w = { name = "workspace" },
 		}, { prefix = "," })
