@@ -76,9 +76,6 @@ map.set("n", "<leader>so", function()
 	vim.opt.list = not vim.opt.list:get()
 end, { desc = "toggle listchars display" })
 
-map.set("n", "<leader>F", ":NvimTreeToggle<cr>", { desc = "toggle nerdtree" })
-map.set("n", "<leader>f", ":NvimTreeFindFile<cr>", { desc = "find current file on nerdtree" })
-
 -- save/quit actions
 map.set("n", "<leader>w", function()
 	vim.cmd.write({ bang = true })
