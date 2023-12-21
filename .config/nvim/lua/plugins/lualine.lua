@@ -13,7 +13,6 @@ return {
 			{ "<leader>k", function() require("bufferline").cycle(1) end, desc = "next buffer" },
 			{ "<leader>K", function() require("bufferline").move(1) end, desc = "move buffer forwards" },
 			{ "<leader>bf", function() require("bufferline").pick_buffer() end, desc = "select buffer" },
-			{ "<leader>bp", function() require("bufferline").toggle_pin() end, desc = "toggle pin" },
 			-- stylua: ignore end
 		},
 		opts = {
@@ -71,6 +70,7 @@ return {
 								return msg
 							end
 							for _, client in ipairs(clients) do
+								---@diagnostic disable-next-line: undefined-field
 								local filetypes = client.config.filetypes
 								if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
 									return client.name

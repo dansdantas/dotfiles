@@ -4,39 +4,7 @@ local function config()
 	local wk = require("which-key")
 
 	-- own stuff
-	local workspace = require("config.workspace")
 	local utils = require("config.utils")
-
-	local map = vim.keymap
-
-	-- disable keys
-	map.set("", "Q", "<nop>", { remap = true })
-
-	-- Disable arrow keys
-	map.set("", "<up>", "<nop>", { remap = true })
-	map.set("", "<down>", "<nop>", { remap = true })
-	map.set("", "<left>", "<nop>", { remap = true })
-	map.set("", "<right>", "<nop>", { remap = true })
-
-	map.set("n", "J", "mzJ`z")
-	map.set("n", "<C-d>", "<C-d>zz")
-	map.set("n", "<C-u>", "<C-u>zz")
-	map.set("n", "n", "nzzzv")
-	map.set("n", "N", "Nzzzv")
-
-	map.set("n", "z=", function()
-		vim.ui.select(
-			vim.fn.spellsuggest(vim.fn.expand("<cword>")),
-			{},
-			vim.schedule_wrap(function(selected)
-				if selected then
-					vim.cmd("normal! ciw" .. selected)
-				end
-			end)
-		)
-	end, { desc = "Spelling suggestions" })
-
-	map.set("n", "U", "<C-r>", { desc = "Redo" })
 
 	wk.setup({})
 
@@ -109,53 +77,11 @@ local function config()
 		["<BS>"] = { [[:%s/\s\+$//e<CR>]], "remove whitespaces" },
 	}, { prefix = "<leader>" })
 
-	-- , mappings
+	-- Only for declaration purposes
 	wk.register({
-		-- buffers
-		b = { ":bd|e<cr>", "delete all buffers but current" },
-		B = { ":bd!<cr>", "delete buffer" },
-
-		he = { utils.help_on_current_word, "Help on current word" },
-		l = { ":nohl<cr>", "clear highlight" },
-
-		t = {
-			n = { ":TestNearest<cr>", "test nearest" },
-			f = { ":TestFile<cr>", "test current file" },
-			s = { ":TestSuite<cr>", "test suite" },
-			l = { ":TestLast<cr>", "run last test" },
-			v = { ":TestVisit<cr>", "run last visited test" },
-			w = { ":TestLastOnlyFail<cr>", "test only failed" },
-		},
-
-		w = {
-			name = "workspace",
-			a = { workspace.add_dir, "add dir" },
-			r = { workspace.remove_dir, "remove dir" },
-			f = { workspace.find_files, "find files" },
-			g = { workspace.grep_files, "grep on files " },
-			c = { workspace.clean_dirs, "clean dirs" },
-			l = {
-				function()
-					return P(workspace.list_dirs())
-				end,
-				"list dirs",
-			},
-		},
+		t = { name = "testing" },
+		w = { name = "workspace" },
 	}, { prefix = "," })
-
-	-- Visual mappings
-	wk.register({
-		[",aj"] = { ":AnyJumpVisual<cr>", "[J]ump to definition under visual cursor" },
-		["<leader>y"] = { '"+y', "copy to clipboard" },
-		J = { ":m '>+1<CR>gv=gv", "move selected lines downwards" },
-		K = { ":m '<-2<CR>gv=gv", "move selected lines upwards" },
-	}, { mode = "v" })
-
-	-- remap true
-	wk.register({
-		[",cs"] = { ':let @+=expand("%")<cr>', "copy relative path to clipboard" },
-		[",cl"] = { ':let @+=expand("%:p")<cr>', "copy full path to clipboard" },
-	}, { noremap = false })
 end
 
 return {
