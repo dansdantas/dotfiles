@@ -108,22 +108,29 @@ alias lh='ls -a | egrep "^\."'
 alias l.='ls -d .* --color=auto'
 
 # -------------------------------------------------------------------
-# Arch
-# -------------------------------------------------------------------
-
-# PCKBUILD
-alias mpsi='makepkg -si'
-
 # Package manager
-alias y='paru'
-alias update='y -Syu'
-alias install='y -S'
-alias search='y -Ss'
-alias purge='y -Rns'
-alias clean='purge $(y -Qtdq)'
+# -------------------------------------------------------------------
+if [ -z "$MACOS" ]; then
+  alias mpsi='makepkg -si'
 
-# Mirrors
-alias mirrors="_ reflector --verbose --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
+  # Package manager
+  alias y='paru'
+  alias update='y -Syu'
+  alias install='y -S'
+  alias search='y -Ss'
+  alias purge='y -Rns'
+  alias clean='purge $(y -Qtdq)'
+
+  # Mirrors
+  alias mirrors="_ reflector --verbose --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
+else
+	alias b='brew'
+  alias update='b upgrade'
+  alias install='b install'
+  alias search='b search'
+  alias purge='b remove'
+  alias clean='b cleanup'
+fi
 
 # -------------------------------------------------------------------
 # Plugins and apps

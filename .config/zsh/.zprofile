@@ -12,6 +12,7 @@ export FILE="vifm"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export MACOS=true
+  export XDG_RUNTIME_DIR=/tmp
 fi
 
 # XDG

@@ -54,6 +54,9 @@ if [ -z "$MACOS" ]; then
 else
 	# Java
 	export JAVA_HOME="/opt/homebrew/Cellar/openjdk/21.0.1"
+
+	# Brew
+	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # -------------------------------------------------------------------
