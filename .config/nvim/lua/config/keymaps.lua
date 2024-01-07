@@ -62,10 +62,10 @@ map.set("n", "<leader>bc", ":bd!<cr>", { desc = "close" })
 map.set("n", "<leader>bd", ":bd|e#<cr>", { desc = "close all but current" })
 map.set("n", "<leader>bD", ":%bd!<cr>", { desc = "close all" })
 
-map.set("n", "<leader>n", ":cnext<cr>", { desc = "next on quickfix list" })
-map.set("n", "<leader>r", ":cprevious<cr>", { desc = "previous on quick list" })
-map.set("n", "<leader>N", ":lnext<cr>", { desc = "next on location list" })
-map.set("n", "<leader>R", ":lprevious<cr>", { desc = "previous on location list" })
+map.set("n", "<leader>n", vim.cmd.cnext, { desc = "next on quickfix list" })
+map.set("n", "<leader>r", vim.cmd.cprevious, { desc = "previous on quick list" })
+map.set("n", "<leader>N", vim.cmd.lnext, { desc = "next on location list" })
+map.set("n", "<leader>R", vim.cmd.lprevious, { desc = "previous on location list" })
 
 map.set("n", "<leader>o", ":FZF<cr>", { desc = "FZF" })
 
