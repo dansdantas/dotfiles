@@ -308,18 +308,19 @@ local function on_attach_lsp_callback(_, bufnr)
 	-- Diagnostics
 	nmap(",e", vim.diagnostic.open_float, "open diagnostic float")
 
-	nmap("[d", function()
+	nmap("[D", function()
 		require("lspsaga.diagnostic"):goto_prev()
 	end, "previous diagnostic [saga]")
-	nmap("]d", function()
+
+	nmap("]D", function()
 		require("lspsaga.diagnostic"):goto_next()
 	end, "next diagnostic [saga]")
 
-	nmap("[D", function()
+	nmap("[d", function()
 		vim.diagnostic.goto_prev()
 	end, "previous diagnostic")
 
-	nmap("]D", function()
+	nmap("]d", function()
 		vim.diagnostic.goto_next()
 	end, "next diagnostic")
 
