@@ -2,9 +2,17 @@
 return {
 	-- Manipulate files
 	"tpope/vim-eunuch", -- UNIX commands
-	"markonm/traces.vim", -- substitute commands
-	{ "stevearc/oil.nvim", opts = {} },
+	"markonm/traces.vim",
 	{ "kevinhwang91/nvim-hlslens", opts = { calm_down = true } },
+
+	{
+		"stevearc/oil.nvim",
+		opts = {
+			view_options = {
+				show_hidden = true,
+			},
+		},
+	},
 
 	{
 		"nvim-tree/nvim-tree.lua",
