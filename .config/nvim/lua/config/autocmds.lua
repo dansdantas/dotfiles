@@ -112,3 +112,14 @@ au({ "DirChanged" }, {
 		has_run_once = false
 	end,
 })
+
+-- Highlight when yanking (copying) text
+--  Try it with `yap` in normal mode
+--  See `:help vim.highlight.on_yank()`
+au("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = aug("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})
