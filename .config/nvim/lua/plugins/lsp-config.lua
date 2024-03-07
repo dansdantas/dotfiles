@@ -2,7 +2,6 @@
 vim.g.myLsps = { -- variable used by MasonToolInstaller
 	"clangd",
 	"gopls",
-	"pyright", -- python LSP
 	"rust_analyzer", -- rust
 	"tsserver", -- ts/js
 	"solargraph",
@@ -17,7 +16,6 @@ vim.g.myLsps = { -- variable used by MasonToolInstaller
 	"emmet_ls", -- css/html completion
 
 	"jedi_language_server", -- python (has much better hovers)
-	"ruff_lsp", -- python linter
 
 	"marksman", -- markdown
 	"bashls", -- used for zsh
@@ -140,39 +138,6 @@ serverConfigs.jdtls = {
 
 --------------------------------------------------------------------------------
 -- PYTHON
-
--- DOCS https://github.com/astral-sh/ruff-lsp#settings
-serverConfigs.ruff_lsp = {
-	init_options = {
-		-- disabled, since they are done by the ruff_fix formatter
-		settings = {
-			organizeImports = false, -- when "I" ruleset is added, then included in "fixAll"
-			fixAll = false,
-			codeAction = { fixViolation = { enable = false } },
-		},
-	},
-	-- Disable hover in favor of jedi
-	on_attach = function(ruff)
-		ruff.server_capabilities.hoverProvider = false
-	end,
-}
-
--- DOCS
--- https://github.com/microsoft/pyright/blob/main/docs/settings.md
--- https://microsoft.github.io/pyright/#/settings
-serverConfigs.pyright = {
-	on_attach = function(pyright)
-		-- Disable hover in favor of jedi
-		pyright.server_capabilities.hoverProvider = false
-
-		-- Automatically set python_path virtual env
-		if not vim.env.VIRTUAL_ENV then
-			return
-		end
-		pyright.config.settings.python.pythonPath = vim.env.VIRTUAL_ENV .. "/bin/python"
-		vim.lsp.buf_notify(0, "workspace/didChangeConfiguration", { settings = pyright.config.settings })
-	end,
-}
 
 -- DOCS https://github.com/pappasam/jedi-language-server#configuration
 serverConfigs.jedi_language_server = {
