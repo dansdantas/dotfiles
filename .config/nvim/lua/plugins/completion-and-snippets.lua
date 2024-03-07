@@ -46,7 +46,7 @@ return {
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 
 					---@diagnostic disable-next-line: missing-parameter
-					["<C-y>"] = { i = cmp.mapping.confirm({ select = false }) },
+					["<C-y>"] = { i = cmp.mapping.confirm({ select = true }) },
 					["<C-n>"] = { i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }) },
 					["<C-p>"] = { i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }) },
 					["<C-e>"] = { i = cmp.mapping.abort() },
@@ -93,16 +93,6 @@ return {
 							fallback()
 						end
 					end, { "i", "s" }),
-
-					["<C-j>"] = cmp.mapping(function(fallback)
-						if luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
-						elseif has_words_before() then
-							cmp.complete()
-						else
-							fallback()
-						end
-					end),
 				}),
 
 				sources = cmp.config.sources({
