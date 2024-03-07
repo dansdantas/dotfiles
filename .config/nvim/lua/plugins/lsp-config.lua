@@ -22,6 +22,8 @@ vim.g.myLsps = { -- variable used by MasonToolInstaller
 	"marksman", -- markdown
 	"bashls", -- used for zsh
 	"html",
+
+	"jdtls",
 }
 
 --------------------------------------------------------------------------------
@@ -125,6 +127,15 @@ serverConfigs.gopls = {
 -- Rust
 serverConfigs.rust_analyzer = {
 	cmd = { "rustup", "run", "stable", "rust-analyzer" },
+}
+
+--------------------------------------------------------------------------------
+-- Java
+serverConfigs.jdtls = {
+	root_dir = function()
+		-- vim.fn.getcwd()
+		return vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1])
+	end,
 }
 
 --------------------------------------------------------------------------------
@@ -361,7 +372,12 @@ end
 
 local function setupAllLsps()
 	-- Enable snippets-completion (nvim_cmp) and folding (nvim-ufo)
-	local lspCapabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+	local lspCapabilities = vim.tbl_extend(
+		"force",
+		vim.lsp.protocol.make_client_capabilities(),
+		require("cmp_nvim_lsp").default_capabilities()
+	)
+
 	lspCapabilities.textDocument.completion.completionItem.snippetSupport = true
 	lspCapabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
 

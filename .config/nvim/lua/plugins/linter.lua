@@ -22,6 +22,7 @@ vim.g.lspToMasonMap = {
 	vimls = "vimls",
 	yamlls = "yaml-language-server",
 	golangci_lint = "golangci-lint",
+	jdtls = "jdtls",
 }
 
 local linters = {
