@@ -6,6 +6,7 @@ local utils = require("config.utils")
 --------------------------------------------------------------------------------
 
 map.set("", "Q", "<nop>", { remap = true }) -- disable keys
+map.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }) -- terminal quick exit
 
 -- Disable arrow keys
 map.set("", "<up>", "<nop>", { remap = true })
@@ -53,7 +54,7 @@ end, { desc = "Spelling suggestions" })
 -- Leader
 --------------------------------------------------------------------------------
 
-map.set("n", "<leader><leader>l", ":luafile %<CR>", { desc = "reload current lua file" })
+map.set("n", "<leader>ll", ":luafile %<CR>", { desc = "reload current lua file" })
 map.set("n", "<leader><BS>", [[:%s/\s\+$//e<CR>]], { desc = "remove whitespaces" })
 map.set("n", "<leader><cr>", ":so ~/.config/nvim/init.lua<cr>", { desc = "reload config" })
 map.set("n", "<leader>;", ":bd!<cr>", { desc = "delete buffer" })
@@ -66,8 +67,6 @@ map.set("n", "<leader>n", vim.cmd.cnext, { desc = "next on quickfix list" })
 map.set("n", "<leader>r", vim.cmd.cprevious, { desc = "previous on quick list" })
 map.set("n", "<leader>N", vim.cmd.lnext, { desc = "next on location list" })
 map.set("n", "<leader>R", vim.cmd.lprevious, { desc = "previous on location list" })
-
-map.set("n", "<leader>o", ":FZF<cr>", { desc = "FZF" })
 
 map.set("n", "<leader>sw", utils.search_current_word, { desc = "search current word" })
 map.set("n", "<leader>so", function()

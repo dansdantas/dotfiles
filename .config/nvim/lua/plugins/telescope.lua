@@ -6,10 +6,11 @@ return {
 			local telescope = require("telescope")
 			telescope.setup(opts)
 
-			telescope.load_extension("ui-select")
-			telescope.load_extension("file_browser")
-			telescope.load_extension("fzf")
-			telescope.load_extension("egrepify")
+			-- Enable extensions if they are installed
+			pcall(telescope.load_extension, "ui-select")
+			pcall(telescope.load_extension, "file_browser")
+			pcall(telescope.load_extension, "fzf")
+			pcall(telescope.load_extension, "egrepify")
 		end,
 
 		opts = function()
@@ -35,8 +36,8 @@ return {
 							["<C-s>"] = actions.cycle_previewers_next,
 							["<C-j>"] = actions.move_selection_next,
 							["<C-k>"] = actions.move_selection_previous,
-							["<C-b>"] = actions.preview_scrolling_down,
-							["<C-f>"] = actions.preview_scrolling_up,
+							["<C-f>"] = actions.preview_scrolling_down,
+							["<C-b>"] = actions.preview_scrolling_up,
 							["<Esc>"] = actions.close,
 							["<C-r>"] = actions.select_all,
 							["<A-t>"] = layout.toggle_preview,
@@ -44,8 +45,8 @@ return {
 						n = {
 							["<C-j>"] = actions.move_selection_next,
 							["<C-k>"] = actions.move_selection_previous,
-							["<C-b>"] = actions.preview_scrolling_down,
-							["<C-f>"] = actions.preview_scrolling_up,
+							["<C-f>"] = actions.preview_scrolling_down,
+							["<C-b>"] = actions.preview_scrolling_up,
 							["<A-t>"] = layout.toggle_preview,
 						},
 					},
@@ -83,15 +84,18 @@ return {
 		keys = {
 			-- stylua: ignore start
 			{ "<C-p>", function() require("telescope.builtin").git_files() end, desc = "Telescope: project files" },
-			{ "<leader>to", function() require("telescope.builtin").find_files() end, desc = "Telescope: files"  },
-			{ "<leader>tb", function() require("telescope.builtin").buffers() end, desc = "Telescope: buffers" },
+			{ "<leader>o", function() require("telescope.builtin").find_files() end, desc = "Telescope: files"  },
+			{ "<leader><leader>", function() require("telescope.builtin").buffers() end, desc = "Telescope: buffers" },
 			{ "<leader>td", function() require("config.utils").search_dotfiles() end, desc = "Telescope: dotfiles" },
 			{ "<leader>tw", function() require("telescope.builtin").grep_string() end, desc = "Telescope: find word" },
 			{ "<leader>tg", function() require("telescope.builtin").live_grep() end, desc = "Telescope: grep" },
 			{ "<leader>tG", function() require("telescope").extensions.egrepify.egrepify{} end, desc = "Telescope: egrepify" },
+			{ "<leader>sf", function() require("telescope.builtin").live_grep{grep_open_files = true} end, desc = "Telescope: grep on open files" },
 			{ "<leader>t?", function() require("telescope.builtin").oldfiles() end, desc = "Telescope: recent files" },
 			{ "<leader>tq", function() require("telescope.builtin").quickfix() end, desc = "Telescope: quickfix entries" },
 			{ "<leader>tc", function() require("telescope.builtin").colorscheme() end, desc = "Telescope: colors" },
+			{ "<leader>tn", function() require("telescope.builtin").find_files{ cwd = vim.fn.stdpath('config'), prompt_title = 'Neovim config' } end, desc = "Telescope: neovim config directory" },
+			{ "<leader>tr", function() require("telescope.builtin").resume() end, desc = "Telescope: resume" },
 
 			{ "<leader>ts", function() require("telescope.builtin").grep_string({ search = [[TODO:|todo!\(.*\)]] }) end, desc = "Telescope: grep todos" },
 
@@ -118,7 +122,7 @@ return {
 			},
 
 			{
-				"<leader>sf",
+				"<leader>tb",
 				function ()
 					local function telescope_buffer_dir()
 						return vim.fn.expand("%:p:h")
