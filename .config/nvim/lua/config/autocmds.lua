@@ -2,19 +2,31 @@ local au = vim.api.nvim_create_autocmd
 local aug = vim.api.nvim_create_augroup
 local opt_local = vim.opt_local
 
+-- Highlight when yanking (copying) text
+--  Try it with `yap` in normal mode
+--  See `:help vim.highlight.on_yank()`
+au("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = aug("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})
+
 --------------------------------------------------------------------------------
 -- FILETYPE
 
 au("FileType", {
 	pattern = "qf",
 	callback = function()
-		vim.opt_local.buflisted = false
+		opt_local.buflisted = false
 	end,
 })
 
 au("FileType", {
 	pattern = { "lua" },
 	callback = function()
+		opt_local.list = false
 		opt_local.path:append("./lua")
 	end,
 })
@@ -39,7 +51,6 @@ au("FileType", {
 	pattern = { "go", "lua", "rust", "sh" },
 	callback = function()
 		vim.bo.expandtab = false
-		vim.wo.list = false
 	end,
 })
 
@@ -49,14 +60,6 @@ au("FileType", {
 au({ "BufRead", "BufNewFile" }, {
 	pattern = { "*.arb" },
 	command = "setfiletype ruby",
-})
-
-au("BufWritePre", {
-	pattern = "NeogitCommitMessage",
-	callback = function()
-		print("called")
-		vim.fn.system({ "touch", "~/.dotfiles.git/NEOGIT_COMMIT_EDITMSG" })
-	end,
 })
 
 au({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
@@ -75,6 +78,13 @@ au({ "BufNew", "BufReadPost" }, {
 				opt_local.list = false
 			end
 		end, 1)
+	end,
+})
+
+au("BufWritePre", {
+	pattern = { "*.go", "*.lua", "*.rs" },
+	callback = function(args)
+		require("conform").format({ bufnr = args.buf })
 	end,
 })
 
@@ -110,16 +120,5 @@ au({ "DirChanged" }, {
 	pattern = { "*" },
 	callback = function()
 		has_run_once = false
-	end,
-})
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
-au("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = aug("kickstart-highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
 	end,
 })
