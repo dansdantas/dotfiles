@@ -254,73 +254,6 @@ serverConfigs.yamlls = {
 }
 
 --------------------------------------------------------------------------------
--- Helpers
-local function on_attach_lsp_callback(_, bufnr)
-	-- Mappings.
-	local nmap = function(keys, func, desc)
-		if desc then
-			desc = "LSP: " .. desc
-		end
-
-		vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
-	end
-
-	local tbuiltin = require("telescope.builtin")
-
-	nmap(",rn", vim.lsp.buf.rename, "rename")
-	nmap(",ca", vim.lsp.buf.code_action, "code action")
-
-	nmap("gd", vim.lsp.buf.definition, "go to definition")
-	nmap("gD", vim.lsp.buf.declaration, "go to declaration")
-	nmap("gr", tbuiltin.lsp_references, "go to references")
-	nmap("gi", vim.lsp.buf.implementation, "go to implementation")
-
-	nmap("gt", ":Lspsaga finder tyd+ref+imp+def<CR>", "show type, implementation, definition and references [saga]")
-
-	nmap("gy", vim.lsp.buf.type_definition, "type definition")
-	nmap(",ds", tbuiltin.lsp_document_symbols, "document symbols")
-	nmap(",ws", tbuiltin.lsp_dynamic_workspace_symbols, "workspace symbols")
-
-	-- Diagnostics
-	nmap(",e", vim.diagnostic.open_float, "open diagnostic float")
-
-	nmap("[D", function()
-		require("lspsaga.diagnostic"):goto_prev()
-	end, "previous diagnostic [saga]")
-
-	nmap("]D", function()
-		require("lspsaga.diagnostic"):goto_next()
-	end, "next diagnostic [saga]")
-
-	nmap("[d", function()
-		vim.diagnostic.goto_prev()
-	end, "previous diagnostic")
-
-	nmap("]d", function()
-		vim.diagnostic.goto_next()
-	end, "next diagnostic")
-
-	nmap(",q", vim.diagnostic.setqflist, "move diagnostics to qlist")
-
-	-- See `:help K` for why this keymap
-	nmap("K", vim.lsp.buf.hover, "hover Documentation")
-	nmap(",k", vim.lsp.buf.signature_help, "signature Documentation")
-
-	vim.keymap.set(
-		{ "i" },
-		"<C-h>",
-		vim.lsp.buf.signature_help,
-		{ silent = true, noremap = true, desc = "LSP: toggle signature" }
-	)
-
-	-- nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-	-- nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-	-- nmap('<leader>wl', function()
-	--   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	-- end, '[W]orkspace [L]ist Folders')
-end
-
---------------------------------------------------------------------------------
 local function lspDiagnosticSettings()
 	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 		virtual_text = true,
@@ -349,7 +282,6 @@ local function setupAllLsps()
 	for lsp, serverConfig in pairs(serverConfigs) do
 		serverConfig.capabilities = lspCapabilities
 		serverConfig.flags = { debounce_text_changes = 150 }
-		serverConfig.on_attach = on_attach_lsp_callback
 
 		require("lspconfig")[lsp].setup(serverConfig)
 	end
