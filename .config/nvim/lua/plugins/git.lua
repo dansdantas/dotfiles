@@ -11,9 +11,11 @@ return {
 			"rcarriga/nvim-notify", -- optional, but recommended
 		},
 		keys = {
+			-- stylua: ignore start
 			{ "<leader>gC", function() require("tinygit").smartCommit() end, desc = "Git: commit" },
 			{ ",gp", function() require("tinygit").push() end, desc = "Git: push" },
 			{ ",ga", function() require("tinygit").amendOnlyMsg() end, desc = "Git: commit with amend" },
+			-- stylua: ignore end
 		},
 	},
 
@@ -25,9 +27,9 @@ return {
 			signs = {
 				add = { text = "+" },
 				change = { text = "~" },
-				delete = { text = "_", show_count = true },
-				topdelete = { text = "‾", show_count = true },
-				changedelete = { text = "~", show_count = true },
+				delete = { text = "_" },
+				topdelete = { text = "‾" },
+				changedelete = { text = "~" },
 			},
 		},
 		keys = {
@@ -43,7 +45,6 @@ return {
 			{ "<leader>gP", function() require("gitsigns").preview_hunk() end, desc = "Git: preview hunk" },
 			{ ",gh", function() require("gitsigns").select_hunk() end, desc = "Git: select hunk" },
 			{ "ih", function() require("gitsigns").select_hunk() end, mode = { "o", "x" }, desc = "Git: hunk" },
-			
 			{ "<leader>gd", function() require("gitsigns").diffthis() end, desc = "Git: diff file" },
 			{ "<leader>gq", function() require("gitsigns").setqflist() end, desc = "Git: populate hunks to loclist" },
 			{ "<leader>gt", function() require("gitsigns").toggle_deleted() end, desc = "Git: toggle deleted hunks" },
