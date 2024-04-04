@@ -1,40 +1,40 @@
 [user]
 	name = Daniel Santos Dantas
-  email = daniel@sdantas.dev
+	email = daniel@sdantas.dev
 [push]
-  default = simple
+	default = simple
 	followtags = true
 [color]
-  ui = auto
+	ui = auto
 	diff = auto
 	status = auto
 	branch = auto
 	interactive = auto
 [alias]
-  aa = add --all
-  ap = add --patch
-  ci = commit -v
-  co = checkout
-  pf = push --force-with-lease
-  st = status
+	aa = add --all
+	ap = add --patch
+	ci = commit -v
+	co = checkout
+	pf = push --force-with-lease
+	st = status
 	ctags = !.git/hooks/ctags
 	draw = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	up = !git push -u $(git-branch)
 [core]
-  excludesfile = ~/.gitignore
-  autocrlf = input
+	excludesfile = ~/.gitignore
+	autocrlf = input
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 	trustctime = false
 [commit]
-  template = ~/.gitmessage
+	template = ~/.gitmessage
 	verbose = true
 [fetch]
-  prune = true
+	prune = true
 [rebase]
-  autosquash = true
+	autosquash = true
 [include]
-  path = ~/.gitconfig.local
+	path = ~/.gitconfig.local
 [http]
 	postBuffer = 524288000
 [color "diff-highlight"]
@@ -51,8 +51,6 @@
 	whitespace = red reverse
 [hub]
 	protocol = ssh
-[includeIf "gitdir:~/tlm/"]
-    path = ~/tlm/.gitconfig
 [pull]
 	rebase = true
 [filter "lfs"]
