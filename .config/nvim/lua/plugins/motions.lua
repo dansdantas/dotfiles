@@ -6,7 +6,7 @@ return {
 	"tpope/vim-repeat",
 	"tpope/vim-abolish", -- Search and replace subvert pattern
 	"alvan/vim-closetag",
-	"karb94/neoscroll.nvim",
+	{ "karb94/neoscroll.nvim", opts = {} },
 
 	-- Motion
 	"wellle/targets.vim",
