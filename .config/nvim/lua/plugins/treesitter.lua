@@ -74,10 +74,14 @@ return {
 						["ia"] = "@parameter.inner",
 						["af"] = "@function.outer",
 						["if"] = "@function.inner",
-						["ac"] = "@class.outer",
-						["ic"] = "@class.inner",
-						["iC"] = "@call.inner",
-						["aC"] = "@call.outer",
+						["aC"] = "@class.outer",
+						["iC"] = "@class.inner",
+						["ic"] = "@call.inner",
+						["ac"] = "@call.outer",
+						["aH"] = "@assignment.lhs",
+						["ah"] = "@assignment.inner",
+						["aL"] = "@assignment.rhs",
+						["al"] = "@assignment.outer",
 					},
 					-- You can choose the select mode (default is charwise 'v')
 					--
@@ -126,9 +130,13 @@ return {
 					enable = true,
 					swap_next = {
 						["<leader>sj"] = "@parameter.inner",
+						[",sj"] = "@assignment.inner",
+						[",sJ"] = "@attribute.inner",
 					},
 					swap_previous = {
 						["<leader>sk"] = "@parameter.inner",
+						[",sk"] = "@assignment.inner",
+						[",sK"] = "@attribute.inner",
 					},
 				},
 				lsp_interop = {
