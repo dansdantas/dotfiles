@@ -63,8 +63,6 @@ map.set("n", "<leader>bc", ":bd!<cr>", { desc = "close" })
 map.set("n", "<leader>bd", ":bd|e#<cr>", { desc = "close all but current" })
 map.set("n", "<leader>bD", ":%bd!<cr>", { desc = "close all" })
 
-map.set("n", "<leader>n", vim.cmd.cnext, { desc = "next on quickfix list" })
-map.set("n", "<leader>r", vim.cmd.cprevious, { desc = "previous on quick list" })
 map.set("n", "<leader>N", vim.cmd.lnext, { desc = "next on location list" })
 map.set("n", "<leader>R", vim.cmd.lprevious, { desc = "previous on location list" })
 
@@ -100,6 +98,10 @@ map.set("n", "<leader>z", utils.folding_toggle, { desc = "toggle folding" })
 
 map.set("n", ",cl", ':let @+=expand("%:p")<cr>', { desc = "copy full path to clipboard", remap = true })
 map.set("n", ",cs", ':let @+=expand("%")<cr>', { desc = "copy relative path to clipboard", remap = true })
+map.set("n", ",co", vim.cmd.copen, { desc = "open quickfix" })
+map.set("n", ",cc", vim.cmd.cclose, { desc = "close quickfix" })
+map.set("n", ",cn", vim.cmd.cnext, { desc = "next on quickfix list" })
+map.set("n", ",cp", vim.cmd.cprevious, { desc = "previous on quick list" })
 map.set("n", ",he", utils.help_on_current_word, { desc = "Help on current word" })
 map.set("n", ",l", ":nohl<cr>", { desc = "clear highlight" })
 
