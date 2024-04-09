@@ -11,6 +11,7 @@ return {
 			pcall(telescope.load_extension, "file_browser")
 			pcall(telescope.load_extension, "fzf")
 			pcall(telescope.load_extension, "egrepify")
+			pcall(telescope.load_extension, "lazy_plugins")
 		end,
 
 		opts = function()
@@ -77,6 +78,11 @@ return {
 							},
 						},
 					},
+					lazy_plugins = {
+						picker_opts = {
+							sorting_strategy = "descending",
+						},
+					},
 				},
 			}
 		end,
@@ -90,6 +96,8 @@ return {
 			{ "<leader>tw", function() require("telescope.builtin").grep_string() end, desc = "Telescope: find word" },
 			{ "<leader>tg", function() require("telescope.builtin").live_grep() end, desc = "Telescope: grep" },
 			{ "<leader>tG", function() require("telescope").extensions.egrepify.egrepify{} end, desc = "Telescope: egrepify" },
+			{ "<leader>tl", function() require("telescope").extensions.lazy_plugins.lazy_plugins{} end, desc = "Telescope: lazy plugins" },
+			{ "tl", function() require("telescope").extensions.lazy_plugins.lazy_plugins{} end, desc = "Telescope: lazy plugins" },
 			{ "<leader>sf", function() require("telescope.builtin").live_grep{grep_open_files = true} end, desc = "Telescope: grep on open files" },
 			{ "<leader>t?", function() require("telescope.builtin").oldfiles() end, desc = "Telescope: recent files" },
 			{ "<leader>tq", function() require("telescope.builtin").quickfix() end, desc = "Telescope: quickfix entries" },
@@ -143,8 +151,8 @@ return {
 			},
 
 			-- Vim
-			{ "<leader>vc", function() require("telescope.builtin").command_history() end, desc = "Vim: command history" },
-			{ "<leader>vC", function() require("telescope.builtin").commands() end, desc = "Vim: commands" },
+			{ "<leader>vC", function() require("telescope.builtin").command_history() end, desc = "Vim: command history" },
+			{ "<leader>vc", function() require("telescope.builtin").commands() end, desc = "Vim: commands" },
 			{ "<leader>vh", function() require("telescope.builtin").help_tags() end, desc = "Vim: help" },
 			{ "<leader>vd", function() require("telescope.builtin").diagnostics() end, desc = "Vim: diagnostics" },
 			{ "<leader>vk", function() require("telescope.builtin").keymaps() end, desc = "Vim: keymaps" },
@@ -160,6 +168,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
 			"nvim-telescope/telescope-file-browser.nvim",
+			"polirritmico/telescope-lazy-plugins.nvim",
 			{ "fdschmidt93/telescope-egrepify.nvim", dependencies = "nvim-lua/plenary.nvim" },
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
