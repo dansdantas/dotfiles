@@ -46,7 +46,16 @@ return {
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 
 					---@diagnostic disable-next-line: missing-parameter
-					["<C-y>"] = { i = cmp.mapping.confirm({ select = true }) },
+					["<C-y>"] = cmp.mapping(function(_)
+						if cmp.visible() and cmp.get_active_entry() then
+							cmp.confirm({ select = false, behavior = cmp.SelectBehavior.Select })
+						elseif luasnip.expandable() then
+							luasnip.expand()
+						else
+							cmp.confirm({ select = true })
+						end
+					end, { "i", "s", "c" }),
+
 					["<C-n>"] = { i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }) },
 					["<C-p>"] = { i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }) },
 					["<C-e>"] = { i = cmp.mapping.abort() },
