@@ -288,6 +288,8 @@ local function setupAllLsps()
 end
 
 return {
+	{ "folke/neodev.nvim", opts = {} },
+
 	{
 		"neovim/nvim-lspconfig",
 		init = function()
@@ -321,10 +323,10 @@ return {
 		opts = {},
 		keys = {
 			-- stylua: ignore start
-			{ "gpd", function() require("goto-preview").goto_preview_definition() end, desc = "GoToPreview: definition" },
-			{ "gpt", function() require("goto-preview").goto_preview_type_definition() end, desc = "GoToPreview: type definition" },
-			{ "gpi", function() require("goto-preview").goto_preview_implementation() end, desc = "GoToPreview: implementation" },
-			{ "gpD", function() require("goto-preview").goto_preview_declaration() end, desc = "GoToPreview: declaration" },
+			{ "gpd", function() require("goto-preview").goto_preview_definition({}) end, desc = "GoToPreview: definition" },
+			{ "gpt", function() require("goto-preview").goto_preview_type_definition({}) end, desc = "GoToPreview: type definition" },
+			{ "gpi", function() require("goto-preview").goto_preview_implementation({}) end, desc = "GoToPreview: implementation" },
+			{ "gpD", function() require("goto-preview").goto_preview_declaration({}) end, desc = "GoToPreview: declaration" },
 			{ "gP", function() require("goto-preview").close_all_win() end, desc = "GoToPreview: close windows" },
 			{ "gpr", function() require("goto-preview").goto_preview_references() end, desc = "GoToPreview: references" },
 			-- stylua: ignore end
