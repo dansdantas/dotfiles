@@ -2,6 +2,7 @@
 -- Eviline config for lualine
 -- Author: shadmansaleh
 -- Credit: glepnir
+-- stylua: ignore start
 local lualine = require('lualine')
 
 -- Color table for highlights
@@ -167,6 +168,7 @@ ins_left {
       return msg
     end
     for _, client in ipairs(clients) do
+			---@diagnostic disable-next-line: undefined-field
       local filetypes = client.config.filetypes
       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
         return client.name
