@@ -100,7 +100,6 @@ opt.foldenable = false
 -- Completion
 opt.updatetime = 250 -- Reduce updatetime, also affects cursorword symbols and lsp-hints
 opt.timeoutlen = 500 -- also affects duration until which-key is shown
-opt.shortmess:append({ ["c"] = true })
 opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 
 -- Motions & Editing

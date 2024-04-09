@@ -272,9 +272,8 @@ return {
 					require("luasnip").filetype_extend("ruby", { "rails" })
 
 					-- VS-code-style snippets
-					require("luasnip.loaders.from_vscode").lazy_load()
+					require("luasnip.loaders.from_vscode").lazy_load({ exclude = { "lua" } })
 					require("luasnip.loaders.from_snipmate").lazy_load()
-					require("luasnip.loaders.from_lua").lazy_load()
 
 					vim.api.nvim_create_autocmd("ModeChanged", {
 						group = vim.api.nvim_create_augroup("personal/unlink_snippet", { clear = true }),
