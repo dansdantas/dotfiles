@@ -1,4 +1,35 @@
 --# selene: allow(mixed_table) -- lazy.nvim uses them
+local lsp_status_line = {
+	function()
+		local msg = "No Active Lsp"
+		local clients = vim.lsp.get_clients({ bufnr = 0 })
+
+		if next(clients) == nil then
+			return msg
+		end
+
+		-- Deal with multiple clients?
+		return clients[1].name
+	end,
+	icon = "  :",
+	color = { fg = "#ffffff" },
+	on_click = function()
+		local clients = vim.lsp.get_clients({ bufnr = 0 })
+
+		if next(clients) == nil then
+			return P("no clients active")
+		end
+
+		local selected = {}
+
+		for _, client in ipairs(clients) do
+			table.insert(selected, client.name)
+		end
+
+		P(selected)
+	end,
+}
+
 return {
 	{
 		"nvim-lualine/lualine.nvim",
@@ -27,35 +58,21 @@ return {
 				lualine_c = { { "filename", path = 1 } },
 				lualine_x = {
 					{
-						require("noice").api.statusline.mode.get,
-						cond = require("noice").api.statusline.mode.has,
-						color = { fg = "#ff9e64" },
+						"filetype",
+						icons_enabled = true,
+						icon = { align = "left" },
+						padding = 0,
+						fmt = function(string, _)
+							return " " .. string
+						end,
 					},
 
-					{
-						-- Lsp server name .
-						function()
-							local msg = "No Active Lsp"
-							local buf_ft = vim.api.nvim_get_option_value("filetype", {})
-							local clients = vim.lsp.get_clients()
-							if next(clients) == nil then
-								return msg
-							end
-							for _, client in ipairs(clients) do
-								---@diagnostic disable-next-line: undefined-field
-								local filetypes = client.config.filetypes
-								if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-									return client.name
-								end
-							end
-							return msg
-						end,
-						icon = "  :",
-						color = { fg = "#ffffff" },
-					},
+					lsp_status_line,
 				},
-				lualine_y = {},
-				lualine_z = { "location" },
+				lualine_y = { "encoding" },
+				lualine_z = {
+					"location",
+				},
 			},
 			inactive_sections = {
 				lualine_a = {},
