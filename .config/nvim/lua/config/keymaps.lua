@@ -19,9 +19,6 @@ map.set("n", ";;", "$", { desc = "end of line" })
 map.set("n", "E", "$", { desc = "end of line" })
 map.set("n", "B", "^", { desc = "start of line" })
 
-map.set("n", "<C-d>", "<C-d>zz")
-map.set("n", "<C-u>", "<C-u>zz")
-
 -- split
 map.set("n", "<C-J>", "<C-W><C-J>", { desc = "move to left pane" })
 map.set("n", "<C-K>", "<C-W><C-K>", { desc = "move to upper pane" })
