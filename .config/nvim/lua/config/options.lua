@@ -25,6 +25,7 @@ opt.showmatch = true -- Show matcher when above cursor
 opt.number = true -- Show line number
 opt.autowrite = true -- Enable automatically :write before running commands
 opt.hidden = true
+opt.inccommand = "split"
 
 -- Wrapping & Line Length
 opt.colorcolumn = "120" -- Add delimitation line on 120 character
@@ -33,10 +34,13 @@ opt.wrap = false -- Remove wrapping on lines that goes over screen width
 -- status bar & cmdline
 opt.history = 400 -- reduce noise for command history search
 opt.shortmess:append({ -- reduce info in :messages
-	w = true,
-	W = true,
-	I = true,
-	s = true,
+	c = true, -- remove completion messages
+	C = true, -- remove scanning tags messages
+	w = true, -- use "[w]" instead of "written" for file write message	*shm-w*
+	W = true, -- don't give written message or "[w]" when writing
+	I = true, -- remove intro message
+	s = true, -- s	don't give "search hit BOTTOM, continuing at TOP"
+	F = true, -- remove file info when editing
 })
 opt.report = 9001 -- disable "x more/fewer lines" messages
 
@@ -57,23 +61,7 @@ opt.shiftround = true -- Calculate shiftwidth based on line start
 
 -- Chars
 opt.list = true
--- opt.conceallevel = 1
--- opt.fillchars:append {
--- 	eob = " ",
--- 	fold = " ",
--- 	vert = "║",
--- 	horiz = "═",
--- }
--- opt.listchars:append {
--- 	nbsp = "󰚌",
--- 	precedes = "…",
--- 	extends = "…",
--- 	multispace = "·",
--- 	tab = "│ ", -- overridden by indent-blankline
--- 	conceal = "?",
--- 	lead = " ",
--- 	trail = " ",
--- }
+opt.listchars = { tab = "» ", extends = "›", precedes = "‹", nbsp = "␣", trail = "·" }
 
 -- Turn off swap files
 opt.swapfile = false -- Disable create of swap file
