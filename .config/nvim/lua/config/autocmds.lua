@@ -81,13 +81,6 @@ au({ "BufNew", "BufReadPost" }, {
 	end,
 })
 
-au("BufWritePre", {
-	pattern = { "*.go", "*.lua", "*.rs" },
-	callback = function(args)
-		require("conform").format({ bufnr = args.buf })
-	end,
-})
-
 --------------------------------------------------------------------------------
 -- Docker compose tests
 

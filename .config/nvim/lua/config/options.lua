@@ -91,7 +91,6 @@ opt.undodir = undo_dir
 
 -- Folding
 opt.foldmethod = "expr"
-opt.formatexpr = "v:lua.require'conform'.formatexpr()"
 opt.foldlevel = 9999
 opt.foldenable = false
 
