@@ -91,8 +91,6 @@ opt.undodir = undo_dir
 
 -- Folding
 opt.foldmethod = "expr"
-vim.wo.foldtext = "v:lua.vim.treesitter.foldtext()"
-vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.formatexpr = "v:lua.require'conform'.formatexpr()"
 opt.foldlevel = 9999
 opt.foldenable = false

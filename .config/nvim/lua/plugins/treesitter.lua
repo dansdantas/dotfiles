@@ -10,6 +10,10 @@ return {
 			"RRethy/nvim-treesitter-endwise",
 			"nvim-treesitter/playground",
 		},
+		int = function()
+			vim.wo.foldtext = "v:lua.vim.treesitter.foldtext()"
+			vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		end,
 		opts = {
 			ensure_installed = {
 				"bash",
