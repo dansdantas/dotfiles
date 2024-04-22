@@ -1,4 +1,5 @@
-Locally link after install:
+# Locally link after install
+
     - .config/ag/ignore     -> .agignore
     - .config/git/ignore    -> .gitignore
     - .config/zsh/.zprofile -> .profile
