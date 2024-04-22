@@ -115,3 +115,7 @@ au({ "DirChanged" }, {
 		has_run_once = false
 	end,
 })
+
+--------------------------------------------------------------------------------
+-- User commands - split if this keeps getting bigger
+vim.api.nvim_create_user_command("SnipList", require("config.utils").list_snips, {})

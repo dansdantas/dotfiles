@@ -129,4 +129,13 @@ function M.search_current_word()
 	return vim.cmd("Rg " .. vim.fn.expand("<cword>") .. "<cr>")
 end
 
+function M.list_snips()
+	local ft_list = require("luasnip").available()[vim.o.filetype]
+	local ft_snips = {}
+	for _, item in pairs(ft_list) do
+		ft_snips[item.trigger] = item.name
+	end
+	print(vim.inspect(ft_snips))
+end
+
 return M
