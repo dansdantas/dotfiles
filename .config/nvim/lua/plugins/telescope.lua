@@ -105,7 +105,18 @@ return {
 
 		keys = {
 			-- stylua: ignore start
-			{ "<C-p>", function() require("telescope.builtin").git_files() end, desc = "Telescope: project files" },
+			{
+				"<C-p>",
+				function()
+					local theme = require("telescope.themes").get_ivy({
+						winblend = 10,
+						previewer = true,
+					})
+
+					require("telescope.builtin").git_files(theme)
+				end,
+				desc = "Telescope: project files",
+			},
 			{ "<leader>o", function() require("telescope.builtin").find_files() end, desc = "Telescope: files"  },
 			{ "<leader><leader>", function() require("telescope.builtin").buffers() end, desc = "Telescope: buffers" },
 			{ "<leader>td", function() require("config.utils").search_dotfiles() end, desc = "Telescope: dotfiles" },
@@ -117,8 +128,15 @@ return {
 			{ "<leader>sf", function() require("telescope.builtin").live_grep{grep_open_files = true} end, desc = "Telescope: grep on open files" },
 			{ "<leader>t?", function() require("telescope.builtin").oldfiles() end, desc = "Telescope: recent files" },
 			{ "<leader>tq", function() require("telescope.builtin").quickfix() end, desc = "Telescope: quickfix entries" },
-			{ "<leader>tc", function() require("telescope.builtin").colorscheme() end, desc = "Telescope: colors" },
+			{ "<leader>tc", function()
+				local theme = require('telescope.themes').get_ivy({
+					winblend = 10,
+					previewer = true,
+				})
+				require("telescope.builtin").colorscheme(theme)
+			end, desc = "Telescope: colors" },
 			{ "<leader>tn", function() require("telescope.builtin").find_files{ cwd = vim.fn.stdpath('config'), prompt_title = 'Neovim config' } end, desc = "Telescope: neovim config directory" },
+			{ "<leader>sn", function() require("telescope.builtin").live_grep{ cwd = vim.fn.stdpath('config'), prompt_title = 'Searching through neovim config' } end, desc = "Telescope: grep on neovim config" },
 			{ "<leader>tr", function() require("telescope.builtin").resume() end, desc = "Telescope: resume" },
 
 			{ "<leader>ts", function() require("telescope.builtin").grep_string({ search = [[TODO:|todo!\(.*\)]] }) end, desc = "Telescope: grep todos" },
