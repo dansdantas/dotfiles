@@ -4,11 +4,8 @@ local t = ls.text_node
 local i = ls.insert_node
 local c = ls.choice_node
 local f = ls.function_node
-local fmt = require("luasnip.extras.fmt").fmt
 
-ls.add_snippets("go", {
-	s("fmt", t([[import "fmt"]])),
-})
+local fmt = require("luasnip.extras.fmt").fmt
 
 ls.add_snippets("lua", {
 	s(
@@ -21,6 +18,8 @@ ls.add_snippets("lua", {
 			i(1),
 		})
 	),
+
+	s("sfun", fmt([[function() {} end]], { i(1) })),
 })
 
 ls.add_snippets("all", {
