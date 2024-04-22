@@ -20,6 +20,7 @@
 	ctags = !.git/hooks/ctags
 	draw = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	up = !git push -u $(git-branch)
+	staash = stash --all
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
