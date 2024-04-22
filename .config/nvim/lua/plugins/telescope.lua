@@ -19,6 +19,12 @@ return {
 			local layout = require("telescope.actions.layout")
 			local fb_actions = require("telescope").extensions.file_browser.actions
 
+			local toggle_dark_mode = function()
+				local mode = { ["light"] = "dark", ["dark"] = "light" }
+				---@diagnostic disable-next-line: undefined-field
+				vim.opt.background = mode[vim.opt.background:get()]
+			end
+
 			return {
 				defaults = {
 					results_title = false,
@@ -49,6 +55,16 @@ return {
 							["<C-f>"] = actions.preview_scrolling_down,
 							["<C-b>"] = actions.preview_scrolling_up,
 							["<A-t>"] = layout.toggle_preview,
+						},
+					},
+				},
+
+				pickers = {
+					colorscheme = {
+						enable_preview = true,
+						mappings = {
+							i = { ["<c-t>"] = toggle_dark_mode },
+							n = { ["<c-t>"] = toggle_dark_mode },
 						},
 					},
 				},
