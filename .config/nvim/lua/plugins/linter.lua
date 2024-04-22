@@ -9,6 +9,7 @@ vim.g.lspToMasonMap = {
 	emmet_ls = "emmet-ls", -- css/html completion
 	gopls = "gopls",
 	html = "html-lsp",
+	htmx = "htmx-lsp",
 	jedi_language_server = "jedi_language_server",
 	jsonls = "json-lsp",
 	lua_ls = "lua-language-server",
@@ -25,7 +26,7 @@ vim.g.lspToMasonMap = {
 
 local linters = {
 	lua = { "selene" },
-	sh = { "zsh", "shellcheck" },
+	sh = { "zsh" },
 	markdown = { "markdownlint" },
 	go = { "golangcilint" },
 	-- ruby = { "ruby", "rubocop" },
@@ -39,7 +40,7 @@ local formatters = {
 	typescript = { "biome" },
 	json = { "biome" },
 	markdown = { "markdown-toc", "markdownlint", "injected" },
-	sh = { "shellcheck", "shfmt" },
+	sh = { "shfmt" },
 	["_"] = { "trim_whitespace", "trim_newlines", "squeeze_blanks" }, -- filetypes w/o formatter
 }
 
@@ -95,7 +96,6 @@ local function linterConfigs()
 	local lint = require("lint")
 	lint.linters_by_ft = linters
 
-	lint.linters.shellcheck.args = { "--shell=bash", "--format=json", "--external-sources", "-" }
 	lint.linters.markdownlint.args = {
 		"--disable=no-trailing-spaces", -- not disabled in config, so it's enabled for formatting
 		"--disable=no-multiple-blanks",
@@ -187,6 +187,7 @@ return {
 	},
 	{
 		"stevearc/conform.nvim",
+		lazy = false,
 		keys = {
 			{
 				",f",

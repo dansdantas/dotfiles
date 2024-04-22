@@ -20,6 +20,7 @@ vim.g.myLsps = { -- variable used by MasonToolInstaller
 	"marksman", -- markdown
 	"bashls", -- used for zsh
 	"html",
+	"htmx",
 
 	"jdtls",
 }
