@@ -28,7 +28,7 @@ return {
 			"neovim/nvim-lspconfig",
 			"nvim-treesitter/nvim-treesitter",
 		},
-		opts = {},
+		opts = { lsp_inlay_hints = { enable = false } },
 	},
 
 	{
