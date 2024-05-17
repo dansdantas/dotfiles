@@ -163,12 +163,20 @@ return {
 
 			-- `:` cmdline setup.
 			cmp.setup.cmdline(":", {
-				mapping = cmp.mapping.preset.cmdline(),
+				mapping = cmp.mapping.preset.cmdline({
+					["<C-y>"] = cmp.mapping(function(_)
+						if cmp.visible() and cmp.get_active_entry() then
+							cmp.confirm({ select = false, behavior = cmp.SelectBehavior.Select })
+						else
+							cmp.confirm({ select = true })
+						end
+					end, { "i", "s", "c" }),
+				}),
 				sources = cmp.config.sources({
 					{ name = "async_path", group_index = 1 },
 					{
 						name = "cmdline",
-						keyword_length = 5,
+						keyword_length = 3,
 						max_item_count = 30,
 						group_index = 2,
 					},
@@ -207,7 +215,8 @@ return {
 
 					-- DOCS https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#api-reference
 					return {
-						region_check_events = "CursorMoved", -- prevent <Tab> jumping back to a snippet after it has been left early
+						region_check_events = { "CursorMoved", "InsertEnter" }, -- prevent <Tab> jumping back to a snippet after it has been left early
+						delete_check_events = { "InsertLeave" },
 						update_events = { "TextChanged", "TextChangedI" }, -- live updating of snippets
 						ext_opts = {
 							[types.insertNode] = {
