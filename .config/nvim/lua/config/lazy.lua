@@ -10,6 +10,8 @@ if not vim.uv.fs_stat(lazypath) then
 		lazypath,
 	})
 end
+
+-- Add lazy to the 'runtimepath', this allow us to 'require' it.
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
