@@ -28,14 +28,14 @@ local linters = {
 	lua = { "selene" },
 	sh = { "zsh" },
 	markdown = { "markdownlint" },
-	go = { "golangcilint" },
+	go = { "golangcilint", "revive" },
 	-- ruby = { "ruby", "rubocop" },
 }
 
 local formatters = {
 	lua = { "stylua" },
 	-- ruby = { "rubyfmt" },
-	go = { "goimports", "gofmt" },
+	go = { "goimports", { "gofumpt", "gofmt" }, "revive", "gotests" },
 	javascript = { "biome", { "prettierd", "prettier", "eslint_d" } },
 	typescript = { "biome" },
 	json = { "biome" },
@@ -72,8 +72,8 @@ local dontInstall = {
 ---@nodiscard
 local function toolsToAutoinstall(myLinters, myFormatters, myLsps, ignoreTools)
 	-- get all linters, formatters, & extra tools and merge them into one list
-	local linterList = vim.tbl_flatten(vim.tbl_values(myLinters))
-	local formatterList = vim.tbl_flatten(vim.tbl_values(myFormatters))
+	local linterList = vim.iter(vim.tbl_values(myLinters)):flatten(math.huge):totable()
+	local formatterList = vim.iter(vim.tbl_values(myFormatters)):flatten(math.huge):totable()
 	local tools = vim.list_extend(linterList, formatterList)
 	vim.list_extend(tools, myLsps)
 
@@ -113,6 +113,8 @@ local function lintTriggers()
 	vim.api.nvim_create_autocmd({ "BufReadPost", "InsertLeave", "TextChanged", "FocusGained", "BufWritePost" }, {
 		callback = doLint,
 	})
+
+	vim.api.nvim_create_user_command("Lint", doLint, {})
 
 	doLint() -- run on initialization
 end
