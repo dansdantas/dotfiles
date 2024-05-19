@@ -20,7 +20,9 @@ local lightThemes = {
 local darkThemes = {
 	"folke/tokyonight.nvim",
 	"AlexvZyl/nordic.nvim",
+	"eldritch-theme/eldritch.nvim",
 	"ray-x/aurora",
+	"luisiacc/gruvbox-baby",
 	{ "tiagovla/tokyodark.nvim", opts = {} },
 	{ "navarasu/onedark.nvim", opts = { style = "darker" } },
 	{ "ray-x/starry.nvim", opts = { italics = { comments = true } } },
