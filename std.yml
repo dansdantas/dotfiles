@@ -12,7 +12,7 @@ globals:
   require:
     any: true
   pcall:
-   any: true
+    any: true
   P:
     any: true
   TableMerge:
