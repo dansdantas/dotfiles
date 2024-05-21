@@ -1,7 +1,5 @@
---# selene: allow(mixed_table) -- lazy.nvim uses them
 --------------------------------------------------------------------------------
 vim.g.lspToMasonMap = {
-	ast_grep = "ast-grep", -- custom, ast-based linter
 	bashls = "bash-language-server", -- used for zsh
 	biome = "biome", -- ts/js/json linter/formatter
 	clangd = "clangd",
