@@ -34,6 +34,7 @@ return {
 				"lua",
 				"make",
 				"markdown",
+				"org",
 				"python",
 				"r",
 				"regex",
