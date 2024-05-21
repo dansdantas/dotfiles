@@ -20,10 +20,25 @@ map.set("n", "E", "$", { desc = "end of line" })
 map.set("n", "B", "^", { desc = "start of line" })
 
 -- split
-map.set("n", "<C-J>", "<C-W><C-J>", { desc = "move to left pane" })
-map.set("n", "<C-K>", "<C-W><C-K>", { desc = "move to upper pane" })
-map.set("n", "<C-L>", "<C-W><C-L>", { desc = "move to right pane" })
-map.set("n", "<C-H>", "<C-W><C-H>", { desc = "move to lower pane" })
+map.set("n", "<C-j>", "<C-W><C-J>", { desc = "move to left pane" })
+map.set("n", "<C-k>", "<C-W><C-K>", { desc = "move to upper pane" })
+map.set("n", "<C-l>", "<C-W><C-L>", { desc = "move to right pane" })
+map.set("n", "<C-h>", "<C-W><C-H>", { desc = "move to lower pane" })
+
+map.set("n", "<A-j>", "<C-W><C-J>", { desc = "move to left pane" })
+map.set("n", "<A-k>", "<C-W><C-K>", { desc = "move to upper pane" })
+map.set("n", "<A-l>", "<C-W><C-L>", { desc = "move to right pane" })
+map.set("n", "<A-h>", "<C-W><C-H>", { desc = "move to lower pane" })
+
+map.set("t", "<C-j>", "<C-\\><C-n><C-W><C-J>", { desc = "move to left pane" })
+map.set("t", "<C-k>", "<C-\\><C-n><C-W><C-K>", { desc = "move to upper pane" })
+map.set("t", "<C-l>", "<C-\\><C-n><C-W><C-L>", { desc = "move to right pane" })
+map.set("t", "<C-h>", "<C-\\><C-n><C-W><C-H>", { desc = "move to lower pane" })
+
+map.set({ "t", "i" }, "<A-j>", "<C-\\><C-n><C-W><C-J>", { desc = "move to left pane" })
+map.set({ "t", "i" }, "<A-k>", "<C-\\><C-n><C-W><C-K>", { desc = "move to upper pane" })
+map.set({ "t", "i" }, "<A-l>", "<C-\\><C-n><C-W><C-L>", { desc = "move to right pane" })
+map.set({ "t", "i" }, "<A-h>", "<C-\\><C-n><C-W><C-H>", { desc = "move to lower pane" })
 
 map.set("n", "J", "mzJ`z")
 map.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move selected lines downwards" })
@@ -99,6 +114,8 @@ map.set("n", ",co", vim.cmd.copen, { desc = "open quickfix" })
 map.set("n", ",cc", vim.cmd.cclose, { desc = "close quickfix" })
 map.set("n", ",cn", vim.cmd.cnext, { desc = "next on quickfix list" })
 map.set("n", ",cp", vim.cmd.cprevious, { desc = "previous on quick list" })
+map.set("n", "]q", vim.cmd.cnext, { desc = "next on quickfix list" })
+map.set("n", "[q", vim.cmd.cprevious, { desc = "previous on quick list" })
 map.set("n", ",he", utils.help_on_current_word, { desc = "Help on current word" })
 map.set("n", ",l", ":nohl<cr>", { desc = "clear highlight" })
 
