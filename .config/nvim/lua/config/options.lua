@@ -71,7 +71,6 @@ opt.writebackup = false -- Disable backup before write
 -- Scrolling
 opt.scrolloff = 8 -- Start scrolling when we're 15 lines away from margins
 opt.sidescrolloff = 8
-opt.sidescroll = 1
 
 -- Search
 opt.hlsearch = false -- Do not highlight searches by default
