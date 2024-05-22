@@ -59,7 +59,6 @@ return {
 					["<C-n>"] = { i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }) },
 					["<C-p>"] = { i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }) },
 					["<C-e>"] = { i = cmp.mapping.abort() },
-					["/"] = { i = cmp.mapping.close() },
 
 					-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 					["<CR>"] = cmp.mapping({
