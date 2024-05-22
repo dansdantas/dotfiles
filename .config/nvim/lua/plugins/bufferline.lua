@@ -23,7 +23,7 @@ return {
 				tab_size = 0,
 				diagnostics = "nvim_lsp",
 				show_buffer_close_icons = false,
-				separator_style = "thin",
+				separator_style = {},
 				offsets = {
 					{
 						filetype = "NvimTree",
