@@ -28,8 +28,3 @@ local function safeRequire(module)
 end
 
 safeRequire("config.lazy")
-safeRequire("config.options")
-safeRequire("config.keymaps")
-safeRequire("config.autocmds")
-safeRequire("config.snippets")
-safeRequire("config.theme-customization")
