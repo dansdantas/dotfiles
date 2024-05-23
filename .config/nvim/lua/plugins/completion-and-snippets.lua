@@ -114,6 +114,22 @@ return {
 					{ name = "nvim_lua" },
 				}),
 
+				sorting = {
+					comparators = {
+						compare.offset,
+						compare.exact,
+						-- compare.scopes,
+						compare.score,
+						require("cmp-under-comparator").under,
+						compare.recently_used,
+						compare.locality,
+						compare.kind,
+						-- compare.sort_text,
+						compare.length,
+						compare.order,
+					},
+				},
+
 				formatting = {
 					format = lspkind.cmp_format({
 						maxwidth = 50,
@@ -123,23 +139,13 @@ return {
 							nvim_lua = "[api]",
 							async_path = "[path]",
 							luasnip = "[snip]",
+							["buffer-lines"] = "[blines]",
+							rg = "[rg]",
 						},
 					}),
 				},
 
-				sorting = {
-					comparators = {
-						compare.offset,
-						compare.exact,
-						compare.score,
-						require("cmp-under-comparator").under,
-						compare.kind,
-						compare.sort_text,
-						compare.length,
-						compare.order,
-					},
-				},
-
+				-- TODO: check https://github.com/hrsh7th/nvim-cmp/issues/1863
 				experimental = {
 					ghost_text = true,
 				},
