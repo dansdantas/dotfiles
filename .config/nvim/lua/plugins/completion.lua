@@ -1,4 +1,3 @@
---# selene: allow(mixed_table) -- lazy.nvim uses them
 return {
 	{ -- Completion Engine + Sources
 		"hrsh7th/nvim-cmp",
