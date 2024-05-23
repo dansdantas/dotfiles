@@ -115,6 +115,8 @@ serverConfigs.gopls = {
 				shadow = true,
 			},
 			staticcheck = true,
+			semanticTokens = true,
+			gofumpt = true,
 		},
 	},
 	init_options = {
@@ -271,14 +273,14 @@ end
 
 local function setupAllLsps()
 	-- Enable snippets-completion (nvim_cmp) and folding (nvim-ufo)
-	local lspCapabilities = vim.tbl_extend(
-		"force",
-		vim.lsp.protocol.make_client_capabilities(),
-		require("cmp_nvim_lsp").default_capabilities()
-	)
-
+	local lspCapabilities = vim.lsp.protocol.make_client_capabilities()
 	lspCapabilities.textDocument.completion.completionItem.snippetSupport = true
 	lspCapabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
+	lspCapabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
+
+	-- Completion configuration
+	vim.tbl_deep_extend("force", lspCapabilities, require("cmp_nvim_lsp").default_capabilities())
+	lspCapabilities.textDocument.completion.completionItem.insertReplaceSupport = false
 
 	for lsp, serverConfig in pairs(serverConfigs) do
 		serverConfig.capabilities = lspCapabilities
