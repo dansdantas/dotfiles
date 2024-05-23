@@ -41,11 +41,13 @@ return {
 					documentation = cmp.config.window.bordered(),
 				},
 
-				mapping = cmp.mapping.preset.insert({
+				mapping = {
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
+					["<C-n>"] = { i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }) },
+					["<C-p>"] = { i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }) },
+					["<C-e>"] = { i = cmp.mapping.abort() },
 
-					---@diagnostic disable-next-line: missing-parameter
 					["<C-y>"] = cmp.mapping(function(_)
 						if cmp.visible() and cmp.get_active_entry() then
 							cmp.confirm({ select = false, behavior = cmp.SelectBehavior.Select })
@@ -54,54 +56,8 @@ return {
 						else
 							cmp.confirm({ select = true })
 						end
-					end, { "i", "s", "c" }),
-
-					["<C-n>"] = { i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }) },
-					["<C-p>"] = { i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }) },
-					["<C-e>"] = { i = cmp.mapping.abort() },
-
-					-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-					["<CR>"] = cmp.mapping({
-						i = function(fallback)
-							if cmp.visible() and cmp.get_active_entry() then
-								cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-							else
-								fallback()
-							end
-						end,
-						s = cmp.mapping.confirm({ select = false }),
-						c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
-					}),
-
-					["<Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							if #cmp.get_entries() == 1 then
-								cmp.confirm({ select = true })
-							else
-								cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-							end
-						elseif luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
-						elseif has_words_before() then
-							cmp.complete()
-							if #cmp.get_entries() == 1 then
-								cmp.confirm({ select = true })
-							end
-						else
-							fallback()
-						end
 					end, { "i", "s" }),
-
-					["<S-Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-				}),
+				},
 
 				sources = cmp.config.sources({
 					{ name = "luasnip" },
@@ -116,6 +72,7 @@ return {
 
 				sorting = {
 					comparators = {
+						require("cmp_fuzzy_buffer.compare"),
 						compare.offset,
 						compare.exact,
 						-- compare.scopes,
@@ -158,11 +115,12 @@ return {
 			local cmp = require("cmp")
 			cmp.setup(opts)
 
-			-- `/` cmdline setup.
-			cmp.setup.cmdline("/", {
+			-- `/ - ?` cmdline setup.
+			cmp.setup.cmdline({ "/", "?" }, {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = {
 					{ name = "fuzzy_buffer" },
+					{ name = "buffer-lines" },
 				},
 			})
 
@@ -175,7 +133,7 @@ return {
 						else
 							cmp.confirm({ select = true })
 						end
-					end, { "i", "s", "c" }),
+					end, { "c" }),
 				}),
 				sources = cmp.config.sources({
 					{ name = "async_path", group_index = 1 },
@@ -192,21 +150,21 @@ return {
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 		end,
 		dependencies = {
-			"hrsh7th/cmp-nvim-lsp", -- LSP input
+			-- sources
+			"saadparwaiz1/cmp_luasnip", -- adapter for snippet engine
 			{ "tzachar/cmp-fuzzy-buffer", dependencies = { "tzachar/fuzzy.nvim" } },
+			"amarakon/nvim-cmp-buffer-lines",
+			"hrsh7th/cmp-nvim-lsp", -- LSP input
 			"FelipeLema/cmp-async-path",
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lua",
 
-			"onsails/lspkind.nvim",
-			"amarakon/nvim-cmp-buffer-lines",
-			"lukas-reineke/cmp-under-comparator",
-
-			"saadparwaiz1/cmp_luasnip", -- adapter for snippet engine
-			"windwp/nvim-autopairs", -- rules and opts defined in their own file
-
 			-- "tamago324/cmp-zsh", -- some shell completions
 			-- "dmitmel/cmp-cmdline-history",
+
+			"onsails/lspkind.nvim", -- format source type
+			"lukas-reineke/cmp-under-comparator", -- sort underline completion items
+			"windwp/nvim-autopairs", -- rules and opts defined in their own file
 
 			{ -- snippet engine
 				"L3MON4D3/LuaSnip",
