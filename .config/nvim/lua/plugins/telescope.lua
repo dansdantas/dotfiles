@@ -119,7 +119,7 @@ return {
 			},
 			{ "<leader>o", function() require("telescope.builtin").find_files() end, desc = "Telescope: files"  },
 			{ "<leader><leader>", function() require("telescope.builtin").buffers() end, desc = "Telescope: buffers" },
-			{ "<leader>td", function() require("config.utils").search_dotfiles() end, desc = "Telescope: dotfiles" },
+			{ "<leader>td", function() require("custom.utils").search_dotfiles() end, desc = "Telescope: dotfiles" },
 			{ "<leader>tw", function() require("telescope.builtin").grep_string() end, desc = "Telescope: find word" },
 			{ "<leader>tg", function() require("telescope.builtin").live_grep() end, desc = "Telescope: grep" },
 			{ "<leader>tG", function() require("telescope").extensions.egrepify.egrepify{} end, desc = "Telescope: egrepify" },

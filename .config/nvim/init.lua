@@ -3,7 +3,7 @@ if vim.loader then
 end
 
 -- Globals
-P = require("config.utils").print
+P = require("custom.utils").print
 
 -- Leader should be defined before everything is configured
 vim.g.mapleader = " "

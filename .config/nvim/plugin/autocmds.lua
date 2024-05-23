@@ -118,4 +118,4 @@ au({ "DirChanged" }, {
 
 --------------------------------------------------------------------------------
 -- User commands - split if this keeps getting bigger
-vim.api.nvim_create_user_command("SnipList", require("config.utils").list_snips, {})
+vim.api.nvim_create_user_command("SnipList", require("custom.utils").list_snips, {})

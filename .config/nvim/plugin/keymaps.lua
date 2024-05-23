@@ -1,5 +1,5 @@
 local map = vim.keymap
-local utils = require("config.utils")
+local utils = require("custom.utils")
 
 --------------------------------------------------------------------------------
 -- No prefix
@@ -128,7 +128,7 @@ map.set("n", ",tv", ":TestVisit<cr>", { desc = "Test: last visited" })
 map.set("n", ",tw", ":TestLastOnlyFail<cr>", { desc = "Test: only failed" })
 
 -- workspace
-local workspace = require("config.workspace")
+local workspace = require("custom.workspace")
 map.set("n", ",wa", workspace.add_dir, { desc = "Workspace: add dir" })
 map.set("n", ",wr", workspace.remove_dir, { desc = "Workspace: remove dir" })
 map.set("n", ",wf", workspace.find_files, { desc = "Workspace: find files" })
