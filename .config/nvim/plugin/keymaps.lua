@@ -85,14 +85,8 @@ map.set("n", "<leader>so", function()
 end, { desc = "toggle listchars display" })
 
 -- save/quit actions
-map.set("n", "<leader>w", function()
-	vim.cmd.write({ bang = true })
-end, { desc = "save file", silent = true })
-
-map.set("n", "<leader>x", function()
-	vim.cmd.xit({ bang = true })
-end, { desc = "close file" })
-
+map.set("n", "<leader>w", function() vim.cmd.write({ bang = true }) end, { desc = "save file", silent = true })
+map.set("n", "<leader>x", function() vim.cmd.xit({ bang = true }) end, { desc = "close file" })
 map.set("n", "<leader>q", vim.cmd.quit, { desc = "exit file" })
 map.set("n", "<leader>Q", vim.cmd.qall, { desc = "quit" })
 
@@ -134,9 +128,7 @@ map.set("n", ",wr", workspace.remove_dir, { desc = "Workspace: remove dir" })
 map.set("n", ",wf", workspace.find_files, { desc = "Workspace: find files" })
 map.set("n", ",wg", workspace.grep_files, { desc = "Workspace: grep on files " })
 map.set("n", ",wc", workspace.clean_dirs, { desc = "Workspace: clean dirs" })
-map.set("n", ",wl", function()
-	return P(workspace.list_dirs())
-end, { desc = "Workspace: list dirs" })
+map.set("n", ",wl", function() return P(workspace.list_dirs()) end, { desc = "Workspace: list dirs" })
 
 --------------------------------------------------------------------------------
 -- LSP
@@ -216,13 +208,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- Lspsaga
 		nmap("gt", ":Lspsaga finder tyd+ref+imp+def<CR>", "show type, implementation, definition and references [saga]")
-		nmap("[D", function()
-			require("lspsaga.diagnostic"):goto_prev()
-		end, "previous diagnostic [saga]")
-
-		nmap("]D", function()
-			require("lspsaga.diagnostic"):goto_next()
-		end, "next diagnostic [saga]")
+		nmap("[D", function() require("lspsaga.diagnostic"):goto_prev() end, "previous diagnostic [saga]")
+		nmap("]D", function() require("lspsaga.diagnostic"):goto_next() end, "next diagnostic [saga]")
 
 		-- Diagnostics
 		nmap("[d", vim.diagnostic.goto_prev, "previous diagnostic")
