@@ -4,7 +4,7 @@ return {
 		missing = false,
 
 		-- colorschemes to use during installation
-		colorscheme = { "onedark", "tokyonight", "dawnfox", "habamax" },
+		colorscheme = { "tokyonight", "dawnfox", "habamax" },
 	},
 
 	-- Don't bother me when tweaking plugins.
