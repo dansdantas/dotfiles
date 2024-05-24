@@ -38,9 +38,7 @@ end
 
 ---runs :normal natively with bang
 ---@param cmdStr string
-function M.normal(cmdStr)
-	vim.cmd.normal({ cmdStr, bang = true })
-end
+function M.normal(cmdStr) vim.cmd.normal({ cmdStr, bang = true }) end
 
 function M.add_to_todo()
 	local branch_name = vim.fn.system([[printf $(git rev-parse --abbrev-ref HEAD)]])
@@ -72,9 +70,7 @@ function M.folding_toggle()
 		local i_min = vim.fn.indent(".") -- indentation of the current line
 		local l = l_min + 1
 
-		local isBlank = function(x)
-			return not not tostring(x):find("^%s*$")
-		end
+		local isBlank = function(x) return not not tostring(x):find("^%s*$") end
 		-- Search downward for the last line whose indentation > i_min
 		while l <= l_max do
 			-- if this line is not blank ...
@@ -121,13 +117,8 @@ function M.folding_toggle()
 	end
 end
 
-function M.help_on_current_word()
-	return vim.cmd("help " .. vim.fn.expand("<cword>"))
-end
-
-function M.search_current_word()
-	return vim.cmd("Rg " .. vim.fn.expand("<cword>") .. "<cr>")
-end
+function M.help_on_current_word() return vim.cmd("help " .. vim.fn.expand("<cword>")) end
+function M.search_current_word() return vim.cmd("Rg " .. vim.fn.expand("<cword>") .. "<cr>") end
 
 function M.list_snips()
 	local ft_list = require("luasnip").available()[vim.o.filetype]
