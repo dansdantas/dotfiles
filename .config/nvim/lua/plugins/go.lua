@@ -1,5 +1,6 @@
 return {
 	"ray-x/go.nvim",
+	ft = { "go" },
 	dependencies = {
 		"ray-x/guihua.lua", -- recommanded if need floating window support,
 		"neovim/nvim-lspconfig",
