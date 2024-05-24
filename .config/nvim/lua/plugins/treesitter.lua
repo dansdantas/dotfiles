@@ -1,10 +1,11 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = "VeryLazy",
+		event = { "BufReadPost", "BufNewFile" },
 		build = ":TSUpdate",
 		config = function() require("config.treesitter") end,
 		dependencies = {
+			"andymass/vim-matchup",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"RRethy/nvim-treesitter-endwise",
 			"nvim-treesitter/playground",

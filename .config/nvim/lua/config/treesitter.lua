@@ -140,6 +140,9 @@ require("nvim-treesitter.configs").setup({
 				[",pF"] = "@class.outer",
 			},
 		},
+		matchup = {
+			enable = true,
+		},
 	},
 })
 
