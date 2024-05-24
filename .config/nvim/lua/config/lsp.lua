@@ -75,7 +75,8 @@ serverConfigs.lua_ls = {
 			diagnostics = {
 				-- Get the language server to recognize the `vim` global
 				globals = { "vim", "table", "pairs", "package", "require", "ipairs", "pcall" },
-				disable = { "trailing-space" }, -- formatter already does that
+				-- Review missing fields and inject field after every version upgrade
+				disable = { "trailing-space", "missing-fields", "inject-field" }, -- formatter already does that
 			},
 			format = { enable = false },
 			hint = {
