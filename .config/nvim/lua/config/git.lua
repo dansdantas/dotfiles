@@ -51,5 +51,5 @@ set("n", "<leader>g!", ":Git commit --amend<cr>", { desc = "Git: commit with ame
 
 local tg = require("tinygit")
 set("n", "<leader>gC", function() tg.smartCommit() end, { desc = "Git: commit" })
-set("n", ",gp", function() tg.push() end, { desc = "Git: push" })
+set("n", ",gp", function() tg.push({}) end, { desc = "Git: push" })
 set("n", ",ga", function() tg.amendOnlyMsg() end, { desc = "Git: amend only message" })
