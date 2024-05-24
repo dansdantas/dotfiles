@@ -1,5 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
+	event = { "User FilePost" },
 	config = function() require("config.lsp").setup() end,
 	dependencies = {
 		"folke/neodev.nvim",
