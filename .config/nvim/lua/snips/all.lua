@@ -32,10 +32,5 @@ ls.add_snippets("all", {
 		}),
 	}),
 
-	s(
-		"ctime",
-		f(function()
-			return os.date("%D - %H:%M")
-		end)
-	),
+	s("ctime", f(function() return os.date("%D - %H:%M") end)),
 })

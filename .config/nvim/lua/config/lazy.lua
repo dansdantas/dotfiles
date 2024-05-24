@@ -1,3 +1,5 @@
+vim.keymap.set("n", "<leader>la", ":Lazy<cr>", { desc = "Lazy plugins" })
+
 return {
 	install = {
 		-- Do not automatically install on startup.
