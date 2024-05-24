@@ -1,5 +1,11 @@
---# selene: allow(mixed_table) -- lazy.nvim uses them
-vim.g.myLsps = { -- variable used by MasonToolInstaller
+local M = {}
+
+--------------------------------------------------------------------------------
+--- Servers in use
+--------------------------------------------------------------------------------
+
+-- variable used by MasonToolInstaller
+vim.g.myLsps = {
 	"clangd",
 	"gopls",
 	"rust_analyzer", -- rust
@@ -26,6 +32,8 @@ vim.g.myLsps = { -- variable used by MasonToolInstaller
 }
 
 --------------------------------------------------------------------------------
+--- Server definitions spec
+--------------------------------------------------------------------------------
 
 ---@class (exact) lspConfiguration see https://github.com/neovim/nvim-lspconfig/blob/master/doc/lspconfig.txt#L46
 ---@field settings? table <string, table>
@@ -47,9 +55,7 @@ for _, lsp in pairs(vim.g.myLsps) do
 end
 
 --------------------------------------------------------------------------------
--- LUA
-
--- DOCS https://luals.github.io/wiki/settings/
+-- LUA - DOCS https://luals.github.io/wiki/settings/
 serverConfigs.lua_ls = {
 	settings = {
 		Lua = {
@@ -140,9 +146,7 @@ serverConfigs.jdtls = {
 }
 
 --------------------------------------------------------------------------------
--- PYTHON
-
--- DOCS https://github.com/pappasam/jedi-language-server#configuration
+-- PYTHON -  DOCS https://github.com/pappasam/jedi-language-server#configuration
 serverConfigs.jedi_language_server = {
 	init_options = {
 		diagnostics = { enable = true },
@@ -251,27 +255,14 @@ serverConfigs.yamlls = {
 	},
 	-- SIC needs enabling via setting *and* via capabilities to work
 	-- TODO probably due to missing dynamic formatting in nvim
-	on_attach = function(client)
-		client.server_capabilities.documentFormattingProvider = true
-	end,
+	on_attach = function(client) client.server_capabilities.documentFormattingProvider = true end,
 }
 
 --------------------------------------------------------------------------------
-local function lspDiagnosticSettings()
-	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-		virtual_text = true,
-		underline = true,
-		signs = true,
-		update_in_insert = false,
-		show_diagnostic_autocmds = { "InsertLeave" },
-	})
+--- Startup functions
+--------------------------------------------------------------------------------
 
-	vim.diagnostic.config({
-		update_in_insert = false,
-	})
-end
-
-local function setupAllLsps()
+local function setupLsps()
 	-- Enable snippets-completion (nvim_cmp) and folding (nvim-ufo)
 	local lspCapabilities = vim.lsp.protocol.make_client_capabilities()
 	lspCapabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -290,49 +281,26 @@ local function setupAllLsps()
 	end
 end
 
-return {
-	{ "folke/neodev.nvim", opts = {} },
+local function diagnosticSettings()
+	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+		virtual_text = true,
+		underline = true,
+		signs = true,
+		update_in_insert = false,
+		show_diagnostic_autocmds = { "InsertLeave" },
+	})
 
-	{
-		"neovim/nvim-lspconfig",
-		init = function()
-			setupAllLsps()
-			lspDiagnosticSettings()
-		end,
-		dependencies = {
-			-- ful status updates for LSP
-			{ "j-hui/fidget.nvim", opts = {} },
-		},
-	},
+	vim.diagnostic.config({
+		update_in_insert = false,
+	})
+end
 
-	{
-		"nvimdev/lspsaga.nvim",
-		opts = {
-			lightbulb = {
-				enable = false,
-			},
-			symbol_in_winbar = {
-				enable = false,
-			},
-		},
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
-		},
-	},
+M.setup = function()
+	require("neodev").setup()
+	require("config.linter").setup()
 
-	{
-		"rmagatti/goto-preview",
-		opts = {},
-		keys = {
-			-- stylua: ignore start
-			{ "gpd", function() require("goto-preview").goto_preview_definition({}) end, desc = "GoToPreview: definition" },
-			{ "gpt", function() require("goto-preview").goto_preview_type_definition({}) end, desc = "GoToPreview: type definition" },
-			{ "gpi", function() require("goto-preview").goto_preview_implementation({}) end, desc = "GoToPreview: implementation" },
-			{ "gpD", function() require("goto-preview").goto_preview_declaration({}) end, desc = "GoToPreview: declaration" },
-			{ "gP", function() require("goto-preview").close_all_win() end, desc = "GoToPreview: close windows" },
-			{ "gpr", function() require("goto-preview").goto_preview_references() end, desc = "GoToPreview: references" },
-			-- stylua: ignore end
-		},
-	},
-}
+	setupLsps()
+	diagnosticSettings()
+end
+
+return M
