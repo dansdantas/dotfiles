@@ -206,11 +206,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		--   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 		-- end, '[W]orkspace [L]ist Folders')
 
-		-- Lspsaga
-		nmap("gt", ":Lspsaga finder tyd+ref+imp+def<CR>", "show type, implementation, definition and references [saga]")
-		nmap("[D", function() require("lspsaga.diagnostic"):goto_prev() end, "previous diagnostic [saga]")
-		nmap("]D", function() require("lspsaga.diagnostic"):goto_next() end, "next diagnostic [saga]")
-
 		-- Diagnostics
 		nmap("[d", vim.diagnostic.goto_prev, "previous diagnostic")
 		nmap("]d", vim.diagnostic.goto_next, "next diagnostic")
