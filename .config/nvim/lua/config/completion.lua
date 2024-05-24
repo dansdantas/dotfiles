@@ -59,6 +59,7 @@ cmp.setup({
 	}),
 
 	sorting = {
+		priority_weight = 1,
 		comparators = {
 			require("cmp_fuzzy_buffer.compare"),
 			compare.offset,
@@ -76,6 +77,8 @@ cmp.setup({
 	},
 
 	formatting = {
+		expandable_indicator = true,
+		fields = { "abbr", "kind", "menu" },
 		format = lspkind.cmp_format({
 			maxwidth = 50,
 			menu = {
