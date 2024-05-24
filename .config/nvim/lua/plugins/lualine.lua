@@ -1,4 +1,3 @@
---# selene: allow(mixed_table) -- lazy.nvim uses them
 local lsp_status_line = {
 	function()
 		local msg = "No Active Lsp"
@@ -62,9 +61,7 @@ return {
 						icons_enabled = true,
 						icon = { align = "left" },
 						padding = 0,
-						fmt = function(string, _)
-							return " " .. string
-						end,
+						fmt = function(string, _) return " " .. string end,
 					},
 
 					lsp_status_line,

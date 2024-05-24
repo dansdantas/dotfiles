@@ -1,12 +1,9 @@
---# selene: allow(mixed_table) -- lazy.nvim uses them
 -- INFO only the first theme will be used
 local lightThemes = {
 	{ "EdenEast/nightfox.nvim", name = "dawnfox" },
 	{
 		"sainnhe/everforest",
-		init = function()
-			vim.g.everforest_background = "hard"
-		end,
+		init = function() vim.g.everforest_background = "hard" end,
 	},
 	-- {
 	-- 	"marko-cerovac/material.nvim",

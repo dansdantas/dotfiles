@@ -1,4 +1,3 @@
---# selene: allow(mixed_table) -- lazy.nvim uses them
 local env = vim.env
 local g = vim.g
 local fn = vim.fn

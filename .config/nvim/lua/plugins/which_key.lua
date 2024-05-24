@@ -1,4 +1,3 @@
---# selene: allow(mixed_table) -- lazy.nvim uses them
 return {
 	"folke/which-key.nvim",
 	opts = {},
