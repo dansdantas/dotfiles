@@ -30,9 +30,7 @@ end
 ---@param ... Function arguments
 ---@returns Result of `fn(...)` if there are no errors, otherwise nil.
 --- Returns nil if errors occur during {fn}, otherwise returns
-local function npcall(fn, ...)
-	return ok_or_nil(pcall(fn, ...))
-end
+local function npcall(fn, ...) return ok_or_nil(pcall(fn, ...)) end
 
 -- Internal functions
 
@@ -110,17 +108,11 @@ M.add_dir = function(workspace_folder)
 	M.search_dirs[uri] = { name = workspace_folder }
 end
 
-M.remove_dir = function()
-	list_dirs_on_telescope_picker(require("telescope.themes").get_dropdown({}))
-end
+M.remove_dir = function() list_dirs_on_telescope_picker(require("telescope.themes").get_dropdown({})) end
 
-M.list_dirs = function()
-	return list_dirs()
-end
+M.list_dirs = function() return list_dirs() end
 
-M.clean_dirs = function()
-	M.search_dirs = {}
-end
+M.clean_dirs = function() M.search_dirs = {} end
 
 M.find_files = function()
 	return require("telescope.builtin").find_files({
