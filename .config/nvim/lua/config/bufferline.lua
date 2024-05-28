@@ -23,8 +23,6 @@ bufferline.setup({
 local set = vim.keymap.set
 
 set("n", "<leader>j", function() bufferline.cycle(-1) end, { desc = "previous buffer" })
-set("n", "<leader>k", function() require("bufferline").cycle(1) end, { desc = "next buffer" })
-set("n", "<leader>J", vim.cmd.tabprev, { desc = "prev tab" })
-set("n", "<leader>K", vim.cmd.tabnext, { desc = "next tab" })
-set("n", "<leader>bj", function() require("bufferline").move(-1) end, { desc = "move buffer backwards" })
-set("n", "<leader>bk", function() require("bufferline").move(1) end, { desc = "move buffer forwards" })
+set("n", "<leader>k", function() bufferline.cycle(1) end, { desc = "next buffer" })
+set("n", "<leader>bj", function() bufferline.move(-1) end, { desc = "move buffer backwards" })
+set("n", "<leader>bk", function() bufferline.move(1) end, { desc = "move buffer forwards" })
