@@ -4,7 +4,7 @@ return {
 	config = function() require("config.lsp").setup() end,
 	dependencies = {
 		"folke/neodev.nvim",
-		{ "j-hui/fidget.nvim", opts = {} }, -- ful status updates for LSP
+		{ "linrongbin16/lsp-progress.nvim" }, -- ful status updates for LSP
 
 		-- Mason suite
 		"williamboman/mason.nvim",

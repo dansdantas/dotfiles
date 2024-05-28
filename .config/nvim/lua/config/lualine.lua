@@ -1,34 +1,3 @@
-local lsp_status_line = {
-	function()
-		local msg = "No Active Lsp"
-		local clients = vim.lsp.get_clients({ bufnr = 0 })
-
-		if next(clients) == nil then
-			return msg
-		end
-
-		-- Deal with multiple clients?
-		return clients[1].name
-	end,
-	icon = "  :",
-	color = { fg = "#ffffff" },
-	on_click = function()
-		local clients = vim.lsp.get_clients({ bufnr = 0 })
-
-		if next(clients) == nil then
-			return P("no clients active")
-		end
-
-		local selected = {}
-
-		for _, client in ipairs(clients) do
-			table.insert(selected, client.name)
-		end
-
-		P(selected)
-	end,
-}
-
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
@@ -52,20 +21,20 @@ require("lualine").setup({
 		},
 		lualine_c = { { "filename", path = 1 } },
 		lualine_x = {
+			-- wrap progress call to avoid problems with lazy load
+			function() return require("lsp-progress").progress() end,
+
 			{
+
 				"filetype",
 				icons_enabled = true,
 				icon = { align = "left" },
 				padding = 0,
-				fmt = function(string, _) return " " .. string end,
+				fmt = function(string, _) return " " .. string .. " " end,
 			},
-
-			lsp_status_line,
 		},
 		lualine_y = { "encoding" },
-		lualine_z = {
-			"location",
-		},
+		lualine_z = { "location" },
 	},
 	inactive_sections = {
 		lualine_a = {},
