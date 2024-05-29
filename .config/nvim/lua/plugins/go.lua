@@ -14,6 +14,7 @@ return {
 	opts = {
 		luasnip = true,
 		lsp_inlay_hints = { enable = false },
+		lsp_codelens = false,
 	},
 	init = function()
 		vim.keymap.set("n", ",fs", ":GoFillStruct<cr>", { desc = "GO: fill struct" })
