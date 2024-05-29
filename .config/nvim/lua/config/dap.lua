@@ -41,7 +41,9 @@ set("n", ",dO", function() require("dap").step_into() end, { desc = "Dap: step o
 set("n", ",di", function() require("dap").step_over() end, { desc = "Dap: step into" })
 set("n", ",do", function() require("dap").step_out() end, { desc = "Dap: step out" })
 set("n", ",dt", function() require("dap").toggle_breakpoint() end, { desc = "Dap: toggle breakpoint" })
+set("n", ",dr", function() require("dap").restart() end, { desc = "Dap: restart" })
 set("n", ",de", function() require("dap-go").debug_test() end, { desc = "Dap: debug" })
+set("n", ",dX", function() require("dap").terminate() end, { desc = "Dap: terminate" })
 
 set(
 	"n",
