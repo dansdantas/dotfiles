@@ -31,6 +31,10 @@ opt.inccommand = "split"
 opt.colorcolumn = "120" -- Add delimitation line on 120 character
 opt.wrap = false -- Remove wrapping on lines that goes over screen width
 
+-- Theme
+opt.termguicolors = true
+opt.background = "dark"
+
 -- status bar & cmdline
 opt.history = 400 -- reduce noise for command history search
 opt.shortmess:append({ -- reduce info in :messages
