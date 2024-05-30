@@ -26,4 +26,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Start lazy
-require("lazy").setup("plugins", require("config.lazy"))
+-- Split config between plugins that does not play well with vscode so at least integration works
+require("lazy").setup({
+	{ import = "plugins", cond = true },
+	{ import = "plugins_vscode", cond = function() return vim.g.vscode end },
+	{ import = "plugins_not_vscode", cond = function() return not vim.g.vscode end },
+}, require("config.lazy"))

@@ -5,6 +5,7 @@ return {
 		"nvim-telescope/telescope-dap.nvim",
 		{ "theHamsta/nvim-dap-virtual-text", opts = { virt_text_pos = "eol" } },
 		{ "leoluz/nvim-dap-go", opts = {} },
-		{ "rcarriga/nvim-dap-ui" },
+		"rcarriga/nvim-dap-ui",
+		"nvim-neotest/nvim-nio",
 	},
 }
