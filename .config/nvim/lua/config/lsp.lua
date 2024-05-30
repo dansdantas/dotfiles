@@ -344,7 +344,7 @@ end
 M.setup = function()
 	setupProgress()
 
-	require("neodev").setup()
+	require("neodev").setup({ library = { plugins = { "nvim-dap-ui" }, types = true } })
 	require("config.linter").setup()
 
 	setupLsps()
