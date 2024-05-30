@@ -76,17 +76,13 @@ local config = {
 		{
 			key = "m",
 			mods = "LEADER",
-			action = callback(function(window, _, _)
-				window:maximize()
-			end),
+			action = callback(function(window, _, _) window:maximize() end),
 		},
 
 		{
 			key = "r",
 			mods = "LEADER",
-			action = callback(function(window, _, _)
-				window:restore()
-			end),
+			action = callback(function(window, _, _) window:restore() end),
 		},
 
 		{ key = "=", mods = "LEADER", action = action.ResetFontSize },
