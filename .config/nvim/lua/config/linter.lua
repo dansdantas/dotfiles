@@ -170,21 +170,21 @@ M.setup = function()
 			-- Disable autoformat on certain filetypes
 			local ignore_filetypes = { "ruby" }
 			if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
-				return
+				return false
 			end
 			-- Disable with a global or buffer-local variable
 			if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-				return
+				return false 
 			end
 			-- Disable autoformat for files in a certain path
 			local bufname = vim.api.nvim_buf_get_name(bufnr)
 			if bufname:match("/node_modules/") then
-				return
+				return false
 			end
 
 			-- Disable for slow formatters and also marks slow formatters on the fly
 			if slow_format_filetypes[vim.bo[bufnr].filetype] then
-				return
+				return false
 			end
 			local function on_format(err)
 				if err and err:match("timeout$") then
@@ -198,7 +198,7 @@ M.setup = function()
 		-- This runs on BufWritePost so it does not block further
 		format_after_save = function(bufnr)
 			if not slow_format_filetypes[vim.bo[bufnr].filetype] then
-				return
+				return false
 			end
 			return { lsp_fallback = true }
 		end,
