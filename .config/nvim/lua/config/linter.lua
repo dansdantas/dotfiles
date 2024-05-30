@@ -174,7 +174,7 @@ M.setup = function()
 			end
 			-- Disable with a global or buffer-local variable
 			if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-				return false 
+				return false
 			end
 			-- Disable autoformat for files in a certain path
 			local bufname = vim.api.nvim_buf_get_name(bufnr)
