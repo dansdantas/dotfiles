@@ -2,7 +2,6 @@
 
 . $ZDOTDIR/env
 . $ZDOTDIR/plug
-. $ZDOTDIR/zinit
 . $ZDOTDIR/fzf
 . $ZDOTDIR/keybinds
 . $ZDOTDIR/options
