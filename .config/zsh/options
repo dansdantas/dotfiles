@@ -11,6 +11,9 @@ setopt SHARE_HISTORY          # Share history between all sessions.
 
 setopt HIST_IGNORE_DUPS       # Ignore duplication sequential commands
 setopt HIST_IGNORE_SPACE      # Do not record an entry starting with a space.
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
 
 setopt HIST_EXPIRE_DUPS_FIRST # When reaching maximum hist size, remove dups first
 setopt HIST_VERIFY            # Do not execute immediately upon history expansion.
