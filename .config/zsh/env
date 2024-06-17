@@ -28,9 +28,6 @@ export EDP0=eDP-1-1
 export HDMI0=HDMI0
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 
-# Antigen
-export ANTIGEN_HOME="$XDG_CONFIG_HOME/antigen"
-
 if [ -z "$MACOS" ]; then
 	# Term definition
 	if [ -z "$TMUX" ]; then
@@ -65,10 +62,6 @@ fi
 
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PATHMARKS_FILE="$XDG_DATA_HOME/pathmarks/file"
-
-# Antigen
-export ADOTDIR="$ANTIGEN_HOME"
-export ANTIGEN_LOG="$ANTIGEN_HOME/debug.log"
 
 # Tmux
 export FZF_COMMAND=$([ -z "$TMUX" ] && echo "fzf" || echo "fzf-tmux")
