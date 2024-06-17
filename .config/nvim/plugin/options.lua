@@ -87,6 +87,8 @@ local undo_dir = vim.env.XDG_DATA_HOME .. "/nvim/undo"
 vim.fn.system({ "mkdir", "-p", undo_dir })
 opt.undofile = true
 opt.undodir = undo_dir
+opt.sessionoptions:remove({ "blank" })
+opt.sessionoptions:append({ "skiprtp" })
 
 -- Folding
 opt.foldmethod = "expr"
