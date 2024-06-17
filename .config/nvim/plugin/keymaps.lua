@@ -81,7 +81,7 @@ map.set("n", "<leader>R", vim.cmd.lprevious, { desc = "previous on location list
 map.set("n", "<leader>sw", utils.search_current_word, { desc = "search current word" })
 map.set("n", "<leader>so", function()
 	---@diagnostic disable-next-line: undefined-field
-	vim.opt.list = not vim.opt.list:get()
+	vim.opt_local.list = not vim.opt_local.list:get()
 end, { desc = "toggle listchars display" })
 
 -- save/quit actions
@@ -121,14 +121,15 @@ map.set("n", ",tl", ":TestLast<cr>", { desc = "Test: run last" })
 map.set("n", ",tv", ":TestVisit<cr>", { desc = "Test: last visited" })
 map.set("n", ",tw", ":TestLastOnlyFail<cr>", { desc = "Test: only failed" })
 
--- workspace
-local workspace = require("custom.workspace")
-map.set("n", ",wa", workspace.add_dir, { desc = "Workspace: add dir" })
-map.set("n", ",wr", workspace.remove_dir, { desc = "Workspace: remove dir" })
-map.set("n", ",wf", workspace.find_files, { desc = "Workspace: find files" })
-map.set("n", ",wg", workspace.grep_files, { desc = "Workspace: grep on files " })
-map.set("n", ",wc", workspace.clean_dirs, { desc = "Workspace: clean dirs" })
-map.set("n", ",wl", function() return P(workspace.list_dirs()) end, { desc = "Workspace: list dirs" })
+if not vim.g.vscode then
+	-- workspace
+	map.set("n", ",wa", require("custom.workspace").add_dir, { desc = "Workspace: add dir" })
+	map.set("n", ",wr", require("custom.workspace").remove_dir, { desc = "Workspace: remove dir" })
+	map.set("n", ",wf", require("custom.workspace").find_files, { desc = "Workspace: find files" })
+	map.set("n", ",wg", require("custom.workspace").grep_files, { desc = "Workspace: grep on files " })
+	map.set("n", ",wc", require("custom.workspace").clean_dirs, { desc = "Workspace: clean dirs" })
+	map.set("n", ",wl", function() return P(require("custom.workspace").list_dirs()) end, { desc = "Workspace: dirs" })
+end
 
 --------------------------------------------------------------------------------
 -- LSP
