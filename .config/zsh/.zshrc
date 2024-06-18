@@ -8,7 +8,6 @@
 . $ZDOTDIR/aliases
 . $ZDOTDIR/completion
 . $ZDOTDIR/custom
-. $ZDOTDIR/scripts
 
 source_file_if_exists $ZDOTDIR/work
 

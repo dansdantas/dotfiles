@@ -1,9 +1,0 @@
-#!/usr/bin/zsh
-
-# SSH
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent > $XDG_RUNTIME_DIR/ssh-agent-current
-fi
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval "$(<$XDG_RUNTIME_DIR/ssh-agent-current)" > /dev/null
-fi
