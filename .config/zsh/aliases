@@ -147,7 +147,7 @@ alias nn='nnn -l'
 alias ls=eza
 (( $+commands[eza] )) && tree='eza --color=always -T' || tree='tree -Ctr'
 
-alias au='antigen update'
+alias au='zinit update --parallel'
 alias irssi='commnad irssi --config="$XDG_CONFIG_HOME"/irssi/config --home="$XDG_DATA_HOME"/irssi'
 
 # -------------------------------------------------------------------

@@ -5,7 +5,6 @@ bindkey -v
 # -------------------------------------------------------------------
 # Insert mode
 # -------------------------------------------------------------------
-bindkey -M viins '^@' autosuggest-accept
 
 # Adjust arrow keys
 bindkey -M viins '\eOA' history-substring-search-up
