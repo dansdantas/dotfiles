@@ -5,6 +5,7 @@ setopt CD_ABLE_VARS  # Extend $ variables when changing directories
 setopt MENU_COMPLETE # Auto complete menu
 
 setopt APPEND_HISTORY         # Append new story to old
+setopt SHARE_HISTORY
 setopt EXTENDED_HISTORY       # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY     # Write to the history file immediately, not when the shell exits.
 setopt SHARE_HISTORY          # Share history between all sessions.
