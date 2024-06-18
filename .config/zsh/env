@@ -53,7 +53,10 @@ else
 	export JAVA_HOME="/opt/homebrew/Cellar/openjdk/21.0.2"
 
 	# Brew
-	eval "$(/opt/homebrew/bin/brew shellenv)"
+	if [[ -f "/opt/homebrew/bin/brew" ]]; then
+		# If you're using macOS, you'll want this enabled
+		eval "$(/opt/homebrew/bin/brew shellenv)"
+	fi
 fi
 
 # -------------------------------------------------------------------
