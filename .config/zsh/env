@@ -16,6 +16,8 @@ export HISTFILE="$XDG_DATA_HOME/zsh/history" # History file
 export HISTSIZE=10000000                     # History size in memory
 export SAVEHIST=10000000                     # The number of histsize
 export LISTMAX=50                            # The size of asking history
+HISTDUP=erase
+SAVEHIST=$HISTSIZE
 
 # LANGUAGE must be set by en_US
 export LANGUAGE="en_US.UTF-8"
