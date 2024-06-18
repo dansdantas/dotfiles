@@ -4,53 +4,25 @@
 [ -f $XDG_CONFIG_HOME/fzf/fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/fzf.zsh 2>/dev/null
 
 # Change file search
-(( $+commands[ag] )) && export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g "" 2>/dev/null'
-(( $+commands[rg] )) && export FZF_DEFAULT_COMMAND="rg --hidden --files -g '' 2>/dev/null"
+# (( $+commands[ag] )) && export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g "" 2>/dev/null'
+# (( $+commands[rg] )) && export FZF_DEFAULT_COMMAND="rg --hidden --files -g '' 2>/dev/null"
 
-export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --color=always --exclude .git --exclude=spec/fixtures'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --color=always --exclude .git --exclude=spec/fixtures'
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-export FZF_DEFAULT_OPTS="
-  --ansi
-  --border
-  --height 80%
-  --extended
-  --cycle
-  --bind=alt-k:preview-up,alt-j:preview-down
-  --bind=alt-p:preview-up,alt-n:preview-down
-  --bind=ctrl-u:half-page-up
-  --bind=ctrl-d:half-page-down
-  --bind=alt-a:select-all,ctrl-r:toggle-all
-  --bind=ctrl-s:toggle-sort
-  --bind=\):toggle-preview,alt-w:toggle-preview-wrap
-  --bind=\"ctrl-y:execute-silent(ruby -e 'puts ARGV' {+} | pbcopy)+abort\"
-  --bind='alt-e:execute($EDITOR {})+abort'
-  --preview 'bat --color=always --style=grid --wrap=never --line-range :300 {}'"
-
-_gen_fzf_colors() {
-  local color00='#282c34'
-  local color01='#353b45'
-  local color02='#3e4451'
-  local color03='#545862'
-  local color04='#565c64'
-  local color05='#abb2bf'
-  local color06='#b6bdca'
-  local color07='#c8ccd4'
-  local color08='#e06c75'
-  local color09='#d19a66'
-  local color0A='#e5c07b'
-  local color0B='#98c379'
-  local color0C='#56b6c2'
-  local color0D='#61afef'
-  local color0E='#c678dd'
-  local color0F='#be5046'
-
-  export FZF_DEFAULT_OPTS="
-    $FZF_DEFAULT_OPTS
-    --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
-    --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
-    --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
-  "
-}
-
-_gen_fzf_colors
+# export FZF_DEFAULT_OPTS="
+#   --ansi
+#   --border
+#   --height 80%
+#   --extended
+#   --cycle
+#   --bind=alt-k:preview-up,alt-j:preview-down
+#   --bind=alt-p:preview-up,alt-n:preview-down
+#   --bind=ctrl-u:half-page-up
+#   --bind=ctrl-d:half-page-down
+#   --bind=alt-a:select-all,ctrl-r:toggle-all
+#   --bind=ctrl-s:toggle-sort
+#   --bind=\):toggle-preview,alt-w:toggle-preview-wrap
+#   --bind=\"ctrl-y:execute-silent(ruby -e 'puts ARGV' {+} | pbcopy)+abort\"
+#   --bind='alt-e:execute($EDITOR {})+abort'
+#   --preview 'bat --color=always --style=grid --wrap=never --line-range :300 {}'"
