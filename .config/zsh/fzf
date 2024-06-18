@@ -10,19 +10,15 @@
 # export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --color=always --exclude .git --exclude=spec/fixtures'
 # export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# export FZF_DEFAULT_OPTS="
-#   --ansi
-#   --border
-#   --height 80%
-#   --extended
-#   --cycle
-#   --bind=alt-k:preview-up,alt-j:preview-down
-#   --bind=alt-p:preview-up,alt-n:preview-down
-#   --bind=ctrl-u:half-page-up
-#   --bind=ctrl-d:half-page-down
-#   --bind=alt-a:select-all,ctrl-r:toggle-all
-#   --bind=ctrl-s:toggle-sort
-#   --bind=\):toggle-preview,alt-w:toggle-preview-wrap
-#   --bind=\"ctrl-y:execute-silent(ruby -e 'puts ARGV' {+} | pbcopy)+abort\"
-#   --bind='alt-e:execute($EDITOR {})+abort'
-#   --preview 'bat --color=always --style=grid --wrap=never --line-range :300 {}'"
+export FZF_DEFAULT_OPTS="
+  --cycle
+  --bind=ctrl-b:preview-up
+  --bind=ctrl-f:preview-down
+  --bind=ctrl-u:half-page-up
+  --bind=ctrl-d:half-page-down
+  --bind=alt-a:select-all
+  --bind=ctrl-r:toggle-all
+  --bind=ctrl-s:toggle-sort
+  --bind=\):toggle-preview
+  --bind=alt-w:toggle-preview-wrap
+  --bind='alt-e:execute($EDITOR {})+abort'"
