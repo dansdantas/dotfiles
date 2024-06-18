@@ -1,5 +1,6 @@
 #!/usr/bin/zsh
 
+setopt GLOBDOTS      # lets files beginning with a . be matched without explicitly specifying the dot.
 setopt AUTO_CD       # Auto cd on dir name
 setopt CD_ABLE_VARS  # Extend $ variables when changing directories
 setopt MENU_COMPLETE # Auto complete menu
