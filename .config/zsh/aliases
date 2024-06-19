@@ -145,7 +145,7 @@ alias nn='nnn -l'
 
 # Eza
 alias ls=eza
-(($ + commands[eza])) && tree='eza --color=always -T' || tree='tree -Ctr'
+(( $+commands[eza] )) && tree='eza --color=always -T' || tree='tree -Ctr'
 
 alias au='zinit update --parallel'
 alias irssi='commnad irssi --config="$XDG_CONFIG_HOME"/irssi/config --home="$XDG_DATA_HOME"/irssi'
@@ -200,11 +200,6 @@ alias hl="he logs -t"
 alias dc="docker compose"
 alias dcu="dc up"
 alias dcd="dc down"
-
-# Vim-plug
-alias pi="$EDITOR +PackerInstall"
-alias pc="$EDITOR +PackerClean"
-alias pu="$EDITOR +PackerSync"
 
 # Tmux
 alias tm="tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf"
