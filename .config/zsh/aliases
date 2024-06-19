@@ -27,9 +27,9 @@ alias zlt="time zsh -i -c exit"
 alias sha='shasum -a 256 '
 
 if [ -z "$MACOS" ]; then
-  # Xclip
-  alias pbcopy='xclip -selection clipboard'
-  alias pbpaste='xclip -selection clipboard -o'
+	# Xclip
+	alias pbcopy='xclip -selection clipboard'
+	alias pbpaste='xclip -selection clipboard -o'
 fi
 
 # Compress and Extract
@@ -73,7 +73,7 @@ alias k='kill -9'
 alias j='jobs -l'
 
 function kp() {
-  k $(pgrep "$1")
+	k $(pgrep "$1")
 }
 
 # Type
@@ -112,25 +112,25 @@ alias l.='ls -d .* --color=auto'
 # Package manager
 # -------------------------------------------------------------------
 if [ -z "$MACOS" ]; then
-  alias mpsi='makepkg -si'
+	alias mpsi='makepkg -si'
 
-  # Package manager
-  alias y='paru'
-  alias update='y -Syu'
-  alias install='y -S'
-  alias search='y -Ss'
-  alias purge='y -Rns'
-  alias clean='purge $(y -Qtdq)'
+	# Package manager
+	alias y='paru'
+	alias update='y -Syu'
+	alias install='y -S'
+	alias search='y -Ss'
+	alias purge='y -Rns'
+	alias clean='purge $(y -Qtdq)'
 
-  # Mirrors
-  alias mirrors="_ reflector --verbose --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
+	# Mirrors
+	alias mirrors="_ reflector --verbose --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 else
 	alias b='brew'
-  alias update='b upgrade'
-  alias install='b install'
-  alias search='b search'
-  alias purge='b remove'
-  alias clean='b cleanup'
+	alias update='b upgrade'
+	alias install='b install'
+	alias search='b search'
+	alias purge='b remove'
+	alias clean='b cleanup'
 fi
 
 # -------------------------------------------------------------------
@@ -145,7 +145,7 @@ alias nn='nnn -l'
 
 # Eza
 alias ls=eza
-(( $+commands[eza] )) && tree='eza --color=always -T' || tree='tree -Ctr'
+(($ + commands[eza])) && tree='eza --color=always -T' || tree='tree -Ctr'
 
 alias au='zinit update --parallel'
 alias irssi='commnad irssi --config="$XDG_CONFIG_HOME"/irssi/config --home="$XDG_DATA_HOME"/irssi'
