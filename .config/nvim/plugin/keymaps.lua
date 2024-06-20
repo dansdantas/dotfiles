@@ -15,7 +15,6 @@ map.set("", "<left>", "<nop>", { remap = true })
 map.set("", "<right>", "<nop>", { remap = true })
 
 -- movements
-map.set("n", ";;", "$", { desc = "end of line" })
 map.set("n", "E", "$", { desc = "end of line" })
 map.set("n", "B", "^", { desc = "start of line" })
 
