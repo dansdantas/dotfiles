@@ -57,7 +57,6 @@ tl.setup({
 	extensions = {
 		["ui-select"] = { themes.get_dropdown({}) },
 		file_browser = {
-			theme = "dropdown",
 			-- disables netrw and use telescope-file-browser in its place
 			hijack_netrw = true,
 			mappings = {
@@ -130,20 +129,18 @@ set("n", "<leader>tc", function() tlb.colorscheme() end, { desc = "Telescope: co
 
 set("n", "<leader>tl", function() extensions.lazy_plugins.lazy_plugins({}) end, { desc = "Telescope: lazy plugins" })
 
-set("n", "<leader>tb", function()
-	local function telescope_buffer_dir() return vim.fn.expand("%:p:h") end
-
-	extensions.file_browser.file_browser({
-		path = "%:p:h",
-		cwd = telescope_buffer_dir(),
-		respect_gitignore = false,
-		hidden = true,
-		grouped = true,
-		previewer = false,
-		initial_mode = "normal",
-		layout_config = { height = 40 },
-	})
-end, { desc = "Telescope: file browser" })
+set(
+	"n",
+	"<leader>tb",
+	function()
+		extensions.file_browser.file_browser({
+			path = "%:p:h",
+			hidden = true,
+			grouped = true,
+		})
+	end,
+	{ desc = "Telescope: file browser" }
+)
 
 -- Vim
 set("n", "<leader>vC", function() tlb.command_history() end, { desc = "Vim: command history" })
