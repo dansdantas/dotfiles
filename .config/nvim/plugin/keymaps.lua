@@ -84,10 +84,22 @@ map.set("n", "<leader>so", function()
 end, { desc = "toggle listchars display" })
 
 -- save/quit actions
-map.set("n", "<leader>w", function() vim.cmd.write({ bang = true }) end, { desc = "save file", silent = true })
-map.set("n", "<leader>x", function() vim.cmd.xit({ bang = true }) end, { desc = "close file" })
-map.set("n", "<leader>q", vim.cmd.quit, { desc = "exit file" })
-map.set("n", "<leader>Q", vim.cmd.qall, { desc = "quit" })
+if vim.g.vscode then
+	map.set(
+		"n",
+		"<leader>w",
+		function() require("vscode").action("workbench.action.files.save") end,
+		{ desc = "save file", silent = true }
+	)
+else
+	map.set("n", "<leader>w", function() vim.cmd.write({ bang = true }) end, { desc = "save file", silent = true })
+	map.set("n", "<leader>x", function() vim.cmd.xit({ bang = true }) end, { desc = "close file" })
+	map.set("n", "<leader>q", vim.cmd.quit, { desc = "exit file" })
+	map.set("n", "<leader>Q", vim.cmd.qall, { desc = "quit" })
+end
+
+map.set("n", "<leader>J", vim.cmd.tabprev, { desc = "prev tab" })
+map.set("n", "<leader>K", vim.cmd.tabnext, { desc = "next tab" })
 
 -- clipboard
 map.set("n", "<leader>Y", "y$", { desc = "yank till end of line" })
