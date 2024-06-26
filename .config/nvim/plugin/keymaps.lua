@@ -91,6 +91,18 @@ if vim.g.vscode then
 		function() require("vscode").action("workbench.action.files.save") end,
 		{ desc = "save file", silent = true }
 	)
+	map.set(
+		"n",
+		"<leader>j",
+		function() require("vscode").action("workbench.action.previousEditor") end,
+		{ desc = "previous buffer" }
+	)
+	map.set(
+		"n",
+		"<leader>k",
+		function() require("vscode").action("workbench.action.nextEditor") end,
+		{ desc = "next buffer" }
+	)
 else
 	map.set("n", "<leader>w", function() vim.cmd.write({ bang = true }) end, { desc = "save file", silent = true })
 	map.set("n", "<leader>x", function() vim.cmd.xit({ bang = true }) end, { desc = "close file" })
