@@ -5,24 +5,20 @@ return {
 		local wk = require("which-key")
 		wk.setup(opts)
 
-		-- Leader mappings
-		wk.register({
-			b = { name = "buffer" },
-			g = { name = "git" },
-			s = { name = "swap" },
-			t = { name = "telescope" },
-			v = { name = "vim" },
-		}, { prefix = "<leader>" })
+		wk.add({
+			{ "<leader>b", group = "buffer" },
+			{ "<leader>g", group = "git" },
+			{ "<leader>s", group = "swap" },
+			{ "<leader>t", group = "telescope" },
+			{ "<leader>v", group = "vim" },
 
-		-- Only for declaration purposes
-		wk.register({
-			c = { name = "clipboard" },
-			d = { name = "dap" },
-			g = { name = "git" },
-			h = { name = "help" },
-			p = { name = "peek" },
-			t = { name = "testing" },
-			w = { name = "workspace" },
-		}, { prefix = "," })
+			{ ",c", group = "clipboard" },
+			{ ",d", group = "dap" },
+			{ ",g", group = "git" },
+			{ ",h", group = "help" },
+			{ ",p", group = "peek" },
+			{ ",t", group = "testing" },
+			{ ",w", group = "workspace" },
+		})
 	end,
 }
