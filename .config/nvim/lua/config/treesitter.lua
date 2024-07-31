@@ -218,3 +218,12 @@ set("n", "dsi", function()
 	vim.cmd(tostring(endBorderLn) .. " delete") -- delete end first so line index is not shifted
 	vim.cmd(tostring(startBorderLn) .. " delete")
 end, { desc = "Delete surrounding indentation" })
+
+-- when on unindented line, `ii` should select entire buffer
+set("o", "ii", function()
+	if vim.fn.indent(".") == 0 then
+		require("various-textobjs").entireBuffer()
+	else
+		require("various-textobjs").indentation("inner", "inner")
+	end
+end)
