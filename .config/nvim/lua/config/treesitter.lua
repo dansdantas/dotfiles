@@ -169,19 +169,35 @@ set("n", "gx", function()
 	-- select URL
 	require("various-textobjs").url()
 
-	-- plugin only switches to visual mode when textobj found
 	local foundURL = vim.fn.mode():find("v")
-	if not foundURL then
-		return
+	if foundURL then
+		-- retrieve URL with the z-register as intermediary
+		vim.cmd.normal({ '"zy', bang = true })
+		local url = tostring(vim.fn.getreg("z"))
+
+		-- open with the OS-specific shell command
+		vim.ui.open(url)
+	else
+		-- find all URLs in buffer
+		local urlPattern = require("various-textobjs.charwise-textobjs").urlPattern
+		local bufText = table.concat(vim.api.nvim_buf_get_lines(0, 0, -1, false), "\n")
+		local urls = {}
+		for url in bufText:gmatch(urlPattern) do
+			table.insert(urls, url)
+		end
+		if #urls == 0 then
+			return
+		end
+
+		-- select one, use a plugin like dressing.nvim for nicer UI for
+		-- `vim.ui.select`
+		vim.ui.select(urls, { prompt = "Select URL:" }, function(choice)
+			if choice then
+				vim.ui.open(choice)
+			end
+		end)
 	end
-
-	-- retrieve URL with the z-register as intermediary
-	vim.cmd.normal({ '"zy', bang = true })
-	local url = tostring(vim.fn.getreg("z"))
-
-	-- open with the OS-specific shell command
-	vim.ui.open(url)
-end, { desc = "URL opener" })
+end, { desc = "URL Opener" })
 
 set("n", "dsi", function()
 	require("various-textobjs").indentation("outer", "outer")
