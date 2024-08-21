@@ -251,6 +251,7 @@ serverConfigs.yamlls = {
 			format = {
 				enable = true,
 				printWidth = 120,
+				singleQuote = true,
 			},
 		},
 	},
