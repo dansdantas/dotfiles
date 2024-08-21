@@ -128,8 +128,8 @@ local config = {
 
 		--------------------------------------------------------------------------------
 		-- Tabs
-		{ key = "n", mods = "LEADER", action = action.ActivateTabRelative(-1) },
-		{ key = "p", mods = "LEADER", action = action.ActivateTabRelative(1) },
+		{ key = "n", mods = "LEADER", action = action.ActivateTabRelative(1) },
+		{ key = "p", mods = "LEADER", action = action.ActivateTabRelative(-1) },
 
 		{ key = ">", mods = "LEADER", action = action.MoveTabRelative(1) },
 		{ key = "<", mods = "LEADER", action = action.MoveTabRelative(-1) },
