@@ -49,8 +49,55 @@ end, { desc = "Git: status" })
 set("n", "<leader>gc", ":Git commit<cr>", { desc = "Git: commit" })
 set("n", "<leader>g!", ":Git commit --amend<cr>", { desc = "Git: commit with amend" })
 
-local tg = require("tinygit")
-set("n", "<leader>gC", function() tg.smartCommit() end, { desc = "Git: commit" })
-set("n", ",gp", function() tg.push({}) end, { desc = "Git: push" })
-set("n", ",ga", function() tg.amendOnlyMsg() end, { desc = "Git: amend only message" })
+-- Tinygit
+set("n", "<leader>gC", function() require("tinygit").smartCommit() end, { desc = "Git: commit" })
+set("n", ",gp", function() require("tinygit").push({}) end, { desc = "Git: push" })
+set("n", ",ga", function() require('tinygit"').amendOnlyMsg() end, { desc = "Git: amend only message" })
 set("n", ",gA", ":Git add %<cr>", { desc = "Git: stage entire buffer" })
+
+-- Gitlinker
+set("n", ",gd", ":DiffviewFileHistory<CR>", { desc = "Show file history" })
+set(
+	"n",
+	",gy",
+	function()
+		require("gitlinker").link({
+			router_type = "default_branch",
+		})
+	end,
+	{ silent = true, desc = "Copy link to file" }
+)
+set(
+	"v",
+	",gy",
+	function()
+		require("gitlinker").link({
+			router_type = "default_branch",
+		})
+	end,
+	{ silent = true, desc = "Copy link to file" }
+)
+
+set(
+	"n",
+	",gl",
+	function()
+		require("gitlinker").link({
+			router_type = "default_branch",
+			action = require("gitlinker.actions").system,
+		})
+	end,
+	{ silent = true, desc = "Open file in browser" }
+)
+
+set(
+	"v",
+	",gl",
+	function()
+		require("gitlinker").link({
+			router_type = "default_branch",
+			action = require("gitlinker.actions").system,
+		})
+	end,
+	{ silent = true, desc = "Open file in browser" }
+)
