@@ -27,6 +27,7 @@ vim.g.lspToMasonMap = {
 	yamlls = "yaml-language-server",
 	golangci_lint = "golangci-lint",
 	jdtls = "jdtls",
+	-- erb_format = "erb-formatter",
 }
 
 local linters = {
@@ -40,6 +41,7 @@ local linters = {
 local formatters = {
 	lua = { "stylua" },
 	-- ruby = { "rubyfmt" },
+	-- eruby = { "erb_format" },
 	go = { "goimports", { "gofumpt", "gofmt" }, "revive", "gotests" },
 	javascript = { "biome", { "prettierd", "prettier", "eslint_d" } },
 	typescript = { "biome" },
