@@ -131,10 +131,10 @@ map.set("n", ",co", vim.cmd.copen, { desc = "open quickfix" })
 map.set("n", ",cc", vim.cmd.cclose, { desc = "close quickfix" })
 map.set("n", ",cn", vim.cmd.cnext, { desc = "next on quickfix list" })
 map.set("n", ",cp", vim.cmd.cprevious, { desc = "previous on quick list" })
+map.set("n", ",ch", ":nohl<cr>", { desc = "clear highlight" })
 map.set("n", "]q", vim.cmd.cnext, { desc = "next on quickfix list" })
 map.set("n", "[q", vim.cmd.cprevious, { desc = "previous on quick list" })
 map.set("n", ",he", utils.help_on_current_word, { desc = "Help on current word" })
-map.set("n", ",l", ":nohl<cr>", { desc = "clear highlight" })
 
 -- testing
 map.set("n", ",tn", ":TestNearest<cr>", { desc = "Test: nearest" })
