@@ -7,6 +7,11 @@ function M.print(v)
 	return v
 end
 
+function M.reload(...)
+	require("plenary.reload").reload_module(...)
+	return require(...)
+end
+
 function M.table_copy(orig)
 	local orig_type = type(orig)
 	local copy

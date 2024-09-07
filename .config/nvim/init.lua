@@ -4,6 +4,7 @@ end
 
 -- Globals
 P = require("custom.utils").print
+R = require("custom.utils").reload
 
 -- Leader should be defined before everything is configured
 vim.g.mapleader = " "
