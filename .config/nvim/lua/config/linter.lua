@@ -215,6 +215,10 @@ M.setup = function()
 		"--disable=no-multiple-blanks",
 	}
 
+	lint.linters.selene.args = {
+		"--config $HOME/.config/selene/selene.toml",
+	}
+
 	local function doLint()
 		if vim.bo.buftype ~= "" then
 			return
