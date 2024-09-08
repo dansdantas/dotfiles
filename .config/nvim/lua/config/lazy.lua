@@ -24,6 +24,10 @@ return {
 
 	diff = { cmd = "browser" }, -- view diffs with "d" in the browser
 
+	dev = {
+		path = "~/Code/opensource/",
+	},
+
 	performance = {
 		rtp = {
 			-- disable unused builtin plugins from neovim
