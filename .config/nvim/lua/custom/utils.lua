@@ -53,15 +53,7 @@ end
 function M.search_dotfiles()
 	require("telescope.builtin").find_files({
 		prompt_title = "dotfiles",
-		cwd = "$HOME",
-		find_command = {
-			"dot",
-			"ls-tree",
-			"--full-tree",
-			"-r",
-			"--name-only",
-			"HEAD",
-		},
+		cwd = "$HOME/dotfiles",
 	})
 end
 
