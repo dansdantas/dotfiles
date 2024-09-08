@@ -9,7 +9,7 @@ vim.g.myLsps = {
 	"clangd",
 	"gopls",
 	"rust_analyzer", -- rust
-	"tsserver", -- ts/js
+	"ts_ls", -- ts/js
 	"solargraph",
 	"lua_ls",
 	"vimls",
@@ -204,7 +204,7 @@ serverConfigs.cssls = {
 }
 
 -- DOCS https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration
-serverConfigs.tsserver = {
+serverConfigs.ts_ls = {
 	settings = {
 		-- enable checking javascript without a `jsconfig.json`
 		implicitProjectConfiguration = { -- DOCS https://www.typescriptlang.org/tsconfig
