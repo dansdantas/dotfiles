@@ -79,7 +79,7 @@ map.set("n", "<leader>R", vim.cmd.lprevious, { desc = "previous on location list
 
 map.set("n", "<leader>sw", utils.search_current_word, { desc = "search current word" })
 map.set("n", "<leader>so", function()
-	---@diagnostic disable-next-line: undefined-field
+	---@diagnostic disable-next-line: param-type-mismatch
 	vim.opt_local.list = not vim.opt_local.list:get()
 end, { desc = "toggle listchars display" })
 
