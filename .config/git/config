@@ -21,6 +21,8 @@
 	draw = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	up = !git push -u $(git-branch)
 	staash = stash --all
+	dft = difftool
+	dlog = -c diff.external=difft log -p --ext-diff
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
@@ -67,3 +69,10 @@
 	whitespace = warn
 [diff]
 	renames = copies
+	tool = difftastic
+[difftool]
+	prompt = false
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+	difftool = true

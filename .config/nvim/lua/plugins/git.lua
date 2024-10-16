@@ -1,6 +1,4 @@
 return {
-	"tpope/vim-fugitive",
-
 	{
 		"chrisgrieser/nvim-tinygit",
 		ft = { "gitrebase", "gitcommit" }, -- so ftplugins are loaded

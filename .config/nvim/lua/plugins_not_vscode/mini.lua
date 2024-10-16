@@ -2,6 +2,7 @@ return {
 	"echasnovski/mini.nvim",
 	config = function()
 		require("mini.ai").setup({ n_lines = 500 })
+
 		require("mini.bracketed").setup({
 			treesitter = { suffix = "s", options = {} },
 		})
@@ -15,6 +16,10 @@ return {
 				note = { pattern = "NOTE", group = "MiniHipatternsNote" },
 				done = { pattern = "DONE", group = "MiniHipatternsNote" },
 			},
+		})
+
+		require("mini.git").setup({
+			command = { split = "horizontal" },
 		})
 	end,
 }

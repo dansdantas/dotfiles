@@ -30,7 +30,7 @@ set("n", "<leader>gp", function() gs.preview_hunk() end, { desc = "Git: preview 
 set("n", "<leader>gd", function() gs.diffthis() end, { desc = "Git: diff file" })
 set("n", "<leader>gt", function() gs.toggle_deleted() end, { desc = "Git: toggle deleted hunks" })
 
-set("n", "<leader>gq", function() gs.setqflist() end, { desc = "Git: populate hunks to loclist" })
+set("n", "<leader>gq", function() gs.setqflist("all") end, { desc = "Git: populate hunks to loclist" })
 set("n", "<leader>gb", function() gs.blame_line() end, { desc = "Git: blame line" })
 set("n", "<leader>gB", function() gs.blame_line({ full = true }) end, { desc = "Git: blame full" })
 
