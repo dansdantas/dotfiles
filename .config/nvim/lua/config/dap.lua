@@ -31,6 +31,19 @@ dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open({}
 dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close({}) end
 dap.listeners.before.event_exited["dapui_config"] = function() dapui.close({}) end
 
+-- Lua configurations
+dap.adapters.nlua = function(callback, config)
+	callback({ type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 })
+end
+
+dap.configurations["lua"] = {
+	{
+		type = "nlua",
+		request = "attach",
+		name = "Attach to running Neovim instance",
+	},
+}
+
 -- keymaps
 local set = vim.keymap.set
 
@@ -42,8 +55,19 @@ set("n", ",di", function() require("dap").step_over() end, { desc = "Dap: step i
 set("n", ",do", function() require("dap").step_out() end, { desc = "Dap: step out" })
 set("n", ",dt", function() require("dap").toggle_breakpoint() end, { desc = "Dap: toggle breakpoint" })
 set("n", ",dr", function() require("dap").restart() end, { desc = "Dap: restart" })
-set("n", ",de", function() require("dap-go").debug_test() end, { desc = "Dap: debug" })
 set("n", ",dX", function() require("dap").terminate() end, { desc = "Dap: terminate" })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "go",
+	callback = function()
+		vim.keymap.set("n", ",de", function() require("dap-go").debug_test() end, { desc = "Dap: debug" })
+	end,
+})
+
+set("n", ",de", function()
+	require("dapui").eval()
+	require("dapui").eval()
+end, { desc = "Dap: eval" })
 
 set(
 	"n",
