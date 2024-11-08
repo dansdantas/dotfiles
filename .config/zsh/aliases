@@ -5,6 +5,7 @@
 # -------------------------------------------------------------------
 
 alias history='fc -fl 1'
+alias z='zellij'
 
 # Helpers
 alias fa="alias | $FZF_COMMAND"
