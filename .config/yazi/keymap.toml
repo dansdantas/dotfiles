@@ -31,12 +31,6 @@ run  = "plugin --sync smart-paste"
 desc = "Paste into the hovered directory or CWD"
 
 [[manager.prepend_keymap]]
-on = [ "g", "r" ]
-run = '''
-	shell 'ya pub dds-cd --str "$(git rev-parse --show-toplevel)"' --confirm
-'''
-
-[[manager.prepend_keymap]]
 on  = "k"
 run = "plugin --sync arrow --args=-1"
 
