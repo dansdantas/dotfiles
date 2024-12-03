@@ -206,7 +206,7 @@ local close_copy_mode = action.Multiple({
 
 config.key_tables = {
 	copy_mode = {
-		{ key = "Escape", mods = "NONE", action = close_copy_mode },
+		{ key = "Escape", mods = "NONE", action = action.CopyMode("Close") },
 		{ key = "c", mods = "CTRL", action = close_copy_mode },
 		{ key = "q", mods = "NONE", action = close_copy_mode },
 
