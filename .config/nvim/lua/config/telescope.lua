@@ -33,6 +33,7 @@ tl.setup({
 				["<Esc>"] = actions.close,
 				["<C-r>"] = actions.select_all,
 				["<A-t>"] = layout.toggle_preview,
+				["<C-Space>"] = actions.to_fuzzy_refine,
 			},
 			n = {
 				["<C-j>"] = actions.move_selection_next,
