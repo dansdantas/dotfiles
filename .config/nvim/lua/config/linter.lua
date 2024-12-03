@@ -28,6 +28,7 @@ vim.g.lspToMasonMap = {
 	golangci_lint = "golangci-lint",
 	jdtls = "jdtls",
 	-- erb_format = "erb-formatter",
+	-- erb_lint = "erb-lint",
 }
 
 local linters = {
@@ -35,6 +36,7 @@ local linters = {
 	sh = { "zsh" },
 	markdown = { "markdownlint" },
 	go = { "golangcilint", "revive" },
+	-- eruby = { "erb_lint" },
 	-- ruby = { "ruby", "rubocop" },
 }
 
