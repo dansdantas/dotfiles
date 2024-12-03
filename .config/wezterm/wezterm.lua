@@ -146,6 +146,7 @@ config.keys = {
 	{ key = "/", mods = "LEADER", action = action.Search({ CaseInSensitiveString = "" }) },
 	{ key = "f", mods = "CMD", action = action.Search({ CaseInSensitiveString = "" }) },
 	{ key = "[", mods = "LEADER", action = action.ActivateCopyMode },
+	{ key = "]", mods = "LEADER", action = action.QuickSelect },
 	{ key = "P", mods = "CMD", action = action.ActivateCommandPalette },
 	{ key = "=", mods = "LEADER", action = action.ResetFontSize },
 
