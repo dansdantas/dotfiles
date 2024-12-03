@@ -272,18 +272,16 @@ config.key_tables = {
 		-- Scrollback
 		{ key = "u", mods = "CTRL", action = action.ScrollByPage(-1) },
 		{ key = "b", mods = "CTRL", action = action.ScrollByPage(1) },
-		{ key = "Enter", mods = "CTRL", action = action.ScrollToBottom },
 
 		-- Actions
-		{ key = "w", mods = "CTRL", action = action({ CopyMode = "ClearPattern" }) },
-		{ key = "n", mods = "CTRL", action = action({ CopyMode = "NextMatch" }) },
-		{ key = "p", mods = "CTRL", action = action({ CopyMode = "PriorMatch" }) },
-		{ key = "r", mods = "CTRL", action = action({ CopyMode = "CycleMatchType" }) },
+		{ key = "w", mods = "CTRL", action = action.CopyMode("ClearPattern") },
+		{ key = "n", mods = "CTRL", action = action.CopyMode("NextMatch") },
+		{ key = "p", mods = "CTRL", action = action.CopyMode("PriorMatch") },
+		{ key = "r", mods = "CTRL", action = action.CopyMode("CycleMatchType") },
 
 		-- Go back to copy mode when pressing enter, so that we can use unmodified keys like "n"
 		-- to navigate search results without conflicting with typing into the search area.
 		{ key = "Enter", mods = "NONE", action = "ActivateCopyMode" },
-		{ key = "Escape", mods = "NONE", action = action({ CopyMode = "Close" }) },
 	},
 	resize_pane = {
 		{ key = "h", action = action.AdjustPaneSize({ "Left", 5 }) },
