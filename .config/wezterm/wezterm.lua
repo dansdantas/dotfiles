@@ -144,9 +144,9 @@ config.keys = {
 	--------------------------------------------------------------------------------
 	-- Actions
 	{ key = "/", mods = "LEADER", action = action.Search({ CaseInSensitiveString = "" }) },
-	{ key = "[", mods = "LEADER", action = action.QuickSelect },
-	{ key = "f", mods = "CMD", action = action({ Search = { CaseInSensitiveString = "" } }) },
-	{ key = "P", mods = "CMD", action = wezterm.action.ActivateCommandPalette },
+	{ key = "f", mods = "CMD", action = action.Search({ CaseInSensitiveString = "" }) },
+	{ key = "[", mods = "LEADER", action = action.ActivateCopyMode },
+	{ key = "P", mods = "CMD", action = action.ActivateCommandPalette },
 	{ key = "=", mods = "LEADER", action = action.ResetFontSize },
 
 	{
@@ -198,39 +198,75 @@ config.keys = {
 
 --------------------------------------------------------------------------------
 -- Copy/Search modes
+local close_copy_mode = action.Multiple({
+	{ CopyMode = "MoveToScrollbackBottom" },
+	{ CopyMode = "Close" },
+})
+
 config.key_tables = {
 	copy_mode = {
-		{ key = "Escape", mods = "NONE", action = action({ CopyMode = "Close" }) },
-		{ key = "h", mods = "NONE", action = action({ CopyMode = "MoveLeft" }) },
-		{ key = "j", mods = "NONE", action = action({ CopyMode = "MoveDown" }) },
-		{ key = "k", mods = "NONE", action = action({ CopyMode = "MoveUp" }) },
-		{ key = "l", mods = "NONE", action = action({ CopyMode = "MoveRight" }) },
-		-- { key = " ", mods = "NONE", action = wezterm.action({ CopyMode = "ToggleSelectionByCell" }) },
-		-- Enter search mode to edit the pattern.
-		-- When the search pattern is an empty string the existing pattern is preserved
-		{ key = "/", mods = "NONE", action = action({ Search = { CaseInSensitiveString = "" } }) },
-		-- navigate any search mode results
-		{ key = "n", mods = "NONE", action = action({ CopyMode = "NextMatch" }) },
-		{ key = "N", mods = "SHIFT", action = action({ CopyMode = "PriorMatch" }) },
+		{ key = "Escape", mods = "NONE", action = close_copy_mode },
+		{ key = "c", mods = "CTRL", action = close_copy_mode },
+		{ key = "q", mods = "NONE", action = close_copy_mode },
+
 		{
 			key = "y",
 			mods = "NONE",
 			action = action.Multiple({
 				{ CopyTo = "ClipboardAndPrimarySelection" },
+				{ CopyMode = "MoveToScrollbackBottom" },
 				{ CopyMode = "Close" },
 			}),
 		},
 
+		-- Movements
+		{ key = "h", mods = "NONE", action = action.CopyMode("MoveLeft") },
+		{ key = "j", mods = "NONE", action = action.CopyMode("MoveDown") },
+		{ key = "k", mods = "NONE", action = action.CopyMode("MoveUp") },
+		{ key = "l", mods = "NONE", action = action.CopyMode("MoveRight") },
+
+		{ key = "w", mods = "NONE", action = action.CopyMode("MoveForwardWord") },
+		{ key = "b", mods = "NONE", action = action.CopyMode("MoveBackwardWord") },
+		{ key = "e", mods = "NONE", action = action.CopyMode("MoveForwardWordEnd") },
+
+		{ key = "0", mods = "NONE", action = action.CopyMode("MoveToStartOfLine") },
+		{ key = "^", mods = "NONE", action = action.CopyMode("MoveToStartOfLineContent") },
+		{ key = "b", mods = "SHIFT", action = action.CopyMode("MoveToStartOfLineContent") },
+		{ key = "$", mods = "NONE", action = action.CopyMode("MoveToEndOfLineContent") },
+
+		{ key = "Enter", mods = "NONE", action = action.CopyMode("MoveToStartOfNextLine") },
+
+		-- Enter search mode to edit the pattern.
+		-- When the search pattern is an empty string the existing pattern is preserved
+		{ key = "/", mods = "NONE", action = action({ Search = { CaseInSensitiveString = "" } }) },
+
+		-- navigate any search mode results
+		{ key = "n", mods = "NONE", action = action.CopyMode("NextMatch") },
+		{ key = "N", mods = "SHIFT", action = action.CopyMode("PriorMatch") },
+		{ key = "O", mods = "NONE", action = action.CopyMode("MoveToSelectionOtherEndHoriz") },
+		{ key = "o", mods = "NONE", action = action.CopyMode("MoveToSelectionOtherEnd") },
+		{ key = "F", mods = "NONE", action = action.CopyMode({ JumpBackward = { prev_char = false } }) },
+		{ key = "T", mods = "NONE", action = action.CopyMode({ JumpBackward = { prev_char = true } }) },
+
 		-- Scrollback
-		{ key = "u", mods = "CTRL", action = action.ScrollByPage(-1) },
-		{ key = "b", mods = "CTRL", action = action.ScrollByPage(1) },
-		{ key = "G", mods = "NONE", action = action.ScrollToBottom },
-		{ key = "g", mods = "NONE", action = action.ScrollToTop },
+		{ key = "b", mods = "CTRL", action = action.CopyMode("PageUp") },
+		{ key = "f", mods = "CTRL", action = action.CopyMode("PageDown") },
+		{ key = "d", mods = "CTRL", action = action.CopyMode({ MoveByPage = 0.5 }) },
+		{ key = "u", mods = "CTRL", action = action.CopyMode({ MoveByPage = -0.5 }) },
+
+		{ key = "G", mods = "NONE", action = action.CopyMode("MoveToScrollbackBottom") },
+		{ key = "g", mods = "NONE", action = action.CopyMode("MoveToScrollbackTop") },
+
+		{ key = "H", mods = "NONE", action = action.CopyMode("MoveToViewportTop") },
+		{ key = "L", mods = "NONE", action = action.CopyMode("MoveToViewportBottom") },
+		{ key = "J", mods = "NONE", action = action.CopyMode("MoveToViewportMiddle") },
+		{ key = "K", mods = "NONE", action = action.CopyMode("MoveToViewportMiddle") },
 
 		-- Select
-		{ key = "$", mods = "NONE", action = action.CopyMode("MoveToEndOfLineContent") },
-		{ key = "V", mods = "NONE", action = action.CopyMode({ SetSelectionMode = "Line" }) },
-		{ key = "V", mods = "SHIFT", action = action.CopyMode({ SetSelectionMode = "Line" }) },
+		{ key = "v", mods = "NONE", action = action.CopyMode({ SetSelectionMode = "Cell" }) },
+		{ key = "v", mods = "SHIFT", action = action.CopyMode({ SetSelectionMode = "Line" }) },
+		{ key = "v", mods = "CTRL", action = action.CopyMode({ SetSelectionMode = "Block" }) },
+		{ key = "Space", mods = "NONE", action = action.CopyMode({ SetSelectionMode = "Cell" }) },
 	},
 	search_mode = {
 		-- Scrollback
