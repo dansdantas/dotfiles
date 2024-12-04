@@ -46,6 +46,11 @@ au("FileType", {
 	callback = function() vim.bo.expandtab = false end,
 })
 
+au("FileType", {
+	pattern = "org",
+	callback = function() vim.b.minihipatterns_disable = true end,
+})
+
 --------------------------------------------------------------------------------
 -- BUF
 
