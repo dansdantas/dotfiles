@@ -8,7 +8,7 @@ return {
 		"folke/tokyonight.nvim",
 		priority = 1000,
 		lazy = false,
-		config = function() vim.cmd.colorscheme("tokyonight-storm") end,
+		config = function() vim.cmd.colorscheme("tokyonight-night") end,
 	},
 
 	"AlexvZyl/nordic.nvim",
