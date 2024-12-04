@@ -282,20 +282,6 @@ local function setupLsps()
 	end
 end
 
-local function diagnosticSettings()
-	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-		virtual_text = true,
-		underline = true,
-		signs = true,
-		update_in_insert = false,
-		show_diagnostic_autocmds = { "InsertLeave" },
-	})
-
-	vim.diagnostic.config({
-		update_in_insert = false,
-	})
-end
-
 local function setupProgress()
 	require("lsp-progress").setup({
 		client_format = function(client_name, spinner, series_messages)
@@ -348,7 +334,6 @@ M.setup = function()
 	require("config.linter").setup()
 
 	setupLsps()
-	diagnosticSettings()
 end
 
 return M
