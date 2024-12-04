@@ -8,27 +8,24 @@ local M = {}
 vim.g.myLsps = {
 	"clangd",
 	"gopls",
+	"jdtls",
+	"jedi_language_server", -- python (has much better hovers)
 	"rust_analyzer", -- rust
-	"ts_ls", -- ts/js
 	"solargraph",
-	"lua_ls",
-	"vimls",
-
-	"yamlls",
-	"jsonls",
 
 	"biome", -- ts/js/json linter/formatter
 	"cssls",
 	"emmet_ls", -- css/html completion
-
-	"jedi_language_server", -- python (has much better hovers)
-
-	"marksman", -- markdown
-	"bashls", -- used for zsh
 	"html",
 	"htmx",
+	"ts_ls", -- ts/js
 
-	"jdtls",
+	"lua_ls",
+	"vimls",
+	"yamlls",
+	"jsonls",
+	"marksman", -- markdown
+	"bashls", -- used for zsh
 }
 
 --------------------------------------------------------------------------------
