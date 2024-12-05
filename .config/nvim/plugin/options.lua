@@ -33,15 +33,7 @@ opt.wrap = false -- Remove wrapping on lines that goes over screen width
 
 -- status bar & cmdline
 opt.history = 400 -- reduce noise for command history search
-opt.shortmess:append({ -- reduce info in :messages
-	c = true, -- remove completion messages
-	C = true, -- remove scanning tags messages
-	w = true, -- use "[w]" instead of "written" for file write message	*shm-w*
-	W = true, -- don't give written message or "[w]" when writing
-	I = true, -- remove intro message
-	s = true, -- s	don't give "search hit BOTTOM, continuing at TOP"
-	F = true, -- remove file info when editing
-})
+opt.shortmess = "fFIlx"
 opt.report = 9001 -- disable "x more/fewer lines" messages
 
 -- Workspace
