@@ -15,8 +15,10 @@ return {
 			{
 				"chrisgrieser/nvim-various-textobjs",
 				opts = {
-					useDefaultKeymaps = true,
-					disabledKeymaps = { "gc", "in", "an", "il", "al", "r" },
+					keymaps = {
+						useDefaults = true,
+						disabledDefaults = { "gc", "in", "an", "il", "al", "r" },
+					},
 				},
 			},
 		},
