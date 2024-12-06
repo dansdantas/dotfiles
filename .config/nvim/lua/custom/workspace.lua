@@ -1,3 +1,8 @@
+local ok, _ = pcall(require, "telescope")
+if not ok then
+	return error("missing dependency: Telescope")
+end
+
 ---@diagnostic disable: undefined-doc-name
 local vfn = vim.fn
 

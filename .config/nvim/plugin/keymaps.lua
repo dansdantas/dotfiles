@@ -145,13 +145,16 @@ map.set("n", ",tv", ":TestVisit<cr>", { desc = "Test: last visited" })
 map.set("n", ",tw", ":TestLastOnlyFail<cr>", { desc = "Test: only failed" })
 
 if not vim.g.vscode then
-	-- workspace
-	map.set("n", ",wa", require("custom.workspace").add_dir, { desc = "Workspace: add dir" })
-	map.set("n", ",wr", require("custom.workspace").remove_dir, { desc = "Workspace: remove dir" })
-	map.set("n", ",wf", require("custom.workspace").find_files, { desc = "Workspace: find files" })
-	map.set("n", ",wg", require("custom.workspace").grep_files, { desc = "Workspace: grep on files " })
-	map.set("n", ",wc", require("custom.workspace").clean_dirs, { desc = "Workspace: clean dirs" })
-	map.set("n", ",wl", function() return P(require("custom.workspace").list_dirs()) end, { desc = "Workspace: dirs" })
+	local ok, workspace = pcall(require, "custom.workspace")
+	if ok and workspace ~= nil then
+		-- workspace
+		map.set("n", ",wa", workspace.add_dir, { desc = "Workspace: add dir" })
+		map.set("n", ",wr", workspace.remove_dir, { desc = "Workspace: remove dir" })
+		map.set("n", ",wf", workspace.find_files, { desc = "Workspace: find files" })
+		map.set("n", ",wg", workspace.grep_files, { desc = "Workspace: grep on files " })
+		map.set("n", ",wc", workspace.clean_dirs, { desc = "Workspace: clean dirs" })
+		map.set("n", ",wl", function() return P(workspace.list_dirs()) end, { desc = "Workspace: dirs" })
+	end
 end
 
 --------------------------------------------------------------------------------
