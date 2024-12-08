@@ -93,22 +93,22 @@ local dropdown = themes.get_dropdown({ winblend = 10, previewer = false })
 
 -- files
 set("n", "<C-p>", function() tlb.git_files(ivy) end, { desc = "Telescope: project files" })
-set("n", "<leader>o", function() tlb.find_files() end, { desc = "Telescope: files" })
+set("n", "<leader>o", tlb.find_files, { desc = "Telescope: files" })
 set("n", "<leader>tf", function() tlb.find_files({ previewer = false }) end, { desc = "Telescope: wo preview" })
 set("n", "<leader>tn", function() tlb.find_files({ cwd = vim.fn.stdpath("config"), prompt_title = "Neovim" }) end)
-set("n", "<leader>td", function() require("custom.utils").search_dotfiles() end, { desc = "Telescope: dotfiles" })
+set("n", "<leader>td", require("custom.utils").search_dotfiles, { desc = "Telescope: dotfiles" })
 
-set("n", "<leader><leader>", function() tlb.buffers() end, { desc = "Telescope: buffers" })
+set("n", "<leader><leader>", tlb.buffers, { desc = "Telescope: buffers" })
 set("n", "<leader>/", function() tlb.current_buffer_fuzzy_find(dropdown) end, { desc = "Telescope: fuzzy buffer" })
 
-set("n", "<leader>t?", function() tlb.oldfiles() end, { desc = "Telescope: recent files" })
-set("n", "<leader>tq", function() tlb.quickfix() end, { desc = "Telescope: quickfix entries" })
-set("n", "<leader>tr", function() tlb.resume() end, { desc = "Telescope: resume" })
+set("n", "<leader>t?", tlb.oldfiles, { desc = "Telescope: recent files" })
+set("n", "<leader>tq", tlb.quickfix, { desc = "Telescope: quickfix entries" })
+set("n", "<leader>tr", tlb.resume, { desc = "Telescope: resume" })
 
 -- Grep
-set("n", "<leader>tw", function() tlb.grep_string() end, { desc = "Telescope: find word" })
-set("n", "<leader>tG", function() extensions.egrepify.egrepify({}) end, { desc = "Telescope: egrepify" })
-set("n", "<leader>tg", function() tlb.live_grep() end, { desc = "Telescope: grep" })
+set("n", "<leader>tw", tlb.grep_string, { desc = "Telescope: find word" })
+set("n", "<leader>tG", extensions.egrepify.egrepify, { desc = "Telescope: egrepify" })
+set("n", "<leader>tg", tlb.live_grep, { desc = "Telescope: grep" })
 set("n", "<leader>sn", function() tlb.live_grep({ cwd = vim.fn.stdpath("config"), prompt_title = "Neovim" }) end)
 
 set(
@@ -126,9 +126,8 @@ set(
 )
 
 -- extensions and helpers
-set("n", "<leader>tc", function() tlb.colorscheme() end, { desc = "Telescope: colors" })
-
-set("n", "<leader>tl", function() extensions.lazy_plugins.lazy_plugins({}) end, { desc = "Telescope: lazy plugins" })
+set("n", "<leader>tc", tlb.colorscheme, { desc = "Telescope: colors" })
+set("n", "<leader>tl", extensions.lazy_plugins.lazy_plugins, { desc = "Telescope: lazy plugins" })
 
 set(
 	"n",
@@ -144,15 +143,15 @@ set(
 )
 
 -- Vim
-set("n", "<leader>vC", function() tlb.command_history() end, { desc = "Vim: command history" })
-set("n", "<leader>vc", function() tlb.commands() end, { desc = "Vim: commands" })
-set("n", "<leader>vh", function() tlb.help_tags() end, { desc = "Vim: help" })
-set("n", "<leader>vd", function() tlb.diagnostics() end, { desc = "Vim: diagnostics" })
-set("n", "<leader>vk", function() tlb.keymaps() end, { desc = "Vim: keymaps" })
-set("n", "<leader>vo", function() tlb.vim_options() end, { desc = "Vim: options" })
-set("n", "<leader>va", function() tlb.autocommands() end, { desc = "Vim: autocommands" })
+set("n", "<leader>vC", tlb.command_history, { desc = "Vim: command history" })
+set("n", "<leader>vc", tlb.commands, { desc = "Vim: commands" })
+set("n", "<leader>vh", tlb.help_tags, { desc = "Vim: help" })
+set("n", "<leader>vd", tlb.diagnostics, { desc = "Vim: diagnostics" })
+set("n", "<leader>vk", tlb.keymaps, { desc = "Vim: keymaps" })
+set("n", "<leader>vo", tlb.vim_options, { desc = "Vim: options" })
+set("n", "<leader>va", tlb.autocommands, { desc = "Vim: autocommands" })
 
 -- Git
-set("n", ",gb", function() tlb.git_branches() end, { desc = "Git: branches" })
-set("n", ",gc", function() tlb.git_commits() end, { desc = "Git: commits" })
-set("n", ",gC", function() tlb.git_bcommits() end, { desc = "Git: commits for current buffer" })
+set("n", ",gb", tlb.git_branches, { desc = "Git: branches" })
+set("n", ",gc", tlb.git_commits, { desc = "Git: commits" })
+set("n", ",gC", tlb.git_bcommits, { desc = "Git: commits for current buffer" })
