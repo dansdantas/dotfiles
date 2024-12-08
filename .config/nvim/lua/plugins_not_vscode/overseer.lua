@@ -1,7 +1,6 @@
 return {
 	{
 		"stevearc/overseer.nvim",
-		-- cmd = { "OverseerRun", "OverseerQuickAction" },
 		config = function(_, opts)
 			local overseer = require("overseer")
 			overseer.setup(opts)
@@ -10,9 +9,15 @@ return {
 			overseer.register_template({
 				name = "run",
 				builder = function()
+					local file = vim.fn.expand("%:p")
+					local cmd = { file }
+
+					if vim.bo.filetype == "go" then
+						cmd = { "go", "run", file }
+					end
+
 					return {
-						cmd = { "go" },
-						args = { "run", vim.api.nvim_buf_get_name(0) },
+						cmd = cmd,
 					}
 				end,
 			})
