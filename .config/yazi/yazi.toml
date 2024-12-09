@@ -68,7 +68,7 @@ rules = [
 	{ mime = "{audio,video}/*", use = [ "play", "reveal" ] },
 	# Archive
 	{ mime = "application/{,g}zip", use = [ "extract", "reveal" ] },
-	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", use = [ "extract", "reveal" ] },
+	{ mime = "application/{tar,bzip*,7z-compressed,xz,rar}", use = [ "extract", "reveal" ] },
 	# JSON
 	{ mime = "application/{json,x-ndjson}", use = [ "edit", "reveal" ] },
 	{ mime = "*/javascript", use = [ "edit", "reveal" ] },
@@ -139,7 +139,7 @@ cd_origin = "top-center"
 cd_offset = [ 0, 2, 50, 3 ]
 
 # create
-create_title  = "Create:"
+create_title  = [ "Create:", "Create (dir):" ]
 create_origin = "top-center"
 create_offset = [ 0, 2, 50, 3 ]
 
@@ -191,7 +191,7 @@ quit_content = "The following task is still running, are you sure you want to qu
 quit_origin  = "center"
 quit_offset  = [ 0, 0, 50, 15 ]
 
-[select]
+[pick]
 open_title  = "Open with:"
 open_origin = "hovered"
 open_offset = [ 0, 1, 50, 7 ]
