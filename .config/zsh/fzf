@@ -3,19 +3,12 @@
 # Load library
 [ -f $XDG_CONFIG_HOME/fzf/fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/fzf.zsh 2>/dev/null
 
-# Change file search
-# (( $+commands[ag] )) && export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g "" 2>/dev/null'
-# (( $+commands[rg] )) && export FZF_DEFAULT_COMMAND="rg --hidden --files -g '' 2>/dev/null"
-
-# export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --color=always --exclude .git --exclude=spec/fixtures'
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
 export FZF_DEFAULT_OPTS="
   --cycle
   --bind=ctrl-b:preview-up
   --bind=ctrl-f:preview-down
-  --bind=ctrl-u:half-page-up
   --bind=ctrl-d:half-page-down
+  --bind=ctrl-u:half-page-up
   --bind=alt-a:select-all
   --bind=ctrl-r:toggle-all
   --bind=ctrl-s:toggle-sort
