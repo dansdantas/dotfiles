@@ -7,7 +7,7 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Select monitor
-monitor=DP-2
+monitor=DP-4
 
 # Launch bars
 # MONITOR=eDP-1-1 polybar top -c ~/.config/polybar/config-top.ini &

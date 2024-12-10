@@ -17,7 +17,7 @@
 #
 #     if len(song) > trunclen:
 #         song = song[0:trunclen]
-#         song += '...' 
+#         song += '...'
 #         if ('(' in song) and (')' not in song):
 #             song += ')'
 #
@@ -63,7 +63,6 @@ parser.add_argument(
     metavar='the index of the font to use to display the playpause indicator',
     dest='play_pause_font'
 )
-
 
 args = parser.parse_args()
 
