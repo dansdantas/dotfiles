@@ -3,6 +3,7 @@ local themes = require("telescope.themes")
 local actions = require("telescope.actions")
 local layout = require("telescope.actions.layout")
 local fb_actions = require("telescope").extensions.file_browser.actions
+local lga_actions = require("telescope-live-grep-args.actions")
 
 local toggle_dark_mode = function()
 	local mode = { ["light"] = "dark", ["dark"] = "light" }
@@ -57,6 +58,7 @@ tl.setup({
 
 	extensions = {
 		["ui-select"] = { themes.get_dropdown({}) },
+
 		file_browser = {
 			-- disables netrw and use telescope-file-browser in its place
 			hijack_netrw = true,
@@ -69,9 +71,20 @@ tl.setup({
 				},
 			},
 		},
+
 		lazy_plugins = {
 			picker_opts = {
 				sorting_strategy = "descending",
+			},
+		},
+
+		live_grep_args = {
+			auto_quoting = true, -- enable/disable auto-quoting
+			mappings = {
+				i = {
+					["<C-k>"] = lga_actions.quote_prompt(),
+					["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+				},
 			},
 		},
 	},
@@ -81,7 +94,7 @@ tl.setup({
 pcall(tl.load_extension, "ui-select")
 pcall(tl.load_extension, "file_browser")
 pcall(tl.load_extension, "fzf")
-pcall(tl.load_extension, "egrepify")
+pcall(tl.load_extension, "live_grep_args")
 pcall(tl.load_extension, "lazy_plugins")
 
 -- keymaps
@@ -107,7 +120,7 @@ set("n", "<leader>tr", tlb.resume, { desc = "Telescope: resume" })
 
 -- Grep
 set("n", "<leader>tw", tlb.grep_string, { desc = "Telescope: find word" })
-set("n", "<leader>tG", extensions.egrepify.egrepify, { desc = "Telescope: egrepify" })
+set("n", "<leader>tG", extensions.live_grep_args.live_grep_args, { desc = "Telescope: grep with args" })
 set("n", "<leader>tg", tlb.live_grep, { desc = "Telescope: grep" })
 set("n", "<leader>sn", function() tlb.live_grep({ cwd = vim.fn.stdpath("config"), prompt_title = "Neovim" }) end)
 

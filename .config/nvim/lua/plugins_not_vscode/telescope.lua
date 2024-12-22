@@ -5,9 +5,13 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
+
+			-- Extensions
 			"nvim-telescope/telescope-file-browser.nvim",
 			"polirritmico/telescope-lazy-plugins.nvim",
-			{ "fdschmidt93/telescope-egrepify.nvim", dependencies = "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope-live-grep-args.nvim" },
+
+			-- Better fuzzy
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
