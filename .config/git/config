@@ -26,9 +26,11 @@
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = diff-so-fancy | less --tabs=2 -RFX
 	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 	trustctime = false
+[interactive]
+  diffFilter = diff-so-fancy --patch
 [commit]
 	template = ~/.gitmessage
 	verbose = true
