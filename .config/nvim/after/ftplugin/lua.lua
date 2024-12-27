@@ -1,3 +1,3 @@
-vim.opt_local.list = false
-vim.opt_local.path:append("./lua")
-vim.opt_local.expandtab = false
+vim.opt.list = false
+vim.opt.path:append("./lua")
+vim.opt.expandtab = false
