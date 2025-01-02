@@ -6,6 +6,8 @@
 		"package",
 		"require",
 		"ipairs",
-		"pcall"
+		"pcall",
+		"P",
+		"R"
 	]
 }

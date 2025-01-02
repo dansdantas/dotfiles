@@ -1,5 +1,4 @@
 ---@diagnostic disable: param-type-mismatch
---# selene: allow(mixed_table) -- lazy.nvim uses them
 local M = {}
 
 function M.print(v)

@@ -71,7 +71,8 @@ serverConfigs.lua_ls = {
 			},
 			diagnostics = {
 				-- Get the language server to recognize the `vim` global
-				globals = { "vim", "table", "pairs", "package", "require", "ipairs", "pcall" },
+				-- if there is a .luarc.json on current workspace, it takes precedence over this
+				globals = { "vim", "table", "pairs", "package", "require", "ipairs", "pcall", "P", "R" },
 				-- Review missing fields and inject field after every version upgrade
 				disable = { "trailing-space", "missing-fields", "inject-field" }, -- formatter already does that
 			},

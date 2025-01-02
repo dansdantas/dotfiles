@@ -1,4 +1,3 @@
---# selene: allow(mixed_table) -- lazy.nvim uses them
 -- Bubbles config for lualine
 -- Author: lokesh-krishna
 -- MIT license, see LICENSE for more details.

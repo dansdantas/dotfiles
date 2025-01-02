@@ -11,9 +11,11 @@ globals:
     any: true
   require:
     any: true
+  ipairs:
+    any: true
   pcall:
     any: true
   P:
     any: true
-  TableMerge:
+  R:
     any: true
