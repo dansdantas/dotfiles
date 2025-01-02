@@ -218,7 +218,11 @@ M.setup = function()
 	}
 
 	lint.linters.selene.args = {
-		"--config $HOME/.config/selene/selene.toml",
+		"--display-style",
+		"json",
+		"--config",
+		vim.env.XDG_CONFIG_HOME .. "/selene/selene.toml",
+		"-",
 	}
 
 	local function doLint()
