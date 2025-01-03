@@ -21,8 +21,15 @@
 	draw = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	up = !git push -u $(git-branch)
 	staash = stash --all
-	dft = difftool
-	dlog = -c diff.external=difft log -p --ext-diff
+	# `git log` with patches shown with difftastic.
+	dl = -c diff.external=difft log -p --ext-diff
+	dlog = -c diff.external=difft log --ext-diff
+	# Show the most recent commit with difftastic.
+	ds = -c diff.external=difft show --ext-diff
+	dshow = -c diff.external=difft show --ext-diff
+	# `git diff` with difftastic.
+	dft = -c diff.external=difft diff
+	ddiff = -c diff.external=difft diff
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
@@ -30,7 +37,7 @@
 	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 	trustctime = false
 [interactive]
-  diffFilter = diff-so-fancy --patch
+	diffFilter = diff-so-fancy --patch
 [commit]
 	template = ~/.gitmessage
 	verbose = true
