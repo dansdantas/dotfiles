@@ -38,8 +38,6 @@
 	prune = true
 [rebase]
 	autosquash = true
-[include]
-	path = ~/.gitconfig.local
 [http]
 	postBuffer = 524288000
 [color "diff-highlight"]
