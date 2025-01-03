@@ -136,7 +136,7 @@ function M.git_difftastic_previewer(opts)
 		-- title = "Git File Difftastic Preview",
 
 		get_command = function(entry)
-			local command = git_command({ "--no-pager", "diff" }, opts)
+			local command = git_command({ "--no-pager", "dft" }, opts)
 
 			if entry.status and (entry.status == "??" or entry.status == "A ") then
 				local p = from_entry.path(entry, true, false)
