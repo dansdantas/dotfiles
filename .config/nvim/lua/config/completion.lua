@@ -52,7 +52,6 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 	}, {
 		{ name = "fuzzy_buffer" },
-		{ name = "buffer-lines" },
 		{ name = "async_path" },
 	}, {
 		{ name = "nvim_lua" },
@@ -87,7 +86,6 @@ cmp.setup({
 				nvim_lua = "[api]",
 				async_path = "[path]",
 				luasnip = "[snip]",
-				["buffer-lines"] = "[blines]",
 				rg = "[rg]",
 			},
 		}),
@@ -104,7 +102,6 @@ cmp.setup.cmdline({ "/", "?" }, {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
 		{ name = "fuzzy_buffer" },
-		{ name = "buffer-lines" },
 	},
 })
 
