@@ -26,7 +26,6 @@ tl.setup({
 			i = {
 				["<C-u>"] = false,
 				["<C-q>"] = actions.send_to_qflist,
-				["<C-s>"] = actions.cycle_previewers_next,
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous,
 				["<C-f>"] = actions.preview_scrolling_down,
