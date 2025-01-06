@@ -17,12 +17,12 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 		local number_value = tonumber(value)
 		if incremental ~= nil then
 			while number_value > 0 do
-				window:perform_action(wezterm.action.IncreaseFontSize, pane)
+				window:perform_action(action.IncreaseFontSize, pane)
 				number_value = number_value - 1
 			end
 			overrides.enable_tab_bar = false
 		elseif number_value < 0 then
-			window:perform_action(wezterm.action.ResetFontSize, pane)
+			window:perform_action(action.ResetFontSize, pane)
 			overrides.font_size = nil
 			overrides.enable_tab_bar = true
 		else
@@ -114,7 +114,7 @@ config.keys = {
 	{ key = "{", mods = "LEADER", action = action.RotatePanes("Clockwise") },
 	{ key = "}", mods = "LEADER", action = action.RotatePanes("CounterClockwise") },
 	{ key = "q", mods = "LEADER", action = action.CloseCurrentPane({ confirm = true }) },
-	{ key = "z", mods = "LEADER", action = wezterm.action.TogglePaneZoomState },
+	{ key = "z", mods = "LEADER", action = action.TogglePaneZoomState },
 
 	-- splits
 	{ key = "v", mods = "LEADER", action = action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
