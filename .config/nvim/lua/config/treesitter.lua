@@ -179,13 +179,14 @@ set("n", "gx", function()
 		vim.ui.open(url)
 	else
 		-- find all URLs in buffer
-		local urlPattern = require("various-textobjs.charwise-textobjs").urlPattern
+		local urlPattern = [[%l%l%l-://[^%s)"'`]+]]
 		local bufText = table.concat(vim.api.nvim_buf_get_lines(0, 0, -1, false), "\n")
 		local urls = {}
 		for url in bufText:gmatch(urlPattern) do
 			table.insert(urls, url)
 		end
 		if #urls == 0 then
+			vim.notify("No URLs found on the buffer", vim.log.levels.INFO)
 			return
 		end
 
