@@ -19,3 +19,5 @@ globals:
     any: true
   R:
     any: true
+  Snacks:
+    any: true

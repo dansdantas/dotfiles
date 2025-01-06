@@ -8,6 +8,7 @@
 		"ipairs",
 		"pcall",
 		"P",
-		"R"
+		"R",
+		"Snacks"
 	]
 }
