@@ -133,5 +133,5 @@ cmp.setup.cmdline(":", {
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
--- Inside a snippet, use backspace to remove the placeholder.
-vim.keymap.set("s", "<BS>", "<C-O>s")
+-- Handle cmp ghost text with same color for comments
+vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })

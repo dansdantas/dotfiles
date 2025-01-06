@@ -81,6 +81,9 @@ set("i", "<C-l>", function()
 	end
 end, { silent = true, desc = "Snip: next choice" })
 
+-- Inside a snippet, use backspace to remove the placeholder.
+set("s", "<BS>", "<C-O>s")
+
 vim.api.nvim_create_autocmd("ModeChanged", {
 	group = vim.api.nvim_create_augroup("personal/unlink_snippet", { clear = true }),
 	desc = "Cancel the snippet session when leaving insert mode",
