@@ -38,7 +38,19 @@ au("FileType", {
 		"scratch",
 		"spectre_panel",
 	},
-	callback = function(args) vim.keymap.set("n", "q", "<cmd>quit<cr>", { buffer = args.buf }) end,
+	callback = function(event)
+		vim.bo[event.buf].buflisted = false
+		vim.schedule(function()
+			vim.keymap.set("n", "q", function()
+				vim.cmd("close")
+				pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
+			end, {
+				buffer = event.buf,
+				silent = true,
+				desc = "Quit buffer",
+			})
+		end)
+	end,
 })
 
 au("FileType", {
