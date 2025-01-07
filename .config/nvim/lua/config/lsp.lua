@@ -326,11 +326,9 @@ local function setupProgress()
 end
 
 M.setup = function()
-	setupProgress()
-
-	require("neodev").setup({ library = { plugins = { "nvim-dap-ui" }, types = true } })
 	require("config.linter").setup()
 
+	setupProgress()
 	setupLsps()
 end
 

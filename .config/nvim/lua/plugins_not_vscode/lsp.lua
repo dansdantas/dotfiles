@@ -3,7 +3,6 @@ return {
 	event = { "User FilePost" },
 	config = function() require("config.lsp").setup() end,
 	dependencies = {
-		"folke/neodev.nvim",
 		{ "linrongbin16/lsp-progress.nvim" }, -- ful status updates for LSP
 
 		-- Mason suite
