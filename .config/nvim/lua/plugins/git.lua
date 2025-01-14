@@ -45,4 +45,5 @@ return {
 	},
 
 	{ "linrongbin16/gitlinker.nvim", opts = { highlight_duration = 0 } },
+	{ "FabijanZulj/blame.nvim", opts = {}, cmd = { "BlameToggle" } },
 }
