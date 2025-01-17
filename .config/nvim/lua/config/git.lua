@@ -37,7 +37,6 @@ set("n", "<leader>gB", ":BlameToggle<cr>", { desc = "Git: blame line" })
 
 set("n", "<leader>gs", function()
 	local opts = {}
-	opts.layout_config = { preview_width = 0.6 }
 	opts.previewer = require("custom.utils").git_difftastic_previewer(opts)
 
 	-- Env variables GIT_WORK_TREE and GIT_DIR solves problems with not finding git still need conditional
