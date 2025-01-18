@@ -45,6 +45,7 @@ require("nvim-treesitter.configs").setup({
 
 	indent = { enable = true },
 	endwise = { enable = true },
+	matchup = { enable = true },
 
 	incremental_selection = {
 		enable = true,
@@ -98,6 +99,7 @@ require("nvim-treesitter.configs").setup({
 			-- and should return true of false
 			include_surrounding_whitespace = true,
 		},
+
 		move = {
 			enable = false,
 			set_jumps = true, -- whether to set jumps in the jumplist
@@ -118,6 +120,7 @@ require("nvim-treesitter.configs").setup({
 				["[C"] = "@class.outer",
 			},
 		},
+
 		swap = {
 			enable = true,
 			swap_next = {
@@ -131,6 +134,7 @@ require("nvim-treesitter.configs").setup({
 				[",sK"] = "@attribute.inner",
 			},
 		},
+
 		lsp_interop = {
 			enable = true,
 			border = "none",
@@ -139,9 +143,6 @@ require("nvim-treesitter.configs").setup({
 				[",pf"] = "@function.outer",
 				[",pF"] = "@class.outer",
 			},
-		},
-		matchup = {
-			enable = true,
 		},
 	},
 })
