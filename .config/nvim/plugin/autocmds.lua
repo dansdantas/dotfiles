@@ -8,7 +8,7 @@ local opt_local = vim.opt_local
 au("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = aug("kickstart-highlight-yank", { clear = true }),
-	callback = function() vim.highlight.on_yank() end,
+	callback = function() (vim.hl or vim.highlight).on_yank() end,
 })
 
 --------------------------------------------------------------------------------
