@@ -74,6 +74,9 @@ map.set("n", "<leader>bc", function() Snacks.bufdelete.delete() end, { desc = "c
 map.set("n", "<leader>bd", function() Snacks.bufdelete.other() end, { desc = "close all buffers but current" })
 map.set("n", "<leader>bD", function() Snacks.bufdelete.all() end, { desc = "close all buffers" })
 
+map.set("n", "<leader>.", function() Snacks.scratch() end, { desc = "Toggle scratch buffer" })
+map.set("n", "<leader>S", function() Snacks.scratch.select() end, { desc = "Select a scratch buffer" })
+
 map.set("n", "<leader>N", vim.cmd.lnext, { desc = "next on location list" })
 map.set("n", "<leader>R", vim.cmd.lprevious, { desc = "previous on location list" })
 
@@ -234,8 +237,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- end, '[W]orkspace [L]ist Folders')
 
 		-- Diagnostics
-		nmap("[d", vim.diagnostic.goto_prev, "previous diagnostic")
-		nmap("]d", vim.diagnostic.goto_next, "next diagnostic")
+		nmap("[d", function() vim.diagnostic.goto_prev({ float = false }) end, "previous diagnostic")
+		nmap("]d", function() vim.diagnostic.goto_next({ float = false }) end, "next diagnostic")
 		nmap(",e", vim.diagnostic.open_float, "open diagnostic float")
 		nmap(",q", vim.diagnostic.setqflist, "move diagnostics to qlist")
 	end,
