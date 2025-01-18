@@ -9,7 +9,8 @@ return {
 			-- Extensions
 			"nvim-telescope/telescope-file-browser.nvim",
 			"polirritmico/telescope-lazy-plugins.nvim",
-			{ "nvim-telescope/telescope-live-grep-args.nvim" },
+			"nvim-telescope/telescope-live-grep-args.nvim",
+			{ "danielfalk/smart-open.nvim", dependencies = { "kkharji/sqlite.lua" } },
 
 			-- Better fuzzy
 			{
