@@ -1,0 +1,27 @@
+# Current problems
+# - no workspace support
+# - no tabs support when using without title bar
+
+font-family = "Fantasque Sans Mono"
+theme = "Tokyonight"
+
+# keybinds
+keybind = ctrl+a>l=goto_split:right
+keybind = ctrl+a>h=goto_split:left
+keybind = ctrl+a>j=goto_split:bottom
+keybind = ctrl+a>k=goto_split:top
+keybind = ctrl+a>v=new_split:right
+keybind = ctrl+a>x=new_split:down
+keybind = ctrl+a>z=toggle_split_zoom
+
+keybind = super+h=goto_split:left
+keybind = super+j=goto_split:bottom
+keybind = super+k=goto_split:top
+keybind = super+l=goto_split:right
+keybind = super+n=next_tab
+keybind = super+p=previous_tab
+
+# keybind = ctrl+a>==reset_font_size
+
+macos-titlebar-style = hidden
+macos-option-as-alt = true
