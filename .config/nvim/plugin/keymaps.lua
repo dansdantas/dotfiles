@@ -188,7 +188,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		nmap("gD", vim.lsp.buf.declaration, "goto declaration")
 
 		-- Find references for the word under your cursor.
-		nmap("gr", require("telescope.builtin").lsp_references, "goto references")
+		nmap("gr", Snacks.picker.lsp_references, "goto references")
 
 		-- Jump to the implementation of the word under your cursor.
 		--  Useful when your language has ways of declaring types without an actual implementation.
@@ -203,7 +203,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- Fuzzy find all the symbols in your current document.
 		--  Symbols are things like variables, functions, types, etc.
-		nmap(",ds", require("telescope.builtin").lsp_document_symbols, "document symbols")
+		nmap(",ds", Snacks.picker.lsp_symbols, "document symbols")
 
 		-- Fuzzy find all the symbols in your current workspace
 		--  Similar to document symbols, except searches over your whole project.
