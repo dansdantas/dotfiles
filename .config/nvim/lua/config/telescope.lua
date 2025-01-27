@@ -111,46 +111,46 @@ pcall(tl.load_extension, "smart_open")
 local set = vim.keymap.set
 local tlb = require("telescope.builtin")
 local extensions = tl.extensions
-local ivy = themes.get_ivy({ winblend = 10, previewer = true })
+-- local ivy = themes.get_ivy({ winblend = 10, previewer = true })
 
 -- files
-set("n", "<C-p>", function() tlb.git_files(ivy) end, { desc = "Telescope: project files" })
-set("n", "<leader>o", tlb.find_files, { desc = "Telescope: files" })
+-- set("n", "<C-p>", function() tlb.git_files(ivy) end, { desc = "Telescope: project files" })
+-- set("n", "<leader>o", tlb.find_files, { desc = "Telescope: files" })
 set("n", "<leader>tf", function() tlb.find_files({ previewer = false }) end, { desc = "Telescope: wo preview" })
-set("n", "<leader>tn", function() tlb.find_files({ cwd = vim.fn.stdpath("config"), prompt_title = "Neovim" }) end)
-set("n", "<leader>td", require("custom.utils").search_dotfiles, { desc = "Telescope: dotfiles" })
+-- set("n", "<leader>tn", function() tlb.find_files({ cwd = vim.fn.stdpath("config"), prompt_title = "Neovim" }) end)
+-- set("n", "<leader>td", require("custom.utils").search_dotfiles, { desc = "Telescope: dotfiles" })
 
-set("n", "<leader><leader>", tlb.buffers, { desc = "Telescope: buffers" })
-set("n", "<leader>/", function() tlb.current_buffer_fuzzy_find() end, { desc = "Telescope: fuzzy buffer" })
+-- set("n", "<leader><leader>", tlb.buffers, { desc = "Telescope: buffers" })
+-- set("n", "<leader>/", function() tlb.current_buffer_fuzzy_find() end, { desc = "Telescope: fuzzy buffer" })
 
-set("n", "<leader>t?", tlb.oldfiles, { desc = "Telescope: recent files" })
-set("n", "<leader>tq", tlb.quickfix, { desc = "Telescope: quickfix entries" })
-set("n", "<leader>tr", tlb.resume, { desc = "Telescope: resume" })
+-- set("n", "<leader>t?", tlb.oldfiles, { desc = "Telescope: recent files" })
+-- set("n", "<leader>tq", tlb.quickfix, { desc = "Telescope: quickfix entries" })
+-- set("n", "<leader>tr", tlb.resume, { desc = "Telescope: resume" })
 
 -- Grep
-set("n", "<leader>tw", tlb.grep_string, { desc = "Telescope: find word" })
+-- set("n", "<leader>tw", tlb.grep_string, { desc = "Telescope: find word" })
 set("n", "<leader>tG", extensions.live_grep_args.live_grep_args, { desc = "Telescope: grep with args" })
-set("n", "<leader>tg", tlb.live_grep, { desc = "Telescope: grep" })
-set("n", "<leader>sn", function() tlb.live_grep({ cwd = vim.fn.stdpath("config"), prompt_title = "Neovim" }) end)
+-- set("n", "<leader>tg", tlb.live_grep, { desc = "Telescope: grep" })
+-- set("n", "<leader>sn", function() tlb.live_grep({ cwd = vim.fn.stdpath("config"), prompt_title = "Neovim" }) end)
 
-set(
-	"n",
-	"<leader>sf",
-	function() tlb.live_grep({ grep_open_files = true, prompt_title = "Grep on open files" }) end,
-	{ desc = "Telescope: grep on open files" }
-)
+-- set(
+-- 	"n",
+-- 	"<leader>sf",
+-- 	function() tlb.live_grep({ grep_open_files = true, prompt_title = "Grep on open files" }) end,
+-- 	{ desc = "Telescope: grep on open files" }
+-- )
 
-set(
-	"n",
-	"<leader>ts",
-	function() tlb.grep_string({ search = [[TODO:|todo!\(.*\)]] }) end,
-	{ desc = "Telescope: grep todos" }
-)
+-- set(
+-- 	"n",
+-- 	"<leader>ts",
+-- 	function() tlb.grep_string({ search = [[TODO:|todo!\(.*\)]] }) end,
+-- 	{ desc = "Telescope: grep todos" }
+-- )
 
 -- extensions and helpers
-set("n", "<leader>tc", tlb.colorscheme, { desc = "Telescope: colors" })
+-- set("n", "<leader>tc", tlb.colorscheme, { desc = "Telescope: colors" })
 set("n", "<leader>tl", extensions.lazy_plugins.lazy_plugins, { desc = "Telescope: lazy plugins" })
-set("n", "<leader>te", extensions.smart_open.smart_open, { desc = "Telescope: smart open" })
+-- set("n", "<leader>te", extensions.smart_open.smart_open, { desc = "Telescope: smart open" })
 
 set(
 	"n",
@@ -166,14 +166,14 @@ set(
 )
 
 -- Vim
-set("n", "<leader>vC", tlb.command_history, { desc = "Vim: command history" })
-set("n", "<leader>c", tlb.command_history, { desc = "Vim: command history" })
-set("n", "<leader>vc", tlb.commands, { desc = "Vim: commands" })
-set("n", "<leader>vh", tlb.help_tags, { desc = "Vim: help" })
-set("n", "<leader>vd", tlb.diagnostics, { desc = "Vim: diagnostics" })
-set("n", "<leader>vk", tlb.keymaps, { desc = "Vim: keymaps" })
+-- set("n", "<leader>vC", tlb.command_history, { desc = "Vim: command history" })
+-- set("n", "<leader>c", tlb.command_history, { desc = "Vim: command history" })
+-- set("n", "<leader>vc", tlb.commands, { desc = "Vim: commands" })
+-- set("n", "<leader>vh", tlb.help_tags, { desc = "Vim: help" })
+-- set("n", "<leader>vd", tlb.diagnostics, { desc = "Vim: diagnostics" })
+-- set("n", "<leader>vk", tlb.keymaps, { desc = "Vim: keymaps" })
 set("n", "<leader>vo", tlb.vim_options, { desc = "Vim: options" })
-set("n", "<leader>va", tlb.autocommands, { desc = "Vim: autocommands" })
+-- set("n", "<leader>va", tlb.autocommands, { desc = "Vim: autocommands" })
 
 -- Git
 set("n", ",gb", tlb.git_branches, { desc = "Git: branches" })
