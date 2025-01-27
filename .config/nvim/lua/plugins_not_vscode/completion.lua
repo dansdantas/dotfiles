@@ -8,7 +8,7 @@ return {
 			"saadparwaiz1/cmp_luasnip", -- adapter for snippet engine
 			{ "tzachar/cmp-fuzzy-buffer", dependencies = { "tzachar/fuzzy.nvim" } },
 			"hrsh7th/cmp-nvim-lsp", -- LSP input
-			"FelipeLema/cmp-async-path",
+			"https://codeberg.org/FelipeLema/cmp-async-path",
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lua",
 
