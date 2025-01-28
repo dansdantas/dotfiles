@@ -50,6 +50,9 @@ if [ -z "$MACOS" ]; then
 	export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
 	export JRE_HOME="$JAVA_HOME/jre"
 	export CLASSPATH="$JAVA_HOME/lib/tools.jar"
+
+	# SSH
+	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 else
 	# Java
 	export JAVA_HOME="/opt/homebrew/Cellar/openjdk/21.0.2"
