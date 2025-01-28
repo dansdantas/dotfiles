@@ -5,10 +5,10 @@ export PATH="$(du "$HOME/.config/scripts" | cut -f2 | tr '\n' ':' | sed 's/:*$//
 
 # Defaults
 export EDITOR="nvim"
-export TERMINAL="kitty"
+export TERMINAL="wezterm"
 export BROWSER="brave"
 export READER="zathura"
-export FILE="vifm"
+export FILE="yazi"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export MACOS=true
