@@ -5,27 +5,32 @@
 super + Return
 	$TERMINAL
 
-super + {d,c,shift + x}
-	{launcher,calculator,lock}
+super + space
+	launcher
 
-super + o ; {b,d,c}
-	{$BROWSER,launcher,calculator} &
+alt + Return
+	$TERMINAL
 
-super + o ; {t,f}
-	{telegram-desktop,ferdi} &
+alt + Tab
+	windows
+
+alt + d
+	launcher
+
+alt + shift + x
+	lock
+
+alt + o ; {b,t,c}
+	{$BROWSER,$TERMINAL,telegram-desktop} &
 
 # -------------------------------------------------------------------
 # screen
 # -------------------------------------------------------------------
 
-# screen/window/selection shot
-# super + {_,shift +,ctrl +} + @Print
-#   scrot {_,-u,-s} -e "notify-send -i image 'scrot' 'image saved as \n\$f'"
-
 {_,shift + } Print
   flameshot {gui, screen -c}
 
-super + e
+alt + shift + e
     xclip -selection clipboard -o | qrencode -o - | feh - -FZ
 
 # -------------------------------------------------------------------
@@ -33,7 +38,7 @@ super + e
 # -------------------------------------------------------------------
 
 # Polybar
-super + p
+alt + shift + p
   setsid -f $HOME/.config/polybar/launch.sh > /dev/null 2>&1
 
 # make sxhkd reload its configuration files:
@@ -42,7 +47,7 @@ super + Escape
   notify-send 'sxhkd reloaded'
 
 # quit/restart bspwm
-super + {_,shift + }r
+alt + {_,shift + }r
 	bspc {wm -r,quit}
 
 #super + {alt,ctrl,alt + ctrl} + XF86Eject
@@ -69,31 +74,31 @@ XF86MonBrightness{Up,Down}
 # -------------------------------------------------------------------
 
 # alternate between the tiled and monocle layout
-super + f
+alt + f
 	bspc desktop -l next
 
 # close and kill
-super + {_,shift + }q
+alt + {_,shift + }q
 	bspc node -{c,k}
 
 # set the window state
-super + {t,shift + t,s}
-	bspc node -t {tiled,pseudo_tiled,floating}
+alt + {shift + t,s}
+	bspc node -t {tiled,floating}
 
 # focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
+alt + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
+alt + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
 # focus the next/previous desktop in the current monitor
-super + bracket{left,right}
+alt + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 # focus the next/previous node in the current desktop
-super + {_,shift + }c
+alt + {_,shift + }c
 	bspc node -f {next,prev}.local
 
 # focus the last node/desktop
