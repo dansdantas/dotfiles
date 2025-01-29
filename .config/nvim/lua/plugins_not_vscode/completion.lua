@@ -12,6 +12,7 @@ return {
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lua",
 
+			"lukas-reineke/cmp-rg",
 			-- "tamago324/cmp-zsh", -- some shell completions
 			-- "dmitmel/cmp-cmdline-history",
 

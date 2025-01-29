@@ -6,6 +6,16 @@ local lspkind = require("lspkind")
 local luasnip = require("luasnip")
 local compare = require("cmp.config.compare")
 
+local default_sources = cmp.config.sources({
+	{ name = "luasnip" },
+	{ name = "nvim_lsp" },
+}, {
+	{ name = "fuzzy_buffer" },
+	{ name = "async_path" },
+}, {
+	{ name = "nvim_lua" },
+})
+
 cmp.setup({
 	enabled = function()
 		-- disable completion in comments
@@ -47,15 +57,7 @@ cmp.setup({
 		end, { "i", "s" }),
 	},
 
-	sources = cmp.config.sources({
-		{ name = "luasnip" },
-		{ name = "nvim_lsp" },
-	}, {
-		{ name = "fuzzy_buffer" },
-		{ name = "async_path" },
-	}, {
-		{ name = "nvim_lua" },
-	}),
+	sources = default_sources,
 
 	sorting = {
 		priority_weight = 1,
@@ -132,3 +134,22 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 -- Handle cmp ghost text with same color for comments
 vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+
+-- Mini script to toggle rg source on buffer * I only use this on my japanese studies
+vim.g.cmp_rg = false
+vim.api.nvim_create_user_command("ToggleRG", function()
+	local sources = default_sources
+
+	if vim.g.cmp_rg then
+		for index, source in ipairs(sources) do
+			if source.name == "rg" then
+				table.remove(sources, index)
+			end
+		end
+	else
+		sources[#sources + 1] = { name = "rg", keyword_length = 3, group_index = 4 }
+	end
+
+	cmp.setup({ sources = sources })
+	vim.g.cmp_rg = not vim.g.cmp_rg
+end, {})
