@@ -11,7 +11,7 @@ return {
 	keys = {
 		{
 			",of",
-			function() require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("data") .. "/orgfiles/" }) end,
+			function() Snacks.picker.files({ cwd = vim.fn.stdpath("data") .. "/orgfiles/" }) end,
 			desc = "Telescope: orgfiles",
 		},
 	},
