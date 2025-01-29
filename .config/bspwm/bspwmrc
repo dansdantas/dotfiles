@@ -1,28 +1,6 @@
 #! /bin/sh
 
 # -------------------------------------------------------------------
-# Startup scripts
-# -------------------------------------------------------------------
-
-killall sxhkd
-sxhkd &
-
-killall unclutter
-unclutter &
-
-killall flameshot
-flameshot &
-
-killall dunst
-setsid -f dunst >/dev/null 2>&1
-
-# Restore wallpapers
-nitrogen --restore &
-
-# Status bar
-setsid -f $HOME/.config/polybar/launch.sh >/dev/null 2>&1
-
-# -------------------------------------------------------------------
 # Main config
 # -------------------------------------------------------------------
 
@@ -48,3 +26,25 @@ bspc config pointer_follows_monitor true
 bspc rule -a "-c" state=floating
 bspc rule -a Rofi state=floating
 bspc rule -a Zathura state=tiled
+
+# -------------------------------------------------------------------
+# Startup scripts
+# -------------------------------------------------------------------
+
+killall sxhkd
+sxhkd &
+
+killall unclutter
+unclutter &
+
+killall flameshot
+flameshot &
+
+killall dunst
+setsid -f dunst >/dev/null 2>&1
+
+# Restore wallpapers
+nitrogen --restore &
+
+# Status bar
+setsid -f $HOME/.config/polybar/launch.sh --cuts >/dev/null 2>&1
