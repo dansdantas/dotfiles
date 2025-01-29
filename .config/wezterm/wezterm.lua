@@ -52,10 +52,14 @@ local font = wezterm.font_with_fallback({
 	"Noto Color Emoji",
 })
 
+local is_linux = wezterm.target_triple == "x86_64-unknown-linux-gnu"
+
 config.color_scheme = "Tokyo Night"
 -- only if want to match line height on kitty
 -- config.font_size = 10
-config.line_height = 0.90
+if not is_linux then
+	config.line_height = 0.90
+end
 config.font = font
 config.default_workspace = "dot"
 config.check_for_updates = false
@@ -85,6 +89,8 @@ config.window_frame = {
 	border_top_height = "0",
 	font = font,
 }
+
+local super_key = is_linux and "SUPER" or "CMD"
 
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 5000 }
 config.keys = {
@@ -127,15 +133,24 @@ config.keys = {
 	{ key = "l", mods = "LEADER", action = action.ActivatePaneDirection("Right") },
 	{ key = " ", mods = "LEADER", action = action.PaneSelect },
 
+	{ key = "j", mods = super_key, action = action.ActivatePaneDirection("Down") },
+	{ key = "k", mods = super_key, action = action.ActivatePaneDirection("Up") },
+	{ key = "h", mods = super_key, action = action.ActivatePaneDirection("Left") },
+	{ key = "l", mods = super_key, action = action.ActivatePaneDirection("Right") },
+
 	--------------------------------------------------------------------------------
 	-- Tabs
 	{ key = "n", mods = "LEADER", action = action.ActivateTabRelative(1) },
 	{ key = "p", mods = "LEADER", action = action.ActivateTabRelative(-1) },
 
+	{ key = "n", mods = super_key, action = action.ActivateTabRelative(1) },
+	{ key = "p", mods = super_key, action = action.ActivateTabRelative(-1) },
+
 	{ key = ">", mods = "LEADER", action = action.MoveTabRelative(1) },
 	{ key = "<", mods = "LEADER", action = action.MoveTabRelative(-1) },
 
 	{ key = "t", mods = "LEADER", action = action.SpawnTab("CurrentPaneDomain") },
+	{ key = "t", mods = super_key, action = action.SpawnTab("CurrentPaneDomain") },
 	{ key = "a", mods = "LEADER|CTRL", action = action.ActivateLastTab },
 
 	{ key = "&", mods = "LEADER", action = action.CloseCurrentTab({ confirm = true }) },
@@ -144,10 +159,10 @@ config.keys = {
 	--------------------------------------------------------------------------------
 	-- Actions
 	{ key = "/", mods = "LEADER", action = action.Search({ CaseInSensitiveString = "" }) },
-	{ key = "f", mods = "CMD", action = action.Search({ CaseInSensitiveString = "" }) },
+	{ key = "f", mods = super_key, action = action.Search({ CaseInSensitiveString = "" }) },
 	{ key = "[", mods = "LEADER", action = action.ActivateCopyMode },
 	{ key = "]", mods = "LEADER", action = action.QuickSelect },
-	{ key = "P", mods = "CMD", action = action.ActivateCommandPalette },
+	{ key = "P", mods = super_key, action = action.ActivateCommandPalette },
 	{ key = "=", mods = "LEADER", action = action.ResetFontSize },
 
 	{
@@ -300,7 +315,7 @@ config.key_tables = {
 config.mouse_bindings = {
 	{
 		event = { Up = { streak = 1, button = "Left" } },
-		mods = "CMD",
+		mods = super_key,
 		action = action.OpenLinkAtMouseCursor,
 	},
 }
