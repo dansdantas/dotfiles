@@ -3,7 +3,7 @@
 # - no tabs support when using without title bar
 
 font-family = "Fantasque Sans Mono"
-theme = "Tokyonight"
+theme = "tokyonight_night"
 
 # keybinds
 keybind = ctrl+a>l=goto_split:right
