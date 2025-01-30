@@ -47,4 +47,4 @@ setsid -f dunst >/dev/null 2>&1
 nitrogen --restore &
 
 # Status bar
-setsid -f $HOME/.config/polybar/launch.sh --cuts >/dev/null 2>&1
+setsid -f $HOME/.config/polybar/launch.sh --forest >/dev/null 2>&1
