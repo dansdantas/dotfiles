@@ -19,6 +19,10 @@ export LISTMAX=50                            # The size of asking history
 HISTDUP=erase
 SAVEHIST=$HISTSIZE
 
+# remove / from word chars list
+# export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
 # LANGUAGE must be set by en_US
 export LANGUAGE="en_US.UTF-8"
 export LANG="${LANGUAGE}"
