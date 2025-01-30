@@ -24,7 +24,7 @@ convert $img $icon -gravity center -composite $img
 dunstctl set-paused true
 
 # Finally run i3lock itself
-i3lock -n -u -i $img
+i3lock -n -i $img
 
 # Resume notifications
 dunstctl set-paused false
