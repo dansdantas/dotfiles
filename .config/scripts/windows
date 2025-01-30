@@ -1,5 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-## Created By Aditya Shakya
+dir="$HOME/.config/rofi/launchers/type-1"
+theme='style-3'
 
-rofi -modi window -show window -hide-scrollbar -font "Misc Termsyn 12" -padding 20 -line-padding 4 -width 40 -lines 6
+# Run
+rofi -modi window -show window -theme ${dir}/${theme}.rasi

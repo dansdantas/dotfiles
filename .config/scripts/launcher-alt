@@ -1,5 +1,7 @@
 #!/bin/bash
 
-## Created By Aditya Shakya
+dir="$HOME/.config/rofi/launchers/type-7"
+theme='style-6'
 
-rofi -modi run,drun -show drun -line-padding 4 -columns 2 -width 40 -padding 30 -show-icons -drun-icon-theme -theme onedark
+# Run
+rofi -show drun -theme ${dir}/${theme}.rasi
