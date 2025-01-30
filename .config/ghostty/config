@@ -25,3 +25,5 @@ keybind = super+p=previous_tab
 
 macos-titlebar-style = hidden
 macos-option-as-alt = true
+
+gtk-titlebar = false
