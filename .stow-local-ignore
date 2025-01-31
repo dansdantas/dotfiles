@@ -1,0 +1,5 @@
+.config/polybar
+.config/rofi
+.config/dunst
+.gitignore
+.git
