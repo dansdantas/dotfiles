@@ -171,6 +171,9 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
+alt-k = ['move-workspace-to-monitor next']
+alt-j = ['move-workspace-to-monitor prev']
+
 [workspace-to-monitor-force-assignment]
 1 = '2460G4'
 2 = '2460G4'
