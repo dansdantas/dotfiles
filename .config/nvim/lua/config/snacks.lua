@@ -38,7 +38,7 @@ set("n", "<C-p>", function() picker.git_files({ layout = "ivy" }) end, { desc = 
 set("n", "<leader>o", function() picker.files({ hidden = true }) end, { desc = "Snacks: files" })
 -- set("n", "<leader>tf", function() tlb.find_files({ previewer = false }) end, { desc = "Snacks: wo preview" })
 set("n", "<leader>tn", function() picker.files({ cwd = vim.fn.stdpath("config"), prompt_title = "Neovim" }) end)
-set("n", "<leader>td", function() picker.files({ cwd = "$HOME/dotfiles", prompt_title = "dot", hidden = true }) end)
+set("n", "<leader>td", function() picker.files({ cwd = vim.env.HOME .. "/dotfiles", hidden = true }) end)
 
 set(
 	"n",
