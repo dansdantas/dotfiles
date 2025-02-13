@@ -1,0 +1,13 @@
+#!/bin/bash
+
+HOST=$1
+
+while true; do
+	if ping -c 1 "$HOST" &>/dev/null; then
+		echo "$HOST is up!"
+		break
+	else
+		echo "Waiting for $HOST..."
+		sleep 5 # Adjust the interval as needed
+	fi
+done
