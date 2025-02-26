@@ -175,9 +175,9 @@ alt-k = ['move-workspace-to-monitor next']
 alt-j = ['move-workspace-to-monitor prev']
 
 [workspace-to-monitor-force-assignment]
-1 = '2460G4'
-2 = '2460G4'
-3 = '2460G4'
+1 = 'LC27G7xT'
+2 = 'LC27G7xT'
+3 = 'LC27G7xT'
 4 = 'Built-in Retina Display'
 5 = 'Built-in Retina Display'
 6 = 'Built-in Retina Display'
