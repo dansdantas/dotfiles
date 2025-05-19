@@ -29,31 +29,28 @@ vim.g.myLsps = {
 }
 
 --------------------------------------------------------------------------------
+--- Base config
+--------------------------------------------------------------------------------
+local lspCapabilities = vim.lsp.protocol.make_client_capabilities()
+lspCapabilities.textDocument.completion.completionItem.snippetSupport = true
+lspCapabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
+lspCapabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
+
+-- Completion configuration
+vim.tbl_deep_extend("force", lspCapabilities, require("cmp_nvim_lsp").default_capabilities())
+lspCapabilities.textDocument.completion.completionItem.insertReplaceSupport = false
+
+vim.lsp.config("*", {
+	capabilities = lspCapabilities,
+	flags = { debounce_text_changes = 150 },
+})
+
+--------------------------------------------------------------------------------
 --- Server definitions spec
 --------------------------------------------------------------------------------
 
----@class (exact) lspConfiguration see https://github.com/neovim/nvim-lspconfig/blob/master/doc/lspconfig.txt#L46
----@field settings? table <string, table>
----@field root_dir? function(filename, bufnr)
----@field filetypes? string[]
----@field init_options? table <string, string|table|boolean>
----@field on_attach? function(client, bufnr)
----@field on_new_config? function(new_config, root_dir)
----@field capabilities? table <string, string|table|boolean|function>
----@field cmd? string[]
----@field autostart? boolean
----@field single_file_support? boolean
----@field flags? table<string, integer>
-
----@type table<string, lspConfiguration>
-local serverConfigs = {}
-for _, lsp in pairs(vim.g.myLsps) do
-	serverConfigs[lsp] = {}
-end
-
---------------------------------------------------------------------------------
--- LUA - DOCS https://luals.github.io/wiki/settings/
-serverConfigs.lua_ls = {
+-- lua -------------------------------------------------------------------------
+vim.lsp.config.lua_ls = {
 	settings = {
 		Lua = {
 			runtime = {
@@ -94,9 +91,8 @@ serverConfigs.lua_ls = {
 	},
 }
 
---------------------------------------------------------------------------------
--- Ruby
-serverConfigs.solargraph = {
+-- Ruby -----------------------------------------------------------------------------
+vim.lsp.config.solargraph = {
 	autostart = false,
 	settings = {
 		init_options = {
@@ -108,9 +104,8 @@ serverConfigs.solargraph = {
 	},
 }
 
---------------------------------------------------------------------------------
--- GO
-serverConfigs.gopls = {
+-- GO -----------------------------------------------------------------------------
+vim.lsp.config.gopls = {
 	cmd = { "gopls" },
 	settings = {
 		gopls = {
@@ -129,24 +124,21 @@ serverConfigs.gopls = {
 	},
 }
 
---------------------------------------------------------------------------------
--- Rust
-serverConfigs.rust_analyzer = {
+-- Rust --------------------------------------------------------------------------
+vim.lsp.config.rust_analyzer = {
 	cmd = { "rustup", "run", "stable", "rust-analyzer" },
 }
 
---------------------------------------------------------------------------------
--- Java
-serverConfigs.jdtls = {
+-- Java -----------------------------------------------------------------------------
+vim.lsp.config.jdtls = {
 	root_dir = function()
 		-- vim.fn.getcwd()
 		return vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1])
 	end,
 }
 
---------------------------------------------------------------------------------
--- PYTHON -  DOCS https://github.com/pappasam/jedi-language-server#configuration
-serverConfigs.jedi_language_server = {
+-- Python -----------------------------------------------------------------------------
+vim.lsp.config.jedi_language_server = {
 	init_options = {
 		diagnostics = { enable = true },
 		codeAction = { nameExtractVariable = "extracted_var", nameExtractFunction = "extracted_def" },
@@ -166,18 +158,17 @@ serverConfigs.jedi_language_server = {
 	end,
 }
 
---------------------------------------------------------------------------------
--- JS/TS/CSS
+-- JS/TS/CSS -----------------------------------------------------------------------------
 
 -- don't pollute completions for js/ts with stuff I don't need
-serverConfigs.emmet_ls = {
+vim.lsp.config.emmet_ls = {
 	filetypes = { "html", "css" },
 }
 
 -- DOCS
 -- https://github.com/sublimelsp/LSP-css/blob/master/LSP-css.sublime-settings
 -- https://github.com/microsoft/vscode-css-languageservice/blob/main/src/services/lintRules.ts
-serverConfigs.cssls = {
+vim.lsp.config.cssls = {
 	settings = {
 		css = {
 			colorDecorators = { enable = true }, -- color inlay hints
@@ -202,7 +193,7 @@ serverConfigs.cssls = {
 }
 
 -- DOCS https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration
-serverConfigs.ts_ls = {
+vim.lsp.config.ts_ls = {
 	settings = {
 		-- enable checking javascript without a `jsconfig.json`
 		implicitProjectConfiguration = { -- DOCS https://www.typescriptlang.org/tsconfig
@@ -243,7 +234,7 @@ serverConfigs.ts_ls = {
 }
 
 -- DOCS https://github.com/redhat-developer/yaml-language-server/tree/main#language-server-settings
-serverConfigs.yamlls = {
+vim.lsp.config.yamlls = {
 	settings = {
 		yaml = {
 			format = {
@@ -257,28 +248,15 @@ serverConfigs.yamlls = {
 	on_attach = function(client) client.server_capabilities.documentFormattingProvider = true end,
 }
 
+vim.diagnostic.config({
+	virtual_lines = true,
+})
+
+vim.lsp.enable(vim.g.myLsps)
+
 --------------------------------------------------------------------------------
 --- Startup functions
 --------------------------------------------------------------------------------
-
-local function setupLsps()
-	-- Enable snippets-completion (nvim_cmp) and folding (nvim-ufo)
-	local lspCapabilities = vim.lsp.protocol.make_client_capabilities()
-	lspCapabilities.textDocument.completion.completionItem.snippetSupport = true
-	lspCapabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
-	lspCapabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
-
-	-- Completion configuration
-	vim.tbl_deep_extend("force", lspCapabilities, require("cmp_nvim_lsp").default_capabilities())
-	lspCapabilities.textDocument.completion.completionItem.insertReplaceSupport = false
-
-	for lsp, serverConfig in pairs(serverConfigs) do
-		serverConfig.capabilities = lspCapabilities
-		serverConfig.flags = { debounce_text_changes = 150 }
-
-		require("lspconfig")[lsp].setup(serverConfig)
-	end
-end
 
 local function setupProgress()
 	require("lsp-progress").setup({
@@ -329,7 +307,6 @@ M.setup = function()
 	require("config.linter").setup()
 
 	setupProgress()
-	setupLsps()
 end
 
 return M
