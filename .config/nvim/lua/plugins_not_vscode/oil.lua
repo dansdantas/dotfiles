@@ -5,8 +5,7 @@ return {
 			show_hidden = true,
 		},
 	},
-	config = function(_, opts)
-		require("oil").setup(opts)
-		vim.keymap.set("n", "-", "<CMD>Oil<CR>")
-	end,
+	keys = {
+		{ "-", function() require("oil").open_float() end, desc = "Oil: open" },
+	},
 }
