@@ -21,7 +21,6 @@ require("nvim-treesitter.configs").setup({
 		"lua",
 		"make",
 		"markdown",
-		"org",
 		"python",
 		"r",
 		"regex",
@@ -101,7 +100,7 @@ require("nvim-treesitter.configs").setup({
 		},
 
 		move = {
-			enable = false,
+			enable = true,
 			set_jumps = true, -- whether to set jumps in the jumplist
 			goto_next_start = {
 				["]f"] = "@function.outer",

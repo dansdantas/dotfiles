@@ -84,9 +84,9 @@ opt.sessionoptions:append("skiprtp")
 opt.sessionoptions:append("localoptions")
 
 -- Folding
+opt.foldenable = true
 opt.foldmethod = "expr"
 opt.foldlevel = 9999
-opt.foldenable = false
 
 -- Completion
 opt.updatetime = 250 -- Reduce updatetime, also affects cursorword symbols and lsp-hints
