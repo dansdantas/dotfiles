@@ -1,5 +1,5 @@
-vim.wo.foldtext = "v:lua.vim.treesitter.foldtext()"
-vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
