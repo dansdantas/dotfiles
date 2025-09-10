@@ -16,6 +16,10 @@ return {
 						cmd = { "go", "run", file }
 					end
 
+					if vim.bo.filetype == "rust" then
+						cmd = { "cargo", "run", file }
+					end
+
 					return {
 						cmd = cmd,
 					}
