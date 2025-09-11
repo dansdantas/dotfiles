@@ -6,6 +6,6 @@ return {
 		},
 	},
 	keys = {
-		{ "-", function() require("oil").open_float() end, desc = "Oil: open" },
+		{ "_", function() require("oil").open_float() end, desc = "Oil: open" },
 	},
 }
