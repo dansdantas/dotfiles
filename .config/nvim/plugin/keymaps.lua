@@ -237,8 +237,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- end, '[W]orkspace [L]ist Folders')
 
 		-- Diagnostics
-		nmap("[d", function() vim.diagnostic.goto_prev({ float = false }) end, "previous diagnostic")
-		nmap("]d", function() vim.diagnostic.goto_next({ float = false }) end, "next diagnostic")
+		nmap("[d", function() vim.diagnostic.jump({ count = -1 }) end, "previous diagnostic")
+		nmap("]d", function() vim.diagnostic.jump({ count = 1 }) end, "next diagnostic")
 		nmap(",e", vim.diagnostic.open_float, "open diagnostic float")
 		nmap(",q", vim.diagnostic.setqflist, "move diagnostics to qlist")
 	end,
