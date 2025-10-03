@@ -35,16 +35,18 @@ local linters = {
 	lua = { "selene" },
 	sh = { "zsh" },
 	markdown = { "markdownlint" },
-	go = { "golangcilint", "revive" },
+	go = { "revive" },
+	-- rust = { "clippy" },
 	-- eruby = { "erb_lint" },
 	-- ruby = { "ruby", "rubocop" },
 }
 
 local formatters = {
 	lua = { "stylua" },
-	-- ruby = { "rubyfmt" },
-	-- eruby = { "erb_format" },
+	-- ruby = { "rubyfmt", "rubocop" },
+	-- erb = { "erb_format", "rufo" },
 	go = { "goimports", "gofmt" },
+	rust = { "rustfmt" },
 	javascript = { "biome", "prettierd" },
 	typescript = { "biome" },
 	json = { "biome" },
@@ -59,6 +61,7 @@ local dontInstall = {
 	"ruby",
 	"gofmt",
 	"golangcilint",
+	"erb_format",
 
 	-- not real formatters, but pseudo-formatters from conform.nvim
 	"trim_whitespace",
@@ -68,6 +71,8 @@ local dontInstall = {
 
 	-- using rustup to maintain
 	"rust_analyzer",
+	"rustfmt",
+	"clippy",
 }
 
 --------------------------------------------------------------------------------
@@ -206,6 +211,13 @@ M.setup = function()
 			end
 			return { lsp_fallback = true }
 		end,
+		formatters = {
+			rustfmt = {
+				prepend_args = {
+					{ "--config-path", vim.env.XDG_CONFIG_HOME .. "/rustfmt" },
+				},
+			},
+		},
 	})
 
 	-- Setup linter
