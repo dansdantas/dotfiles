@@ -8,9 +8,10 @@ return {
 		"folke/tokyonight.nvim",
 		priority = 1000,
 		lazy = false,
-		config = function() vim.cmd.colorscheme("tokyonight-night") end,
+		config = function() vim.cmd.colorscheme("tokyonight-storm") end,
 	},
 
+	{ "catppuccin/nvim", name = "catppuccin" },
 	"AlexvZyl/nordic.nvim",
 	"eldritch-theme/eldritch.nvim",
 	"ray-x/aurora",
