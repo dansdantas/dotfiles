@@ -35,19 +35,6 @@ set("n", "<leader>gq", function() gs.setqflist("all") end, { desc = "Git: popula
 set("n", "<leader>gb", gs.toggle_current_line_blame, { desc = "Git: toggle current blame line" })
 set("n", "<leader>gB", ":BlameToggle<cr>", { desc = "Git: blame line" })
 
-set("n", "<leader>gs", function()
-	local opts = {}
-	opts.previewer = require("custom.utils").git_difftastic_previewer(opts)
-
-	-- Env variables GIT_WORK_TREE and GIT_DIR solves problems with not finding git still need conditional
-	-- because of expanding files with -u tries to read every file on $HOME
-	if vim.env.GIT_WORK_TREE == vim.env.HOME then
-		opts.expand_dir = false
-	end
-
-	require("telescope.builtin").git_status(opts)
-end, { desc = "Git: status" })
-
 set("n", "<leader>gc", ":Git commit<cr>", { desc = "Git: commit" })
 set("n", "<leader>g!", ":Git commit --amend<cr>", { desc = "Git: commit with amend" })
 

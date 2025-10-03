@@ -108,7 +108,7 @@ set("n", "<leader>va", picker.autocmds, { desc = "Vim: autocommands" })
 -- Git
 set("n", "<leader>gl", picker.git_log, { desc = "Git: log" })
 set("n", "<leader>gL", picker.git_log_line, { desc = "Git: log line" })
--- set("n", "<leader>gs", picker.git_status, { desc = "Git: status" })
+set("n", "<leader>gs", picker.git_status, { desc = "Git: status" })
 -- set("n", ",gb", tlb.git_branches, { desc = "Git: branches" })
 -- set("n", ",gc", tlb.git_commits, { desc = "Git: commits" })
 -- set("n", ",gC", tlb.git_bcommits, { desc = "Git: commits for current buffer" })
