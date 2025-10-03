@@ -129,7 +129,8 @@ map.set("n", "<leader>z", utils.folding_toggle, { desc = "toggle folding" })
 --------------------------------------------------------------------------------
 
 map.set("n", ",cl", ':let @+=expand("%:p")<cr>', { desc = "copy full path to clipboard", remap = true })
-map.set("n", ",cs", ':let @+=expand("%")<cr>', { desc = "copy relative path to clipboard", remap = true })
+map.set("n", ",cs", ":Cppath<cr>", { desc = "copy relative path to clipboard", remap = true })
+
 map.set("n", ",co", vim.cmd.copen, { desc = "open quickfix" })
 map.set("n", ",cc", vim.cmd.cclose, { desc = "close quickfix" })
 map.set("n", ",cn", vim.cmd.cnext, { desc = "next on quickfix list" })
