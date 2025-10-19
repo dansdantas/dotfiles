@@ -14,6 +14,7 @@ vim.filetype.add({
 		[".zshrc"] = "sh",
 		[".zshenv"] = "sh",
 		[".ignore"] = "gitignore", -- fd ignore files
+		[".jsonc"] = "json", -- force jsonc to use json treesitter
 	},
 })
 
