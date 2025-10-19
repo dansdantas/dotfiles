@@ -131,7 +131,7 @@ if [ -z "$MACOS" ]; then
 	alias mpsi='makepkg -si'
 
 	# Package manager
-	alias y='paru'
+	alias y='yay'
 	alias update='y -Syu'
 	alias install='y -S'
 	alias search='y -Ss'
