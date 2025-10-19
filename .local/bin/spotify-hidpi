@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Get scale of the focused monitor from Hyprland
+scale=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true) | .scale')
+
+# Fallback if hyprctl fails
+[ -z "$scale" ] && scale=1.0
+
+# Run Spotify with correct scaling
+env \
+  XDG_SESSION_TYPE=wayland \
+  QT_QPA_PLATFORM=wayland \
+  OZONE_PLATFORM=wayland \
+  spotify --enable-features=WaylandWindowDecorations \
+          --ozone-platform-hint=auto \
+          --force-device-scale-factor="$scale"
