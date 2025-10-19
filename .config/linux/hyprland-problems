@@ -1,0 +1,5 @@
+chrome based browsers crash changing betweens workspaces
+between monitors with movewindow works fine
+
+cannot set workspaces per monitor like
+12345 for one and 67890 for other
