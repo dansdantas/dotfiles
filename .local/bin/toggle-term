@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# ~/.local/bin/toggle-term
+
+CLASS="floating-terminal"
+
+find_window() {
+	hyprctl clients -j | jq -r '.[] | select(.class == "floating-terminal") | .address'
+}
+
+WIN=$(find_window)
+
+if [ -z "$WIN" ]; then
+  # Launch if not running
+  kitty --class "$CLASS" &
+  for i in {1..20}; do
+    sleep 0.1
+    WIN=$(find_window)
+    [ -n "$WIN" ] && break
+  done
+
+  if [ -n "$WIN" ]; then
+    hyprctl dispatch focuswindow class:$CLASS
+    hyprctl dispatch bringactivetotop
+  fi
+else
+	hyprctl dispatch togglespecialworkspace magic
+	hyprctl dispatch movetoworkspace +0
+	hyprctl dispatch togglespecialworkspace magic
+	hyprctl dispatch movetoworkspace special:magic
+	hyprctl dispatch togglespecialworkspace magic
+fi
