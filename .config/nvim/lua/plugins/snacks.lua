@@ -13,7 +13,7 @@ return {
 			input = { enabled = true },
 			picker = {
 				files = { hidden = true },
-				previewers = { git = { native = true } },
+				previewers = { git = { native = true }, diff = { style = "terminal" } },
 				win = {
 					input = {
 						keys = {
