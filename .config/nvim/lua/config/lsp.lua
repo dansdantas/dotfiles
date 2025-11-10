@@ -10,7 +10,6 @@ vim.g.myLsps = {
 	"gopls",
 	"jdtls",
 	"jedi_language_server", -- python (has much better hovers)
-	"rust_analyzer", -- rust
 	"solargraph",
 
 	"biome", -- ts/js/json linter/formatter
@@ -122,11 +121,6 @@ vim.lsp.config.gopls = {
 	init_options = {
 		usePlaceholders = true,
 	},
-}
-
--- Rust --------------------------------------------------------------------------
-vim.lsp.config.rust_analyzer = {
-	cmd = { "rustup", "run", "stable", "rust-analyzer" },
 }
 
 -- Java -----------------------------------------------------------------------------

@@ -13,5 +13,8 @@ return {
 		-- Format & Linter
 		"stevearc/conform.nvim",
 		"mfussenegger/nvim-lint",
+
+		-- Plugins
+		"mrcjkb/rustaceanvim",
 	},
 }
