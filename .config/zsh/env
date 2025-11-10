@@ -142,17 +142,6 @@ export PATH="$PATH:$GOBIN"
 export PATH="$JAVA_HOME/bin:$PATH"
 export PATH="$JRE_HOME/bin:$PATH"
 
-# Nvm
-export NVM_LAZY_LOAD=true
-export NVM_DIR="$XDG_DATA_HOME/nvm"
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-export NVM_COMPLETION=true
-
-# Node
-export NODE_PATH="$NVM_DIR/versions/node/v15.11.0"
-export PATH="$NODE_PATH/bin/node:$PATH"
-export PATH="$NODE_PATH/lib/node_modules:$PATH"
-
 # Rust
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export PATH="$CARGO_HOME/bin:$PATH"

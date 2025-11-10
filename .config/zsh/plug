@@ -21,7 +21,6 @@ zinit light-mode for \
 
 zinit wait lucid light-mode for \
 	Aloxaf/fzf-tab \
-	lukechilds/zsh-nvm \
 	unixorn/git-extra-commands \
 	MichaelAquilina/zsh-you-should-use \
 	zsh-users/zsh-history-substring-search \
