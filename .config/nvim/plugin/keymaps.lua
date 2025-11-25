@@ -189,7 +189,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		nmap("gD", vim.lsp.buf.declaration, "goto declaration")
 
 		-- Find references for the word under your cursor.
-		nmap("gr", Snacks.picker.lsp_references, "goto references")
+		nmap("grr", Snacks.picker.lsp_references, "goto references")
 
 		-- Jump to the implementation of the word under your cursor.
 		--  Useful when your language has ways of declaring types without an actual implementation.
