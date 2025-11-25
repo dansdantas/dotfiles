@@ -186,7 +186,6 @@ alias yt='yarn test'
 # Git
 alias glog="git log --graph --oneline --decorate --date-order --color --boundary"
 alias git-branch="git symbolic-ref --short HEAD"
-eval "$(hub alias -s)"
 
 # Heroku
 alias he="heroku"

@@ -59,8 +59,6 @@
 	autocorrect = 1
 [http]
 	postBuffer = 524288000
-[hub]
-	protocol = ssh
 [interactive]
 	diffFilter = diff-so-fancy --patch
 [merge]
