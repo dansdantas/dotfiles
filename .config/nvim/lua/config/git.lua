@@ -51,17 +51,7 @@ set("n", ",gh", ":DiffviewFileHistory<CR>", { desc = "Git: show file history" })
 
 -- Gitlinker
 set(
-	"n",
-	",gy",
-	function()
-		require("gitlinker").link({
-			router_type = "default_branch",
-		})
-	end,
-	{ silent = true, desc = "Copy link to file" }
-)
-set(
-	"v",
+	{ "n", "v" },
 	",gy",
 	function()
 		require("gitlinker").link({
@@ -72,19 +62,7 @@ set(
 )
 
 set(
-	"n",
-	",gl",
-	function()
-		require("gitlinker").link({
-			router_type = "default_branch",
-			action = require("gitlinker.actions").system,
-		})
-	end,
-	{ silent = true, desc = "Open file in browser" }
-)
-
-set(
-	"v",
+	{ "n", "v" },
 	",gl",
 	function()
 		require("gitlinker").link({
