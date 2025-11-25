@@ -175,9 +175,9 @@ alt-k = ['move-workspace-to-monitor next']
 alt-j = ['move-workspace-to-monitor prev']
 
 [workspace-to-monitor-force-assignment]
-1 = 'LC27G7xT'
-2 = 'LC27G7xT'
-3 = 'LC27G7xT'
-4 = 'Built-in Retina Display'
-5 = 'Built-in Retina Display'
-6 = 'Built-in Retina Display'
+1 = 'secondary'
+2 = 'secondary'
+3 = 'secondary'
+4 = 'main'
+5 = 'main'
+6 = 'main'
