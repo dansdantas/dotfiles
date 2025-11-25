@@ -78,7 +78,7 @@ set(
 
 -- extensions and helpers
 set("n", "<leader>tc", picker.colorschemes, { desc = "Snacks: colors" })
--- set("n", "<leader>tl", extensions.lazy_plugins.lazy_plugins, { desc = "Snacks: lazy plugins" })
+set("n", "<leader>tl", picker.lazy, { desc = "Snacks: lazy plugins" })
 set("n", "<leader>te", function() picker.smart({ hidden = true }) end, { desc = "Snacks: smart open" })
 
 -- set(
@@ -110,6 +110,6 @@ set("n", "<leader>gl", picker.git_log, { desc = "Git: log" })
 set("n", "<leader>gL", picker.git_log_line, { desc = "Git: log line" })
 set("n", "<leader>gs", picker.git_status, { desc = "Git: status" })
 set("n", "<leader>gd", picker.git_diff, { desc = "Git: diff" })
--- set("n", ",gb", tlb.git_branches, { desc = "Git: branches" })
+set("n", ",gb", picker.git_branches, { desc = "Git: branches" })
 -- set("n", ",gc", tlb.git_commits, { desc = "Git: commits" })
 -- set("n", ",gC", tlb.git_bcommits, { desc = "Git: commits for current buffer" })

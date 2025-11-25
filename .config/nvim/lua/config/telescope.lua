@@ -149,7 +149,7 @@ set("n", "<leader>tG", extensions.live_grep_args.live_grep_args, { desc = "Teles
 
 -- extensions and helpers
 -- set("n", "<leader>tc", tlb.colorscheme, { desc = "Telescope: colors" })
-set("n", "<leader>tl", extensions.lazy_plugins.lazy_plugins, { desc = "Telescope: lazy plugins" })
+-- set("n", "<leader>tl", extensions.lazy_plugins.lazy_plugins, { desc = "Telescope: lazy plugins" })
 -- set("n", "<leader>te", extensions.smart_open.smart_open, { desc = "Telescope: smart open" })
 
 set(
@@ -176,6 +176,6 @@ set("n", "<leader>vo", tlb.vim_options, { desc = "Vim: options" })
 -- set("n", "<leader>va", tlb.autocommands, { desc = "Vim: autocommands" })
 
 -- Git
-set("n", ",gb", tlb.git_branches, { desc = "Git: branches" })
+-- set("n", ",gb", tlb.git_branches, { desc = "Git: branches" })
 set("n", ",gc", tlb.git_commits, { desc = "Git: commits" })
 set("n", ",gC", tlb.git_bcommits, { desc = "Git: commits for current buffer" })
