@@ -59,7 +59,7 @@ if [ -z "$MACOS" ]; then
 	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 else
 	# Java
-	export JAVA_HOME="/opt/homebrew/Cellar/openjdk/21.0.2"
+	export JAVA_HOME="/opt/homebrew/Cellar/openjdk/25.0.1"
 
 	# Brew
 	if [[ -f "/opt/homebrew/bin/brew" ]]; then
