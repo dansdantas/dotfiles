@@ -3,10 +3,11 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
 		build = ":TSUpdate",
+		branch = "master",
 		config = function() require("config.treesitter") end,
 		dependencies = {
 			"andymass/vim-matchup",
-			"nvim-treesitter/nvim-treesitter-textobjects",
+			{ "nvim-treesitter/nvim-treesitter-textobjects", branch = "master" },
 			"RRethy/nvim-treesitter-endwise",
 			"nvim-treesitter/playground",
 			{ "abecodes/tabout.nvim", opts = { tabkey = "<A-t>" } },
