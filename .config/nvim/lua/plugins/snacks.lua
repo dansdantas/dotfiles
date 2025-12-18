@@ -11,6 +11,7 @@ return {
 			bigfile = { enabled = true },
 			notifier = { enabled = true },
 			input = { enabled = true },
+			terminal = { enabled = true },
 			picker = {
 				files = { hidden = true },
 				previewers = { git = { native = true }, diff = { style = "terminal" } },

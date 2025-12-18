@@ -50,7 +50,7 @@ local formatters = {
 	javascript = { "biome", "prettierd" },
 	typescript = { "biome" },
 	json = { "biome" },
-	markdown = { "markdown-toc", "markdownlint", "injected" },
+	markdown = { "markdown-toc", "markdownlint" },
 	sh = { "shfmt" },
 	["_"] = { "trim_whitespace", "trim_newlines", "squeeze_blanks" }, -- filetypes w/o formatter
 }

@@ -1,7 +1,7 @@
 local npairs = require("nvim-autopairs")
 npairs.setup({
 	fast_wrap = {},
-	disable_filetype = { "TelescopePrompt", "vim" },
+	disable_filetype = { "TelescopePrompt", "vim", "snacks_picker_input" },
 })
 
 local Rule = require("nvim-autopairs.rule")
