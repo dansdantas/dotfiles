@@ -4,8 +4,6 @@ return {
 		config = function(_, opts)
 			local overseer = require("overseer")
 			overseer.setup(opts)
-			overseer.patch_dap(true)
-
 			overseer.register_template({
 				name = "run",
 				builder = function()
