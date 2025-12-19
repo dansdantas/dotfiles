@@ -54,7 +54,7 @@ au("FileType", {
 })
 
 au("FileType", {
-	pattern = { "go", "lua", "rust", "sh" },
+	pattern = { "sh" },
 	callback = function() vim.bo.expandtab = false end,
 })
 
