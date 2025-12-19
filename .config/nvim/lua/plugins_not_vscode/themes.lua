@@ -4,13 +4,7 @@ return {
 	"sainnhe/everforest",
 
 	-- Dark themes
-	{
-		"folke/tokyonight.nvim",
-		priority = 1000,
-		lazy = false,
-		config = function() vim.cmd.colorscheme("tokyonight-storm") end,
-	},
-
+	{ "folke/tokyonight.nvim", priority = 1000, lazy = false },
 	{ "catppuccin/nvim", name = "catppuccin" },
 	"AlexvZyl/nordic.nvim",
 	"eldritch-theme/eldritch.nvim",
