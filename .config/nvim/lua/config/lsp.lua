@@ -93,12 +93,14 @@ vim.lsp.config.lua_ls = {
 -- Ruby -----------------------------------------------------------------------------
 vim.lsp.config.solargraph = {
 	autostart = false,
+	cmd = { "solargraph", "stdio" }, -- or just omit `cmd`
 	settings = {
 		init_options = {
 			formatting = true,
 		},
 		solargraph = {
 			diagnostics = true,
+			formatting = false,
 		},
 	},
 }
