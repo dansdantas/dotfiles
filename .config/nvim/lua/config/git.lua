@@ -45,9 +45,20 @@ set("n", ",ga", function() require('tinygit"').amendOnlyMsg() end, { desc = "Git
 set("n", ",gA", ":Git add %<cr>", { desc = "Git: stage entire buffer" })
 
 -- Diffview
+set("n", "<leader>gd", ":CodeDiff<CR>", { desc = "Git: show diff" })
+set("n", "<leader>gx", ":CodeDiff close<CR>", { desc = "Git: close diff" })
 set("n", ",gd", ":DiffviewOpen<CR>", { desc = "Git: show diff" })
 set("n", ",gx", ":DiffviewClose<CR>", { desc = "Git: close diff" })
 set("n", ",gh", ":DiffviewFileHistory<CR>", { desc = "Git: show file history" })
+
+-- Git
+local picker = Snacks.picker
+set("n", "<leader>gl", picker.git_log, { desc = "Git: log" })
+set("n", "<leader>gL", picker.git_log_line, { desc = "Git: log line" })
+set("n", "<leader>gs", picker.git_status, { desc = "Git: status" })
+set("n", ",gb", picker.git_branches, { desc = "Git: branches" })
+-- set("n", ",gc", tlb.git_commits, { desc = "Git: commits" })
+-- set("n", ",gC", tlb.git_bcommits, { desc = "Git: commits for current buffer" })
 
 -- Gitlinker
 set(
