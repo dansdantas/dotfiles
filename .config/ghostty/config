@@ -1,9 +1,10 @@
 # Current problems
 # - no workspace support
 # - no tabs support when using without title bar
+# - bad theme support
+# - aerospace treats each tab as a window halvening size on each new one
 
-font-family = "Fantasque Sans Mono"
-theme = "tokyonight_night"
+font-family = "JetBrains Mono NL"
 
 # keybinds
 keybind = ctrl+a>l=goto_split:right
