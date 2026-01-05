@@ -169,8 +169,6 @@ M.setup = function()
 		ensure_installed = myTools,
 		run_on_start = false, -- manually, since otherwise not working with lazy-loading
 	})
-	vim.defer_fn(vim.cmd.MasonToolsInstall, 500)
-	vim.defer_fn(vim.cmd.MasonToolsClean, 1000) -- delayed, so noice.nvim is loaded before
 
 	-- Setup formatter
 	require("conform").setup({
