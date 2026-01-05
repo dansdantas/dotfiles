@@ -16,8 +16,21 @@ gs.setup({
 -- keymaps
 local set = vim.keymap.set
 
-set("n", "]g", function() gs.nav_hunk("next") end, { desc = "Git: next hunk" })
-set("n", "[g", function() gs.nav_hunk("prev") end, { desc = "Git: previous hunk" })
+set("n", "]g", function()
+	if vim.wo.diff then
+		vim.cmd.normal({ "]c", bang = true })
+	else
+		gs.nav_hunk("next")
+	end
+end, { desc = "Git: next hunk" })
+
+set("n", "[g", function()
+	if vim.wo.diff then
+		vim.cmd.normal({ "[c", bang = true })
+	else
+		gs.nav_hunk("prev")
+	end
+end, { desc = "Git: previous hunk" })
 
 set("n", "<leader>ga", gs.stage_hunk, { desc = "Git: add hunk" })
 set("n", "<leader>gA", gs.stage_buffer, { desc = "Git: stage buffer" })
