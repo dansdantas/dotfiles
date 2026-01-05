@@ -43,7 +43,6 @@ opt.signcolumn = "yes:1" -- Always show the signcolumn
 -- Color
 opt.termguicolors = true -- Enable true color
 opt.background = "dark" -- Force dark background
-vim.cmd.colorscheme("tokyonight-storm")
 
 -- Indentation
 opt.shiftwidth = 2 -- Column space on identation << or >>
