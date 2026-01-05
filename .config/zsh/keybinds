@@ -1,6 +1,31 @@
 #!/usr/bin/zsh
 
 bindkey -v
+bindkey ' ' magic-space
+
+# Surround
+if is-at-least 5.0.8; then
+  autoload -Uz surround
+  zle -N delete-surround surround
+  zle -N change-surround surround
+  zle -N add-surround surround
+  bindkey -a cs change-surround
+  bindkey -a ds delete-surround
+  bindkey -a ys add-surround
+  bindkey -a S add-surround
+fi
+
+# Clear screen but keep current command buffer
+function clear-screen-and-scrollback() {
+  echoti civis >"$TTY"
+  printf '%b' '\e[H\e[2J\e[3J' >"$TTY"
+  echoti cnorm >"$TTY"
+  zle redisplay
+}
+zle -N clear-screen-and-scrollback
+
+autoload -Uz edit-command-line
+zle -N edit-command-line
 
 # -------------------------------------------------------------------
 # Insert mode
@@ -15,42 +40,32 @@ bindkey -M viins '^[[1;5C' forward-word
 bindkey -M viins '^[[1;5D' backward-word
 
 # Add emacs-like keybind to vi mode
-bindkey -M viins '^A'  beginning-of-line # Not gonna work because of tmux
-bindkey -M viins '^E'  end-of-line
-bindkey -M viins '^F'  forward-char
-bindkey -M viins '^B'  backward-char
-bindkey -M viins '^K'  kill-line
-bindkey -M viins '^Y'  yank
+bindkey -M viins '^A' beginning-of-line # Not gonna work because of tmux
+bindkey -M viins '^E' end-of-line
+bindkey -M viins '^F' forward-char
+bindkey -M viins '^B' backward-char
+bindkey -M viins '^K' kill-line
+bindkey -M viins '^Y' yank
 
 # Default is better!
-bindkey -M viins '^W'  backward-kill-word
-bindkey -M viins '^U'  backward-kill-line
-bindkey -M viins '^H'  backward-delete-char
-bindkey -M viins '^D'  delete-char-or-list
-bindkey -M viins '^P'  history-search-backward
-bindkey -M viins '^N'  history-search-forward
+bindkey -M viins '^W' backward-kill-word
+# bindkey -M viins '^U' backward-kill-line
+bindkey -M viins '^U' undo
+bindkey -M viins '^H' backward-delete-char
+bindkey -M viins '^D' delete-char-or-list
+bindkey -M viins '^P' history-search-backward
+bindkey -M viins '^N' history-search-forward
+
+bindkey -M viins '^l' clear-screen-and-scrollback
 
 # -------------------------------------------------------------------
 # Command mode
 # -------------------------------------------------------------------
-bindkey -M vicmd '^A'  beginning-of-line # Not gonna work beucase of tmux
-bindkey -M vicmd '^E'  end-of-line
-bindkey -M vicmd '^K'  kill-line
-bindkey -M vicmd '^P'  up-line-or-history
-bindkey -M vicmd '^N'  down-line-or-history
-bindkey -M vicmd '^U'  backward-kill-line
-bindkey -M vicmd '^Y'  yank
-
-# -------------------------------------------------------------------
-# Surround
-# -------------------------------------------------------------------
-if is-at-least 5.0.8; then
-  autoload -Uz surround
-  zle -N delete-surround surround
-  zle -N change-surround surround
-  zle -N add-surround surround
-  bindkey -a cs change-surround
-  bindkey -a ds delete-surround
-  bindkey -a ys add-surround
-  bindkey -a S add-surround
-fi
+bindkey -M vicmd '^A' beginning-of-line # Not gonna work beucase of tmux
+bindkey -M vicmd '^E' end-of-line
+bindkey -M vicmd '^K' kill-line
+bindkey -M vicmd '^P' up-line-or-history
+bindkey -M vicmd '^N' down-line-or-history
+bindkey -M vicmd '^U' backward-kill-line
+bindkey -M vicmd '^Y' yank
+bindkey -M vicmd '^V' edit-command-line
