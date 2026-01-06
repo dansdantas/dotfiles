@@ -7,10 +7,13 @@ local M = {}
 -- variable used by MasonToolInstaller
 vim.g.myLsps = {
 	"clangd",
-	"gopls",
 	"jdtls",
 	"jedi_language_server", -- python (has much better hovers)
+
+	"gopls",
 	"solargraph",
+	-- "ruby_lsp",
+	"dockerls",
 
 	"biome", -- ts/js/json linter/formatter
 	"cssls",
@@ -21,10 +24,12 @@ vim.g.myLsps = {
 
 	"lua_ls",
 	"vimls",
+
 	"yamlls",
 	"jsonls",
 	"marksman", -- markdown
 	"bashls", -- used for zsh
+	"taplo",
 }
 
 --------------------------------------------------------------------------------
@@ -245,7 +250,8 @@ vim.lsp.config.yamlls = {
 }
 
 vim.diagnostic.config({
-	virtual_lines = true,
+	virtual_text = true,
+	update_in_insert = false,
 })
 
 vim.lsp.enable(vim.g.myLsps)
