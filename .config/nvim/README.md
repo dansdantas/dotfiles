@@ -7,13 +7,9 @@
 
 ## Evaluating new ideas
 
-    - split telescope keymaps into single file?
-    - find PsReadLine for linux
-    - finish config for current workflow
-    - commit changes for git.lua
-    - add gitpad for saving drafts
     - remove disabled plugins from config
-    - move everything that is on testing stage to 99-undecided.lua
     - floaterm -> toggleterm?
     - vim-test -> neotest?
-    - autosession -> resession?
+    - decide if changing to blink
+    - fix new syntax for treesitter
+    - find a better way to save ideas
