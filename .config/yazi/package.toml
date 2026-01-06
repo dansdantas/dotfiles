@@ -1,29 +1,29 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "de53d90"
+rev = "4e55902"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:max-preview"
-rev = "8945e54"
+rev = "4e55902"
 hash = "15b2ff7f6563c14d5b2e93b3e9da35de"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "8945e54"
-hash = "aef2b1a805b80cce573bb766f1459d88"
+rev = "4e55902"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [[flavor.deps]]
 use = "sanjinso/monokai-vibrant"
 rev = "8b68223"
-hash = "f4458ebaf8961d714eba05fe5ba40166"
+hash = "7cf995e2185a45b5141ce807b7eced60"
 
 [[flavor.deps]]
 use = "BennyOe/tokyo-night"
-rev = "9e6f899"
-hash = "2338a26b44318e22e649df342226b759"
+rev = "8e6296f"
+hash = "d9da921c3bd37ba32ee27a8a7a40461f"
 
 [[flavor.deps]]
 use = "dangooddd/kanagawa"
-rev = "d98f0c3"
-hash = "cada780385f75abbcfbf5343256b441"
+rev = "04985d1"
+hash = "c69a63981e254a3a06a11c2bf0e6af1d"
