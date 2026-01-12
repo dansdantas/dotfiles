@@ -62,3 +62,25 @@ bcp() {
     do; brew uninstall $prog; done;
   fi
 }
+
+# Interactive rebase to the HEAD branch or to given one if I pass as parameter
+function grbi() {
+  local base
+
+  if [[ -n "$1" ]]; then
+    base="$1"
+  else
+    # Resolve default branch from origin/HEAD (e.g. origin/main → main)
+    base="$(git rev-parse --abbrev-ref origin/HEAD 2>/dev/null | sed 's|^origin/||')"
+  fi
+
+  if [[ -z "$base" ]]; then
+    echo "grbi: could not determine base branch" >&2
+    return 1
+  fi
+
+  git rebase -i "$(git merge-base HEAD "$base")"
+}
+
+# Tell zsh to complete grbi arguments like `git rebase`
+compdef _git grbi
