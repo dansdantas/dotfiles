@@ -9,7 +9,6 @@ return {
 			"andymass/vim-matchup",
 			{ "nvim-treesitter/nvim-treesitter-textobjects", branch = "master" },
 			"RRethy/nvim-treesitter-endwise",
-			"nvim-treesitter/playground",
 			{ "abecodes/tabout.nvim", opts = { tabkey = "<A-t>" } },
 			{ "Wansmer/treesj", opts = { use_default_keymaps = false, max_join_length = 240 } },
 			{ "Wansmer/sibling-swap.nvim", opts = { use_default_keymaps = false } },
