@@ -72,7 +72,7 @@ map.set("n", "<leader><cr>", ":so ~/.config/nvim/init.lua<cr>", { desc = "reload
 map.set("n", "<leader>;", function() Snacks.bufdelete.delete() end, { desc = "delete buffer" })
 map.set("n", "<leader>bc", function() Snacks.bufdelete.delete() end, { desc = "close buffer" })
 map.set("n", "<leader>bd", function() Snacks.bufdelete.other() end, { desc = "close all buffers but current" })
-map.set("n", "<leader>bD", function() Snacks.bufdelete.all() end, { desc = "close all buffers" })
+map.set("n", "<leader>bD", ":bufdo bwipeout<CR>", { desc = "close all buffers" })
 
 map.set("n", "<leader>.", function() Snacks.scratch() end, { desc = "Toggle scratch buffer" })
 map.set("n", "<leader>S", function() Snacks.scratch.select() end, { desc = "Select a scratch buffer" })
