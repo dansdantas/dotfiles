@@ -48,10 +48,9 @@ return {
 	{ "FabijanZulj/blame.nvim", opts = {}, cmd = { "BlameToggle" } },
 
 	{
-		"esmuellert/vscode-diff.nvim",
+		"esmuellert/codediff.nvim",
 		dependencies = { "MunifTanjim/nui.nvim" },
 		cmd = "CodeDiff",
-		branch = "next",
 		opts = {
 			-- Highlight configuration
 			highlights = {
