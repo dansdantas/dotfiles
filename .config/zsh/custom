@@ -82,5 +82,16 @@ function grbi() {
   git rebase -i "$(git merge-base HEAD "$base")"
 }
 
+function grbis() {
+  local base up
+  base="${1:-$(git rev-parse --abbrev-ref origin/HEAD 2>/dev/null | sed 's|^origin/||')}"
+  [[ -z "$base" ]] && { echo "grbis: can't determine base branch" >&2; return 1; }
+
+  up="$(git merge-base HEAD "$base")" || return 1
+
+  GIT_SEQUENCE_EDITOR='sed -i "" -e "2,$s/^pick /squash /"' \
+    git rebase -i "$up"
+}
+
 # Tell zsh to complete grbi arguments like `git rebase`
 compdef _git grbi
