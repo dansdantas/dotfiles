@@ -29,6 +29,7 @@ return {
 			{ -- snippet engine
 				"L3MON4D3/LuaSnip",
 				event = "InsertEnter",
+				build = "make install_jsregexp",
 				dependencies = {
 					"honza/vim-snippets", -- more snippets
 					"rafamadriz/friendly-snippets", -- vsode like snippets
