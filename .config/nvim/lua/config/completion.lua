@@ -38,10 +38,17 @@ cmp.setup({
 		end,
 	},
 
-	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
-	},
+	-- window = {
+	-- 	completion = {
+	-- 		scrollbar = false,
+	-- 		side_padding = 0,
+	-- 		border = "single",
+	-- 	},
+
+	-- 	documentation = {
+	-- 		border = "single",
+	-- 	},
+	-- },
 
 	mapping = {
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
