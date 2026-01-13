@@ -208,7 +208,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- Fuzzy find all the symbols in your current workspace
 		--  Similar to document symbols, except searches over your whole project.
-		nmap(",ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "workspace symbols")
+		-- nmap(",ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "workspace symbols")
+		nmap(",ws", Snacks.picker.lsp_workspace_symbols, "workspace symbols")
 
 		-- Rename the variable under your cursor
 		--  Most Language Servers support renaming across files, etc.
