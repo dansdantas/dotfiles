@@ -73,3 +73,5 @@
 [user]
 	name = Daniel Santos Dantas
 	email = daniel@sdantas.dev
+[rerere]
+	enabled = true
