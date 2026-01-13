@@ -49,208 +49,22 @@ vim.lsp.config("*", {
 	flags = { debounce_text_changes = 150 },
 })
 
---------------------------------------------------------------------------------
---- Server definitions spec
---------------------------------------------------------------------------------
-
--- lua -------------------------------------------------------------------------
-vim.lsp.config.lua_ls = {
-	settings = {
-		Lua = {
-			runtime = {
-				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-				version = "LuaJIT",
-				-- Setup your lua path
-				-- path = runtime_path,
-			},
-			completion = {
-				callSnippet = "Replace",
-				keywordSnippet = "Replace",
-				displayContext = 6,
-				showWord = "Disable", -- don't suggest common words as fallback
-				postfix = ".", -- useful for `table.insert` and the like
-			},
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				-- if there is a .luarc.json on current workspace, it takes precedence over this
-				globals = { "vim", "table", "pairs", "package", "require", "ipairs", "pcall", "P", "R", "Snacks" },
-				-- Review missing fields and inject field after every version upgrade
-				disable = { "trailing-space", "missing-fields", "inject-field" }, -- formatter already does that
-			},
-			format = { enable = false },
-			hint = {
-				enable = true, -- enabled inlay hints
-				setType = true,
-				arrayIndex = "Disable",
-			},
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				-- library = vim.api.nvim_get_runtime_file("", true),
-				library = { vim.env.VIMRUNTIME },
-				checkThirdParty = false,
-			},
-			-- Do not send telemetry data containing a randomized but unique identifier
-			telemetry = { enable = false },
-		},
-	},
-}
-
--- Ruby -----------------------------------------------------------------------------
-vim.lsp.config.solargraph = {
-	autostart = false,
-	cmd = { "solargraph", "stdio" }, -- or just omit `cmd`
-	settings = {
-		init_options = {
-			formatting = true,
-		},
-		solargraph = {
-			diagnostics = true,
-			formatting = false,
-		},
-	},
-}
-
--- GO -----------------------------------------------------------------------------
-vim.lsp.config.gopls = {
-	cmd = { "gopls" },
-	settings = {
-		gopls = {
-			experimentalPostfixCompletions = true,
-			analyses = {
-				unusedparams = true,
-				shadow = true,
-			},
-			staticcheck = true,
-			semanticTokens = true,
-			gofumpt = true,
-		},
-	},
-	init_options = {
-		usePlaceholders = true,
-	},
-}
-
--- Java -----------------------------------------------------------------------------
-vim.lsp.config.jdtls = {
-	root_dir = function()
-		-- vim.fn.getcwd()
-		return vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1])
-	end,
-}
-
--- Python -----------------------------------------------------------------------------
-vim.lsp.config.jedi_language_server = {
-	init_options = {
-		diagnostics = { enable = true },
-		codeAction = { nameExtractVariable = "extracted_var", nameExtractFunction = "extracted_def" },
-	},
-	-- HACK since init_options cannot be changed during runtime, we need to use
-	-- `on_new_config` to set it. Since at `vim.env.VIRTUAL_ENV` is
-	-- not set in time, we need to hardcode the identification of the
-	-- venv-dir here
-	on_new_config = function(config, root_dir)
-		local venv_python = root_dir .. "/.venv/bin/python"
-		if vim.fn.executable(venv_python) ~= 1 then
-			return
-		end
-		config.init_options.workspace = {
-			environmentPath = venv_python,
-		}
-	end,
-}
-
--- JS/TS/CSS -----------------------------------------------------------------------------
-
--- don't pollute completions for js/ts with stuff I don't need
-vim.lsp.config.emmet_ls = {
-	filetypes = { "html", "css" },
-}
-
--- DOCS
--- https://github.com/sublimelsp/LSP-css/blob/master/LSP-css.sublime-settings
--- https://github.com/microsoft/vscode-css-languageservice/blob/main/src/services/lintRules.ts
-vim.lsp.config.cssls = {
-	settings = {
-		css = {
-			colorDecorators = { enable = true }, -- color inlay hints
-			lint = {
-				compatibleVendorPrefixes = "ignore",
-				vendorPrefix = "ignore",
-				unknownVendorSpecificProperties = "ignore",
-				unknownProperties = "ignore", -- duplicate with stylelint
-				duplicateProperties = "warning",
-				emptyRules = "warning",
-				importStatement = "warning",
-				zeroUnits = "warning",
-				fontFaceProperties = "warning",
-				hexColorLength = "warning",
-				argumentsInColorFunction = "warning",
-				unknownAtRules = "warning",
-				ieHack = "warning",
-				propertyIgnoredDueToDisplay = "warning",
-			},
-		},
-	},
-}
-
--- DOCS https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration
-vim.lsp.config.ts_ls = {
-	settings = {
-		-- enable checking javascript without a `jsconfig.json`
-		implicitProjectConfiguration = { -- DOCS https://www.typescriptlang.org/tsconfig
-			checkJs = true,
-			target = "ES2022", -- JXA is compliant with most of ECMAScript: https://github.com/JXA-Cookbook/JXA-Cookbook/wiki/ES6-Features-in-JXA
-		},
-
-		-- INFO "cannot redeclare block-scoped variable" -> not useful for JXA.
-		-- Biome works on single-file-mode and therefore can be used to check for
-		-- unintended re-declaring
-		diagnostics = { ignoredCodes = { 2451 } },
-
-		typescript = {
-			inlayHints = {
-				includeInlayEnumMemberValueHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayParameterNameHints = "all",
-				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayVariableTypeHints = true,
-				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-			},
-		},
-		javascript = {
-			inlayHints = {
-				includeInlayEnumMemberValueHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayParameterNameHints = "all",
-				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayVariableTypeHints = true,
-				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-			},
-		},
-	},
-}
-
--- DOCS https://github.com/redhat-developer/yaml-language-server/tree/main#language-server-settings
-vim.lsp.config.yamlls = {
-	settings = {
-		yaml = {
-			format = {
-				enable = true,
-				printWidth = 120,
-			},
-		},
-	},
-	-- SIC needs enabling via setting *and* via capabilities to work
-	-- TODO probably due to missing dynamic formatting in nvim
-	on_attach = function(client) client.server_capabilities.documentFormattingProvider = true end,
-}
-
+local sev = vim.diagnostic.severity
 vim.diagnostic.config({
-	virtual_text = true,
+	-- Show signs on top of any other sign, but only for warnings and errors
+	signs = { priority = 9999, severity = { min = sev.WARN, max = sev.ERROR } },
+
+	-- Show all diagnostics as underline
+	underline = { severity = { min = sev.HINT, max = sev.ERROR } },
+
+	-- Show more details immediately for errors on the current line
+	virtual_lines = false,
+	virtual_text = {
+		current_line = true,
+		severity = { min = sev.ERROR, max = sev.ERROR },
+	},
+
+	-- Don't update diagnostics when typing
 	update_in_insert = false,
 })
 
