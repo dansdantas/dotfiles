@@ -1,3 +1,34 @@
+-- Override icon function to give priority to do nvim-web-devicons
+Snacks.util.icon = function(name, cat)
+	local try = {
+		function()
+			if cat == "directory" then
+				return " ", "Directory"
+			end
+
+			local Icons = require("nvim-web-devicons")
+
+			if cat == "filetype" then
+				return Icons.get_icon_by_filetype(name, { default = true })
+			elseif cat == "file" then
+				local ext = name:match("%.(%w+)$")
+				return Icons.get_icon(name, ext, { default = true }) --[[@as string, string]]
+			elseif cat == "extension" then
+				return Icons.get_icon(nil, name, { default = true }) --[[@as string, string]]
+			end
+
+			return require("mini.icons").get(cat or "file", name)
+		end,
+	}
+	for _, fn in ipairs(try) do
+		local ret = { pcall(fn) }
+		if ret[1] and ret[2] then
+			return ret[2], ret[3]
+		end
+	end
+	return " "
+end
+
 -- Keymaps
 local set = vim.keymap.set
 local picker = Snacks.picker
