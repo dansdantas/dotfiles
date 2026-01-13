@@ -111,15 +111,5 @@ vim.cmd([[iabbr dbg debugger]])
 
 --------------------------------------------------------------------------------
 -- Languages
-
-local g = vim.g
-local env = vim.env
-
--- Python
-g.python_host_prog = env.PYENV_ROOT .. "/versions/2.7.18/bin/python"
-g.python3_host_prog = env.PYENV_ROOT .. "/versions/3.12.0/bin/python"
-
--- Ruby
-g.loaded_ruby_provider = 0
-g.ruby_path = env.RBENV_ROOT .. "/shims"
-g.ruby_host_prog = env.RBENV_ROOT .. "/shims/ruby"
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_python3_provider = 0

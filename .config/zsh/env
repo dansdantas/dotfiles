@@ -99,8 +99,6 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/rg/config"
 # -------------------------------------------------------------------
 
 # Ruby
-export RBENV_ROOT="$XDG_DATA_HOME/rbenv"
-
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
@@ -111,28 +109,6 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 export SOLARGRAPH_CACHE="$XDG_CACHE_HOME/solargraph"
 
 export PRYRC="$XDG_CONFIG_HOME/pry/pryrc"
-
-rbenv() {
-	if [[ $RBENV_LOADED != true ]]; then
-		eval "$(command rbenv init -)"
-		export RBENV_LOADED=true
-	fi
-
-	rbenv "$@"
-}
-
-# PyEnv
-export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-pyenv() {
-	if [[ $PYENV_LOADED != true ]]; then
-		eval "$(command pyenv init -)"
-		export PYENV_LOADED=true
-	fi
-
-	pyenv "$@"
-}
 
 # Golang
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
