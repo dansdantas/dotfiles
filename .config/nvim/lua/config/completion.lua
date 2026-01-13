@@ -16,6 +16,10 @@ local default_sources = cmp.config.sources({
 	{ name = "nvim_lua" },
 })
 
+lspkind.setup({
+	symbol_map = require("icons").symbol_kinds,
+})
+
 cmp.setup({
 	enabled = function()
 		-- disable completion in comments
@@ -84,7 +88,7 @@ cmp.setup({
 			maxwidth = 50,
 			menu = {
 				fuzzy_buffer = "[buf]",
-				nvim_lsp = "[LSP]",
+				nvim_lsp = "[lsp]",
 				nvim_lua = "[api]",
 				async_path = "[path]",
 				luasnip = "[snip]",
