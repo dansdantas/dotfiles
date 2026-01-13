@@ -1,153 +1,67 @@
-vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.g.ts_install = {
+	"bash",
+	"c",
+	"comment",
+	"cpp",
+	"css",
+	"dockerfile",
+	"go",
+	"graphql",
+	"html",
+	"http",
+	"java",
+	"javascript",
+	"jsdoc",
+	"json",
+	"json5",
+	"lua",
+	"make",
+	"markdown",
+	"python",
+	"r",
+	"regex",
+	"ruby",
+	"rust",
+	"scss",
+	"terraform",
+	"typescript",
+	"vim",
+	"vimdoc",
+	"vue",
+	"yaml",
+}
 
-require("nvim-treesitter.configs").setup({
-	ensure_installed = {
-		"bash",
-		"c",
-		"comment",
-		"cpp",
-		"css",
-		"dockerfile",
-		"go",
-		"graphql",
-		"html",
-		"http",
-		"java",
-		"javascript",
-		"jsdoc",
-		"json",
-		"json5",
-		"lua",
-		"make",
-		"markdown",
-		"python",
-		"r",
-		"regex",
-		"ruby",
-		"rust",
-		"scss",
-		"terraform",
-		"typescript",
-		"vim",
-		"vue",
-		"yaml",
-	},
+local ts = require("nvim-treesitter")
+local ts_install = vim.g.ts_install or {}
+local ts_filetypes = vim.iter(ts_install)
+	:map(function(lang) return vim.treesitter.language.get_filetypes(lang) end)
+	:flatten()
+	:totable()
 
-	sync_install = false,
-	auto_install = true,
+ts.install(ts_install)
 
-	highlight = {
-		enable = true,
-		disable = { "css" },
-	},
+vim.api.nvim_create_autocmd("FileType", {
+	desc = "Setup treesitter for a buffer",
+	-- NOTE: We explicitly define filetypes
+	pattern = ts_filetypes,
+	group = vim.api.nvim_create_augroup("ts_setup", { clear = true }),
+	callback = function(e)
+		-- Start highlighting immediately (works if parser exists)
+		-- local lang = vim.treesitter.language.get_lang(e.match) or e.match
+		-- pcall(vim.treesitter.start, e.buf, lang)
 
-	indent = { enable = true },
-	endwise = { enable = true },
-	matchup = { enable = true },
+		vim.treesitter.start(e.buf)
 
-	incremental_selection = {
-		enable = true,
-		keymaps = {
-			init_selection = "<c-space>",
-			node_incremental = "<c-space>",
-			scope_incremental = "<c-s>",
-			node_decremental = "<c-backspace>",
-		},
-	},
+		-- indentation
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
-	textobjects = {
-		select = {
-			enable = true,
-			lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-			keymaps = {
-				-- You can use the capture groups defined in textobjects.scm
-				["aa"] = "@parameter.outer",
-				["ia"] = "@parameter.inner",
-				["af"] = "@function.outer",
-				["if"] = "@function.inner",
-				["aC"] = "@class.outer",
-				["iC"] = "@class.inner",
-				["ic"] = "@call.inner",
-				["ac"] = "@call.outer",
-				["aH"] = "@assignment.lhs",
-				["ah"] = "@assignment.inner",
-				["aL"] = "@assignment.rhs",
-				["al"] = "@assignment.outer",
-			},
-			-- You can choose the select mode (default is charwise 'v')
-			--
-			-- Can also be a function which gets passed a table with the keys
-			-- * query_string: eg '@function.inner'
-			-- * method: eg 'v' or 'o'
-			-- and should return the mode ('v', 'V', or '<c-v>') or a table
-			-- mapping query_strings to modes.
-			selection_modes = {
-				["@parameter.outer"] = "v", -- charwise
-				["@function.outer"] = "V", -- linewise
-				["@class.outer"] = "<c-v>", -- blockwise
-			},
-			-- If you set this to `true` (default is `false`) then any textobject is
-			-- extended to include preceding or succeeding whitespace. Succeeding
-			-- whitespace has priority in order to act similarly to eg the built-in
-			-- `ap`.
-			--
-			-- Can also be a function which gets passed a table with the keys
-			-- * query_string: eg '@function.inner'
-			-- * selection_mode: eg 'v'
-			-- and should return true of false
-			include_surrounding_whitespace = true,
-		},
-
-		move = {
-			enable = true,
-			set_jumps = true, -- whether to set jumps in the jumplist
-			goto_next_start = {
-				["]f"] = "@function.outer",
-				["]c"] = "@class.outer",
-			},
-			goto_previous_start = {
-				["[f"] = "@function.outer",
-				["[c"] = "@class.outer",
-			},
-			goto_next_end = {
-				["]F"] = "@function.outer",
-				["]C"] = "@class.outer",
-			},
-			goto_previous_end = {
-				["[F"] = "@function.outer",
-				["[C"] = "@class.outer",
-			},
-		},
-
-		swap = {
-			enable = true,
-			swap_next = {
-				["<leader>sj"] = "@parameter.inner",
-				[",sj"] = "@assignment.inner",
-				[",sJ"] = "@attribute.inner",
-			},
-			swap_previous = {
-				["<leader>sk"] = "@parameter.inner",
-				[",sk"] = "@assignment.inner",
-				[",sK"] = "@attribute.inner",
-			},
-		},
-
-		lsp_interop = {
-			enable = true,
-			border = "none",
-			floating_preview_opts = {},
-			peek_definition_code = {
-				[",pf"] = "@function.outer",
-				[",pF"] = "@class.outer",
-			},
-		},
-	},
+		-- folding
+		vim.wo.foldmethod = "expr"
+		vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+	end,
 })
 
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-parser_config.gotmpl = {
+require("nvim-treesitter.parsers").gotmpl = {
 	install_info = {
 		url = "https://github.com/ngalaiko/tree-sitter-go-template",
 		files = { "src/parser.c" },
@@ -156,8 +70,109 @@ parser_config.gotmpl = {
 	used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "yaml" },
 }
 
+require("nvim-treesitter-textobjects").setup({
+	select = {
+		-- Automatically jump forward to textobj, similar to targets.vim
+		lookahead = true,
+
+		-- You can choose the select mode (default is charwise 'v')
+		-- Can also be a function which gets passed a table with the keys
+		-- * query_string: eg '@function.inner'
+		-- * method: eg 'v' or 'o'
+		-- and should return the mode ('v', 'V', or '<c-v>') or a table
+		-- mapping query_strings to modes.
+		selection_modes = {
+			["@parameter.outer"] = "v", -- charwise
+			["@function.outer"] = "V", -- linewise
+			["@class.outer"] = "<c-v>", -- blockwise
+		},
+
+		-- If you set this to `true` (default is `false`) then any textobject is
+		-- extended to include preceding or succeeding whitespace. Succeeding
+		-- whitespace has priority in order to act similarly to eg the built-in
+		-- `ap`.
+		--
+		-- Can also be a function which gets passed a table with the keys
+		-- * query_string: eg '@function.inner'
+		-- * selection_mode: eg 'v'
+		-- and should return true of false
+		include_surrounding_whitespace = false,
+	},
+	move = {
+		set_jumps = true, -- whether to set jumps in the jumplist
+	},
+})
+
 -- keymaps
 local set = vim.keymap.set
+
+local select_ts = require("nvim-treesitter-textobjects.select").select_textobject
+set({ "x", "o" }, "aa", function() select_ts("@parameter.outer", "textobjects") end)
+set({ "x", "o" }, "ia", function() select_ts("@parameter.inner", "textobjects") end)
+set({ "x", "o" }, "af", function() select_ts("@function.outer", "textobjects") end)
+set({ "x", "o" }, "if", function() select_ts("@function.inner", "textobjects") end)
+set({ "x", "o" }, "aC", function() select_ts("@class.outer", "textobjects") end)
+set({ "x", "o" }, "iC", function() select_ts("@class.inner", "textobjects") end)
+set({ "x", "o" }, "ac", function() select_ts("@call.outer", "textobjects") end)
+set({ "x", "o" }, "ic", function() select_ts("@call.inner", "textobjects") end)
+set({ "x", "o" }, "ah", function() select_ts("@assignment.lhs", "textobjects") end)
+set({ "x", "o" }, "aH", function() select_ts("@assignment.inner", "textobjects") end)
+set({ "x", "o" }, "al", function() select_ts("@assignment.rhs", "textobjects") end)
+set({ "x", "o" }, "aL", function() select_ts("@assignment.outer", "textobjects") end)
+-- You can also use captures from other query groups like `locals.scm`
+set({ "x", "o" }, "as", function() select_ts("@local.scope", "locals") end)
+
+local move = require("nvim-treesitter-textobjects.move")
+set({ "n", "x", "o" }, "]f", function() move.goto_next_start("@function.outer", "textobjects") end)
+set({ "n", "x", "o" }, "]c", function() move.goto_next_start("@class.outer", "textobjects") end)
+set({ "n", "x", "o" }, "]F", function() move.goto_next_end("@function.outer", "textobjects") end)
+set({ "n", "x", "o" }, "]C", function() move.goto_next_end("@class.outer", "textobjects") end)
+
+set({ "n", "x", "o" }, "[f", function() move.goto_previous_start("@function.outer", "textobjects") end)
+set({ "n", "x", "o" }, "[c", function() move.goto_previous_start("@class.outer", "textobjects") end)
+
+set({ "n", "x", "o" }, "[F", function() move.goto_previous_end("@function.outer", "textobjects") end)
+set({ "n", "x", "o" }, "[C", function() move.goto_previous_end("@class.outer", "textobjects") end)
+-- set(
+-- 	{ "n", "x", "o" },
+-- 	"]o",
+-- 	function()
+-- 		move.goto_next_start({ "@loop.inner", "@loop.outer" }, "textobjects")
+-- 	end
+-- )
+-- set(
+-- 	{ "n", "x", "o" },
+-- 	"]s",
+-- 	function() move.goto_next_start("@local.scope", "locals") end
+-- )
+-- set(
+-- 	{ "n", "x", "o" },
+-- 	"]z",
+-- 	function() move.goto_next_start("@fold", "folds") end
+-- )
+
+-- Go to either the start or the end, whichever is closer.
+-- Use if you want more granular movements
+-- set(
+-- 	{ "n", "x", "o" },
+-- 	"]d",
+-- 	function() move.goto_next("@conditional.outer", "textobjects") end
+-- )
+-- set(
+-- 	{ "n", "x", "o" },
+-- 	"[d",
+-- 	function() move.goto_previous("@conditional.outer", "textobjects") end
+-- )
+
+local swap = require("nvim-treesitter-textobjects.swap")
+set("n", "<leader>sj", function() swap.swap_next("@parameter.inner") end)
+set("n", ",sj", function() swap.swap_next("@assignment.inner") end)
+set("n", ",sJ", function() swap.swap_next("@attribute.inner") end)
+
+set("n", "<leader>sk", function() swap.swap_previous("@parameter.inner") end)
+set("n", ",sk", function() swap.swap_previous("@assignment.inner") end)
+set("n", ",sK", function() swap.swap_previous("@attribute.outer") end)
+
 set("n", "<space>st", function() require("treesj").toggle() end, { desc = "TS: toggle split/join param" })
 set("n", "<space>sc", function() require("treesj").join() end, { desc = "TS: join params" })
 set("n", "<space>sp", function() require("treesj").split() end, { desc = "TS: split params" })
