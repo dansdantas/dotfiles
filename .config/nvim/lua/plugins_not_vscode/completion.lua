@@ -6,7 +6,13 @@ return {
 		dependencies = {
 			-- sources
 			"saadparwaiz1/cmp_luasnip", -- adapter for snippet engine
-			{ "tzachar/cmp-fuzzy-buffer", dependencies = { "tzachar/fuzzy.nvim" } },
+			{
+				"tzachar/cmp-fuzzy-buffer",
+				dependencies = {
+					"tzachar/fuzzy.nvim",
+					{ "romgrk/fzy-lua-native", build = "make" },
+				},
+			},
 			"hrsh7th/cmp-nvim-lsp", -- LSP input
 			"https://codeberg.org/FelipeLema/cmp-async-path",
 			"hrsh7th/cmp-cmdline",
