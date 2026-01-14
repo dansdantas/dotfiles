@@ -45,7 +45,11 @@ end
 function M.normal(cmdStr) vim.cmd.normal({ cmdStr, bang = true }) end
 
 function M.add_to_todo()
-	local branch_name = vim.fn.system([[printf $(git rev-parse --abbrev-ref HEAD)]])
+	local branch_name = vim.fn.system([[git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "main"]])
+	branch_name = vim.trim(branch_name)
+	if branch_name == "" then
+		branch_name = "main"
+	end
 	vim.fn.execute("normal! i @todo " .. branch_name .. " -")
 end
 
