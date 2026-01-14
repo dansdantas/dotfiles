@@ -34,7 +34,7 @@ end, { desc = "Git: previous hunk" })
 
 set("n", "<leader>ga", gs.stage_hunk, { desc = "Git: add hunk" })
 set("n", "<leader>gA", gs.stage_buffer, { desc = "Git: stage buffer" })
-set("n", "<leader>gu", gs.undo_stage_hunk, { desc = "Git: unstage hunk" })
+set("n", "<leader>gu", gs.stage_hunk, { desc = "Git: unstage hunk" })
 set("n", "<leader>gU", gs.reset_buffer_index, { desc = "Git: unstage buffer" })
 set("n", "<leader>gR", gs.reset_buffer, { desc = "Git: reset buffer" })
 set("n", "<leader>gr", gs.reset_hunk, { desc = "Git: reset hunk" })
@@ -42,7 +42,7 @@ set("n", "<leader>gr", gs.reset_hunk, { desc = "Git: reset hunk" })
 set({ "o", "x" }, "ih", gs.select_hunk, { desc = "Git: hunk" })
 
 set("n", "<leader>gp", gs.preview_hunk, { desc = "Git: preview hunk" })
-set("n", "<leader>gt", gs.toggle_deleted, { desc = "Git: toggle deleted hunks" })
+set("n", "<leader>gt", gs.preview_hunk_inline, { desc = "Git: toggle deleted hunks" })
 
 set("n", "<leader>gq", function() gs.setqflist("all") end, { desc = "Git: populate hunks to loclist" })
 set("n", "<leader>gb", gs.toggle_current_line_blame, { desc = "Git: toggle current blame line" })
