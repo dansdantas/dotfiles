@@ -109,7 +109,7 @@ end
 
 vim.keymap.set(
 	"n",
-	",f",
+	",ff",
 	function()
 		require("conform").format({
 			async = true,
@@ -122,7 +122,7 @@ vim.keymap.set(
 
 vim.keymap.set(
 	{ "v" },
-	",f",
+	",ff",
 	function()
 		require("conform").format({
 			async = true,
