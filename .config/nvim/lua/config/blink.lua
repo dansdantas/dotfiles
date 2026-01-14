@@ -141,8 +141,8 @@ require("blink.cmp").setup({
 		},
 		providers = {
 			buffer = {
-				max_items = 10,
-				min_keyword_length = 3,
+				max_items = 5,
+				min_keyword_length = 4,
 				score_offset = 15, -- the higher the number, the higher the priority
 			},
 			cmdline = {
