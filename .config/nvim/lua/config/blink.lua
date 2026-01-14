@@ -3,6 +3,7 @@ require("config.snippets")
 -- https://www.lazyvim.org/extras/coding/blink
 -- https://github.com/saghen/blink.cmp
 -- Documentation site: https://cmp.saghen.dev/
+-- Cannot change source during execution
 
 local get_icon_property = function(ctx)
 	local icon, hl
@@ -28,6 +29,8 @@ require("lspkind").setup({
 	symbol_map = require("icons").symbol_kinds,
 })
 
+---@module 'blink.cmp'
+---@type blink.cmp.Config
 require("blink.cmp").setup({
 	keymap = {
 		preset = "default",
@@ -82,7 +85,11 @@ require("blink.cmp").setup({
 		},
 		menu = {
 			draw = {
-				columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
+				columns = {
+					{ "label", "label_description", gap = 1 },
+					{ "kind_icon", "kind", gap = 1 },
+					{ "source_name" },
+				},
 				treesitter = { "lsp" },
 				components = {
 					kind_icon = {
@@ -112,7 +119,7 @@ require("blink.cmp").setup({
 		expand = function(snippet) require("luasnip").lsp_expand(snippet) end,
 		active = function(filter)
 			if filter and filter.direction then
-				return require("luasnip").jumpable()
+				return require("luasnip").jumpable(filter.direction)
 			end
 			return require("luasnip").in_snippet()
 		end,
@@ -122,22 +129,21 @@ require("blink.cmp").setup({
 	sources = {
 		-- adding any nvim-cmp sources here will enable them
 		-- with blink.compat
-		-- compat = { "fuzzy_buffer" },
-		-- default = { "lsp", "path", "snippets", "buffer" },
 		-- default = { "copilot", "dadbod", "emoji", "dictionary" },
-		default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+		default = {
+			"lazydev",
+			"lsp",
+			"path",
+			"snippets",
+			"buffer",
+			"emoji",
+			-- "ripgrep", -- keep commented to prevent too many results or slowdowns
+		},
 		providers = {
-			lsp = {
-				-- Disabling fallbacks gets to always suggest snippets and buffer
-				fallbacks = {},
-				-- fallbacks = { "snippets", "buffer" },
-				score_offset = 90,
-			},
-			lazydev = {
-				name = "LazyDev",
-				module = "lazydev.integrations.blink",
-				-- make lazydev completions top priority (see `:h blink.cmp`)
-				score_offset = 100,
+			buffer = {
+				max_items = 10,
+				min_keyword_length = 3,
+				score_offset = 15, -- the higher the number, the higher the priority
 			},
 			cmdline = {
 				min_keyword_length = function(ctx)
@@ -148,12 +154,31 @@ require("blink.cmp").setup({
 					return 0
 				end,
 			},
+			-- https://github.com/moyiz/blink-emoji.nvim
+			emoji = {
+				module = "blink-emoji",
+				name = "Emoji",
+				score_offset = 15, -- the higher the number, the higher the priority
+				opts = { insert = true }, -- Insert emoji (default) or complete its name
+			},
+			lazydev = {
+				name = "LazyDev",
+				module = "lazydev.integrations.blink",
+				-- make lazydev completions top priority (see `:h blink.cmp`)
+				score_offset = 100,
+			},
+			lsp = {
+				-- Disabling fallbacks gets to always suggest snippets and buffer
+				fallbacks = {},
+				-- fallbacks = { "snippets", "buffer" },
+				score_offset = 90,
+			},
 			path = {
 				score_offset = 25,
 				-- When typing a path, I would get snippets and text in the
 				-- suggestions, I want those to show only if there are no path
 				-- suggestions
-				fallbacks = { "snippets", "buffer" },
+				-- fallbacks = { "snippets", "buffer" },
 				opts = {
 					trailing_slash = false,
 					label_trailing_slash = true,
@@ -161,97 +186,24 @@ require("blink.cmp").setup({
 					show_hidden_files_by_default = true,
 				},
 			},
-			-- buffer = {
-			-- 	max_items = 3,
-			-- 	min_keyword_length = 4,
-			-- 	score_offset = 15, -- the higher the number, the higher the priority
-			-- },
-			-- snippets = {
-			-- 	max_items = 8,
-			-- 	min_keyword_length = 2,
-			-- 	module = "blink.cmp.sources.snippets",
-			-- 	score_offset = 85, -- the higher the number, the higher the priority
-			-- 	-- Only show snippets if I type the trigger_text characters, so
-			-- 	-- to expand the "bash" snippet, if the trigger_text is ";" I have to
-			-- 	should_show_items = function()
-			-- 		local col = vim.api.nvim_win_get_cursor(0)[2]
-			-- 		local before_cursor = vim.api.nvim_get_current_line():sub(1, col)
-			-- 		-- NOTE: remember that `trigger_text` is modified at the top of the file
-			-- 		return before_cursor:match(trigger_text .. "%w*$") ~= nil
-			-- 	end,
-			-- 	-- After accepting the completion, delete the trigger_text characters
-			-- 	-- from the final inserted text
-			-- 	transform_items = function(_, items)
-			-- 		local col = vim.api.nvim_win_get_cursor(0)[2]
-			-- 		local before_cursor = vim.api.nvim_get_current_line():sub(1, col)
-			-- 		local trigger_pos = before_cursor:find(trigger_text .. "[^" .. trigger_text .. "]*$")
-			-- 		if trigger_pos then
-			-- 			for _, item in ipairs(items) do
-			-- 				item.textEdit = {
-			-- 					newText = item.insertText or item.label,
-			-- 					range = {
-			-- 						start = { line = vim.fn.line(".") - 1, character = trigger_pos - 1 },
-			-- 						["end"] = { line = vim.fn.line(".") - 1, character = col },
-			-- 					},
-			-- 				}
-			-- 			end
-			-- 		end
-			-- 		-- NOTE: After the transformation, I have to reload the luasnip source
-			-- 		-- Otherwise really crazy shit happens and I spent way too much time
-			-- 		-- figurig this out
-			-- 		vim.schedule(function() require("blink.cmp").reload("snippets") end)
-			-- 		return items
-			-- 	end,
-			-- },
+			ripgrep = {
+				module = "blink-ripgrep",
+				name = "Ripgrep",
+				-- see the full configuration below for all available options
+				---@module "blink-ripgrep"
+				---@type blink-ripgrep.Options
+				opts = {},
+			},
+			snippets = {
+				max_items = 8,
+				score_offset = 85, -- the higher the number, the higher the priority
+			},
 			-- -- Example on how to configure dadbod found in the main repo
 			-- -- https://github.com/kristijanhusak/vim-dadbod-completion
 			-- dadbod = {
 			-- 	name = "Dadbod",
 			-- 	module = "vim_dadbod_completion.blink",
 			-- 	score_offset = 85, -- the higher the number, the higher the priority
-			-- },
-			-- -- https://github.com/moyiz/blink-emoji.nvim
-			-- emoji = {
-			-- 	module = "blink-emoji",
-			-- 	name = "Emoji",
-			-- 	score_offset = 15, -- the higher the number, the higher the priority
-			-- 	opts = { insert = true }, -- Insert emoji (default) or complete its name
-			-- },
-			-- -- https://github.com/Kaiser-Yang/blink-cmp-dictionary
-			-- -- In macOS to get started with a dictionary:
-			-- -- cp /usr/share/dict/words ~/github/dotfiles-latest/dictionaries/words.txt
-			-- --
-			-- -- NOTE: For the word definitions make sure "wn" is installed
-			-- -- brew install wordnet
-			-- dictionary = {
-			-- 	module = "blink-cmp-dictionary",
-			-- 	name = "Dict",
-			-- 	score_offset = 20, -- the higher the number, the higher the priority
-			-- 	-- https://github.com/Kaiser-Yang/blink-cmp-dictionary/issues/2
-			-- 	enabled = true,
-			-- 	max_items = 8,
-			-- 	min_keyword_length = 3,
-			-- 	opts = {
-			-- 		-- -- The dictionary by default now uses fzf, make sure to have it
-			-- 		-- -- installed
-			-- 		-- -- https://github.com/Kaiser-Yang/blink-cmp-dictionary/issues/2
-			-- 		--
-			-- 		-- Do not specify a file, just the path, and in the path you need to
-			-- 		-- have your .txt files
-			-- 		dictionary_directories = { vim.fn.expand("~/github/dotfiles-latest/dictionaries") },
-			-- 		-- --  NOTE: To disable the definitions uncomment this section below
-			-- 		-- separate_output = function(output)
-			-- 		--   local items = {}
-			-- 		--   for line in output:gmatch("[^\r\n]+") do
-			-- 		--     table.insert(items, {
-			-- 		--       label = line,
-			-- 		--       insert_text = line,
-			-- 		--       documentation = nil,
-			-- 		--     })
-			-- 		--   end
-			-- 		--   return items
-			-- 		-- end,
-			-- 	},
 			-- },
 			-- -- Third class citizen mf always talking shit
 			-- copilot = {
@@ -272,8 +224,8 @@ require("blink.cmp").setup({
 			preset = "cmdline",
 			["<Right>"] = false,
 			["<Left>"] = false,
-			["<CR>"] = { "accept_and_enter", "fallback" },
-			-- ["<C-y>"] = { "select_accept_and_enter", "fallback" },
+			["<C-y>"] = { "accept", "fallback" },
+			["<C-space>"] = { "accept_and_enter", "fallback" },
 		},
 		sources = { "cmdline", "buffer" },
 		completion = {
