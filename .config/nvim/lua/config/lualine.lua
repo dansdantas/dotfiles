@@ -21,6 +21,12 @@ require("lualine").setup({
 		},
 		lualine_c = { { "filename", path = 1 } },
 		lualine_x = {
+			{
+				require("noice").api.status.mode.get,
+				cond = require("noice").api.status.mode.has,
+				color = { fg = "#ff9e64" },
+			},
+
 			-- wrap progress call to avoid problems with lazy load
 			function() return require("lsp-progress").progress() end,
 
