@@ -41,7 +41,8 @@ lspCapabilities.textDocument.foldingRange = { dynamicRegistration = false, lineF
 lspCapabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 
 -- Completion configuration
-vim.tbl_deep_extend("force", lspCapabilities, require("cmp_nvim_lsp").default_capabilities())
+-- vim.tbl_deep_extend("force", lspCapabilities, require("cmp_nvim_lsp").default_capabilities())
+vim.tbl_deep_extend("force", lspCapabilities, require("blink.cmp").get_lsp_capabilities({}, false))
 lspCapabilities.textDocument.completion.completionItem.insertReplaceSupport = false
 
 vim.lsp.config("*", {
