@@ -3,6 +3,7 @@ local ls = require("luasnip")
 
 -- DOCS https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#api-reference
 ls.setup({
+	history = true,
 	region_check_events = { "CursorMoved", "InsertEnter" }, -- prevent <Tab> jumping back to a snippet after it has been left early
 	delete_check_events = { "InsertLeave" },
 	update_events = { "TextChanged", "TextChangedI" }, -- live updating of snippets
@@ -12,9 +13,17 @@ ls.setup({
 				virt_text = { { "|", "Conceal" } },
 				virt_text_pos = "inline",
 			},
+			passive = {
+				virt_text = { { "|", "Conceal" } },
+				virt_text_pos = "inline",
+			},
 		},
 		[types.exitNode] = {
 			unvisited = {
+				virt_text = { { "|", "Conceal" } },
+				virt_text_pos = "inline",
+			},
+			passive = {
 				virt_text = { { "|", "Conceal" } },
 				virt_text_pos = "inline",
 			},
