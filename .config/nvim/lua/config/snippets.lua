@@ -13,17 +13,9 @@ ls.setup({
 				virt_text = { { "|", "Conceal" } },
 				virt_text_pos = "inline",
 			},
-			passive = {
-				virt_text = { { "|", "Conceal" } },
-				virt_text_pos = "inline",
-			},
 		},
 		[types.exitNode] = {
 			unvisited = {
-				virt_text = { { "|", "Conceal" } },
-				virt_text_pos = "inline",
-			},
-			passive = {
 				virt_text = { { "|", "Conceal" } },
 				virt_text_pos = "inline",
 			},
