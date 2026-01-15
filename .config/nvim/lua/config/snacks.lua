@@ -1,3 +1,24 @@
+---@type snacks.Config
+require("snacks").setup({
+	bigfile = { enabled = true },
+	notifier = { enabled = true },
+	input = { enabled = true },
+	terminal = { enabled = true },
+	picker = {
+		files = { hidden = true },
+		previewers = { git = { native = true }, diff = { style = "terminal" } },
+		win = {
+			input = {
+				keys = {
+					["<Esc>"] = { "close", mode = { "n", "i" } },
+					["<c-x>"] = { "edit_split", mode = { "i", "n" } },
+					["<c-t>"] = { "edit_tab", mode = { "i", "n" } },
+				},
+			},
+		},
+	},
+})
+
 -- Override icon function to give priority to do nvim-web-devicons
 Snacks.util.icon = function(name, cat)
 	local try = {
