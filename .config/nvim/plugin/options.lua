@@ -34,7 +34,7 @@ opt.wrap = false -- Remove wrapping on lines that goes over screen width
 
 -- status bar & cmdline
 opt.history = 400 -- reduce noise for command history search
-opt.shortmess = "fFIlx"
+opt.shortmess = "CFOsWcoIl"
 opt.report = 9001 -- disable "x more/fewer lines" messages
 
 -- Workspace
