@@ -5,6 +5,7 @@ return {
 
 		require("mini.bracketed").setup({
 			treesitter = { suffix = "s", options = {} },
+			oldfile = { suffix = "" },
 		})
 
 		require("mini.hipatterns").setup({
