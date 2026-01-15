@@ -3,10 +3,10 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
 		build = ":TSUpdate",
-		branch = "main",
+		branch = "master",
 		config = function() require("config.treesitter") end,
 		dependencies = {
-			{ "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
+			{ "nvim-treesitter/nvim-treesitter-textobjects", branch = "master" },
 			{ "andymass/vim-matchup", opts = {} },
 			"RRethy/nvim-treesitter-endwise",
 			{ "abecodes/tabout.nvim", opts = { tabkey = "<A-t>" } },
