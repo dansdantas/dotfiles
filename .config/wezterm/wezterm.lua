@@ -46,6 +46,8 @@ end)
 -- Options
 local config = wezterm.config_builder()
 local font = wezterm.font_with_fallback({
+	"JetBrains Mono NL",
+	-- { family = "Fira Code", harfbuzz_features = { "ss02=1" } },
 	{ family = "Fantasque Sans Mono", harfbuzz_features = { "ss01=1" } },
 	"JetBrains Mono",
 	"Symbols Nerd Font Mono",
@@ -54,12 +56,14 @@ local font = wezterm.font_with_fallback({
 
 local is_linux = wezterm.target_triple == "x86_64-unknown-linux-gnu"
 
-config.color_scheme = "Tokyo Night"
+config.color_scheme = "Tokyo Night Storm"
+-- config.font_size = 12 -- notebook
+config.font_size = 14.5 -- external
+
 -- only if want to match line height on kitty
--- config.font_size = 10
-if not is_linux then
-	config.line_height = 0.90
-end
+-- if not is_linux then
+-- 	config.line_height = 0.90
+-- end
 config.font = font
 config.default_workspace = "dot"
 config.check_for_updates = false
@@ -91,6 +95,7 @@ config.window_frame = {
 }
 
 local super_key = is_linux and "SUPER" or "CMD"
+-- config.disable_default_key_bindings = true
 
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 5000 }
 config.keys = {
@@ -148,6 +153,8 @@ config.keys = {
 
 	{ key = ">", mods = "LEADER", action = action.MoveTabRelative(1) },
 	{ key = "<", mods = "LEADER", action = action.MoveTabRelative(-1) },
+	{ key = ">", mods = super_key, action = action.MoveTabRelative(1) },
+	{ key = "<", mods = super_key, action = action.MoveTabRelative(-1) },
 
 	{ key = "t", mods = "LEADER", action = action.SpawnTab("CurrentPaneDomain") },
 	{ key = "t", mods = super_key, action = action.SpawnTab("CurrentPaneDomain") },
@@ -178,6 +185,15 @@ config.keys = {
 			action.ClearScrollback("ScrollbackAndViewport"),
 			action.SendKey({ key = "L", mods = "CTRL" }),
 		}),
+	},
+
+	{
+		key = "a",
+		mods = super_key,
+		action = wezterm.action_callback(function(window, pane)
+			local selected = pane:get_lines_as_text(pane:get_dimensions().scrollback_rows)
+			window:copy_to_clipboard(selected, "Clipboard")
+		end),
 	},
 
 	--------------------------------------------------------------------------------
@@ -325,6 +341,12 @@ for i = 1, 8 do
 	table.insert(config.keys, {
 		key = tostring(i),
 		mods = "LEADER",
+		action = action.ActivateTab(i - 1),
+	})
+
+	table.insert(config.keys, {
+		key = tostring(i),
+		mods = super_key,
 		action = action.ActivateTab(i - 1),
 	})
 end
