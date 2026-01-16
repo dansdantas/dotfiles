@@ -3,15 +3,19 @@
 	ap = add --patch
 	ci = commit -v
 	co = checkout
-	ctags = !.git/hooks/ctags
-	dft = -c diff.external=difft diff# `git diff` with difftastic.
-	dl = -c diff.external=difft log -p --ext-diff # `git log` with patches shown with difftastic.
-	draw = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	ds = -c diff.external=difft show --ext-diff # Show the most recent commit with difftastic.
-	pf = push --force-with-lease
 	st = status
 	staash = stash --all
-	up = !git push -u $(git-branch)
+	pf = push --force-with-lease
+	# Run repo-local hooks/ctags if present.
+	ctags = !$(git rev-parse --git-path hooks/ctags)
+	# `git diff` with difftastic.
+	dft = -c diff.external=difft diff
+	# `git log` with patches shown with difftastic.
+	dl = -c diff.external=difft log -p --ext-diff
+	# Show the most recent commit with difftastic.
+	ds = -c diff.external=difft show --ext-diff
+	# Push current branch and set upstream.
+	up = !git push -u origin "$(git branch --show-current)"
 [apply]
 	whitespace = warn
 [color]
