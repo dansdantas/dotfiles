@@ -36,11 +36,7 @@ local default_values = {
 	end,
 
 	-- Types with a "*" mean they are pointers, so return nil
-	[function(text)
-		return string.find(text, "*", 1, true) ~= nil
-	end] = function(_, _)
-		return t("nil")
-	end,
+	[function(text) return string.find(text, "*", 1, true) ~= nil end] = function(_, _) return t("nil") end,
 
 	-- Convention: Usually no "*" and Capital is a struct type, so give the option
 	-- to have it be with {} as well.

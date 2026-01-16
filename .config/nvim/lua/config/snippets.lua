@@ -90,12 +90,7 @@ vim.api.nvim_create_autocmd("ModeChanged", {
 	desc = "Cancel the snippet session when leaving insert mode",
 	pattern = { "s:n", "i:*" },
 	callback = function(args)
-		if
-			ls.session
-			and ls.session.current_nodes[args.buf]
-			and not ls.session.jump_active
-			and not ls.choice_active()
-		then
+		if ls.session and ls.session.current_nodes[args.buf] and not ls.session.jump_active and not ls.choice_active() then
 			ls.unlink_current()
 		end
 	end,
