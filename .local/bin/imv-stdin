@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# imv-stdin: read image bytes from stdin and open in imv
+
+set -euo pipefail
+
+# Detect MIME type from stdin header
+mime=$(file --mime-type -b -)
+case "$mime" in
+  image/png)  ext=png ;;
+  image/jpeg) ext=jpg ;;
+  image/webp) ext=webp ;;
+  image/gif)  ext=gif ;;
+  image/bmp)  ext=bmp ;;
+  image/tiff) ext=tif ;;
+  *)          ext=img ;;
+esac
+
+# Create temporary file
+tmp=$(mktemp /tmp/imvstdin.XXXXXX."$ext")
+
+# Write stdin to temp file
+command cat >"$tmp"
+
+# Launch imv
+imv "$tmp" &
+
+# Wait until imv exits, then delete temp file
+pid=$!
+wait "$pid" 2>/dev/null || true
+rm -f "$tmp"
