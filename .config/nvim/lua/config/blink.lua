@@ -18,7 +18,7 @@ local get_icon_property = function(ctx)
 	end
 
 	if not icon then
-		icon = require("lspkind").symbolic(ctx.kind, { mode = "symbol" })
+		icon = require("lspkind").symbol_map[ctx.kind] or ""
 		hl = ctx.kind_hl
 	end
 
