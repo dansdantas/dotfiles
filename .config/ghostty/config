@@ -4,7 +4,29 @@
 # - bad theme support
 # - aerospace treats each tab as a window halvening size on each new one
 
+# Dynamic theme colors
+config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
+
+# Font
 font-family = "JetBrains Mono NL"
+font-style = Regular
+font-size = 10
+
+# Window
+# window-padding-x = 14
+# window-padding-y = 14
+confirm-close-surface=false
+resize-overlay = never
+
+# Cursor styling
+cursor-style = "block"
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+# Tab
+macos-titlebar-style = hidden
+macos-option-as-alt = true
+gtk-titlebar = false
 
 # keybinds
 keybind = ctrl+a>l=goto_split:right
@@ -23,8 +45,12 @@ keybind = super+n=next_tab
 keybind = super+p=previous_tab
 
 # keybind = ctrl+a>==reset_font_size
+keybind = shift+insert=paste_from_clipboard
+keybind = control+insert=copy_to_clipboard
+keybind = super+control+shift+alt+arrow_down=resize_split:down,100
+keybind = super+control+shift+alt+arrow_up=resize_split:up,100
+keybind = super+control+shift+alt+arrow_left=resize_split:left,100
+keybind = super+control+shift+alt+arrow_right=resize_split:right,100
 
-macos-titlebar-style = hidden
-macos-option-as-alt = true
-
-gtk-titlebar = false
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
