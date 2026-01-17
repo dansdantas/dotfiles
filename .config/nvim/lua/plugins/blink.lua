@@ -2,7 +2,8 @@
 ---@type LazySpec
 return {
 	"saghen/blink.cmp",
-	build = "cargo build --release",
+	version = "1.*",
+	-- build = "cargo build --release",
 	config = function() require("config.blink") end,
 	dependencies = {
 		"moyiz/blink-emoji.nvim",
