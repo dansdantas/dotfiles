@@ -121,4 +121,6 @@ export PATH="$JRE_HOME/bin:$PATH"
 # Rust
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export PATH="$CARGO_HOME/bin:$PATH"
-. "$CARGO_HOME/env"
+if [[ -f "$CARGO_HOME/env" ]]; then
+	. "$CARGO_HOME/env"
+fi
