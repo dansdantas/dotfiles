@@ -16,5 +16,6 @@ return {
 
 		-- Plugins
 		"mrcjkb/rustaceanvim",
+		"mfussenegger/nvim-jdtls",
 	},
 }
