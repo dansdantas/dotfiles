@@ -45,7 +45,7 @@ require("blink.cmp").setup({
 			"select_and_accept",
 			"fallback",
 		},
-		["<S-y>"] = { "select_accept_and_enter" },
+		["<C-t>"] = { "select_accept_and_enter" },
 		["<C-j>"] = { "snippet_forward", "fallback" },
 		["<C-k>"] = { "snippet_backward", "fallback" },
 
