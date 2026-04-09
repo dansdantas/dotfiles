@@ -6,7 +6,7 @@ require("snacks").setup({
 	terminal = { enabled = true },
 	picker = {
 		files = { hidden = true },
-		previewers = { git = { native = true }, diff = { style = "terminal" } },
+		previewers = { git = { native = false }, diff = { style = "terminal" } },
 		win = {
 			input = {
 				keys = {
@@ -19,33 +19,26 @@ require("snacks").setup({
 	},
 })
 
--- Override icon function to give priority to do nvim-web-devicons
+-- -- Override icon function to give priority to do nvim-web-devicons
+local devicons = require("nvim-web-devicons")
+local has_mini_icons, mini_icons = pcall(require, "mini.icons")
+
 Snacks.util.icon = function(name, cat)
-	local try = {
-		function()
-			if cat == "directory" then
-				return " ", "Directory"
-			end
+	if cat == "directory" then
+		return " ", "Directory"
+	end
 
-			local Icons = require("nvim-web-devicons")
+	if cat == "filetype" then
+		return devicons.get_icon_by_filetype(name, { default = true })
+	elseif cat == "file" then
+		local ext = name:match("%.(%w+)$")
+		return devicons.get_icon(name, ext, { default = true })
+	elseif cat == "extension" then
+		return devicons.get_icon(nil, name, { default = true })
+	end
 
-			if cat == "filetype" then
-				return Icons.get_icon_by_filetype(name, { default = true })
-			elseif cat == "file" then
-				local ext = name:match("%.(%w+)$")
-				return Icons.get_icon(name, ext, { default = true }) --[[@as string, string]]
-			elseif cat == "extension" then
-				return Icons.get_icon(nil, name, { default = true }) --[[@as string, string]]
-			end
-
-			return require("mini.icons").get(cat or "file", name)
-		end,
-	}
-	for _, fn in ipairs(try) do
-		local ret = { pcall(fn) }
-		if ret[1] and ret[2] then
-			return ret[2], ret[3]
-		end
+	if has_mini_icons then
+		return mini_icons.get(cat or "file", name)
 	end
 	return " "
 end
@@ -125,3 +118,24 @@ set("n", "<leader>vD", picker.diagnostics_buffer, { desc = "Vim: diagnostics on 
 set("n", "<leader>vk", picker.keymaps, { desc = "Vim: keymaps" })
 -- set("n", "<leader>vo", tlb.vim_options, { desc = "Vim: options" })
 set("n", "<leader>va", picker.autocmds, { desc = "Vim: autocommands" })
+
+local snacks_files = {
+	"snacks_picker_input",
+	"snacks_picker_list",
+	"snacks_picker_preview",
+	"snacks_layout_box",
+	"snacks_win_backdrop",
+}
+local snacks_picker_perf = vim.api.nvim_create_augroup("snacks_picker_perf", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+	group = snacks_picker_perf,
+	pattern = snacks_files,
+	callback = function(args)
+		vim.treesitter.stop(args.buf)
+		vim.bo[args.buf].syntax = ""
+		vim.bo[args.buf].indentexpr = ""
+		vim.bo[args.buf].omnifunc = ""
+		vim.bo[args.buf].includeexpr = ""
+	end,
+})
