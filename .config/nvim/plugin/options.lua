@@ -9,6 +9,10 @@ vim.filetype.add({
 		zsh = "sh",
 		sh = "sh", -- force sh-files with zsh-shebang to still get sh as filetype
 		http = "http",
+		slim = "slim",
+	},
+	pattern = {
+		[".*%.html%.slim"] = "slim",
 	},
 	filename = {
 		[".zshrc"] = "sh",
@@ -84,11 +88,6 @@ opt.undodir = undo_dir
 opt.sessionoptions:remove("blank")
 opt.sessionoptions:append("skiprtp")
 opt.sessionoptions:append("localoptions")
-
--- Folding
-opt.foldenable = true
-opt.foldmethod = "expr"
-opt.foldlevel = 9999
 
 -- Completion
 opt.updatetime = 250 -- Reduce updatetime, also affects cursorword symbols and lsp-hints
