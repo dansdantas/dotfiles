@@ -6,6 +6,7 @@
 
 # Dynamic theme colors
 config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
+theme = TokyoNight
 
 # Font
 font-family = "JetBrains Mono NL"
@@ -29,28 +30,24 @@ macos-option-as-alt = true
 gtk-titlebar = false
 
 # keybinds
-keybind = ctrl+a>l=goto_split:right
-keybind = ctrl+a>h=goto_split:left
-keybind = ctrl+a>j=goto_split:bottom
-keybind = ctrl+a>k=goto_split:top
-keybind = ctrl+a>v=new_split:right
-keybind = ctrl+a>x=new_split:down
-keybind = ctrl+a>z=toggle_split_zoom
-
-keybind = super+h=goto_split:left
-keybind = super+j=goto_split:bottom
-keybind = super+k=goto_split:top
-keybind = super+l=goto_split:right
-keybind = super+n=next_tab
-keybind = super+p=previous_tab
-
-# keybind = ctrl+a>==reset_font_size
-keybind = shift+insert=paste_from_clipboard
-keybind = control+insert=copy_to_clipboard
-keybind = super+control+shift+alt+arrow_down=resize_split:down,100
-keybind = super+control+shift+alt+arrow_up=resize_split:up,100
-keybind = super+control+shift+alt+arrow_left=resize_split:left,100
-keybind = super+control+shift+alt+arrow_right=resize_split:right,100
+keybind = super+1=unbind
+keybind = super+2=unbind
+keybind = super+3=unbind
+keybind = super+4=unbind
+keybind = super+5=unbind
+keybind = super+6=unbind
+keybind = super+7=unbind
+keybind = super+8=unbind
+keybind = super+9=unbind
+keybind = super+digit1=unbind
+keybind = super+digit2=unbind
+keybind = super+digit3=unbind
+keybind = super+digit4=unbind
+keybind = super+digit5=unbind
+keybind = super+digit6=unbind
+keybind = super+digit7=unbind
+keybind = super+digit8=unbind
+keybind = super+digit9=unbind
 
 # Slowdown mouse scrolling
 mouse-scroll-multiplier = 0.95
