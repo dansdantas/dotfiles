@@ -7,15 +7,15 @@ keybinds {
         // bind "v" { NewPane; SwitchToMode "Normal"; }
         bind "Ctrl a" { SwitchToMode "Tmux"; }
 
-        bind "ctrl 1" { GoToTab 1; }
-        bind "ctrl 2" { GoToTab 2; }
-        bind "ctrl 3" { GoToTab 3; }
-        bind "ctrl 4" { GoToTab 4; }
-        bind "ctrl 5" { GoToTab 5; }
-        bind "ctrl 6" { GoToTab 6; }
-        bind "ctrl 7" { GoToTab 7; }
-        bind "ctrl 8" { GoToTab 8; }
-        bind "ctrl 9" { GoToTab 9; }
+        bind "Super 1" { GoToTab 1; }
+        bind "Super 2" { GoToTab 2; }
+        bind "Super 3" { GoToTab 3; }
+        bind "Super 4" { GoToTab 4; }
+        bind "Super 5" { GoToTab 5; }
+        bind "Super 6" { GoToTab 6; }
+        bind "Super 7" { GoToTab 7; }
+        bind "Super 8" { GoToTab 8; }
+        bind "Super 9" { GoToTab 9; }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
@@ -158,7 +158,6 @@ keybinds {
         bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
         bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
 
-        // --------------------------------------------------------------------------------
         // Tabs
         bind "n" { GoToNextTab; SwitchToMode "Normal"; }
         bind "p" { GoToPreviousTab; SwitchToMode "Normal"; }
