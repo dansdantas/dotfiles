@@ -14,6 +14,7 @@ vim.g.myLsps = {
 	"solargraph",
 	-- "ruby_lsp",
 	"dockerls",
+	"herb_ls",
 
 	"biome", -- ts/js/json linter/formatter
 	"cssls",
